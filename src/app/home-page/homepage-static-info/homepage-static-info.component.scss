@@ -72,6 +72,7 @@ $mdb-shadow-ambient-shadow-opacity: 0.12;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  padding: 20px;
     .logos-text{
       max-width:130px;
     }
@@ -122,4 +123,23 @@ $mdb-shadow-ambient-shadow-opacity: 0.12;
     font-weight: 400;
 
   }
+}
+.text-container{
+  padding-top:30px;
+  padding-bottom:15px;
+    h3{
+      margin:30px 0 10px;
+    }
+    .text-list-block{
+      display: flex;
+      align-items: baseline;
+        ul{
+          list-style:inherit ;
+          padding:10px;
+          flex-basis: 50%;
+            li{
+              line-height: 2;
+            }
+        }
+    }
 }
