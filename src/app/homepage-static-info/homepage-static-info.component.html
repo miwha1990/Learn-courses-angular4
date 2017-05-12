@@ -42,7 +42,7 @@
           <div class="form-group">
             <input type="email" formControlName="email" placeholder="Email">
           </div>
-          <button  class="btn btn-raised btn-primary" type="submit">Count me in!</button>
+          <button  class="btn btn-raised btn-primary" [disabled]="subscribeForm.invalid" type="submit">Count me in!</button>
         </fieldset>
     </form>
   </div>
