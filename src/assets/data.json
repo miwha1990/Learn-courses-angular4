@@ -1,0 +1,7 @@
+{
+  "testimonials":[
+     { "id": 0, "text": "0 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias, at commodi, delectus deserunt dolore eligendi esse iure laborum mollitia odio officia perferendis quibusdam rem. Accusamus odit officia placeat quo ut!" , "avatar": "../../assets/img/sp.png", "author": {"name":"John Doe", "job":"instructor at YogaLand"}},
+    { "id": 2, "text": "2 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias, at commodi, delectus deserunt dolore eligendi esse iure laborum mollitia odio officia perferendis quibusdam rem. Accusamus odit officia placeat quo ut!" , "avatar": "../../assets/img/sp.png", "author": {"name":"John Doe2", "job":"instructor at YogaLand2"}},
+    { "id": 1, "text": "1 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias, at commodi, delectus deserunt dolore eligendi esse iure laborum mollitia odio officia perferendis quibusdam rem. Accusamus odit officia placeat quo ut!" , "avatar": "../../assets/img/sp.png", "author": {"name":"John Doe1", "job":"instructor at YogaLand1"}}
+  ]
+}
