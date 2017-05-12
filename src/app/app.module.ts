@@ -3,12 +3,17 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { AlertModule } from 'ngx-bootstrap';
+import { RouterModule } from '@angular/router';
+
+import { AppRoutes } from './app.routing';
 
 import { AppComponent } from './app.component';
 import { CarouselComponent } from './carousel/carousel.component';
 import {GetDataService} from './services/get-data.service';
 import { HeaderComponent } from './header/header.component';
 import { HomepageStaticInfoComponent } from './homepage-static-info/homepage-static-info.component';
+
+import { ContactUsModule } from './contact-us/contact-us.module';
 
 @NgModule({
   declarations: [
@@ -21,7 +26,9 @@ import { HomepageStaticInfoComponent } from './homepage-static-info/homepage-sta
     BrowserModule,
     FormsModule,
     HttpModule,
+    RouterModule.forRoot(AppRoutes),
     AlertModule.forRoot(),
+    ContactUsModule
   ],
   providers: [GetDataService],
   bootstrap: [AppComponent]
