@@ -39,9 +39,30 @@
       }
     }
   }
-
-
-
-
+}
+.logos-container{
+  background-color: #ffffff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+    .logos-text{
+      padding-left:100px;
+      max-width:130px;
+    }
+    .logos-box{
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      padding-right:100px;
+      flex: 1 auto;
+    }
+    .partner-logo{
+      height: 50px;
+      width: 50px;
+      background-size: contain;
+      background-repeat: no-repeat;
+      margin:10px;
+      cursor:pointer;
+    }
 }
 
