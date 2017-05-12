@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
-import {GetDataService } from '../services/get-data.service';
-import {Observable} from 'rxjs/Observable';
+import {GetDataService } from '../get-data.service';
 
 @Component({
   selector: 'app-homepage-static-info',
@@ -14,13 +13,14 @@ export class HomepageStaticInfoComponent implements OnInit {
   errorMessage: string;
   public subscribeForm = this.fb.group({
     name: ['', Validators.required],
-    email: ['', Validators.required, Validators.email]
+    email: ['', Validators.compose([Validators.required, Validators.email])]
   });
   constructor(public fb: FormBuilder, private GetDataService: GetDataService) {}
   ngOnInit() {
     this.getData();
   }
   formSubmit() {
+    console.log(this.subscribeForm.value);
   }
   getData() {
     this.GetDataService.getData().subscribe(res => {this.data = res; }, error =>  this.errorMessage = <any>error);

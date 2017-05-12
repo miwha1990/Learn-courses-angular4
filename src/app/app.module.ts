@@ -8,20 +8,17 @@ import { RouterModule } from '@angular/router';
 import { AppRoutes } from './app.routing';
 
 import { AppComponent } from './app.component';
-import { CarouselComponent } from './carousel/carousel.component';
-import {GetDataService} from './services/get-data.service';
+
 import { HeaderComponent } from './header/header.component';
-import { HomepageStaticInfoComponent } from './homepage-static-info/homepage-static-info.component';
 
 import { ContactUsModule } from './contact-us/contact-us.module';
+import {HomepageModule} from './home-page/homepage.module';
 
 @NgModule({
   declarations: [
     AppComponent,
-    CarouselComponent,
     HeaderComponent,
-    HomepageStaticInfoComponent
-  ],
+   ],
   imports: [
     BrowserModule,
     FormsModule,
@@ -29,9 +26,9 @@ import { ContactUsModule } from './contact-us/contact-us.module';
     HttpModule,
     RouterModule.forRoot(AppRoutes),
     AlertModule.forRoot(),
-    ContactUsModule
+    ContactUsModule,
+    HomepageModule,
   ],
-  providers: [GetDataService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
