@@ -1,3 +1,17 @@
+$mdb-shadow-key-umbra-opacity: 0.2 ;
+$mdb-shadow-key-penumbra-opacity: 0.14 ;
+$mdb-shadow-ambient-shadow-opacity: 0.12;
+
+@mixin shadow-3dp(){
+  box-shadow: 0 3px 4px 0 rgba(0, 0, 0, $mdb-shadow-key-penumbra-opacity),
+  0 3px 3px -2px rgba(0, 0, 0, $mdb-shadow-key-umbra-opacity),
+  0 1px 8px 0 rgba(0, 0, 0, $mdb-shadow-ambient-shadow-opacity);
+}
+@mixin shadow-6dp(){
+  box-shadow: 0 6px 10px 0 rgba(0, 0, 0, $mdb-shadow-key-penumbra-opacity),
+  0 1px 18px 0 rgba(0, 0, 0, $mdb-shadow-ambient-shadow-opacity),
+  0 3px 5px -1px rgba(0, 0, 0, $mdb-shadow-key-umbra-opacity);
+}
 .ms-thumbnail-container{
   position: relative;
   figure{
@@ -39,9 +53,41 @@
       }
     }
   }
+}
 
+.logos-container{
+  background-color: #ffffff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+    .logos-text{
+      max-width:130px;
+    }
+    .logos-box{
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      flex: 1 auto;
+        .img-logo-square {
+          width: 90px;
+          height: 90px;
+          border-radius: 5%;
+          border: solid 5px #fff;
+          @include shadow-3dp;
+          margin: 0 auto;
+          display: block;
+          transform: rotate(0deg);
+          transition: all ease 0.5s;
+          position: relative;
+          z-index: 1;
+          background-size: contain;
+          background-repeat: no-repeat;
 
-
-
+          &:hover {
+            transform: rotate(360deg);
+            @include shadow-6dp;
+          }
+        }
+    }
 }
 
