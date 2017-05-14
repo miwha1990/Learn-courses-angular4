@@ -1,0 +1,31 @@
+.ms-header{
+  background-color: #03a9f4;
+  color: #fff;
+  .ms-title h1 {
+    color: #fff;
+  }
+  .btn-circle {
+    color: #fff;
+  }
+  .header-right .search-form label {
+    color: #fff;
+  }
+  .search-form .search-input {
+    color: #fff;
+    font-weight: 400;
+  }
+}
+
+.ms-navbar {
+  .btn-navbar-menu {
+    margin-top: 0;
+  }
+}
+.ms-slidebar{
+  margin-top: -40px;
+  margin-left: -300px;
+  position: fixed;
+  .ms-slidebar-menu > li > a:after {
+    content: '';
+  }
+}
