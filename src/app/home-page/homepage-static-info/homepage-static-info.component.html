@@ -5,11 +5,11 @@
         <h3 class="ms-thumbnail-caption-title">Practical education for the fitness minded individual and professional</h3>
         <div class="buttons-row">
           <div class="buttons-row-element">
-            <a class="btn btn-raised btn-primary" routerLink=".">Learn in Class</a>
+            <a class="btn btn-raised btn-primary app-btn-ripple" routerLink=".">Learn in Class</a>
             <p>Attend live courses and workshops</p>
           </div>
           <div class="buttons-row-element">
-            <a class="btn btn-raised btn-primary" href="https://www.thinkific.com">Learn Online</a>
+            <a class="btn btn-raised btn-primary app-btn-ripple" href="https://www.thinkific.com">Learn Online</a>
             <p>Learn at your ouwn pace,with tour own schedule</p>
           </div>
         </div>
@@ -18,32 +18,30 @@
   </figure>
 </div>
 
-<div class="container logos-container">
+<div class="container logos-container panel">
   <span class="logos-text">Proudly supporting the industry leaders</span>
   <ul class="logos-box">
-    <li class="img-logo-square" style="background-image: url('../../../assets/img/demo/m1.png');"><a href="#"></a></li>
-    <li class="img-logo-square" style="background-image: url('../../../assets/img/demo/m2.png');"><a href="#"></a></li>
-    <li class="img-logo-square" style="background-image: url('../../../assets/img/demo/m3.png');"><a href="#"></a></li>
-    <li class="img-logo-square" style="background-image: url('../../../assets/img/demo/m4.png');"><a href="#"></a></li>
-    <li class="img-logo-square" style="background-image: url('../../../assets/img/demo/m1.png');"><a href="#"></a></li>
-    <li class="img-logo-square" style="background-image: url('../../../assets/img/demo/m2.png');"><a href="#"></a></li>
-    <li class="img-logo-square" style="background-image: url('../../../assets/img/demo/m3.png');"><a href="#"></a></li>
+    <li class="img-logo-square img-avatar-circle" style="background-image: url('../../../assets/img/demo/m1.png');"><a href="#"></a></li>
+    <li class="img-logo-square img-avatar-circle" style="background-image: url('../../../assets/img/demo/m2.png');"><a href="#"></a></li>
+    <li class="img-logo-square img-avatar-circle" style="background-image: url('../../../assets/img/demo/m3.png');"><a href="#"></a></li>
+    <li class="img-logo-square img-avatar-circle" style="background-image: url('../../../assets/img/demo/m4.png');"><a href="#"></a></li>
+    <li class="img-logo-square img-avatar-circle" style="background-image: url('../../../assets/img/demo/m1.png');"><a href="#"></a></li>
+    <li class="img-logo-square img-avatar-circle" style="background-image: url('../../../assets/img/demo/m2.png');"><a href="#"></a></li>
+    <li class="img-logo-square img-avatar-circle" style="background-image: url('../../../assets/img/demo/m3.png');"><a href="#"></a></li>
   </ul>
 </div>
 
 <div class="form-banner">
   <div class="container form-container">
-    <h3>Love Learning? &#123; <span class="text-in-braces">Monthly educational content</span> &#125;</h3>
+    <legend>Love Learning? &#123; <span class="text-in-braces">Monthly educational content</span> &#125;</legend>
     <form [formGroup]="subscribeForm" (ngSubmit)="formSubmit($event)">
-        <fieldset>
-          <div class="form-group">
-            <input type="text" class="form-control"  formControlName="name" placeholder="Name">
-          </div>
-          <div class="form-group">
-            <input type="email" class="form-control"  formControlName="email" placeholder="Email">
-          </div>
-          <button  class="btn btn-raised btn-primary" [disabled]="subscribeForm.invalid" type="submit">Count me in!</button>
-        </fieldset>
+        <div class="form-group">
+          <input type="text" class="form-control"  formControlName="name" placeholder="Name">
+        </div>
+        <div class="form-group">
+          <input type="email" class="form-control"  formControlName="email" placeholder="Email">
+        </div>
+        <button  class="btn app-btn-ripple btn-primary" [disabled]="subscribeForm.invalid" type="submit">Count me in!</button>
     </form>
   </div>
 </div>

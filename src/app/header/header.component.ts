@@ -6,10 +6,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
-
+  slidebarFlag = false;
   constructor() { }
 
   ngOnInit() {
   }
-
+  changeFlag() {
+    return this.slidebarFlag = !this.slidebarFlag;
+  }
 }

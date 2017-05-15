@@ -1,32 +1,6 @@
-$mdc-light-blue-500:  #03A9F4;
-
-$mdb-input-placeholder-color: #BDBDBD;
-$mdb-input-underline-color: #D2D2D2;
-$color-primary:$mdc-light-blue-500;
-
-$brand-primary: $color-primary;
-
-$mdb-shadow-key-umbra-opacity: 0.2 ;
-$mdb-shadow-key-penumbra-opacity: 0.14 ;
-$mdb-shadow-ambient-shadow-opacity: 0.12;
-
-@mixin shadow-3dp(){
-  box-shadow: 0 3px 4px 0 rgba(0, 0, 0, $mdb-shadow-key-penumbra-opacity),
-  0 3px 3px -2px rgba(0, 0, 0, $mdb-shadow-key-umbra-opacity),
-  0 1px 8px 0 rgba(0, 0, 0, $mdb-shadow-ambient-shadow-opacity);
-}
-@mixin shadow-6dp(){
-  box-shadow: 0 6px 10px 0 rgba(0, 0, 0, $mdb-shadow-key-penumbra-opacity),
-  0 1px 18px 0 rgba(0, 0, 0, $mdb-shadow-ambient-shadow-opacity),
-  0 3px 5px -1px rgba(0, 0, 0, $mdb-shadow-key-umbra-opacity);
-}
-@mixin material-placeholder() {
-  &::-moz-placeholder {@content; }
-  &:-ms-input-placeholder {@content; }
-  &::-webkit-input-placeholder  {@content; }
-}
 .ms-thumbnail-container{
   position: relative;
+  margin-bottom: 40px;
   figure{
     min-height: 360px;
     background-repeat: no-repeat;
@@ -43,11 +17,18 @@ $mdb-shadow-ambient-shadow-opacity: 0.12;
         flex-direction: column;
         align-items: center;
         justify-content: center;
+        @media screen and (max-width: 480px) {
+          padding-top:30px;
+        }
         .buttons-row{
           display: flex;
           justify-content: space-around;
           align-items: baseline;
           margin-top:50px;
+          @media screen and (max-width: 480px) {
+            flex-direction: column;
+            margin-top:10px;
+          }
           .buttons-row-element{
             display: flex;
             flex-direction: column;
@@ -67,63 +48,56 @@ $mdb-shadow-ambient-shadow-opacity: 0.12;
     }
   }
 }
+
 .logos-container{
   background-color: #ffffff;
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 20px;
+  @media screen and (max-width:991px){
+    flex-direction: column;
+  }
     .logos-text{
       max-width:130px;
+      @media screen and (max-width:991px){
+        max-width:inherit;
+      }
     }
     .logos-box{
       display: flex;
       justify-content: space-around;
       align-items: center;
       flex: 1 auto;
+      padding:0;
+      margin:0;
+      width:100%;
+      @media screen and (max-width:768px){
+        flex-wrap: wrap;
+        justify-content: center;
+      }
         .img-logo-square {
           width: 90px;
           height: 90px;
           border-radius: 5%;
-          border: solid 5px #fff;
-          @include shadow-3dp;
-          margin: 0 auto;
-          display: block;
-          transform: rotate(0deg);
-          transition: all ease 0.5s;
-          position: relative;
-          z-index: 1;
           background-size: contain;
           background-repeat: no-repeat;
-
-          &:hover {
-            transform: rotate(360deg);
-            @include shadow-6dp;
+          transform: translateY(0);
+          @media screen and (max-width:768px){
+            margin:5px;
           }
         }
     }
 }
 
-.form-control,
-.form-group .form-control {
-  border: 0;
-  background-image: linear-gradient($brand-primary, $brand-primary), linear-gradient($mdb-input-underline-color, $mdb-input-underline-color);
-  background-size: 0 2px, 100% 1px;
-  background-repeat: no-repeat;
-  background-position: center bottom, center calc(100% - 1px);
-  background-color: rgba(0, 0, 0, 0);
-  transition: background 0s ease-out;
-  float: none;
-  box-shadow: none;
-  border-radius: 0;
-
-  // Placeholders and and labels-as-placeholders should look the same
-  @include material-placeholder {
-    color: $mdb-input-placeholder-color;
-    font-weight: 400;
-
+form{
+  display: flex;
+  .form-group{
+    flex:1 auto;
+    padding-right:15px;
   }
 }
+
 .text-container{
   padding-top:30px;
   padding-bottom:15px;

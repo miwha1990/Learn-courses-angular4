@@ -22,10 +22,17 @@
   }
 }
 .ms-slidebar{
-  margin-top: -40px;
+  top: 0;
   margin-left: -300px;
   position: fixed;
+  transition: all 1s ease;
+  min-height: 100vh;
+  z-index: 9999;
+  display: block;
   .ms-slidebar-menu > li > a:after {
     content: '';
+  }
+  &.visible{
+    transform:translate(300px);
   }
 }
