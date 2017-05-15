@@ -10,6 +10,7 @@ import {GetDataService} from './get-data.service';
 import { HomePageRoutes } from './homepage.routing';
 
 import { HomePageComponent } from './home-page.component';
+import { UpcomingCoursesComponent } from './upcoming-courses/upcoming-courses.component';
 
 @NgModule({
   imports: [
@@ -22,6 +23,7 @@ import { HomePageComponent } from './home-page.component';
     HomepageStaticInfoComponent,
     CarouselComponent,
     HomePageComponent,
+    UpcomingCoursesComponent,
   ],
   providers: [GetDataService],
 })

@@ -1,0 +1,17 @@
+.upcoming-courses-container{
+  .courses-list-block{
+    ul{
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      li{
+        margin: 10px;
+        flex-basis: 30%;
+      }
+    }
+  }
+  .view-all-courses{
+    float: right;
+  }
+}

@@ -1,49 +1,72 @@
-.carousel-container{
-  position: relative;
-  .card{
-    margin-bottom:0;
-  }
-  .slideLeft,.slideRight{
-    position: absolute;
-    top: 50%;
-    cursor: pointer;
-    height: 50px;
-    width:50px;
-    border-radius:25px;
-    display:flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 50;
-    &.invisible{
-      display: none;
+.carousel-wrapper{
+  width:100%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  .carousel-container{
+    position: relative;
+    .slideLeft,.slideRight{
+      position: absolute;
+      top: 50%;
+      cursor: pointer;
+      height: 50px;
+      width:50px;
+      border-radius:25px;
+      display:flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 50;
+      &.invisible{
+        display: none;
+      }
+      i{
+        font-size:40px;
+      }
     }
-    i{
-      font-size:40px;
-    }
-  }
-  .slideLeft{
-    left: 0;
-    transform: translate(150%,-50%);
-  }
-  .slideRight{
-    right: 0;
-    transform: translate(-150%,-50%);
-  }
-  .carousel-box{
-    display: -webkit-box;
-    overflow-x: hidden;
-  }
-  .carousel-element{
-    width:100%;
-  }
-
-  @media (max-width: 767px) {
     .slideLeft{
-      transform: translate(50%,-50%);
+      left: 0;
+      transform: translate(0%,-50%);
     }
     .slideRight{
-      transform: translate(-50%,-50%);
+      right: 0;
+      transform: translate(0%,-50%);
+    }
+    .carousel-box{
+      display: -webkit-box;
+      overflow-x: hidden;
+      .carousel-element{
+        width:100%;
+        display: flex;
+        overflow: hidden;
+        justify-content: center;
+        .bq{
+          flex-basis: 60%;
+        }
+        .bq-author{
+          display: flex;
+          flex-basis: 25%;
+          .img-avatar-circle {
+            transform: rotate(0deg);
+            &:hover{
+              transform: rotate(360deg);
+            }
+          }
+          .bq-author-info{
+            flex:1 auto;
+          }
+        }
+      }
+    }
+
+    @media (max-width: 767px) {
+      .slideLeft{
+        transform: translate(50%,-50%);
+      }
+      .slideRight{
+        transform: translate(-50%,-50%);
+      }
     }
   }
 }
+
 
