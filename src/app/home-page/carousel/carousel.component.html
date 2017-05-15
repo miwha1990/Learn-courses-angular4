@@ -1,10 +1,10 @@
-<div class="container">
-  <div class="card card-hero card-flat bg-transparent">
-    <div class="slideLeft" (click) = "slideLeft()"><i class="material-icons md-48">chevron_left</i></div>
+<div class="container carousel-container">
+  <div class="row">
+    <a href="javascript:void(0)" class="btn-circle btn-circle-primary zoomInDown animation-delay-7 slideLeft" [ngClass]="{'invisible':hideLeftButton}" (click) = "slideLeft()"><i class="zmdi zmdi-chevron-left"></i></a>
     <div id="testimonials-carousel" class="carousel-box">
       <div class="carousel-element">
-        <div class="card card-danger wow zoomInUp animation-delay-7">
-          <div class="ms-hero-bg-danger ms-hero-img-city">
+        <div class="card card-primary wow zoomInUp animation-delay-7">
+          <div class="ms-hero-bg-primary ms-hero-img-city">
             <h3 class="color-white index-1 text-center no-m pt-4">Victoria Smith</h3>
             <div class="color-medium index-1 text-center np-m">Apple Inc.</div>
             <img src="../../../assets/img/demo/avatar1.jpg" alt="..." class="img-avatar-circle">
@@ -16,8 +16,8 @@
         </div>
       </div>
       <div class="carousel-element">
-        <div class="card card-warning wow zoomInUp animation-delay-7">
-          <div class="ms-hero-bg-warning ms-hero-img-meeting ">
+        <div class="card card-primary wow zoomInUp animation-delay-7">
+          <div class="ms-hero-bg-primary ms-hero-img-meeting ">
             <h3 class="color-white index-1 text-center no-m pt-4">Alexander Bolt</h3>
             <div class="color-medium index-1 text-center np-m">Verzion</div>
             <img src="../../../assets/img/demo/avatar3.jpg" alt="..." class="img-avatar-circle">
@@ -29,8 +29,8 @@
         </div>
       </div>
       <div class="carousel-element">
-        <div class="card card-info wow zoomInUp animation-delay-7">
-          <div class="ms-hero-bg-info ms-hero-img-airplane">
+        <div class="card card-primary wow zoomInUp animation-delay-7">
+          <div class="ms-hero-bg-primary ms-hero-img-airplane">
             <h3 class="color-white index-1 text-center no-m pt-4">Tomhas Anderson</h3>
             <div class="color-medium index-1 text-center np-m">Ebay</div>
             <img src="../../../assets/img/demo/avatar2.jpg" alt="..." class="img-avatar-circle">
@@ -42,8 +42,8 @@
         </div>
       </div>
       <div class="carousel-element">
-        <div class="card card-success wow zoomInUp animation-delay-7">
-          <div class="ms-hero-bg-success ms-hero-img-mountain">
+        <div class="card card-primary wow zoomInUp animation-delay-7">
+          <div class="ms-hero-bg-primary ms-hero-img-mountain">
             <h3 class="color-white index-1 text-center no-m pt-4">Richard Sporck</h3>
             <div class="color-medium index-1 text-center np-m">Amazon</div>
             <img src="../../../assets/img/demo/avatar5.jpg" alt="..." class="img-avatar-circle">
@@ -68,8 +68,8 @@
         </div>
       </div>
       <div class="carousel-element">
-        <div class="card card-royal wow zoomInUp animation-delay-7">
-          <div class="ms-hero-bg-royal ms-hero-img-city2">
+        <div class="card card-primary wow zoomInUp animation-delay-7">
+          <div class="ms-hero-bg-primary ms-hero-img-city2">
             <h3 class="color-white index-1 text-center no-m pt-4">Barbara Wotz</h3>
             <div class="color-medium index-1 text-center np-m">Google Inc.</div>
             <img src="../../../assets/img/demo/avatar6.jpg" alt="..." class="img-avatar-circle">
@@ -81,7 +81,6 @@
         </div>
       </div>
     </div>
-    <div class="slideRight" (click) = "slideRight()" ><i class="material-icons md-48">chevron_right</i></div>
+    <a href="javascript:void(0)" class="btn-circle btn-circle-primary zoomInDown animation-delay-7 slideRight" [ngClass]="{'invisible':hideRightButton}" (click) = "slideRight()"><i class="zmdi zmdi-chevron-right"></i></a>
   </div>
-</div> <!-- container -->
-
+</div>

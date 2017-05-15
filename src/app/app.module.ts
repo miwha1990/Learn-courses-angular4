@@ -10,14 +10,15 @@ import { AppRoutes } from './app.routing';
 import { AppComponent } from './app.component';
 
 import { HeaderComponent } from './header/header.component';
-
 import { ContactUsModule } from './contact-us/contact-us.module';
 import {HomepageModule} from './home-page/homepage.module';
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
+    FooterComponent,
    ],
   imports: [
     BrowserModule,

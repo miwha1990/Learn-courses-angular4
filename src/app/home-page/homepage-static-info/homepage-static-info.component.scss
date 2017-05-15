@@ -1,6 +1,5 @@
 .ms-thumbnail-container{
   position: relative;
-  margin-bottom: 40px;
   figure{
     min-height: 360px;
     background-repeat: no-repeat;
@@ -55,6 +54,7 @@
   justify-content: space-between;
   align-items: center;
   padding: 20px;
+  margin-bottom: 0;
   @media screen and (max-width:991px){
     flex-direction: column;
   }
@@ -62,6 +62,7 @@
       max-width:130px;
       @media screen and (max-width:991px){
         max-width:inherit;
+        padding-bottom:10px;
       }
     }
     .logos-box{
@@ -90,26 +91,42 @@
     }
 }
 
-form{
-  display: flex;
-  .form-group{
-    flex:1 auto;
-    padding-right:15px;
+.form-banner{
+  padding: 40px 0;
+  legend{
+    color: #fff;
   }
+  form{
+    display: flex;
+    @media screen and (max-width:768px){
+      flex-direction: column;
+    }
+    .form-group{
+      flex: 1 auto;
+      padding-right: 15px;
+      button,input{
+        color: #fff;
+      }
+    }
+  }
+
 }
 
 .text-container{
-  padding-top:30px;
-  padding-bottom:15px;
+  padding-top: 30px;
+  padding-bottom: 15px;
+  margin-bottom: 0;
     h3{
-      margin:30px 0 10px;
+      margin: 30px 0 10px;
     }
     .text-list-block{
       display: flex;
       align-items: baseline;
+      @media screen and (max-width:768px){
+        flex-direction: column;
+      }
         ul{
-          list-style:inherit ;
-          padding:10px;
+          list-style: inherit;
           flex-basis: 50%;
             li{
               line-height: 2;
