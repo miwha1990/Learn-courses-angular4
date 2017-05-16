@@ -20,6 +20,10 @@ Response:
 }
 Comment: name field should be used to populate 'Category' combobox (see Learn In Class moqup)
 
+
+
+
+
 GET https://api.dtsfitnesseducation.com/v1/courses?category_id=
     Parameters: category_id - optional, string, may contain any id field from /categories API response
 Request Content: none
@@ -34,6 +38,10 @@ Response:
 }
 Comment: name field should be used to populate 'Course' combobox (see Learn In Class moqup)
 
+
+
+
+
 GET https://api.dtsfitnesseducation.com/v1/locations
     Parameters: none
 Request Content: none
@@ -47,6 +55,10 @@ Response:
 ]
 }
 Comment: name field should be used to populate 'City' combobox (see Learn In Class moqup)
+
+
+
+
 
 GET https://api.dtsfitnesseducation.com/v1/classes?category_id=&course_id=&location_id=
     Parameters:
@@ -71,6 +83,10 @@ Response:
 ]
 }
 Comment: see different moqups, depends on the course some values may not be set and will be represented as null..
+
+
+
+
 
 GET https://api.dtsfitnesseducation.com/v1/classes/id
     Comments: id is part of the url, returns more detailed information about the class
@@ -125,6 +141,11 @@ Response:
 }
 Comment: detailed information about the class (see 'Course' & 'Course scroll' moqup)
 Some fields may be null (like there may be no early spots at all for some course)
+
+
+
+
+
 
 GET https://api.dtsfitnesseducation.com/v1/waivers?class_id=1
     Parameters: none

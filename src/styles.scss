@@ -33,4 +33,23 @@
      transition: 0s;
    }
  }
+ .static-banner-container{
+   position: relative;
+   min-height: 250px;
+   display: grid;
+   figure{
+     background-repeat: no-repeat;
+     background-size: cover;
+     background-position: center;
+     height: 100%;
+     width:100%;
+     figcaption{
+       color: #fff;
+       position: absolute;
+       top:50%;
+       left:50%;
+       transform:translate(-50%,-50%);
+     }
+   }
+ }
 @import './assets/theme-scss/style.themed';

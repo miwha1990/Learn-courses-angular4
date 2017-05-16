@@ -6,9 +6,13 @@
   }
   .btn-circle {
     color: #fff;
+    &:before{
+      background-color: #fff;
+    }
   }
-  .header-right .search-form label {
-    color: #fff;
+  .btn-circle:hover,
+  .btn-circle:focus {
+    color: #03a9f4;
   }
   .search-form .search-input {
     color: #fff;

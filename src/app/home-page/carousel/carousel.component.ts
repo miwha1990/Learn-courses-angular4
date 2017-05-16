@@ -1,4 +1,4 @@
-import { Component, Inject, OnInit, AfterViewInit } from '@angular/core';
+import { Component, Inject, OnInit, AfterViewInit, HostListener } from '@angular/core';
 import {jQueryStatic} from 'jquery';
 import 'jquery';
 declare const $: jQueryStatic;
@@ -12,20 +12,20 @@ export class CarouselComponent implements AfterViewInit {
   containerWidth: number;
   elementsCount: number;
   maxWidth: number;
-  hideLeftButton :boolean;
-  hideRightButton :boolean;
+  hideLeftButton: boolean;
+  hideRightButton: boolean;
   constructor() { }
 
   ngAfterViewInit() {
-    this.init();
+    this.calculateParams();
     this.hideLeftButton = false;
     this.hideRightButton = true;
   }
-  init() {
+  calculateParams = function(){
     this.containerWidth = ($($('.carousel-container')[0]))[0].offsetWidth;
     this.elementsCount = $('.carousel-element').length;
     this.maxWidth = (this.elementsCount - 1) * this.containerWidth;
-  }
+  };
    slideLeft = function(event) {
      if ($('#testimonials-carousel').is(':animated')) {
        return;
@@ -47,11 +47,15 @@ export class CarouselComponent implements AfterViewInit {
     const self = this;
     self.hideLeftButton = false;
     $('#testimonials-carousel').animate({scrollLeft: ($('#testimonials-carousel').scrollLeft() - self.containerWidth)}, 600,function() {
-      if($('#testimonials-carousel').scrollLeft() == 0){
+      if ($('#testimonials-carousel').scrollLeft() == 0){
         self.hideRightButton = true;
-      }else{
+      } else {
         self.hideRightButton = false;
       }
     });
   };
+  @HostListener('window:resize', ['$event'])
+  onResize(event) {
+    this.calculateParams();
+  }
 }

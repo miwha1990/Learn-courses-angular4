@@ -7,7 +7,6 @@ import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms'
   styleUrls: ['./homepage-static-info.component.scss']
 })
 export class HomepageStaticInfoComponent implements OnInit {
-  
   public subscribeForm = this.fb.group({
     name: ['', Validators.required],
     email: ['', Validators.compose([Validators.required, Validators.email])]
@@ -17,5 +16,10 @@ export class HomepageStaticInfoComponent implements OnInit {
   }
   formSubmit() {
     console.log(this.subscribeForm.value);
+  }
+  keyDownFunction(event) {
+    if (event.keyCode === 13) {
+      this.formSubmit();
+    }
   }
 }

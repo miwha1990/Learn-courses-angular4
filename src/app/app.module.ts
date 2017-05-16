@@ -13,6 +13,8 @@ import { AppRoutes } from './app.routing';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
+import { PrivacyPageModule } from './privacy-page/privacy-page.module';
+import { TermsPageModule } from './terms-page/terms-page.module';
 
 @NgModule({
   declarations: [
@@ -30,6 +32,8 @@ import { FooterComponent } from './footer/footer.component';
     ContactUsModule,
     HomepageModule,
     ClassSinglePageModule,
+    PrivacyPageModule,
+    TermsPageModule,
   ],
   bootstrap: [AppComponent]
 })

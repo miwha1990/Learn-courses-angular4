@@ -34,7 +34,7 @@
 <div class="form-banner ms-hero-bg-primary ms-hero-img-mountain">
   <div class="container form-container">
     <legend>Love Learning? &#123; <span class="text-in-braces">Monthly educational content</span> &#125;</legend>
-    <form [formGroup]="subscribeForm" (ngSubmit)="formSubmit($event)">
+    <form [formGroup]="subscribeForm" (ngSubmit)="formSubmit($event)" (keydown)="keyDownFunction($event)">
         <div class="form-group">
           <input type="text" class="form-control"  formControlName="name" placeholder="Name">
         </div>
