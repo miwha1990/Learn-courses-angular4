@@ -22,18 +22,18 @@ export class CarouselComponent implements AfterViewInit {
     this.hideRightButton = true;
   }
   init() {
-    this.containerWidth = ($($('.container')[0]))[0].offsetWidth;
+    this.containerWidth = ($($('.carousel-container')[0]))[0].offsetWidth;
     this.elementsCount = $('.carousel-element').length;
-    this.maxWidth = (this.elementsCount-1) * this.containerWidth;
+    this.maxWidth = (this.elementsCount - 1) * this.containerWidth;
   }
-   slideLeft = function() {
+   slideLeft = function(event) {
      if ($('#testimonials-carousel').is(':animated')) {
        return;
      }
     const self = this;
     self.hideRightButton = false;
     $('#testimonials-carousel').animate({scrollLeft: ($('#testimonials-carousel').scrollLeft() + self.containerWidth)}, 600, function(){
-      if($('#testimonials-carousel').scrollLeft() == self.maxWidth){
+      if ($('#testimonials-carousel').scrollLeft() == self.maxWidth) {
         self.hideLeftButton = true;
       } else {
         self.hideLeftButton = false;

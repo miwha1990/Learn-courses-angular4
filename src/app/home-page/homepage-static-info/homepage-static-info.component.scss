@@ -1,21 +1,44 @@
-.ms-thumbnail-container{
+@keyframes pseudoScale{
+  0% {
+    transform: scale(0,0);
+
+  }
+  100% {
+    transform: scale(1,1);
+  }
+}
+
+.main-banner-container{
   position: relative;
+  border: solid 1px #EEEEEE;
+  padding: 5px;
+  background-color: #fff;
   figure{
     min-height: 360px;
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
     figcaption{
-      position: absolute;
-      top:50%;
-      left:50%;
-      transform: translate3d(-50%,-50%,0);
+      left: 50%;
+      right: auto;
+      top: 50%;
+      bottom: auto;
+      overflow: hidden;
+      transition-delay: .3s;
+      background-color: rgba(2,104,153,.6);
+      padding: 0;
+      color: #fff;
+      transition: all ease .5s;
+      animation: pseudoScale;
+      animation-duration: 0.8s;
       .banner-container {
+        height: 100%;
         padding-top:90px;
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: center;
+        padding-bottom: 35px;
         @media screen and (max-width: 480px) {
           padding-top:30px;
         }

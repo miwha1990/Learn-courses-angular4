@@ -1,0 +1,192 @@
+
+Common information:
+Success code: always 200
+Headers: 'Content-Type: application/json'
+Possible Failure codes: 400, 403, 404, 409, 429, 500, 503, 504
+In case of any error response contains json body, which has the follwing format:
+{"message": "error message text here"}
+
+GET https://api.dtsfitnesseducation.com/v1/categories
+    Parameters: none
+Request Content: none
+Response:
+{
+    "items": [
+    {
+        "id": "string_id",
+        "name": "Animal Flow"
+    }
+]
+}
+Comment: name field should be used to populate 'Category' combobox (see Learn In Class moqup)
+
+GET https://api.dtsfitnesseducation.com/v1/courses?category_id=
+    Parameters: category_id - optional, string, may contain any id field from /categories API response
+Request Content: none
+Response:
+{
+    "items": [
+    {
+        "id": 1,
+        "name": "Animal Flow Level 1"
+    }
+]
+}
+Comment: name field should be used to populate 'Course' combobox (see Learn In Class moqup)
+
+GET https://api.dtsfitnesseducation.com/v1/locations
+    Parameters: none
+Request Content: none
+Response:
+{
+    "items": [
+    {
+        "id": 1,
+        "name": "Toronto"
+    }
+]
+}
+Comment: name field should be used to populate 'City' combobox (see Learn In Class moqup)
+
+GET https://api.dtsfitnesseducation.com/v1/classes?category_id=&course_id=&location_id=
+    Parameters:
+        category - optional, string, id of any category from /categories API response
+course - optional, integer, id of any course from /courses API response
+location - optional, integer, id of any location from /locations API response
+Request Content: none
+Response:
+{
+    "items": [
+    {
+        "id": 1,
+        "name": "Anymal Flow Level 1",
+        "details1": "Oct 10 - Oct 25, 2017", # can be null
+    "details2": "8:30 AM - 6:00PM", # can be null
+    "location": "Toronto",
+    "price_early": "1949.00", # can be null
+    "sports_early": 10, # can be null
+    "price_regular": "1949.00", # can be null
+    "sports_regular": 14 # can be null
+}
+]
+}
+Comment: see different moqups, depends on the course some values may not be set and will be represented as null..
+
+GET https://api.dtsfitnesseducation.com/v1/classes/id
+    Comments: id is part of the url, returns more detailed information about the class
+Parameters: none
+Request Content: none
+Response:
+{
+    "id": 1,
+    "name": "Anymal Flow Level 1",
+    "details1": "Oct 10 - Oct 25, 2017",
+    "details2": "8:30 AM - 6:00PM",
+    "location": "Toronto",
+    "price_early": "1949.00",
+    "sports_early": 10,
+    "price_regular": "2049.00",
+    "sports_regular": 14,
+    "description": "course description here",
+    "image_url": "url",
+    "video_url": "url",
+    "request_tshirt_size": True,
+    "instructors": [
+    {
+        "name": "Instructor 1 name"
+    }
+],
+    "venue":
+    {
+        "name" "DTS Fitness Education Centre",
+        "address":
+        {
+            "street": "573 King Street East",
+            "city": "Toronto",
+            "province": "Ontario", #can be null,
+            "country": "Canada",
+            "postal_code": "M5A4L3"
+        },
+        "phone": "+1 (234) 567-8900",
+        "notes": "for ex.: info about the closes bus station"
+    },
+    "partner_url": "url",
+    "partner_soldout": True,
+    "allow_partial_payment": True,
+    "deposit": "500.00", # null, if partial payment isn't allowed
+    "balance_due": "July 31, 2017",
+    "tax_rate":
+    {
+        "name1": "GST",
+        "rate1": "7.00", # percentage
+        "name2": "PST",
+        "rate2": "8.00" # percentage
+    }
+}
+Comment: detailed information about the class (see 'Course' & 'Course scroll' moqup)
+Some fields may be null (like there may be no early spots at all for some course)
+
+GET https://api.dtsfitnesseducation.com/v1/waivers?class_id=1
+    Parameters: none
+Request Content: none
+Response:
+{
+    "id": "string id",
+    "name": "Waiver Name",
+    "content": "Waiver content"
+}
+
+GET https://api.dtsfitnesseducation.com/v1/coupons/coupon_code?course_id=123
+    Request content: none
+Response:
+{
+    "amount": "100.00"
+}
+Comments: see 'Checout' moqup for 'Coupon' use case
+!! Coupon will reduce the total due, it will NOT be applied to deposit (partial payment).
+
+POST https://api.dtsfitnesseducation.com/v1/contact
+    Parameters: none
+Request Content:
+{
+    "name": "customer name",
+    "email": "customer_email@gmail.com",
+    "subject": "subject",
+    "body": "some text here"
+}
+Response: no content (in case of success)
+Comments: see 'Contact Support' moqup
+
+POST https://api.dtsfitnesseducation.com/v1/registrations
+    Parameters: none
+Request Content:
+{
+    "name": "FirstName LastName",
+    "email": "customer_email@gmail.com",
+    "name_on_badge": "Name",
+    "gender": "male",
+    "date_of_birth": "2000-01-24", # always YYYY-MM-DD
+    "address":
+    {
+        "city": "Toronto",
+        "province": "Ontario",
+        "country": "Canada",
+    },
+    "phone": "+1 (234) 567-8900",
+    "industry_certification": "xxx",
+    "employer": "company name",
+    "job_title": "title",
+    "emergency_name": "Full Name",
+    "emergency_phone": "+1 (234) 567-8900",
+    "hear_about_us": "text",
+    "tshirt_size": "40-42",
+    "full_payment": True, # False if 'Pay Deposit Only' was selected
+    "amount": "302.50", # from 'Total' on 'Checkout' moqup
+    "stripe_sorce": "string_token", # from stripe.js
+    "coupon_code": "code" # can be null
+}
+Response:
+{
+“confirmation_id”: “XJS3214JFDO“
+}
+Comments: see 'Checkout' moqup

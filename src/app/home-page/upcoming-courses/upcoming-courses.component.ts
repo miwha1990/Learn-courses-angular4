@@ -1,5 +1,4 @@
-import { Component, OnInit } from '@angular/core';
-import {GetDataService } from '../get-data.service';
+import { Component, Inject, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-upcoming-courses',
@@ -7,14 +6,7 @@ import {GetDataService } from '../get-data.service';
   styleUrls: ['./upcoming-courses.component.scss']
 })
 export class UpcomingCoursesComponent implements OnInit {
-  data = {};
-  errorMessage: string;
-  constructor( private GetDataService: GetDataService) { }
-
+  constructor() { }
   ngOnInit() {
-    this.getData();
-  }
-  getData() {
-    this.GetDataService.getData().subscribe(res => {this.data = res; }, error =>  this.errorMessage = <any>error);
   }
 }
