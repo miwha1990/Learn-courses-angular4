@@ -20,9 +20,9 @@ export class HeaderComponent implements OnInit {
     this.checkForSticky();
   }
   checkForSticky = function(){
-    if (document.body.scrollTop > this.el.nativeElement.children[0].offsetHeight + this.el.nativeElement.children[1].offsetHeight) {
+    if (document.body.scrollTop > this.el.nativeElement.children[0].offsetHeight + this.el.nativeElement.children[1].offsetHeight - 40) {
       this.stickyFlag = true;
-    }else{
+    } else {
       this.stickyFlag = false;
     }
     return null;

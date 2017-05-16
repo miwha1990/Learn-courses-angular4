@@ -16,9 +16,6 @@
                 </ul>
                 <a href="javascript:void(0)" class="btn-circle animated zoomInDown animation-delay-7"><i class="zmdi zmdi-share"></i></a>
             </div>
-
-            <a href="javascript:void(0)" class="btn-circle btn-circle-primary no-focus animated zoomInDown animation-delay-8" data-toggle="modal" data-target="#ms-account-modal"><i class="zmdi zmdi-account"></i></a>
-
             <form class="search-form animated zoomInDown animation-delay-9">
                 <input id="search-box" type="text" class="search-input" placeholder="Search..." name="q" />
                 <label class="btn-circle" for="search-box"><i class="zmdi zmdi-search"></i></label>
@@ -27,7 +24,7 @@
         </div>
     </div>
 </header>
-<nav class="navbar navbar-static-top yamm ms-navbar " [ngClass]="stickyFlag ? 'navbar-fixed-top shrink' : ''" >
+<nav class="navbar yamm ms-navbar " [ngClass]="stickyFlag ? 'navbar-fixed-top shrink' : 'navbar-static-top'" >
     <div class="container container-full">
         <div class="navbar-header">
             <a class="navbar-brand" href="index.html">
@@ -63,11 +60,16 @@
 <div class="ms-slidebar sb-slidebar sb-left sb-style-overlay" id="ms-slidebar" [ngClass]="slidebarFlag ? 'visible' : ''">
     <div class="sb-slidebar-container">
         <header class="ms-slidebar-header">
-          <div class="ms-slidebar-title">
-               <div class="ms-slidebar-t">
+            <div class="ms-slidebar-title">
+                <form class="search-form">
+                    <input id="search-box-slidebar" type="text" class="search-input" placeholder="Search..." name="q" />
+                    <label for="search-box-slidebar"><i class="zmdi zmdi-search"></i></label>
+                </form>
+
+                <div class="ms-slidebar-t">
                     <span class="ms-logo ms-logo-sm">M</span>
                     <h3>Material<span>Style</span></h3>
-               </div>
+                </div>
             </div>
         </header>
 
