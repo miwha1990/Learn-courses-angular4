@@ -1,4 +1,4 @@
-import { Component, OnInit, HostListener, ElementRef } from '@angular/core';
+import { Component, OnInit, HostListener, ElementRef} from '@angular/core';
 
 @Component({
   selector: 'app-header',
@@ -7,6 +7,7 @@ import { Component, OnInit, HostListener, ElementRef } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
   slidebarFlag = false;
+  stickyFlag = false;
   constructor(private el: ElementRef) { }
 
   ngOnInit() {
@@ -14,13 +15,16 @@ export class HeaderComponent implements OnInit {
   changeFlag() {
     return this.slidebarFlag = !this.slidebarFlag;
   }
-  @HostListener('window:scroll', [])
+  @HostListener ('window:scroll', [])
   onWindowScroll() {
     this.checkForSticky();
   }
   checkForSticky = function(){
-    const offset: number = this.el.nativeElement.parentElement.offsetTop - this.el.nativeElement.offsetTop;
-    console.log(offset);
+    if (document.body.scrollTop > this.el.nativeElement.children[0].offsetHeight + this.el.nativeElement.children[1].offsetHeight) {
+      this.stickyFlag = true;
+    }else{
+      this.stickyFlag = false;
+    }
     return null;
   };
 }
