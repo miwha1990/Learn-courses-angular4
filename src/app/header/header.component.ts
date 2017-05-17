@@ -21,10 +21,14 @@ export class HeaderComponent implements OnInit {
     this.checkForSticky();
   }
   checkForSticky = function(){
-    if (document.body.scrollTop > this.el.nativeElement.children[0].offsetHeight + this.el.nativeElement.children[1].offsetHeight - 40) { // 40px represents margin-bottom of header
-      this.stickyFlag = true;
+    if (document.body.scrollTop >= this.el.nativeElement.children[0].offsetHeight + this.el.nativeElement.children[1].offsetHeight - 40) { // 40px represents margin-bottom of header
+      if (!this.stickyFlag) {
+        this.stickyFlag = true;
+      }
     } else {
-      this.stickyFlag = false;
+      if (this.stickyFlag) {
+        this.stickyFlag = false;
+      }
     }
     return null;
   };

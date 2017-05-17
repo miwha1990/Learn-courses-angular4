@@ -1,7 +1,49 @@
+.class-page-banner{
+  -webkit-transform: translate3d(0,0,0);
+}
 .fixed-banner-container{
   top:50px;
   position: fixed;
   right: 0;
   left: 0;
   z-index: 1030;
+  color: #ffffff;
+  -webkit-animation: fadeInDownPerso;
+  animation: fadeInDownPerso;
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+  figure {
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    height: 100%;
+    width: 100%;
+    padding: 15px 0;
+    .class-details {
+      justify-content: center;
+    }
+  }
+
+}
+.class-details{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  p{
+    margin:0 20px;
+    @media screen and (max-width: 768px) {
+      margin: 0 5px;
+    }
+  }
+  @media screen and (max-width: 480px) {
+    flex-direction: column;
+  }
+}
+.static-test{
+
+}
+.fixed-test{
+  margin-top: 250px;
 }

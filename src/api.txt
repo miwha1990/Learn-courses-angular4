@@ -211,3 +211,9 @@ Response:
 “confirmation_id”: “XJS3214JFDO“
 }
 Comments: see 'Checkout' moqup
+
+
+
+
+
+      }

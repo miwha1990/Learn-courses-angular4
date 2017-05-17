@@ -1,14 +1,17 @@
-<div [ngClass]="stickyBannerFlag ? 'fixed-banner-container shrink' : 'static-banner-container'">
+<div class="class-page-banner" [ngClass]="stickyBannerFlag ? 'fixed-banner-container' : 'static-banner-container'">
   <figure [style.background-image]="'url(' + data.image_url + ')'">
     <figcaption class="text-center">
       <h3 class="">{{data.name}}</h3>
-      {{data.details1}}
-      {{data.location}}
-      {{data.details2}}
+        <div class="class-details">
+            <p ><i class="zmdi zmdi-calendar"></i> {{data.details1}}</p>
+            <p ><i class="zmdi zmdi-nature"></i> {{data.location}}</p>
+            <p ><i class="zmdi zmdi-alarm"></i> {{data.details2}}</p>
+        </div>
     </figcaption>
   </figure>
 </div>
-<div class="container static-page-container">
+
+<div id="test" class="container static-page-container" [ngClass]="stickyBannerFlag ? 'fixed-test' : 'static-test'">
 
 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores consectetur consequatur ea ex hic laborum magni odio repellat! Delectus deserunt ex fugit harum inventore, molestias mollitia natus quis repellat voluptatibus.
 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores consectetur consequatur ea ex hic laborum magni odio repellat! Delectus deserunt ex fugit harum inventore, molestias mollitia natus quis repellat voluptatibus.
@@ -28,5 +31,16 @@ Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores consectetur
 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores consectetur consequatur ea ex hic laborum magni odio repellat! Delectus deserunt ex fugit harum inventore, molestias mollitia natus quis repellat voluptatibus.
 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores consectetur consequatur ea ex hic laborum magni odio repellat! Delectus deserunt ex fugit harum inventore, molestias mollitia natus quis repellat voluptatibus.
 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores consectetur consequatur ea ex hic laborum magni odio repellat! Delectus deserunt ex fugit harum inventore, molestias mollitia natus quis repellat voluptatibus.
+Lorem ipsum dolLorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores consectetur consequatur ea ex hic laborum magni odio repellat! Delectus deserunt ex fugit harum inventore, molestias mollitia natus quis repellat voluptatibus.
 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores consectetur consequatur ea ex hic laborum magni odio repellat! Delectus deserunt ex fugit harum inventore, molestias mollitia natus quis repellat voluptatibus.
+Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores consectetur consequatur ea ex hic laborum magni odio repellat! Delectus deserunt ex fugit harum inventore, molestias mollitia natus quis repellat voluptatibus.
+Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores consectetur consequatur ea ex hic laborum magni odio repellat! Delectus deserunt ex fugit harum inventore, molestias mollitia natus quis repellat voluptatibus.
+Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores consectetur consequatur ea ex hic laborum magni odio repellat! Delectus deserunt ex fugit harum inventore, molestias mollitia natus quis repellat voluptatibus.
+Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores consectetur consequatur ea ex hic laborum magni odio repellat! Delectus deserunt ex fugit harum inventore, molestias mollitia natus quis repellat voluptatibus.
+Lorem ipsum dolLorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores consectetur consequatur ea ex hic laborum magni odio repellat! Delectus deserunt ex fugit harum inventore, molestias mollitia natus quis repellat voluptatibus.
+Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores consectetur consequatur ea ex hic laborum magni odio repellat! Delectus deserunt ex fugit harum inventore, molestias mollitia natus quis repellat voluptatibus.
+Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores consectetur consequatur ea ex hic laborum magni odio repellat! Delectus deserunt ex fugit harum inventore, molestias mollitia natus quis repellat voluptatibus.
+Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores consectetur consequatur ea ex hic laborum magni odio repellat! Delectus deserunt ex fugit harum inventore, molestias mollitia natus quis repellat voluptatibus.
+Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores consectetur consequatur ea ex hic laborum magni odio repellat! Delectus deserunt ex fugit harum inventore, molestias mollitia natus quis repellat voluptatibus.
+it harum inventore, molestias mollitia natus quis repellat voluptatibus.
 </div>
