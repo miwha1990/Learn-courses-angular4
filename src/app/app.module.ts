@@ -15,6 +15,7 @@ import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { PrivacyPageModule } from './privacy-page/privacy-page.module';
 import { TermsPageModule } from './terms-page/terms-page.module';
+import { OurTeamModule } from './our-team/our-team.module'
 
 @NgModule({
   declarations: [
@@ -34,6 +35,7 @@ import { TermsPageModule } from './terms-page/terms-page.module';
     ClassSinglePageModule,
     PrivacyPageModule,
     TermsPageModule,
+    OurTeamModule
   ],
   bootstrap: [AppComponent]
 })

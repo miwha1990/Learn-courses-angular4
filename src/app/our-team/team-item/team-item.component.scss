@@ -1,0 +1,60 @@
+.card {
+	display: flex;
+	max-height: 276px;
+	height: 100%;
+	.card-block {
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+		width: 100%;
+		align-items: baseline;
+		.label {
+			position: absolute;
+			right: 40px;
+		}
+		p {
+			max-height: 100px;
+			overflow: hidden;
+			text-align: justify;
+		}
+		.row {
+			width: 100%;
+			.btn {
+				margin: 0;
+				margin-top: 10px;
+			}
+			.text-right {
+				left: 25px;
+			}
+		}
+	}
+}
+
+@media screen and (max-width: 992px) {
+	.card {
+		flex-direction: column;
+		max-height: initial;
+	}
+}
+@media screen and (max-width: 400px) {
+	.card {
+		.card-block {
+			.row {
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+				margin: 0;
+				div {
+					width: 100%;
+					text-align: center !important;
+					.btn {
+						margin-top: 15px;
+					}
+				}
+				.text-right {
+					left: 0;
+				}
+			}
+		}
+	}
+}
