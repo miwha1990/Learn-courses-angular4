@@ -12,7 +12,8 @@ export class HeaderComponent implements OnInit {
 
   ngOnInit() {
   }
-  changeFlag() {
+  changeFlag(event) {
+    event.stopPropagation();
     return this.slidebarFlag = !this.slidebarFlag;
   }
   @HostListener ('window:scroll', [])
@@ -20,11 +21,34 @@ export class HeaderComponent implements OnInit {
     this.checkForSticky();
   }
   checkForSticky = function(){
-    if (document.body.scrollTop > this.el.nativeElement.children[0].offsetHeight + this.el.nativeElement.children[1].offsetHeight - 40) {
+    if (document.body.scrollTop > this.el.nativeElement.children[0].offsetHeight + this.el.nativeElement.children[1].offsetHeight - 40) { // 40px represents margin-bottom of header
       this.stickyFlag = true;
     } else {
       this.stickyFlag = false;
     }
     return null;
   };
+  @HostListener('window:keyup', ['$event'])
+  keyEvent(event: KeyboardEvent) {
+    if (event.keyCode === 27) {
+      this.slidebarFlag = false;
+    }
+  };
+  @HostListener('document:click', ['$event'])
+  onClick(event: MouseEvent) {
+    if ((this.isDescendant(this.el.nativeElement.children[2], event.target) === false) && this.slidebarFlag) {
+      this.slidebarFlag = false;
+    }
+  }
+  isDescendant(parent, child) {
+    let node = child;
+    while (node !== null) {
+      if (node === parent) {
+        return true;
+      } else {
+        node = node.parentNode;
+      }
+    }
+    return false;
+  }
 }

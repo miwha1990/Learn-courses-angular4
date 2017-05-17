@@ -1,0 +1,46 @@
+{
+  "id": 1,
+  "name": "Anymal Flow Level 1",
+  "details1": "Oct 10 - Oct 25, 2017",
+  "details2": "8:30 AM - 6:00PM",
+  "location": "Toronto",
+  "price_early": "1949.00",
+  "sports_early": 10,
+  "price_regular": "2049.00",
+  "sports_regular": 14,
+  "description": "Lorem ipsum dolor",
+  "image_url": "../../../assets/img/back_mountain.jpg",
+  "video_url": "../../../assets/video.mp4",
+  "request_tshirt_size": true,
+  "instructors": [
+    {
+      "name": "Instructor 1 name"
+    }
+  ],
+  "venue":
+  {
+    "name" :"DTS Fitness Education Centre",
+    "address":
+    {
+      "street": "573 King Street East",
+      "city": "Toronto",
+      "province": "Ontario",
+      "country": "Canada",
+      "postal_code": "M5A4L3"
+    },
+    "phone": "+1 (234) 567-8900",
+    "notes": "for ex.: info about the closes bus station"
+  },
+  "partner_url": "url",
+  "partner_soldout": true,
+  "allow_partial_payment": true,
+  "deposit": "500.00",
+  "balance_due": "July 31, 2017",
+  "tax_rate":
+  {
+    "name1": "GST",
+    "rate1": "7.00",
+    "name2": "PST",
+    "rate2": "8.00"
+  }
+}
