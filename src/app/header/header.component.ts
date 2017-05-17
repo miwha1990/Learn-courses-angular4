@@ -16,8 +16,8 @@ export class HeaderComponent implements OnInit {
     event.stopPropagation();
     return this.slidebarFlag = !this.slidebarFlag;
   }
-  @HostListener ('window:scroll', [])
-  onWindowScroll() {
+  @HostListener ('document:scroll', [])
+  onDocumentScroll() {
     this.checkForSticky();
   }
   checkForSticky = function(){

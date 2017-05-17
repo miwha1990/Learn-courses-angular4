@@ -19,21 +19,21 @@ export class ClassSinglePageComponent implements OnInit {
     this.GetClassDataService.getClassData(1).subscribe(res => {this.data = res; }, error =>  this.errorMessage = <any>error);
     this.position = document.body.scrollTop;
     }
-  @HostListener ('window:scroll', ['$event'])
-  onWindowScroll(event) {
+  @HostListener ('document:scroll', ['$event'])
+  onDocumentScroll(event) {
     this.checkForBannerSticky(event);
   }
   checkForBannerSticky = function(event) {
     this.scroll = document.body.scrollTop;
     if (this.scroll >= this.position) { // scroll down
-      console.log('i go down');
+      // console.log('i go down');
       if (document.body.scrollTop >= this.elem.nativeElement.children[0].offsetHeight + this.elem.nativeElement.children[0].offsetTop - 50) {
         if (!this.stickyBannerFlag) {
           this.stickyBannerFlag = true;
         }
       }
     } else { // scroll up
-      console.log('i go up');
+      // console.log('i go up');
       if (document.body.scrollTop < this.elem.nativeElement.children[0].offsetHeight + this.elem.nativeElement.children[0].offsetTop - 50) {
         if (this.stickyBannerFlag) {
           this.stickyBannerFlag = false;
