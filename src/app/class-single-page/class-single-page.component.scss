@@ -20,6 +20,12 @@
         }
       }
     }
+    app-sticky-card{
+      position: absolute;
+      margin-top:250px;
+      left:50%;
+      transform: translateX(-50%);
+    }
     &.sticky{
       width:100%!important;
       .static-banner-container{
@@ -45,6 +51,9 @@
       }
       + .static-page-container{
         padding-top: 70px;
+      }
+      app-sticky-card{
+        margin-top:40px;
       }
     }
   }
