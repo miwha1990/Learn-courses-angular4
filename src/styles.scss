@@ -57,6 +57,12 @@
  }
 
  .sb-site-container{
+   app-header{
+     position: absolute;
+     top: 0;
+     left: 0;
+     right: 0;
+   }
    sticky.sticky{
      .ms-header{
        display: none;
@@ -81,6 +87,14 @@
          display: block;
        }
      }
+     + .general-content-wrapper{
+       margin-top: 90px;
+     }
+   }
+   .general-content-wrapper{
+     margin-top: 100px;
+     padding-top:90px;
+     position: relative;
    }
  }
 @import './assets/theme-scss/style.themed';

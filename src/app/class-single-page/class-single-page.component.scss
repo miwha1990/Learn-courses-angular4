@@ -1,54 +1,62 @@
 .class-page-wrapper{
   width:100%;
   position: relative;
-  .static-banner-container{
-    figure {
-      .class-details{
-        display: flex;
-        justify-content: space-around;
-        align-items: center;
-        p{
-          margin:0 20px;
-          @media screen and (max-width: 768px) {
-            margin: 0 5px;
+  sticky{
+    .static-banner-container {
+      figure {
+        .class-details {
+          display: flex;
+          justify-content: space-around;
+          align-items: center;
+          p {
+            margin: 0 20px;
+            @media screen and (max-width: 768px) {
+              margin: 0 5px;
+            }
           }
-        }
-        @media screen and (max-width: 480px) {
-          flex-direction: column;
+          @media screen and (max-width: 480px) {
+            flex-direction: column;
+          }
         }
       }
     }
     &.sticky{
-      -webkit-animation: fadeInDownPerso;
-      animation: fadeInDownPerso;
-      -webkit-animation-duration: 1s;
-      animation-duration: 1s;
-      -webkit-animation-fill-mode: both;
-      animation-fill-mode: both;
-      min-height: 117px;
-      z-index:1!important;
-      figure {
-        height: 100%;
-        width: 100%;
-        padding: 15px 0;
-        .class-details {
-          justify-content: center;
+      width:100%!important;
+      .static-banner-container{
+        -webkit-animation: fadeInDownPerso;
+        animation: fadeInDownPerso;
+        -webkit-animation-duration: 1s;
+        animation-duration: 1s;
+        -webkit-animation-fill-mode: both;
+        animation-fill-mode: both;
+        min-height: unset;
+        z-index:1!important;
+        figure {
+          height: 100%;
+          width: 100%;
+          padding: 20px 0;
+          h3{
+            display: none;
+          }
+          .class-details {
+            justify-content: center;
+          }
         }
       }
+      + .static-page-container{
+        padding-top: 110px;
+      }
+    }
   }
-
-  }
+.static-page-container{
+  padding-top: 20px;
+}
   .fixed-banner-container{
     top:50px;
     position: fixed;
     right: 0;
     left: 0;
   }
-
-  .fixed-test{
-    margin-top: 250px;
-  }
-
   .sticky-end {
     left: 0 !important;
     bottom: 0 !important;
