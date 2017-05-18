@@ -217,3 +217,7 @@ Comments: see 'Checkout' moqup
 
 
       }
+
+
+
+       [sticky-class]="navbar-fixed-top shrink" [sticky-end-class]="navbar-static-top"

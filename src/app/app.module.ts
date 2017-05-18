@@ -7,6 +7,7 @@ import { RouterModule } from '@angular/router';
 import { ContactUsModule } from './contact-us/contact-us.module';
 import { HomepageModule } from './home-page/homepage.module';
 import { ClassSinglePageModule } from './class-single-page/class-single-page.module';
+import {StickyModule} from 'ng2-sticky-kit/ng2-sticky-kit';
 
 import { AppRoutes } from './app.routing';
 
@@ -15,7 +16,7 @@ import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { PrivacyPageModule } from './privacy-page/privacy-page.module';
 import { TermsPageModule } from './terms-page/terms-page.module';
-import { OurTeamModule } from './our-team/our-team.module'
+import { OurTeamModule } from './our-team/our-team.module';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { OurTeamModule } from './our-team/our-team.module'
     ClassSinglePageModule,
     PrivacyPageModule,
     TermsPageModule,
-    OurTeamModule
+    OurTeamModule,
+    StickyModule,
   ],
   bootstrap: [AppComponent]
 })

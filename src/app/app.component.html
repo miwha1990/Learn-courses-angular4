@@ -1,5 +1,7 @@
 <div class="sb-site-container">
-    <app-header #header></app-header>
+    <sticky [sticky-offset-top]="0" [sticky-start]="50" >
+        <app-header></app-header>
+    </sticky>
     <router-outlet></router-outlet>
     <app-footer></app-footer>
 </div>

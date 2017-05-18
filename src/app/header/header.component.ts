@@ -7,7 +7,6 @@ import { Component, OnInit, HostListener, ElementRef} from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
   slidebarFlag = false;
-  stickyFlag = false;
   constructor(private el: ElementRef) { }
 
   ngOnInit() {
@@ -16,22 +15,6 @@ export class HeaderComponent implements OnInit {
     event.stopPropagation();
     return this.slidebarFlag = !this.slidebarFlag;
   }
-  @HostListener ('document:scroll', [])
-  onDocumentScroll() {
-    this.checkForSticky();
-  }
-  checkForSticky = function(){
-    if (document.body.scrollTop >= this.el.nativeElement.children[0].offsetHeight + this.el.nativeElement.children[1].offsetHeight - 40) { // 40px represents margin-bottom of header
-      if (!this.stickyFlag) {
-        this.stickyFlag = true;
-      }
-    } else {
-      if (this.stickyFlag) {
-        this.stickyFlag = false;
-      }
-    }
-    return null;
-  };
   @HostListener('window:keyup', ['$event'])
   keyEvent(event: KeyboardEvent) {
     if (event.keyCode === 27) {
