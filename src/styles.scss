@@ -34,8 +34,11 @@
    }
  }
  .static-banner-container{
-   position: relative;
+   position: absolute;
    min-height: 250px;
+   top: 0;
+   left: 0;
+   right: 0;
    display: grid;
    figure{
      background-repeat: no-repeat;
@@ -86,9 +89,6 @@
        .navbar-brand{
          display: block;
        }
-     }
-     + .general-content-wrapper{
-       margin-top: 90px;
      }
    }
    .general-content-wrapper{
