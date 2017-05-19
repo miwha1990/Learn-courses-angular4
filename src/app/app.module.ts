@@ -17,6 +17,7 @@ import { FooterComponent } from './footer/footer.component';
 import { PrivacyPageModule } from './privacy-page/privacy-page.module';
 import { TermsPageModule } from './terms-page/terms-page.module';
 import { OurTeamModule } from './our-team/our-team.module';
+import { CheckoutPageModule } from './checkout-page/checkout-page.module';
 
 @NgModule({
   declarations: [
@@ -38,6 +39,7 @@ import { OurTeamModule } from './our-team/our-team.module';
     TermsPageModule,
     OurTeamModule,
     StickyModule,
+    CheckoutPageModule,
   ],
   bootstrap: [AppComponent]
 })
