@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
-import { DatepickerModule } from 'angular2-material-datepicker';
 import { CheckoutPageRoutes } from './checkout-page.routing';
 import { CheckoutPageComponent } from './checkout-page.component';
 import {BrowserModule} from '@angular/platform-browser';
@@ -11,7 +10,6 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 @NgModule({
   imports: [
     CommonModule,
-    DatepickerModule,
     BrowserAnimationsModule,
     BrowserModule,
     MaterialModule,
