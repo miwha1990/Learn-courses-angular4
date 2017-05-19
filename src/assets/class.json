@@ -29,7 +29,9 @@
       "postal_code": "M5A4L3"
     },
     "phone": "+1 (234) 567-8900",
-    "notes": "for ex.: info about the closes bus station"
+    "notes": "for ex.: info about the closes bus station",
+    "lat": "51.678418",
+    "long": "7.809007"
   },
   "partner_url": "url",
   "partner_soldout": true,

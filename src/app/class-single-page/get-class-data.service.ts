@@ -9,6 +9,12 @@ export class GetClassDataService {
 
   getClassData(id: number): Observable<any> {
     // return this.http.get('https://api.dtsfitnesseducation.com/v1/classes/' + id).map((res: Response) => res.json());
-    return this.http.get('../assets/class.json').map((res: Response) => res.json());
+    return this.http.get('../assets/class.json')
+        .map((res: Response) => {
+          let a = res.json();
+          a.venue.lat = parseFloat(a.venue.lat);
+          a.venue.long = parseFloat(a.venue.long);
+          return a;
+        });
   }
 }

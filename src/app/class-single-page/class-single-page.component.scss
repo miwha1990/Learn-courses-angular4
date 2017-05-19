@@ -27,6 +27,7 @@
       transform: translateX(-50%);
     }
     &.sticky{
+      z-index:1!important;
       width:100%!important;
       .static-banner-container{
         -webkit-animation: fadeInDownPerso;
@@ -36,7 +37,7 @@
         -webkit-animation-fill-mode: both;
         animation-fill-mode: both;
         min-height: unset;
-        z-index:1!important;
+
         figure {
           height: 100%;
           width: 100%;
@@ -68,6 +69,11 @@
   }
   video{
     width:100%;
+  }
+  agm-map {
+    height: 300px;
+    position: relative;
+    display: block;
   }
   .sticky-end {
     left: 0 !important;

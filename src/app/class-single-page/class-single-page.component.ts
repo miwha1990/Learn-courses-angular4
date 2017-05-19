@@ -12,7 +12,11 @@ export class ClassSinglePageComponent implements OnInit {
   constructor(private GetClassDataService: GetClassDataService) { }
 
   ngOnInit() {
-    this.GetClassDataService.getClassData(1).subscribe(res => {this.data = res; }, error =>  this.errorMessage = <any>error);
+    this.GetClassDataService.getClassData(1)
+        .subscribe(res => {
+          this.data = res;
+          },
+          error =>  this.errorMessage = <any>error);
     }
 
 }

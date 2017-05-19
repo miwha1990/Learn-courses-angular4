@@ -66,6 +66,9 @@
             {{data?.venue?.address?.street}},  {{data?.venue?.address?.city}},  {{data?.venue?.address?.province}}<br/>
             {{data?.venue?.address?.country}}<br/>
             {{data?.venue?.address?.postal_code}}<br/>
+            <agm-map class="mt-4" [latitude]="data?.venue?.lat" [longitude]="data?.venue?.long" [zoom]="8">
+                <agm-marker [latitude]="data?.venue?.lat" [longitude]="data?.venue?.long"></agm-marker>
+            </agm-map>
         </div>
     </div>
 </div>

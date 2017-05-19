@@ -9,6 +9,7 @@ import { HomepageModule } from './home-page/homepage.module';
 import { ClassSinglePageModule } from './class-single-page/class-single-page.module';
 import {StickyModule} from 'ng2-sticky-kit/ng2-sticky-kit';
 
+
 import { AppRoutes } from './app.routing';
 
 import { AppComponent } from './app.component';

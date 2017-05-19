@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { ReactiveFormsModule } from '@angular/forms';
+import { AgmCoreModule } from '@agm/core';
 
 import { ContactUsRoutes } from './contact-us.routing';
 
@@ -15,7 +16,10 @@ import { ContactsComponent } from './contacts/contacts.component';
   imports: [
     CommonModule,
     ReactiveFormsModule,
-    RouterModule.forChild(ContactUsRoutes)
+    RouterModule.forChild(ContactUsRoutes),
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyBOvCGpfetHTFZPjOa6U-UhRHHS-6OeGhU'
+    })
   ],
   declarations: [
     ContactUsComponent,
