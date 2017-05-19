@@ -18,11 +18,11 @@ import { StickyCardComponent } from './sticky-card/sticky-card.component';
   ],
   declarations: [
     ClassSinglePageComponent,
-    StickyCardComponent
+    StickyCardComponent,
   ],
   providers: [
       GetClassDataService,
-  ]
+  ],
 })
 export class ClassSinglePageModule { }
 

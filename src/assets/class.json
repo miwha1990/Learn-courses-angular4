@@ -10,7 +10,7 @@
   "sports_regular": 14,
   "description": "Lorem ipsum dolor",
   "image_url": "../../../assets/img/back_mountain.jpg",
-  "video_url": "../../../assets/video.mp4",
+  "video_url": "../../assets/video.mp4",
   "request_tshirt_size": true,
   "instructors": [
     {
