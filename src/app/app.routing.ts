@@ -7,4 +7,5 @@ export const AppRoutes: Routes = [
     { path: 'privacy', loadChildren: './privacy-page/privacy-page.module#PrivacyPageModule' },
     { path: 'terms', loadChildren: './terms-page/terms-page.module#TermsPageModule' },
     { path: 'our-team', loadChildren: './our-team/our-team.module#OurTeamModule' },
+    { path: 'checkout-page', loadChildren: './checkout-page/checkout-page.module#CheckoutPageModule' },
 ];
