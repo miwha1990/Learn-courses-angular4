@@ -1,13 +1,25 @@
-<div class="container">
-  <div class="row">
-    <div class="col-lg-8 col-md-7">
-      <app-contact-us-form></app-contact-us-form>
-    </div>
-    <div class="col-lg-4 col-md-5">
-      <app-contacts></app-contacts>
+<div class="ms-hero-page-override ms-hero-img-team ms-hero-bg-primary">
+  <div class="container">
+    <div class="text-center">
+      <h1 class="no-m ms-site-title color-white center-block ms-site-title-lg mt-2 animated zoomInDown animation-delay-5">Contact Us</h1>
+      <p class="lead lead-lg color-light text-center center-block mt-2 mw-800 text-uppercase fw-300 animated fadeInUp animation-delay-7">Can't find what you need in our Help Centre?<br>Get in touch width our friendly customer support</p>
     </div>
   </div>
 </div>
+<div class="container">
+  <div class="row">
+    <div class="col-md-9">
+      <app-contact-us-form></app-contact-us-form>
+    </div>
+    <div class="col-md-3">
+      <app-contacts></app-contacts>
+    </div>
+  </div>
+  
+
+  
+</div>
+
 <agm-map class="mt-4" [latitude]="51.678418" [longitude]="7.809007" [zoom]="8">
   <agm-marker [latitude]="51.678418" [longitude]="7.809007"></agm-marker>
 </agm-map>
