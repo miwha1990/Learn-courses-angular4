@@ -1,7 +1,32 @@
 <div class="container">
     <div class="card card-primary col-md-offset-9 col-md-3">
         <div class="card-block">
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet consectetur deleniti, ex fugit maxime molestias officia, perferendis praesentium quas reiciendis totam voluptatibus voluptatum? Eaque eligendi error in libero pariatur sapiente.
+            <a href="#" class="btn btn-raised btn-primary app-btn-ripple register-button">Register now</a>
+            <div class="info-block">
+                <div class="option">
+                    <h4><strong>Early Bird</strong></h4>
+                    <h4><strong>{{data.price_early|currency:'USD':true}}</strong></h4>
+                </div>
+                <div class="sports">{{data.sports_early}} Spots Left</div>
+                <div class="option">
+                    <h4><strong>Regular</strong></h4>
+                    <h4><strong>{{data.price_regular|currency:'USD':true}}</strong></h4>
+                </div>
+                <div class="sports">{{data.sports_regular}} Spots Available</div>
+                <div class="text">You qualify to take advantage of our no interest Payment Plan and <strong>get started for only $350 down.</strong></div>
+            </div>
+            <h5>Share With Friends</h5>
+            <div class="social-block">
+                <a href="#" class="btn-circle btn-circle-raised btn-circle-xs mt-1 mr-1 no-mr-md btn-facebook">
+                    <i class="zmdi zmdi-facebook"></i>
+                </a>
+                <a href="#" class="btn-circle btn-circle-raised btn-circle-xs mt-1 mr-1 no-mr-md btn-twitter">
+                    <i class="zmdi zmdi-twitter"></i>
+                </a>
+                <a href="#" class="btn-circle btn-circle-raised btn-circle-xs mt-1 mr-1 no-mr-md btn-instagram">
+                    <i class="zmdi zmdi-instagram"></i>
+                </a>
+            </div>
         </div>
     </div>
 </div>

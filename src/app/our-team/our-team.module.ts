@@ -5,7 +5,6 @@ import { RouterModule } from '@angular/router';
 import { OurTeamRoutes } from './our-team.routing';
 
 import { OurTeamComponent } from './our-team.component';
-import { TeamItemComponent } from './team-item/team-item.component';
 
 @NgModule({
   imports: [
@@ -13,8 +12,7 @@ import { TeamItemComponent } from './team-item/team-item.component';
     RouterModule.forChild(OurTeamRoutes)
   ],
   declarations: [
-  	OurTeamComponent,
-  	TeamItemComponent
+    OurTeamComponent,
   ]
 })
 export class OurTeamModule { }
