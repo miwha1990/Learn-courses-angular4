@@ -1,22 +1,26 @@
-
+.visible{
+  display:inline-block;
+}
   .ms-header{
-    background-color: #03a9f4;
-    color: #fff;
-    .ms-title h1 {
-      color: #fff;
+    background-color: #fff;
+    color: #313131;
+    .ms-title{
+      a img {
+        height: 50px;
+      }
     }
     .btn-circle {
-      color: #fff;
+      color: #313131;
       &:before{
-        background-color: #fff;
+        background-color: #313131;
       }
     }
     .btn-circle:hover,
     .btn-circle:focus {
-      color: #03a9f4;
+      color: #fff;
     }
     .search-form .search-input {
-      color: #fff;
+      color: #313131;
       font-weight: 400;
     }
   }
@@ -27,10 +31,38 @@
     @media (min-width: 768px) {
       border-radius: 0;
     }
+    .navbar-nav li a{
+      color:#313131;
+      &:after{
+        content: "";
+        display: block;
+        position: absolute;
+        left: 0;
+        right: 0;
+        width: 100%;
+        bottom:0;
+        background-color: #EB8C00;
+        -webkit-transition: all ease .3s;
+        transition: all ease .3s
+      }
+      &:hover:after,
+      &.active:after{
+        height: 3px;
+      }
+    }
+    .navbar-header{
+      a.navbar-brand{
+        padding: 0 15px;
+        img{
+          height: 50px;
+        }
+      }
+    }
     .btn-navbar-menu {
       margin-top: 0;
       position: relative;
       right:inherit;
+      color: #313131;
     }
   }
   .ms-slidebar{

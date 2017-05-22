@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Http, Response } from '@angular/http';
+import { Http, Headers, Response } from '@angular/http';
 import {Observable} from 'rxjs/Observable';
 import 'rxjs/Rx';
 
@@ -8,8 +8,12 @@ export class GetClassDataService {
   constructor(private http: Http) { }
 
   getClassData(id: number): Observable<any> {
-    // return this.http.get('https://api.dtsfitnesseducation.com/v1/classes/' + id).map((res: Response) => res.json());
-    return this.http.get('../assets/class.json')
+      const headers = new Headers({
+          'Access-Control-Allow-Origin': '*',
+          'Content-Type': 'application/json'
+      });
+     // return this.http.get('../assets/class.json')
+     return this.http.get('https://rqdqmry09e.execute-api.us-east-1.amazonaws.com/v1/classes/' + id, { headers: headers})
         .map((res: Response) => {
           let a = res.json();
           a.venue.lat = parseFloat(a.venue.lat);

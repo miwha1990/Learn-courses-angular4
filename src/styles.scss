@@ -1,4 +1,6 @@
- html{
+$color-primary: #fff;
+
+html{
    font-size: 10px;
  }
  .app-btn-ripple {
@@ -101,6 +103,10 @@
      padding-top:90px;
      position: relative;
      z-index: 3;
+     &.isHome{
+       margin-top: 0;
+       padding-top:0;
+     }
    }
  }
 

@@ -1,4 +1,4 @@
-import { Component, OnInit, HostListener, ElementRef} from '@angular/core';
+import { Component, OnInit, HostListener, ElementRef, Input} from '@angular/core';
 
 @Component({
   selector: 'app-header',
@@ -6,6 +6,7 @@ import { Component, OnInit, HostListener, ElementRef} from '@angular/core';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
+  @Input() routerHome: {};
   slidebarFlag = false;
   constructor(private el: ElementRef) { }
 

@@ -1,4 +1,6 @@
 import { Component , ElementRef, AfterViewInit} from '@angular/core';
+import { Location } from '@angular/common';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -6,8 +8,17 @@ import { Component , ElementRef, AfterViewInit} from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent  implements  AfterViewInit {
-  constructor(private el: ElementRef) {
+  routerHome = false;
+  constructor(private el: ElementRef, private router: Router, private location: Location) {
 
   }
-  ngAfterViewInit() {}
+  ngAfterViewInit() {
+    this.router.events.subscribe(val => {
+      if ((this.location.path() === '/home') || (this.location.path() === '')) {
+        this.routerHome = true;
+      } else {
+        this.routerHome = false;
+      }
+    });
+  }
 }
