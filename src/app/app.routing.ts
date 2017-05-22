@@ -9,5 +9,5 @@ export const AppRoutes: Routes = [
     { path: 'terms_of_service', loadChildren: './terms-page/terms-page.module#TermsPageModule' },
     { path: 'team', loadChildren: './our-team/our-team.module#OurTeamModule' },
     { path: 'checkout-page', loadChildren: './checkout-page/checkout-page.module#CheckoutPageModule' },
-    { path: 'find-courses', loadChildren: './find-courses-page/find-courses.module#FindCoursesModule' }
+    { path: 'learn-in-class', loadChildren: './find-courses-page/find-courses.module#FindCoursesModule' }
 ];

@@ -1,4 +1,4 @@
-<header class="ms-header ms-header-primary" *ngIf="!routerHome">
+<header class="ms-header " *ngIf="!routerHome">
     <div class="container container-full">
         <div class="ms-title">
             <a href="/">
@@ -40,7 +40,7 @@
                     <a class="" data-name="Home" [routerLink]="home" routerLinkActive="active">Home</a>
                 </li>
                 <li class="app-btn-ripple" *ngIf="!routerHome">
-                    <a href="#" class="" data-name="Learn in Class">Learn in Class</a>
+                    <a [routerLink]="learn-in-class" class="" data-name="Learn in Class">Learn in Class</a>
                 </li>
                 <li class="app-btn-ripple" *ngIf="!routerHome">
                     <a href="#" class="" data-name="Learn Online">Learn Online</a>
