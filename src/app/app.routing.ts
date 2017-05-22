@@ -8,4 +8,5 @@ export const AppRoutes: Routes = [
     { path: 'terms', loadChildren: './terms-page/terms-page.module#TermsPageModule' },
     { path: 'our-team', loadChildren: './our-team/our-team.module#OurTeamModule' },
     { path: 'checkout-page', loadChildren: './checkout-page/checkout-page.module#CheckoutPageModule' },
+    { path: 'find-courses', loadChildren: './find-courses-page/find-courses.module#FindCoursesModule' }
 ];
