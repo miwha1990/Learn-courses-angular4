@@ -46,6 +46,10 @@
         -webkit-transition: all ease .3s;
         transition: all ease .3s
       }
+      &:hover,
+      &.active{
+        background-color: #fff;
+      }
       &:hover:after,
       &.active:after{
         height: 3px;
