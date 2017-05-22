@@ -1,4 +1,5 @@
 <div class="container">
+    <form>
     <div class="row">
         <main class="col-sm-8 ms-paper-content">
             <div class="logo"><span  class="ms-logo animated zoomInDown animation-delay-5">M</span></div>
@@ -6,141 +7,139 @@
             <span class="price-multiplier">Regular price x 1</span>
             <div class="student-information">
                 <h2 class="section-title">STUDENT INFORMATION</h2>
-                <form class="form-horizontal">
-                    <div class="form-group name">
-                        <div class="col-md-6 col-sm-12">
-                            <md-input-container>
-                                <input mdInput id="focusedInput2" type="text"  placeholder="Last Name">
-                            </md-input-container>
-                        </div>
-                        <div class="col-md-6 col-sm-12">
-                            <md-input-container>
-                                <input mdInput class="text-left" id="focusedInput1" type="text" placeholder="First Name">
-                            </md-input-container>
-                        </div>
+                <div class="form-group name">
+                    <div class="col-md-6 col-sm-12">
+                        <md-input-container>
+                            <input mdInput id="focusedInput2" type="text"  placeholder="Last Name" required>
+                        </md-input-container>
                     </div>
-                    <div class="form-group email">
-                        <div class="col-md-6 col-sm-12">
-                            <md-input-container>
-                                <input mdInput  id="focusedInput3" placeholder="Email" type="email" email>
-                            </md-input-container>
-                        </div>
-                        <div class="col-md-6 col-sm-12">
-                            <md-input-container>
-                                <input mdInput  id="focusedInput4" placeholder="Confirm Email" type="email" email>
-                            </md-input-container>
-                        </div>
-                        <p class="text-right color-red">Please, use personal email only! E.g.: @gmail.com, @hotmail.com, @yahoo.ca</p>
+                    <div class="col-md-6 col-sm-12">
+                        <md-input-container>
+                            <input mdInput class="text-left" id="focusedInput1" type="text" placeholder="First Name" required>
+                        </md-input-container>
                     </div>
-                    <div class="form-group location1">
-                        <div class="col-md-6 col-sm-12">
-                            <md-select placeholder="Country">
-                                <md-option value="usa" >USA</md-option>
-                                <md-option value="canada" >Canada</md-option>
-                            </md-select>
-                        </div>
-                        <div class="col-md-6 col-sm-12">
-                            <md-select placeholder="Province / State">
-                                <md-option value="usa" >USA</md-option>
-                                <md-option value="canada" >Canada</md-option>
-                            </md-select>
-                        </div>
+                </div>
+                <div class="form-group email">
+                    <div class="col-md-6 col-sm-12">
+                        <md-input-container>
+                            <input mdInput  id="focusedInput3" placeholder="Email" type="email" email required>
+                        </md-input-container>
                     </div>
-                    <div class="form-group location2">
-                        <div class="col-md-6 col-sm-12">
-                            <md-input-container>
-                                <input mdInput  id="badge" type="text"  placeholder="Name of Badge">
-                            </md-input-container>
-                        </div>
-                        <div class="col-md-6 col-sm-12">
-                            <md-input-container>
-                                <input mdInput id="city" type="text" placeholder="City">
-                            </md-input-container>
-                        </div>
+                    <div class="col-md-6 col-sm-12">
+                        <md-input-container>
+                            <input mdInput  id="focusedInput4" placeholder="Confirm Email" type="email" email required>
+                        </md-input-container>
                     </div>
-                    <div class="form-group personal">
-                        <div class="col-md-6 col-sm-12">
-                            <md-select placeholder="Gender">
-                                <md-option value="male" >Male</md-option>
-                                <md-option value="female" >Female</md-option>
-                            </md-select>
-                        </div>
-                        <div class="col-md-6 col-sm-12">
-                            <md-input-container>
-                                <input mdInput [mdDatepicker]="picker" placeholder="Date of Birth">
-                                <button mdSuffix [mdDatepickerToggle]="picker"></button>
-                            </md-input-container>
-                            <md-datepicker #picker></md-datepicker>
-                        </div>
+                    <p class="text-right color-red">Please, use personal email only! E.g.: @gmail.com, @hotmail.com, @yahoo.ca</p>
+                </div>
+                <div class="form-group location1">
+                    <div class="col-md-6 col-sm-12">
+                        <md-select placeholder="Country" required>
+                            <md-option value="usa" >USA</md-option>
+                            <md-option value="canada" >Canada</md-option>
+                        </md-select>
                     </div>
-                    <div class="form-group personal">
-                        <div class="col-md-6 col-sm-12">
-                            <md-input-container>
-                                <input mdInput id="phone" type="text" placeholder="Phone Number with Area Code">
-                            </md-input-container>
-                        </div>
-                        <div class="col-md-6 col-sm-12">
-                            <md-select placeholder="Industry Certification">
-                                <md-option value="personal" >Personal Training Certification</md-option>
-                                <md-option value="degree" >College / University Degree</md-option>
-                                <md-option value="other" >Other</md-option>
-                                <md-option value="none" >None</md-option>
-                            </md-select>
-                        </div>
+                    <div class="col-md-6 col-sm-12">
+                        <md-select placeholder="Province / State" required>
+                            <md-option value="usa" >USA</md-option>
+                            <md-option value="canada" >Canada</md-option>
+                        </md-select>
                     </div>
-                    <div class="form-group job-details">
-                        <div class="col-md-6 col-sm-12">
-                            <md-input-container>
-                                <input mdInput id="employer" type="text" placeholder="Employer">
-                            </md-input-container>
-                        </div>
-                        <div class="col-md-6 col-sm-12">
-                            <md-select placeholder="Job Title">
-                                <md-option value="personal" >Personal Trainer</md-option>
-                                <md-option value="professional" >Other Fitness Professional</md-option>
-                                <md-option value="management" >Management</md-option>
-                                <md-option value="other" >Other</md-option>
-                            </md-select>
-                        </div>
+                </div>
+                <div class="form-group location2">
+                    <div class="col-md-6 col-sm-12">
+                        <md-input-container>
+                            <input mdInput  id="badge" type="text"  placeholder="Name of Badge" required>
+                        </md-input-container>
                     </div>
-                    <div class="form-group emergency">
-                        <div class="col-md-6 col-sm-12">
-                            <md-input-container>
-                                <input mdInput id="emergency-name" type="text" placeholder="Emergency Contact Full Name">
-                            </md-input-container>
-                        </div>
-                        <div class="col-md-6 col-sm-12">
-                            <md-input-container>
-                                <input mdInput id="emergency-number" type="text" placeholder="Emergency Contact Phone Number">
-                            </md-input-container>
-                        </div>
+                    <div class="col-md-6 col-sm-12">
+                        <md-input-container>
+                            <input mdInput id="city" type="text" placeholder="City" required>
+                        </md-input-container>
                     </div>
-                    <div class="form-group hear">
-                        <div class="col-md-6 col-sm-12">
-                            <md-select placeholder="How did you hear about us?">
-                                <md-option value="prev" >Took a course previously</md-option>
-                                <md-option value="manager" >Manager / Supervisor</md-option>
-                                <md-option value="friend" >Friend / Collegue</md-option>
-                                <md-option value="search" >Search Engine</md-option>
-                                <md-option value="social" >Social Media</md-option>
-                                <md-option value="show" >Trade Show / Conference</md-option>
-                                <md-option value="other" >Other (please specify)</md-option>
-                            </md-select>
-                        </div>
-                        <div class="col-md-6 col-sm-12">
-                            <md-select placeholder="T-Shirt Size">
-                                <md-option value="la-s" >Ladies' S</md-option>
-                                <md-option value="la-m" >Ladies' M</md-option>
-                                <md-option value="la-l" >Ladies' L</md-option>
-                                <md-option value="la-xl" >Ladies' XL</md-option>
-                                <md-option value="me-s" >Men's S</md-option>
-                                <md-option value="me-m" >Men's M</md-option>
-                                <md-option value="me-l" >Men's L</md-option>
-                                <md-option value="me-xl" >Men's XL</md-option>
-                            </md-select>
-                        </div>
+                </div>
+                <div class="form-group personal">
+                    <div class="col-md-6 col-sm-12">
+                        <md-select placeholder="Gender" required>
+                            <md-option value="male" >Male</md-option>
+                            <md-option value="female" >Female</md-option>
+                        </md-select>
                     </div>
-                </form>
+                    <div class="col-md-6 col-sm-12">
+                        <md-input-container>
+                            <input mdInput [mdDatepicker]="picker" placeholder="Date of Birth" required>
+                            <button mdSuffix [mdDatepickerToggle]="picker"></button>
+                        </md-input-container>
+                        <md-datepicker #picker></md-datepicker>
+                    </div>
+                </div>
+                <div class="form-group personal">
+                    <div class="col-md-6 col-sm-12">
+                        <md-input-container>
+                            <input mdInput id="phone" type="text" placeholder="Phone Number with Area Code" required>
+                        </md-input-container>
+                    </div>
+                    <div class="col-md-6 col-sm-12">
+                        <md-select placeholder="Industry Certification" required>
+                            <md-option value="personal" >Personal Training Certification</md-option>
+                            <md-option value="degree" >College / University Degree</md-option>
+                            <md-option value="other" >Other</md-option>
+                            <md-option value="none" >None</md-option>
+                        </md-select>
+                    </div>
+                </div>
+                <div class="form-group job-details">
+                    <div class="col-md-6 col-sm-12">
+                        <md-input-container>
+                            <input mdInput id="employer" type="text" placeholder="Employer" required>
+                        </md-input-container>
+                    </div>
+                    <div class="col-md-6 col-sm-12">
+                        <md-select placeholder="Job Title" required>
+                            <md-option value="personal" >Personal Trainer</md-option>
+                            <md-option value="professional" >Other Fitness Professional</md-option>
+                            <md-option value="management" >Management</md-option>
+                            <md-option value="other" >Other</md-option>
+                        </md-select>
+                    </div>
+                </div>
+                <div class="form-group emergency">
+                    <div class="col-md-6 col-sm-12">
+                        <md-input-container>
+                            <input mdInput id="emergency-name" type="text" placeholder="Emergency Contact Full Name" required>
+                        </md-input-container>
+                    </div>
+                    <div class="col-md-6 col-sm-12">
+                        <md-input-container>
+                            <input mdInput id="emergency-number" type="text" placeholder="Emergency Contact Phone Number" required>
+                        </md-input-container>
+                    </div>
+                </div>
+                <div class="form-group hear">
+                    <div class="col-md-6 col-sm-12">
+                        <md-select placeholder="How did you hear about us?" required>
+                            <md-option value="prev" >Took a course previously</md-option>
+                            <md-option value="manager" >Manager / Supervisor</md-option>
+                            <md-option value="friend" >Friend / Collegue</md-option>
+                            <md-option value="search" >Search Engine</md-option>
+                            <md-option value="social" >Social Media</md-option>
+                            <md-option value="show" >Trade Show / Conference</md-option>
+                            <md-option value="other" >Other (please specify)</md-option>
+                        </md-select>
+                    </div>
+                    <div class="col-md-6 col-sm-12">
+                        <md-select placeholder="T-Shirt Size" required>
+                            <md-option value="la-s" >Ladies' S</md-option>
+                            <md-option value="la-m" >Ladies' M</md-option>
+                            <md-option value="la-l" >Ladies' L</md-option>
+                            <md-option value="la-xl" >Ladies' XL</md-option>
+                            <md-option value="me-s" >Men's S</md-option>
+                            <md-option value="me-m" >Men's M</md-option>
+                            <md-option value="me-l" >Men's L</md-option>
+                            <md-option value="me-xl" >Men's XL</md-option>
+                        </md-select>
+                    </div>
+                </div>
 
             </div>
             <div class="license">
@@ -161,34 +160,117 @@
             <br>
             <br>
             <h2 class="section-title">PAYMENT OPTIONS</h2>
-            <md-radio-group>
+            <md-radio-group ng-model="selected">
                 <div class="pay-full">
-                    <md-radio-button value="1">Pay in Full</md-radio-button> <span class="price">$1,999.00</span>
+                    <md-radio-button value="1"  aria-label="Label 1" checked class="md-checked" required>Pay in Full</md-radio-button> <span class="price">$1,999.00</span>
                 </div>
                 <div class="pay-deposite">
-                    <md-radio-button value="2">Pay Deposit only</md-radio-button>
+                    <md-radio-button value="2"  aria-label="Label 2" required>Pay Deposit only</md-radio-button>
                     <br>
                     <span>Balance Due <span class="date">July31, 2017</span></span>
                 </div>
             </md-radio-group>
-            <md-checkbox>This registration is non-refundale!</md-checkbox>
+            <md-checkbox required>This registration is non-refundale!</md-checkbox>
             <h2 class="section-title">BILLING</h2>
             <div class="billing-info">
-                <i class="material-icons prefix">perm_identity</i>
-                <md-input-container>
-                    <input mdInput id="cardholder" type="text"  placeholder="Cardholder Name">
-                </md-input-container>
+                <p>
+                    <i class="material-icons prefix">perm_identity</i>
+                    <md-input-container>
+                        <input mdInput id="cardholder" type="text"  placeholder="Cardholder Name" required>
+                    </md-input-container>
+                </p>
+                <p>
+                    <i class="material-icons prefix">email</i>
+                    <md-input-container>
+                        <input mdInput id="card-email" type="email"  placeholder="Cardholder Email Address" email required>
+                    </md-input-container>
+                </p>
 
-                <i class="material-icons prefix">email</i>
-                <md-input-container>
-                    <input mdInput id="card-email" type="email"  placeholder="Cardholder Email Address" email>
-                </md-input-container>
-                <i class="material-icons prefix">credit_card</i>
-                <md-input-container>
-                    <input mdInput id="card" type="text"  placeholder="Credit Card Number">
-                </md-input-container>
-                <button md-raised-button>Apply Coupon</button>
+                <p>
+                    <i class="material-icons prefix">credit_card</i>
+                    <md-input-container>
+                        <input mdInput id="card" type="text"  placeholder="Credit Card Number" required>
+                    </md-input-container>
+                </p>
+
+                <div class="row">
+                    <span class="col-sm-6">
+                        <i class="material-icons prefix">today</i>
+                        <md-input-container>
+                            <input mdInput id="card-date" type="text"  placeholder="MM / YY" required>
+                        </md-input-container>
+                    </span>
+                    <span class="col-sm-6">
+                        <i class="material-icons prefix">lock</i>
+                        <md-input-container>
+                            <input mdInput id="csv" type="text"  placeholder="CSV" required>
+                        </md-input-container>
+                    </span>
+                </div>
+                <div class="form-group inline-input">
+                    <label class="sr-only" for="code">Coupon Code:</label>
+                    <div class="input-group">
+                        <div class="input-group-addon">Coupon Code:</div>
+                        <md-input-container>
+                            <input mdInput id="code" type="text" required>
+                        </md-input-container>
+                    </div>
+                </div>
+
+                <p>
+                    <a href="javascript:void(0)" class="btn btn-block btn-raised btn-primary">Apply Coupon<div class="ripple-container"></div></a>
+                </p>
+            </div>
+            <h2 class="section-title">ORDER</h2>
+            <div class="order-info">
+                <div class="form-group inline-input">
+                    <label class="sr-only" for="total">Course Total:</label>
+                    <div class="input-group">
+                        <div class="input-group-addon">Course Total:</div>
+                        <md-input-container>
+                            <input mdInput id="total" type="text" required>
+                        </md-input-container>
+                    </div>
+                    <label class="sr-only" for="gst">GST:</label>
+                    <div class="input-group">
+                        <div class="input-group-addon">GST:</div>
+                        <md-input-container>
+                            <input mdInput id="gst" type="text" required>
+                        </md-input-container>
+                    </div>
+                    <label class="sr-only" for="pst">PST:</label>
+                    <div class="input-group">
+                        <div class="input-group-addon">PST:</div>
+                        <md-input-container>
+                            <input mdInput id="pst" type="text" required>
+                        </md-input-container>
+                    </div>
+                    <label class="sr-only" for="discount">Discount:</label>
+                    <div class="input-group">
+                        <div class="input-group-addon">Discount:</div>
+                        <md-input-container>
+                            <input mdInput id="discount" type="text" required>
+                        </md-input-container>
+                    </div>
+                    <br>
+                    <div class="panel panel-warning">
+                        <div class="panel-heading">
+                            <h4 class="panel-title panel-code-title">
+                                <span class="pull-left">Total:</span><strong><span class="pull-right">100$</span></strong><br>
+                            </h4>
+                        </div>
+                        <div class="panel-body">
+                            <h4 class="panel-title panel-code-title">
+                                <span class="pull-left">Balance Owning:</span><strong><span class="pull-right">1,639$</span></strong><br>
+                            </h4>
+                        </div>
+                    </div>
+                </div>
+                <p>
+                    <button type="submit" class="btn btn-block btn-raised btn-primary">Register<span class="ripple-container"></span></button>
+                </p>
             </div>
         </aside>
     </div>
+    </form>
 </div>

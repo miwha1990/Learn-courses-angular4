@@ -8,3 +8,24 @@ aside.ms-paper-menu-left{
 .mat-select, .mat-input-container {
   width: 100%;
 }
+.billing-info {
+  i{vertical-align: middle;}
+  .mat-input-container {
+    width: 90%;
+  }
+  .row{
+    .mat-input-container {
+      width: 80%;
+    }
+  }
+  .inline-input{
+    .mat-input-container {
+      width: 100%;
+    }
+  }
+}
+.order-info{
+  .panel .panel-body {
+    padding: 1rem;
+  }
+}

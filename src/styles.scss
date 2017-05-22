@@ -111,4 +111,15 @@ html{
 
 @import './assets/theme-scss/style.themed';
  .form-horizontal label {
-   text-align: left; }
+   text-align: left;
+ }
+ .mat-focused .mat-input-placeholder,
+ .mat-select:focus:not(.mat-select-disabled).mat-primary .mat-select-trigger,
+ .mat-select:focus:not(.mat-select-disabled).mat-primary .mat-select-arrow{
+
+   color: #03A9F4 !important;
+ }
+ .mat-input-underline .mat-input-ripple,
+ .mat-select:focus:not(.mat-select-disabled).mat-primary .mat-select-underline {
+   background-color: #03A9F4;
+ }
