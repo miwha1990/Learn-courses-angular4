@@ -39,10 +39,10 @@
                 <li class="app-btn-ripple">
                     <a class="" data-name="Home" [routerLink]="home" routerLinkActive="active">Home</a>
                 </li>
-                <li class="app-btn-ripple" *ngIf="!routerHome">
+                <li class="app-btn-ripple" [ngClass]="(routerHome && !homeScrolled) ? 'invisible' : 'visible'">
                     <a [routerLink]="learn-in-class" class="" data-name="Learn in Class">Learn in Class</a>
                 </li>
-                <li class="app-btn-ripple" *ngIf="!routerHome">
+                <li class="app-btn-ripple" [ngClass]="(routerHome && !homeScrolled) ? 'invisible' : 'visible'">
                     <a href="#" class="" data-name="Learn Online">Learn Online</a>
                 </li>
                 <li class="app-btn-ripple">

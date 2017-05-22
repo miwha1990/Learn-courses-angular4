@@ -1,6 +1,7 @@
-import { Component , ElementRef, AfterViewInit} from '@angular/core';
+import { Component , ElementRef, AfterViewInit, Inject, HostListener } from '@angular/core';
 import { Location } from '@angular/common';
 import { Router } from '@angular/router';
+import { DOCUMENT } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-root',
@@ -9,7 +10,8 @@ import { Router } from '@angular/router';
 })
 export class AppComponent  implements  AfterViewInit {
   routerHome = false;
-  constructor(private el: ElementRef, private router: Router, private location: Location) {
+  homeScrolled = false;
+  constructor(private el: ElementRef, private router: Router, private location: Location, @Inject(DOCUMENT) private document: Document) {
 
   }
   ngAfterViewInit() {
@@ -20,5 +22,14 @@ export class AppComponent  implements  AfterViewInit {
         this.routerHome = false;
       }
     });
+  }
+  @HostListener('window:scroll', [])
+  onWindowScroll() {
+    const position = this.document.body.scrollTop;
+    if (position > (window.innerHeight - 50)) {
+      this.homeScrolled = true;
+    } else {
+      this.homeScrolled = false;
+    }
   }
 }

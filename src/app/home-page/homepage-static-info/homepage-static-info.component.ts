@@ -1,6 +1,5 @@
-import { Component, OnInit, ElementRef, Inject, HostListener } from '@angular/core';
-import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
-import { DOCUMENT } from '@angular/platform-browser';
+import { Component, OnInit} from '@angular/core';
+import { FormBuilder, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-homepage-static-info',
@@ -13,7 +12,7 @@ export class HomepageStaticInfoComponent implements OnInit {
     name: ['', Validators.required],
     email: ['', Validators.compose([Validators.required, Validators.email])]
   });
-  constructor(public fb: FormBuilder, @Inject(DOCUMENT) private document: Document) {}
+  constructor(public fb: FormBuilder) {}
   ngOnInit() {
   }
   formSubmit() {
@@ -22,15 +21,6 @@ export class HomepageStaticInfoComponent implements OnInit {
   keyDownFunction(event) {
     if (event.keyCode === 13) {
       this.formSubmit();
-    }
-  }
-  @HostListener('window:scroll', [])
-  onWindowScroll() {
-    const position = this.document.body.scrollTop;
-    if (position > (window.screen.height - 50)) {
-     console.log('time to change header', window.screen.height - 50);
-    } else {
-      console.log('cutted header');
     }
   }
 }

@@ -6,12 +6,12 @@ import { Component, OnInit, HostListener, ElementRef, Input} from '@angular/core
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
-  @Input() routerHome: {};
+  @Input() routerHome: boolean;
+  @Input() homeScrolled: boolean;
   slidebarFlag = false;
   constructor(private el: ElementRef) { }
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
   changeFlag(event) {
     event.stopPropagation();
     return this.slidebarFlag = !this.slidebarFlag;
