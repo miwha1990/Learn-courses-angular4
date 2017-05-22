@@ -1,5 +1,7 @@
-.form-group input.ng-invalid.ng-touched {
-    background-image: linear-gradient(#FF213F, #FF213F), linear-gradient(#FF213F, #FF213F);
-    background-size: 0 2px, 100% 2px;
+.form-group.mat-input-invalid .mat-input-underline {
+    border-width: 2px;
 }
 
+.form-control {
+    background-image: none;
+}

@@ -7,7 +7,7 @@ import { RouterModule } from '@angular/router';
 import { ContactUsModule } from './contact-us/contact-us.module';
 import { HomepageModule } from './home-page/homepage.module';
 import { ClassSinglePageModule } from './class-single-page/class-single-page.module';
-import {StickyModule} from 'ng2-sticky-kit/ng2-sticky-kit';
+import { StickyModule } from 'ng2-sticky-kit/ng2-sticky-kit';
 
 
 import { AppRoutes } from './app.routing';
@@ -19,6 +19,7 @@ import { PrivacyPageModule } from './privacy-page/privacy-page.module';
 import { TermsPageModule } from './terms-page/terms-page.module';
 import { OurTeamModule } from './our-team/our-team.module';
 import { CheckoutPageModule } from './checkout-page/checkout-page.module';
+import { FindCoursesModule } from './find-courses-page/find-courses.module';
 
 @NgModule({
   declarations: [
@@ -41,6 +42,7 @@ import { CheckoutPageModule } from './checkout-page/checkout-page.module';
     OurTeamModule,
     StickyModule,
     CheckoutPageModule,
+    FindCoursesModule
   ],
   bootstrap: [AppComponent]
 })

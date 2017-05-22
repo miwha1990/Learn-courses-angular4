@@ -4,6 +4,8 @@ import { RouterModule } from '@angular/router';
 import { ReactiveFormsModule } from '@angular/forms';
 import { AgmCoreModule } from '@agm/core';
 
+import { MdInputModule } from '@angular/material'
+
 import { ContactUsRoutes } from './contact-us.routing';
 
 import { ContactUsService } from './contact-us.service';
@@ -19,7 +21,8 @@ import { ContactsComponent } from './contacts/contacts.component';
     RouterModule.forChild(ContactUsRoutes),
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyBOvCGpfetHTFZPjOa6U-UhRHHS-6OeGhU'
-    })
+    }),
+    MdInputModule
   ],
   declarations: [
     ContactUsComponent,
