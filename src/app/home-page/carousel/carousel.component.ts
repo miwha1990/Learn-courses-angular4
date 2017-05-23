@@ -40,19 +40,37 @@ export class CarouselComponent implements AfterViewInit {
       }
     });
   };
-  slideRight = function() {
+  slideRight = function(event) {
     if ($('#testimonials-carousel').is(':animated')) {
       return;
     }
     const self = this;
     self.hideLeftButton = false;
-    $('#testimonials-carousel').animate({scrollLeft: ($('#testimonials-carousel').scrollLeft() - self.containerWidth)}, 600,function() {
+    $('#testimonials-carousel').animate({scrollLeft: ($('#testimonials-carousel').scrollLeft() - self.containerWidth)}, 600, function() {
       if ($('#testimonials-carousel').scrollLeft() === 0) {
         self.hideRightButton = true;
       } else {
         self.hideRightButton = false;
       }
     });
+  };
+  proceedDotClick = function(event){
+    $('ol.carousel-indicators li.active').removeClass('active');
+    $(event.target).addClass('active');
+    this.slideTo(event.target.dataset.slideTo);
+  };
+  slideTo = function(target: string){
+    if ($('#testimonials-carousel').is(':animated')) {
+      return;
+    }
+    const self = this;
+   /* $('#testimonials-carousel').animate({scrollLeft: ($('#testimonials-carousel').scrollLeft() - self.containerWidth)}, 600, function() {
+      if ($('#testimonials-carousel').scrollLeft() === 0) {
+        self.hideRightButton = true;
+      } else {
+        self.hideRightButton = false;
+      }
+    });*/
   };
   @HostListener('window:resize', ['$event'])
   onResize(event) {

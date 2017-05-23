@@ -41,26 +41,43 @@
       display: -webkit-box;
       overflow-x: hidden;
       .carousel-element{
-        width: 85%;
-        margin: 0 auto;
-        display: flex;
-        overflow: hidden;
-        justify-content: center;
-        @media (max-width: 768px) {
-          flex-direction:column;
-          align-items: center;
-        }
-        blockquote{
-          border:0;
-        }
-        .img-avatar-circle {
-          transform: rotate(0deg);
-          @media (max-width: 991px) {
-            height: 80px;
-            width: 80px;
+        width:100%;
+        .carousel-element-wrapper{
+          width: 85%;
+          margin: 0 auto;
+          display: flex;
+          overflow: hidden;
+          justify-content: center;
+          @media (max-width: 768px) {
+            flex-direction:column;
+            align-items: center;
           }
-          &:hover{
-            transform: rotate(360deg);
+          @media (max-width: 480px) {
+            width: 70%;
+            padding-top:0 !important;
+          }
+          blockquote{
+            border:0;
+            @media (max-width: 480px) {
+              padding:0;
+              &:after{
+                content: none;
+              }
+              p{
+                font-size: 1.5rem;
+                line-height: 1.2;
+              }
+            }
+          }
+          .img-avatar-circle {
+            transform: rotate(0deg);
+            @media (max-width: 991px) {
+              height: 80px;
+              width: 80px;
+            }
+            &:hover{
+              transform: rotate(360deg);
+            }
           }
         }
       }
