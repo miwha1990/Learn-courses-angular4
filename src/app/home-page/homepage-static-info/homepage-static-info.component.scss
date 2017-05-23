@@ -127,11 +127,17 @@
     @media screen and (max-width:768px){
       flex-direction: column;
     }
-    .form-group{
+    .mat-input-container{
       flex: 1 auto;
-      padding-right: 15px;
-      button,input{
-        color: #fff;
+      margin-right: 15px;
+      margin-left:15px;
+    }
+    button{
+      border: solid 1px #fff;
+      color: #fff;
+      flex: 1 auto;
+      i{
+        margin-top: -4px
       }
     }
   }

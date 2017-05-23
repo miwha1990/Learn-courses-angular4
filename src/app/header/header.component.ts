@@ -24,7 +24,7 @@ export class HeaderComponent implements OnInit {
   };
   @HostListener('document:click', ['$event'])
   onClick(event: MouseEvent) {
-    if ((this.isDescendant(this.el.nativeElement.children[2], event.target) === false) && this.slidebarFlag) {
+    if ((this.isDescendant(this.el.nativeElement.children[this.el.nativeElement.children.length - 1], event.target) === false) && this.slidebarFlag) {
       this.slidebarFlag = false;
     }
   }

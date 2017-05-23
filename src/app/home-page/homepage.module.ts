@@ -7,7 +7,7 @@ import {HomepageStaticInfoComponent} from './homepage-static-info/homepage-stati
 import {CarouselComponent} from './carousel/carousel.component';
 import { HomePageComponent } from './home-page.component';
 import { UpcomingCoursesComponent } from './upcoming-courses/upcoming-courses.component';
-import { MdButtonModule } from '@angular/material';
+import { MdButtonModule, MdInputModule } from '@angular/material';
 
 import {GetDataService} from './get-data.service';
 
@@ -20,6 +20,7 @@ import { HomePageRoutes } from './homepage.routing';
     FormsModule,
     ReactiveFormsModule,
     MdButtonModule,
+    MdInputModule,
   ],
   declarations: [
     HomepageStaticInfoComponent,
