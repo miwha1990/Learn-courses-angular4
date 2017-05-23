@@ -15,18 +15,25 @@
   &:after{
     background-color: transparent;
   }
-  h1{
-    font-size: 8em;
-    font-weight: bold;
-    margin:0;
+  .intro-full-content{
     @media screen and (max-width: 768px) {
-      font-size: 6em;
+      padding-top: 10px;
+      top: 0;
+      transform: translate(-50%, 50px);
     }
-    @media screen and (max-width: 600px) {
-      font-size: 4em;
-    }
-    @media screen and (max-width: 480px) {
-      font-size: 3em;
+    h1{
+      font-size: 8em;
+      font-weight: bold;
+      margin:0;
+      @media screen and (max-width: 1200px) {
+        font-size: 6em;
+      }
+      @media screen and (max-width: 768px) {
+        font-size: 3em;
+      }
+      @media screen and (max-width: 480px) {
+        font-size: 2.5em;
+      }
     }
   }
 }
@@ -35,6 +42,9 @@
   justify-content: center;
   align-items: baseline;
   margin-top:50px;
+  @media screen and (max-width: 1200px) {
+    margin-top:20px;
+  }
   @media screen and (max-width: 480px) {
     flex-direction: column;
     margin-top:10px;
@@ -49,9 +59,12 @@
       min-width:200px;
       background-color: #EB8C00;
       font-size: 1.1em;
-      font-weight: 400;
-      padding: 1em 2em;
-      margin:0 25px;
+      padding: 1em;
+      margin: 0 25px;
+      font-weight: 600;
+      @media screen and (max-width:768px){
+        padding: 0;
+      }
     }
     p{
       max-width: 200px;
@@ -73,6 +86,9 @@
   @media screen and (max-width:991px){
     flex-direction: column;
   }
+  @media screen and (max-width:768px){
+    padding: 0 0 10px 0;
+  }
     .logos-box{
       display: flex;
       justify-content: space-around;
@@ -87,12 +103,14 @@
         justify-content: center;
       }
         .img-logo-square {
-          width: 100px;
-          height: 50px;
+          width: 120px;
+          height: 70px;
           background-repeat: no-repeat;
           transform: translateY(0);
           @media screen and (max-width:768px){
             margin:5px;
+            width: 80px;
+            height: 40px;
           }
         }
     }
@@ -127,18 +145,12 @@
     h3{
       margin: 30px 0 10px;
     }
-    .text-list-block{
-      display: flex;
-      align-items: baseline;
-      @media screen and (max-width:768px){
-        flex-direction: column;
+    .ms-icon-feature {
+      margin-bottom: 10px;
+      .ms-icon.ms-icon-inverse {
+        background-color: transparent;
+        color: rgb(117,117,117);
+        border: solid 1px rgb(117,117,117);
       }
-        ul{
-          list-style: inherit;
-          flex-basis: 50%;
-            li{
-              line-height: 2;
-            }
-        }
     }
 }

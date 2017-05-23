@@ -213,8 +213,29 @@ Response:
 Comments: see 'Checkout' moqup
 
 
+Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a
+- Jessica Smith, Perosnal Trainer (GoodLife Fitness)
+
+
+- TOP NAVIGATION -
+
+Home			=> 	https://dtsfitnesseducation.com/
+Blog			=>	https://blog.dtsfitnesseducation.com
+Student Login		=>	https://online.dtsfitnesseducation.com/users/sign_in
+Learn In Class		=>	https://dtsfitnesseducation.com/learn_in_class
+Team			=>	https://dtsfitnesseducation.com/team
 
 
 
+- FOOTER -
 
+Help Centre & FAQ	=>	https://help.dtsfitnesseducation.com
+Contact Support		=>	https://dtsfitnesseducation.com/contact_support
+Payment Receipts	=>	https://dtsfitnesseducation.com/payment_receipts
+Cancellations & Refunds	=>	https://dtsfitnesseducation.com/terms_of_service
+Terms of Service	=>	https://dtsfitnesseducation.com/terms_of_service
+Privacy Statement	=>	https://dtsfitnesseducation.com/privacy_statement
 
+Facebook		=>	https://www.facebook.com/dtsfitnesseducation/
+YouTube			=>	https://www.youtube.com/user/DarbyTrainingSystems
+Instagram		=>	https://www.instagram.com/dts_edu/
