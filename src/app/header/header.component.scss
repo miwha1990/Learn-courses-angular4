@@ -37,6 +37,9 @@
     }
     .navbar-nav li a{
       color:#313131;
+      @media (max-width: 991px){
+      padding: 15px 10px;
+      }
       &:after{
         content: "";
         display: block;
@@ -60,7 +63,8 @@
     }
     .navbar-header{
       a.navbar-brand{
-        padding: 0 15px;
+        padding: 0 0 0 15px;
+        margin-right:0;
         img{
           height: 50px;
         }

@@ -1,6 +1,6 @@
-<div class="intro-full ms-hero-bg-primary color-white" id="home" style="background-image:url('../../../assets/HomePageBgBlurred.jpg')">
-  <div class="intro-full-content index-1">
-    <div class="container">
+<div class="landing-banner color-white" id="home" style="background-image:url('../../../assets/HomePageBgBlurred.jpg')">
+  <div class="container empty-placeholder"></div>
+  <div class="container banner-content">
       <div class="text-center mb-4">
         <h1 class="">KNOWLEDGE APPLIED</h1>
         <div class="buttons-row">
@@ -15,7 +15,6 @@
         </div>
       </div>
     </div>
-  </div>
   <div class="container logos-container ">
     <ul class="logos-box">
       <li class="img-logo-square" style="background-image: url('../../../assets/partnersLogos/truefitness.svg');"><a href="#"></a></li>
@@ -28,7 +27,7 @@
     </ul>
   </div>
 </div>
-<div class="container text-container intro-full-next panel">
+<div class="container text-container intro-full-next">
   <h3  class="text-center mb-4">Invest in your fitness education with confidence</h3>
   <div class="row">
     <div class="col-md-4 col-sm-6 mb-2">
@@ -108,7 +107,7 @@
 <div class="form-banner">
   <div class="container form-container">
     <legend class="text-center">Practical educational content in your inbox</legend>
-    <form [formGroup]="subscribeForm" (ngSubmit)="formSubmit($event)" (keydown)="keyDownFunction($event)">
+    <form class="subscribe-form" [formGroup]="subscribeForm" (ngSubmit)="formSubmit($event)" (keydown)="keyDownFunction($event)">
         <md-input-container>
           <input mdInput type="text" formControlName="name" placeholder="Name">
         </md-input-container>

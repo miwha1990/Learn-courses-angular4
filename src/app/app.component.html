@@ -5,5 +5,5 @@
     <div class="general-content-wrapper" [ngClass]="{'isHome':routerHome}">
         <router-outlet></router-outlet>
     </div>
-    <app-footer></app-footer>
+    <app-footer [homeScrolled]="homeScrolled"></app-footer>
 </div>

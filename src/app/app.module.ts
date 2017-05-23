@@ -8,6 +8,7 @@ import { ContactUsModule } from './contact-us/contact-us.module';
 import { HomepageModule } from './home-page/homepage.module';
 import { ClassSinglePageModule } from './class-single-page/class-single-page.module';
 import { StickyModule } from 'ng2-sticky-kit/ng2-sticky-kit';
+import { MdButtonModule } from '@angular/material';
 
 
 import { AppRoutes } from './app.routing';
@@ -42,7 +43,8 @@ import { FindCoursesModule } from './find-courses-page/find-courses.module';
     OurTeamModule,
     StickyModule,
     CheckoutPageModule,
-    FindCoursesModule
+    FindCoursesModule,
+    MdButtonModule,
   ],
   bootstrap: [AppComponent]
 })

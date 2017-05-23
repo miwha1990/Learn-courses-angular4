@@ -33,7 +33,7 @@ export class CarouselComponent implements AfterViewInit {
     const self = this;
     self.hideRightButton = false;
     $('#testimonials-carousel').animate({scrollLeft: ($('#testimonials-carousel').scrollLeft() + self.containerWidth)}, 600, function(){
-      if ($('#testimonials-carousel').scrollLeft() == self.maxWidth) {
+      if ($('#testimonials-carousel').scrollLeft() === self.maxWidth) {
         self.hideLeftButton = true;
       } else {
         self.hideLeftButton = false;
@@ -47,7 +47,7 @@ export class CarouselComponent implements AfterViewInit {
     const self = this;
     self.hideLeftButton = false;
     $('#testimonials-carousel').animate({scrollLeft: ($('#testimonials-carousel').scrollLeft() - self.containerWidth)}, 600,function() {
-      if ($('#testimonials-carousel').scrollLeft() == 0){
+      if ($('#testimonials-carousel').scrollLeft() === 0) {
         self.hideRightButton = true;
       } else {
         self.hideRightButton = false;

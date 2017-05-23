@@ -65,6 +65,19 @@
         }
       }
     }
+    .carousel-indicators{
+      bottom:0;
+      left: 50%;
+      width: 100%;
+      padding-left: 0;
+      margin-left: -50%;
+      li{
+        border-color: #EB8C00;
+        &.active{
+          background-color: #EB8C00;
+        }
+      }
+    }
   }
 }
 

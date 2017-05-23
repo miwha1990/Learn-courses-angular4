@@ -7,7 +7,10 @@
     transform: scale(1,1);
   }
 }
-.intro-full{
+.landing-banner{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   height: 100vh;
   background-size: cover;
   background-position: center;
@@ -15,11 +18,12 @@
   &:after{
     background-color: transparent;
   }
-  .intro-full-content{
+  .empty-placeholder{
+    min-height: 50px;
+  }
+  .banner-content{
     @media screen and (max-width: 768px) {
       padding-top: 10px;
-      top: 0;
-      transform: translate(-50%, 50px);
     }
     h1{
       font-size: 8em;
@@ -45,7 +49,7 @@
   @media screen and (max-width: 1200px) {
     margin-top:20px;
   }
-  @media screen and (max-width: 480px) {
+  @media screen and (max-width: 520px) {
     flex-direction: column;
     margin-top:10px;
     align-items: center;
@@ -76,10 +80,6 @@
   }
 }
 .logos-container{
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
   background-color: transparent;
   padding: 0 0 50px 0;
   margin-bottom: 0;
@@ -122,8 +122,9 @@
   legend{
     color: #fff;
   }
-  form{
+  form.subscribe-form{
     display: flex;
+    color: #ffffff;
     @media screen and (max-width:768px){
       flex-direction: column;
     }
