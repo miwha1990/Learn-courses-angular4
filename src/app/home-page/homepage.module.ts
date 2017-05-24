@@ -9,7 +9,7 @@ import { HomePageComponent } from './home-page.component';
 import { UpcomingCoursesComponent } from './upcoming-courses/upcoming-courses.component';
 import { MdButtonModule, MdInputModule } from '@angular/material';
 
-import {GetDataService} from './get-data.service';
+import { GetUpcomingCoursesService } from './get-upcoming-courses.service';
 
 import { HomePageRoutes } from './homepage.routing';
 
@@ -28,6 +28,6 @@ import { HomePageRoutes } from './homepage.routing';
     HomePageComponent,
     UpcomingCoursesComponent,
   ],
-  providers: [GetDataService],
+  providers: [GetUpcomingCoursesService],
 })
 export class HomepageModule { }

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {Router, ActivatedRoute, Params} from '@angular/router';
 import {GetClassDataService} from './get-class-data.service';
 
 @Component({
@@ -9,14 +10,16 @@ import {GetClassDataService} from './get-class-data.service';
 export class ClassSinglePageComponent implements OnInit {
   data = {};
   errorMessage: string;
-  constructor(private GetClassDataService: GetClassDataService) { }
+  constructor(private GetClassDataService: GetClassDataService, private activatedRoute: ActivatedRoute) { }
 
   ngOnInit() {
-    this.GetClassDataService.getClassData(1)
-        .subscribe(res => {
-          this.data = res;
-          },
-          error =>  this.errorMessage = <any>error);
-    }
-
+    this.activatedRoute.params.subscribe((params: Params) => {
+      const id: number = params['id'];
+      this.GetClassDataService.getClassData(id)
+          .subscribe(res => {
+                this.data = res;
+              },
+              error =>  this.errorMessage = <any>error);
+    });
+  }
 }
