@@ -2,8 +2,8 @@
   <h3 class="text-center mb-4">Upcoming Courses and Workshops</h3>
   <div class="courses-list-block">
     <ul >
-        <li *ngFor="let upCourse of items">
-            <a href="#">
+        <li *ngFor="let upCourse of data.items">
+            <a routerLink="class/{{upCourse?.id}}">
               <div class="card wow zoomInUp animation-delay-7">
                 <div class="card-header text-center">
                   <h2 class="card-title">{{ upCourse?.name }}</h2>

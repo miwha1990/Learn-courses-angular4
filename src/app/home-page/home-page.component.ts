@@ -1,5 +1,4 @@
 import { Component, OnInit} from '@angular/core';
-import { GetUpcomingCoursesService } from './get-upcoming-courses.service';
 
 @Component({
   selector: 'app-home-page',
@@ -7,15 +6,8 @@ import { GetUpcomingCoursesService } from './get-upcoming-courses.service';
   styleUrls: ['./home-page.component.scss']
 })
 export class HomePageComponent implements OnInit {
-  data = {};
-  errorMessage: string;
-  constructor(private GetUpcomingCoursesService: GetUpcomingCoursesService) { }
+ constructor() { }
 
   ngOnInit() {
-    this.GetUpcomingCoursesService.getCoursesData()
-        .subscribe(res => {
-          this.data = res;
-        },
-        error =>  this.errorMessage = <any>error);
   }
 }

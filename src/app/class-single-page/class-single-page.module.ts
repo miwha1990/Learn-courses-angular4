@@ -9,8 +9,7 @@ import { ClassSinglePageRoutes} from './class-single-page.routing';
 
 import { GetClassDataService } from './get-class-data.service';
 import { StickyCardComponent } from './sticky-card/sticky-card.component';
-
-
+import { UpcomingCoursesModule } from '../upcoming-courses/upcoming-courses.module';
 
 @NgModule({
   imports: [
@@ -19,14 +18,15 @@ import { StickyCardComponent } from './sticky-card/sticky-card.component';
     StickyModule,
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyBOvCGpfetHTFZPjOa6U-UhRHHS-6OeGhU'
-    })
+    }),
+    UpcomingCoursesModule,
   ],
   declarations: [
     ClassSinglePageComponent,
     StickyCardComponent,
   ],
   providers: [
-      GetClassDataService,
+    GetClassDataService,
   ],
 })
 export class ClassSinglePageModule { }

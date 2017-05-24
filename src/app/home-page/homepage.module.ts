@@ -6,10 +6,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {HomepageStaticInfoComponent} from './homepage-static-info/homepage-static-info.component';
 import {CarouselComponent} from './carousel/carousel.component';
 import { HomePageComponent } from './home-page.component';
-import { UpcomingCoursesComponent } from './upcoming-courses/upcoming-courses.component';
+import { UpcomingCoursesModule } from '../upcoming-courses/upcoming-courses.module';
 import { MdButtonModule, MdInputModule } from '@angular/material';
 
-import { GetUpcomingCoursesService } from './get-upcoming-courses.service';
 
 import { HomePageRoutes } from './homepage.routing';
 
@@ -21,13 +20,13 @@ import { HomePageRoutes } from './homepage.routing';
     ReactiveFormsModule,
     MdButtonModule,
     MdInputModule,
+    UpcomingCoursesModule,
   ],
   declarations: [
     HomepageStaticInfoComponent,
     CarouselComponent,
     HomePageComponent,
-    UpcomingCoursesComponent,
   ],
-  providers: [GetUpcomingCoursesService],
+  providers: [],
 })
 export class HomepageModule { }
