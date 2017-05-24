@@ -26,51 +26,51 @@ export class CarouselComponent implements AfterViewInit {
     this.elementsCount = $('.carousel-element').length;
     this.maxWidth = (this.elementsCount - 1) * this.containerWidth;
   };
-   slideLeft = function(event) {
+  changeIndicator = function(){
+    $('ol.carousel-indicators li.active').removeClass('active');
+    const arrayPosition = $('#testimonials-carousel').scrollLeft() / this.containerWidth;
+    $($('ol.carousel-indicators li')[arrayPosition]).addClass('active');
+  };
+   slideLeft = function(param: number) {
      if ($('#testimonials-carousel').is(':animated')) {
        return;
      }
     const self = this;
     self.hideRightButton = false;
-    $('#testimonials-carousel').animate({scrollLeft: ($('#testimonials-carousel').scrollLeft() + self.containerWidth)}, 600, function(){
+    $('#testimonials-carousel').animate({scrollLeft: ($('#testimonials-carousel').scrollLeft() + param)}, 600, function(){
       if ($('#testimonials-carousel').scrollLeft() === self.maxWidth) {
         self.hideLeftButton = true;
       } else {
         self.hideLeftButton = false;
       }
+     self.changeIndicator();
     });
   };
-  slideRight = function(event) {
+  slideRight = function(param: number) {
     if ($('#testimonials-carousel').is(':animated')) {
       return;
     }
     const self = this;
     self.hideLeftButton = false;
-    $('#testimonials-carousel').animate({scrollLeft: ($('#testimonials-carousel').scrollLeft() - self.containerWidth)}, 600, function() {
+    $('#testimonials-carousel').animate({scrollLeft: ($('#testimonials-carousel').scrollLeft() - param)}, 600, function() {
       if ($('#testimonials-carousel').scrollLeft() === 0) {
         self.hideRightButton = true;
       } else {
         self.hideRightButton = false;
       }
+      self.changeIndicator();
     });
   };
   proceedDotClick = function(event){
-    $('ol.carousel-indicators li.active').removeClass('active');
-    $(event.target).addClass('active');
-    this.slideTo(event.target.dataset.slideTo);
-  };
-  slideTo = function(target: string){
-    if ($('#testimonials-carousel').is(':animated')) {
+    const currentOffset = $($('ol.carousel-indicators li.active')[0].dataset.slideTo)[0].offsetLeft;
+    const targetOffset = $(event.target.dataset.slideTo)[0].offsetLeft;
+    if ( targetOffset > currentOffset ) {
+      this.slideLeft(targetOffset - currentOffset);
+    } else if ( targetOffset < currentOffset ) {
+      this.slideRight(currentOffset - targetOffset);
+    } else {
       return;
     }
-    const self = this;
-   /* $('#testimonials-carousel').animate({scrollLeft: ($('#testimonials-carousel').scrollLeft() - self.containerWidth)}, 600, function() {
-      if ($('#testimonials-carousel').scrollLeft() === 0) {
-        self.hideRightButton = true;
-      } else {
-        self.hideRightButton = false;
-      }
-    });*/
   };
   @HostListener('window:resize', ['$event'])
   onResize(event) {

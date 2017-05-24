@@ -8,16 +8,17 @@ export class GetClassDataService {
   constructor(private http: Http) { }
 
   getClassData(id: number): Observable<any> {
-      const headers = new Headers({
-          'Access-Control-Allow-Origin': '*',
-          'Content-Type': 'application/json'
-      });
+      // const headers = new Headers({
+      //     'Access-Control-Allow-Origin': '*',
+      //     'Content-Type': 'application/json'
+      // });
      // return this.http.get('../assets/class.json')
-     return this.http.get('https://rqdqmry09e.execute-api.us-east-1.amazonaws.com/v1/classes/' + id, { headers: headers})
+     return this.http.get('https://rqdqmry09e.execute-api.us-east-1.amazonaws.com/v1/classes/' + id)
         .map((res: Response) => {
           let a = res.json();
           a.venue.lat = parseFloat(a.venue.lat);
           a.venue.long = parseFloat(a.venue.long);
+          console.log(a);
           return a;
         });
   }
