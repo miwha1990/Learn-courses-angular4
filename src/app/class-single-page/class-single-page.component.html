@@ -1,28 +1,19 @@
 <div class="class-page-wrapper">
-    <sticky [sticky-offset-top]="50">
-        <div class="static-banner-container class-page-banner">
-            <figure [style.background-image]="'url(' + data?.image_url + ')'">
-                <figcaption class="text-center">
-                    <h3 class="">{{data?.name}}</h3>
-                    <div class="class-details">
-                        <p><i class="zmdi zmdi-calendar"></i> {{data?.details1}}</p>
-                        <p><i class="zmdi zmdi-nature"></i> {{data?.location}}</p>
-                        <p><i class="zmdi zmdi-alarm"></i> {{data?.details2}}</p>
-                    </div>
-                </figcaption>
-            </figure>
-        </div>
-        <app-sticky-card [data]="data"></app-sticky-card>
-    </sticky>
-    <div  class="container static-page-container">
-        <div class="col-md-8">
-            <div class="card">
-                <video [src]="data?.video_url" type="video/mp4" controls></video>
+    <div id="sticky-element" >
+        <div class="page-banner" [style.background-image]="'url(' + data?.image_url + ')'">
+            <h3 class="">{{data?.name}}</h3>
+            <div class="class-details">
+                <p><i class="zmdi zmdi-calendar"></i> {{data?.details1}}</p>
+                <p><i class="zmdi zmdi-nature"></i> {{data?.location}}</p>
+                <p><i class="zmdi zmdi-alarm"></i> {{data?.details2}}</p>
             </div>
-            {{data?.description}}
-
         </div>
     </div>
+    <div class="col-md-8">
+        <video [src]="data?.video_url" type="video/mp4" controls></video>
+        {{data?.description}}
+    </div>
+    <!--<app-sticky-card [data]="data"  class="col-md-4"></app-sticky-card>-->
     <div class="container-full">
         <div  class="container">
             <div class="col-md-8">
