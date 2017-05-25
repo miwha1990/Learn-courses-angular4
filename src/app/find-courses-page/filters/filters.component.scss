@@ -1,3 +1,15 @@
+.filters-section {
+    height: 350px;
+    background-image: url('../../../assets/img/filter-component/filter-bg.jpg');
+    background-size: cover;
+    background-position: 100%, 100%;
+    background-repeat: no-repeat;
+    margin-top: -40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center
+}
+
 .wrapper-courses-filter-block {
     display: flex;
     flex-direction: column;
@@ -16,5 +28,16 @@
 }
 
 .filter {
-    min-width: 200px;
+    min-width: 235px;
+
+    &:nth-child(2) {
+        min-width: 340px;
+    }
+}   
+
+.form-container legend {
+    font-size: 36px;
+    color: #FFF;
+    font-weight: 500;
+    margin-bottom: 70px
 }
