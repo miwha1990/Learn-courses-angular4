@@ -1,19 +1,22 @@
 <div class="class-page-wrapper">
-    <div id="sticky-element" >
-        <div class="page-banner" [style.background-image]="'url(' + data?.image_url + ')'">
-            <h3 class="">{{data?.name}}</h3>
-            <div class="class-details">
-                <p><i class="zmdi zmdi-calendar"></i> {{data?.details1}}</p>
-                <p><i class="zmdi zmdi-nature"></i> {{data?.location}}</p>
-                <p><i class="zmdi zmdi-alarm"></i> {{data?.details2}}</p>
-            </div>
+    <div class="page-banner" [style.background-image]="'url(' + data?.image_url + ')'">
+        <h3 class="">{{data?.name}}</h3>
+        <div class="class-details">
+            <p><i class="zmdi zmdi-calendar"></i> {{data?.details1}}</p>
+            <p><i class="zmdi zmdi-nature"></i> {{data?.location}}</p>
+            <p><i class="zmdi zmdi-alarm"></i> {{data?.details2}}</p>
         </div>
+    </div>
+    <div id="sticky-element">
+        <p><i class="zmdi zmdi-calendar"></i> {{data?.details1}}</p>
+        <p><i class="zmdi zmdi-nature"></i> {{data?.location}}</p>
+        <p><i class="zmdi zmdi-alarm"></i> {{data?.details2}}</p>
     </div>
     <div class="col-md-8">
         <video [src]="data?.video_url" type="video/mp4" controls></video>
         {{data?.description}}
     </div>
-    <!--<app-sticky-card [data]="data"  class="col-md-4"></app-sticky-card>-->
+    <app-sticky-card [data]="data"  class="col-md-4"></app-sticky-card>
     <div class="container-full">
         <div  class="container">
             <div class="col-md-8">

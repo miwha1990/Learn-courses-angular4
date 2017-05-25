@@ -1,64 +1,58 @@
 .class-page-wrapper{
   width:100%;
   position: relative;
+ .page-banner {
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   flex-direction: column;
+   color: #ffffff;
+   min-height: 280px;
+   background-position: center;
+   background-size: cover;
+   background-repeat: no-repeat;
+   .class-details {
+     display: flex;
+     justify-content: space-around;
+     align-items: center;
+     p {
+       margin: 0 20px;
+       @media screen and (max-width: 768px) {
+         margin: 0 5px;
+       }
+     }
+     @media screen and (max-width: 480px) {
+       flex-direction: column;
+     }
+   }
+ }
   #sticky-element{
-    .page-banner{
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-direction: column;
-      color: #ffffff;
-      min-height: 280px;
-      background-position: center;
-      background-size: cover;
-      background-repeat: no-repeat;
-        .class-details {
-          display: flex;
-          justify-content: space-around;
-          align-items: center;
-          p {
-            margin: 0 20px;
-            @media screen and (max-width: 768px) {
-              margin: 0 5px;
-            }
-          }
-          @media screen and (max-width: 480px) {
-            flex-direction: column;
-          }
-        }
+    visibility: hidden;
+    height: 40px;
+    background-color: #333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index:1!important;
+    width:100%!important;
+    color: #fff;
+    p {
+      margin: 0 20px;
+      @media screen and (max-width: 768px) {
+        margin: 0 5px;
+      }
     }
     &.is_stuck{
-      z-index:1!important;
-      width:100%!important;
-      .page-banner{
-        -webkit-animation: fadeInDownPerso;
-        animation: fadeInDownPerso;
-        -webkit-animation-duration: 1s;
-        animation-duration: 1s;
-        -webkit-animation-fill-mode: both;
-        animation-fill-mode: both;
-        min-height: 40px;
-        h3{
-          display: none;
-        }
-        .class-details {
-          justify-content: center;
-        }
-      }
-      + .static-page-container{
-        padding-top: 70px;
+      visibility: visible;
       }
     }
-  }
   app-sticky-card{
-    margin-top:40px;
     z-index: 1;
     &.is_stuck{
       margin-top: 0;
     }
   }
   video{
-    margin-top:40px;
     width:100%;
   }
   agm-map {
