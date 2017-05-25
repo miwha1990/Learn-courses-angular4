@@ -19,6 +19,7 @@ h3, h4, h5{
      align-items: flex-start;
 
      .img-avatar-circle {
+       min-width: 120px;
        transform: translateY(0) rotate(0deg);
        &:hover{
          transform: translateY(0) rotate(360deg);
