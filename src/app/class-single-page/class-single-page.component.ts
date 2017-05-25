@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import {Router, ActivatedRoute, Params} from '@angular/router';
 import {GetClassDataService} from './get-class-data.service';
+import {jQueryStatic} from 'jquery';
+import 'jquery';
+declare const $: jQueryStatic;
 
 @Component({
   selector: 'app-class-single-page',
@@ -21,5 +24,20 @@ export class ClassSinglePageComponent implements OnInit {
               },
               error =>  this.errorMessage = <any>error);
     });
+    $('#sticky-element').stick_in_parent({offset_top: 50})
+        .on('sticky_kit:bottom', function(e) {
+          console.log('now!');
+          $(this).parent().css('position', 'static');
+        })
+        .on('sticky_kit:unbottom', function(e) {
+          $(this).parent().css('position', 'relative');
+        });
+    $('app-sticky-card').stick_in_parent({offset_top: 90});
+        // .on('sticky_kit:bottom', function(e) {
+        //   $(this).parent().css('position', 'static');
+        // })
+        // .on('sticky_kit:unbottom', function(e) {
+        //   $(this).parent().css('position', 'relative');
+        // });
   }
 }

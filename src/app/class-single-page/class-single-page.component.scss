@@ -1,9 +1,17 @@
 .class-page-wrapper{
   width:100%;
   position: relative;
-  sticky{
-    .static-banner-container {
-      figure {
+  #sticky-element{
+    .page-banner{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      color: #ffffff;
+      min-height: 280px;
+      background-position: center;
+      background-size: cover;
+      background-repeat: no-repeat;
         .class-details {
           display: flex;
           justify-content: space-around;
@@ -18,76 +26,45 @@
             flex-direction: column;
           }
         }
-      }
     }
-    app-sticky-card{
-      position: absolute;
-      margin-top:280px;
-      left:50%;
-      transform: translateX(-50%);
-    }
-    &.sticky{
+    &.is_stuck{
       z-index:1!important;
       width:100%!important;
-      .static-banner-container{
+      .page-banner{
         -webkit-animation: fadeInDownPerso;
         animation: fadeInDownPerso;
         -webkit-animation-duration: 1s;
         animation-duration: 1s;
         -webkit-animation-fill-mode: both;
         animation-fill-mode: both;
-        min-height: unset;
-
-        figure {
-          height: 100%;
-          width: 100%;
-          padding: 20px 0;
-          h3{
-            display: none;
-          }
-          .class-details {
-            justify-content: center;
-          }
+        min-height: 40px;
+        h3{
+          display: none;
+        }
+        .class-details {
+          justify-content: center;
         }
       }
       + .static-page-container{
         padding-top: 70px;
       }
-      app-sticky-card{
-        margin-top:40px;
-      }
     }
   }
-.static-page-container{
-  padding-top: 280px;
-}
-  .fixed-banner-container{
-    top:50px;
-    position: fixed;
-    right: 0;
-    left: 0;
+  app-sticky-card{
+    margin-top:40px;
+    z-index: 1;
+    &.is_stuck{
+      margin-top: 0;
+    }
   }
   video{
+    margin-top:40px;
     width:100%;
   }
   agm-map {
     height: 300px;
     position: relative;
     display: block;
-  }
-  .sticky-end {
-    position: absolute;
-    right: 0 !important;
-    bottom: 100px !important;
-     app-sticky-card{
-       margin-top: 0;
-     }
-  }
-  .sticky {
-    left: 0 !important;
-    app-sticky-card {
-      margin-bottom: 1000px;
-    }
   }
 }
 .courses-container{
