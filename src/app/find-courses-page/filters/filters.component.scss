@@ -41,3 +41,20 @@
     font-weight: 500;
     margin-bottom: 70px
 }
+
+@media screen and (max-width: 992px) {
+    .wrapper-courses-filter {
+        flex-direction: column;
+        .filter {
+            margin: 15px 0;
+            min-width: 280px;
+            &:nth-child(2) {
+                min-width: 280px;
+            }
+        }
+    }
+    .form-container legend {
+        margin-bottom: 0px;
+        line-height: 38px;
+    }   
+}
