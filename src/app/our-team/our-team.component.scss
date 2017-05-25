@@ -8,3 +8,30 @@
   background-size: cover;
   background-repeat: no-repeat;
 }
+h3, h4, h5{
+  color:rgba(5, 5, 5, 0.35);
+}.team-member-wrapper{
+   &:nth-child(odd){
+     background-color: #ffffff;
+   }
+   .team-member-card{
+     display: flex;
+     align-items: flex-start;
+
+     .img-avatar-circle {
+       transform: translateY(0) rotate(0deg);
+       &:hover{
+         transform: translateY(0) rotate(360deg);
+       }
+     }
+     div{
+       padding-left:40px;
+       .member-name{
+         color:rgba(5, 5, 5, 0.35);
+         font-size: 20px;
+         margin-right: 10px;
+       }
+     }
+
+   }
+ }
