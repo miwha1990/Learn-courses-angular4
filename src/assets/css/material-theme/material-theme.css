@@ -1847,3 +1847,22 @@ form.subscribe-form .mat-input-error {
 .mat-tooltip {
     background: rgba(97, 97, 97, .9)
 }
+
+/* My Styles */
+
+.wrapper-courses-filter .mat-select-placeholder {
+    color: #FFFFFF;
+}
+
+.wrapper-courses-filter .mat-select-arrow,
+.wrapper-courses-filter .mat-select-disabled .mat-select-value,
+.wrapper-courses-filter .mat-select-trigger,
+.wrapper-courses-filter .mat-select-underline,
+.wrapper-courses-filter .mat-select-value-text {
+    color: #FFFFFF;
+}
+
+.wrapper-courses-filter .mat-select-underline {
+    background-color: #FFFFFF
+}
+/* End My Styles */

@@ -4,24 +4,26 @@ import { RouterModule } from '@angular/router';
 
 import { MdSelectModule } from '@angular/material';
 
+import { UpcomingCoursesModule } from '../upcoming-courses/upcoming-courses.module'
+
 import { FindCoursesRoutes } from './find-courses.routing';
 
 import { FindCoursesService } from './find-courses.service';
 
 import { FindCoursesComponent } from './find-courses.component';
 import { FiltersComponent } from './filters/filters.component';
-import { UpcomingCoursesComponent } from './upcoming-courses/upcoming-courses.component';
+
 
 @NgModule({
   imports: [
     CommonModule,
     RouterModule.forChild(FindCoursesRoutes),
-    MdSelectModule
+    MdSelectModule,
+    UpcomingCoursesModule
   ],
   declarations: [
     FindCoursesComponent,
-    FiltersComponent,
-    UpcomingCoursesComponent
+    FiltersComponent
   ],
   providers: [
     FindCoursesService
