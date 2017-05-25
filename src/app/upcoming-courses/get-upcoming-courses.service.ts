@@ -14,14 +14,14 @@ export class GetUpcomingCoursesService {
             return this.http.get('https://rqdqmry09e.execute-api.us-east-1.amazonaws.com/v1/classes/upcoming?class_id=' + id)
                 .map((res: Response) => {
                     let a = res.json();
-                    console.log(a);
+                    // console.log(a);
                     return a;
                 });
         } else {
             return this.http.get('https://rqdqmry09e.execute-api.us-east-1.amazonaws.com/v1/classes/upcoming')
                 .map((res: Response) => {
                     let a = res.json();
-                    console.log(a);
+                    // console.log(a);
                     return a;
                 });
         }

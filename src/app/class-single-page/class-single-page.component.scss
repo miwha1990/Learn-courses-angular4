@@ -76,10 +76,20 @@
     display: block;
   }
   .sticky-end {
-    left: 0 !important;
-    bottom: 0 !important;
+    position: absolute;
+    right: 0 !important;
+    bottom: 100px !important;
+     app-sticky-card{
+       margin-top: 0;
+     }
   }
   .sticky {
     left: 0 !important;
+    app-sticky-card {
+      margin-bottom: 1000px;
+    }
   }
+}
+.courses-container{
+  min-height: 500px;
 }

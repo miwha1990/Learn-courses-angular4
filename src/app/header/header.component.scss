@@ -32,6 +32,13 @@
     border-width: 0 0 1px;
     margin-bottom: 0;
     background-color: #fff;
+    @media (max-width: 991px) {
+      .container{
+        .navbar-collapse {
+          display: none !important;
+        }
+      }
+    }
     @media (min-width: 768px) {
       border-radius: 0;
     }
