@@ -1,0 +1,47 @@
+.card {
+    background-color: transparent;
+    box-shadow: none;
+    min-height: 300px;
+    margin-bottom: 7rem;
+    clear: both;
+}
+
+.wrapper-courses-categories-component .card-block {
+    padding: 0rem;
+    min-height: 300px;
+    display: inline-flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between;
+}
+
+.img-category {
+    max-height: 300px;
+    width: 100%;
+    object-fit: cover; 
+}
+
+h4.title {
+    color: #000 !important;
+    font-size: 22px;
+    font-weight: 400
+}
+
+p.description {
+    color: #747474;
+    font-size: 16px;
+}
+
+.view-btn {
+    text-transform: uppercase;
+    color: #F48801;
+    font-size: 18px;
+    float: right;
+    margin-top: 10px;
+    line-height: 50px;
+    border: 1px solid transparent;
+    align-self: flex-end;
+    &:hover {
+        border-color: #FFFFFF;
+    }
+}
