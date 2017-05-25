@@ -6,7 +6,7 @@ import 'rxjs/Rx';
 import { environment } from '../../environments/environment';
 
 @Injectable()
-export class FindCoursesService {
+export class HomepageService {
   environment;
 
 
@@ -21,7 +21,7 @@ export class FindCoursesService {
     return this.http.get(endpoint)
         .map((res: Response) => {
             let resData = res.json().items;
-            console.info('SERVICE: Upcoming Courses', resData);
+            console.info(resData);
             return resData;
         });
   }

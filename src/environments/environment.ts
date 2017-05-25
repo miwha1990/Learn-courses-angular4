@@ -5,6 +5,7 @@
 
 export const environment = {
   production: false,
-  apiHost: 'https://api.dtsfitnesseducation.com/v1',
-  contactUs: '/contact'
+  apiHost: 'https://rqdqmry09e.execute-api.us-east-1.amazonaws.com/v1',
+  contactUs: '/contact',
+  upcomingCourses: '/classes/upcoming'
 };
