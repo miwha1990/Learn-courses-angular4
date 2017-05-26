@@ -18,8 +18,8 @@ export class CarouselComponent implements AfterViewInit {
 
   ngAfterViewInit() {
     this.calculateParams();
-    this.hideLeftButton = false;
-    this.hideRightButton = true;
+    this.hideRightButton = false;
+    this.hideLeftButton = true;
   }
   calculateParams = function(){
     this.containerWidth = ($($('.carousel-container')[0]))[0].offsetWidth;
@@ -36,12 +36,12 @@ export class CarouselComponent implements AfterViewInit {
        return;
      }
     const self = this;
-    self.hideRightButton = false;
+    self.hideLeftButton = false;
     $('#testimonials-carousel').animate({scrollLeft: ($('#testimonials-carousel').scrollLeft() + param)}, 600, function(){
       if ($('#testimonials-carousel').scrollLeft() === self.maxWidth) {
-        self.hideLeftButton = true;
+        self.hideRightButton = true;
       } else {
-        self.hideLeftButton = false;
+        self.hideRightButton = false;
       }
      self.changeIndicator();
     });
@@ -51,12 +51,12 @@ export class CarouselComponent implements AfterViewInit {
       return;
     }
     const self = this;
-    self.hideLeftButton = false;
+    self.hideRightButton = false;
     $('#testimonials-carousel').animate({scrollLeft: ($('#testimonials-carousel').scrollLeft() - param)}, 600, function() {
       if ($('#testimonials-carousel').scrollLeft() === 0) {
-        self.hideRightButton = true;
+        self.hideLeftButton = true;
       } else {
-        self.hideRightButton = false;
+        self.hideLeftButton = false;
       }
       self.changeIndicator();
     });

@@ -6,16 +6,16 @@
 }
   .ms-header{
     background-color: #fff;
-    color: #313131;
+    color: #616161;
     .ms-title{
       a img {
         height: 50px;
       }
     }
     .btn-circle {
-      color: #313131;
+      color: #616161;
       &:before{
-        background-color: #313131;
+        background-color: #616161;
       }
     }
     .btn-circle:hover,
@@ -23,7 +23,7 @@
       color: #fff;
     }
     .search-form .search-input {
-      color: #313131;
+      color: #616161;
       font-weight: 400;
     }
   }
@@ -32,6 +32,11 @@
     border-width: 0 0 1px;
     margin-bottom: 0;
     background-color: #fff;
+    .container{
+      .navbar-collapse {
+        padding:0;
+      }
+    }
     @media (max-width: 991px) {
       .container{
         .navbar-collapse {
@@ -43,7 +48,7 @@
       border-radius: 0;
     }
     .navbar-nav li a{
-      color:#313131;
+      color:#616161;
       @media (max-width: 991px){
       padding: 15px 10px;
       }
@@ -80,9 +85,10 @@
     .btn-navbar-menu {
       margin-top: 0;
       position: relative;
-      right:inherit;
-      color: #313131;
-      margin-bottom:0;
+      right: inherit;
+      color: #616161;
+      padding: 0;
+      min-width: 50px;
     }
   }
   .ms-slidebar{
