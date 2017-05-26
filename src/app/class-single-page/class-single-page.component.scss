@@ -44,8 +44,14 @@
     }
     &.is_stuck{
       visibility: visible;
-      }
+      -webkit-animation: fadeInDownPerso;
+      animation: fadeInDownPerso;
+      -webkit-animation-duration: 1s;
+      animation-duration: 1s;
+      -webkit-animation-fill-mode: both;
+      animation-fill-mode: both;
     }
+  }
   app-sticky-card{
     z-index: 1;
     &.is_stuck{
