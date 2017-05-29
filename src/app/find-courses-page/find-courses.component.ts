@@ -9,17 +9,28 @@ import { FindCoursesService } from './find-courses.service';
 })
 export class FindCoursesComponent implements OnInit {
   upcomingCoursesData;
+  categoriesListData;
   
   constructor(private findCoursesService: FindCoursesService) { }
 
   ngOnInit() {
     this.getUpcomingCourses();
+    this.getCategoriesList();
   }
 
   getUpcomingCourses() {
     this.findCoursesService.getUpcomingCourses()
       .subscribe(
         data => this.upcomingCoursesData = data,
+        err => console.error('ERROR', err)
+      )
+  }
+
+
+  getCategoriesList() {
+    this.findCoursesService.getCategoriesList()
+      .subscribe(
+        data => this.categoriesListData = data,
         err => console.error('ERROR', err)
       )
   }
