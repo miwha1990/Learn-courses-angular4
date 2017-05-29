@@ -4,48 +4,10 @@ html{
 h3{
   font-weight:400!important;
 }
- .app-btn-ripple {
-   font-weight: 400;
-   letter-spacing: 0.14px;
-   white-space: nowrap;
-   align-self: center;
-   border: none;
-   outline: rgba(0, 0, 0, 0.870588) none 0px;
-   position: relative;
-   overflow: hidden;
-   transform: translate3d(0, 0, 0);
-   &:after {
-     content: "";
-     display: block;
-     position: absolute;
-     width: 100%;
-     height: 100%;
-     top: 0;
-     left: 0;
-     pointer-events: none;
-     background-image: radial-gradient(circle, #000 10%, transparent 10.01%);
-     background-repeat: no-repeat;
-     background-position: 50%;
-     transform: scale(10,10);
-     opacity: 0;
-     transition: transform .5s, opacity 1s;
-   }
-   &:active:after {
-     transform: scale(0,0);
-     opacity: .2;
-     transition: 0s;
-   }
- }
  .static-banner-container{
    min-height: 280px;
    display: grid;
    position: relative;
-   &.class-page-banner{
-    /* position: absolute;
-     top: 0;
-     left: 0;
-     right: 0;*/
-   }
    figure{
      background-repeat: no-repeat;
      background-size: cover;
@@ -75,10 +37,7 @@ h3{
      right: 0;
    }
    sticky.sticky{
-     .ms-header{
-       display: none;
-     }
-     nav.ms-navbar {
+    nav.ms-navbar {
        position: fixed;
        right: 0;
        left: 0;
@@ -91,16 +50,9 @@ h3{
        animation-duration: 1s;
        -webkit-animation-fill-mode: both;
        animation-fill-mode: both;
-       .btn-navbar-menu {
-         display: inline-block;
-       }
-       .navbar-brand{
-         display: block;
-       }
      }
    }
    .general-content-wrapper{
-     margin-top: 100px;
      padding-top:90px;
      position: relative;
      z-index: 3;

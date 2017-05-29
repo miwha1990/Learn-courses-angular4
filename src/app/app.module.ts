@@ -10,6 +10,8 @@ import { ClassSinglePageModule } from './class-single-page/class-single-page.mod
 import { StickyModule } from 'ng2-sticky-kit/ng2-sticky-kit';
 import { MdButtonModule } from '@angular/material';
 
+import { MarkdownModule } from 'angular2-markdown';
+
 
 
 import { AppRoutes } from './app.routing';
@@ -46,6 +48,7 @@ import { FindCoursesModule } from './find-courses-page/find-courses.module';
     CheckoutPageModule,
     FindCoursesModule,
     MdButtonModule,
+    MarkdownModule.forRoot(),
   ],
   bootstrap: [AppComponent]
 })

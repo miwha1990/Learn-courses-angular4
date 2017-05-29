@@ -4,29 +4,6 @@
 .invisible{
   display:none;
 }
-  .ms-header{
-    background-color: #fff;
-    color: #616161;
-    .ms-title{
-      a img {
-        height: 50px;
-      }
-    }
-    .btn-circle {
-      color: #616161;
-      &:before{
-        background-color: #616161;
-      }
-    }
-    .btn-circle:hover,
-    .btn-circle:focus {
-      color: #fff;
-    }
-    .search-form .search-input {
-      color: #616161;
-      font-weight: 400;
-    }
-  }
   .ms-navbar {
     z-index: 1000;
     border-width: 0 0 1px;
@@ -77,6 +54,7 @@
       a.navbar-brand{
         padding: 0 0 0 15px;
         margin-right:0;
+        display: block;
         img{
           height: 50px;
         }
@@ -89,6 +67,10 @@
       color: #616161;
       padding: 0;
       min-width: 50px;
+      display: none;
+      @media (max-width: 991px){
+        display: block;
+      }
     }
   }
   .ms-slidebar{
@@ -98,7 +80,11 @@
     transition: all 1s ease;
     min-height: 100vh;
     z-index: 9999;
-    display: block;
+    transition-duration: 0.5s;
+    display:none;
+    @media (max-width: 991px) {
+      display: block;
+    }
     .ms-slidebar-menu > li > a:after {
       content: '';
     }
@@ -107,7 +93,3 @@
     }
   }
 
-
-.ms-slidebar {
-  transition-duration: 0.5s;
-}

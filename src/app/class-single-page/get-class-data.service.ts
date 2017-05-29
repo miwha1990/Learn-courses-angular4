@@ -8,8 +8,8 @@ export class GetClassDataService {
   constructor(private http: Http) { }
 
   getClassData(id: number): Observable<any> {
-       return this.http.get('../assets/class.json')
-      // return this.http.get('https://rqdqmry09e.execute-api.us-east-1.amazonaws.com/v1/classes/' + id)
+       // return this.http.get('../assets/class.json')
+       return this.http.get('https://rqdqmry09e.execute-api.us-east-1.amazonaws.com/v1/classes/' + id)
         .map((res: Response) => {
           let a = res.json();
           a.venue.lat = parseFloat(a.venue.lat);

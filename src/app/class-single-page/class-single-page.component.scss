@@ -66,6 +66,23 @@
     position: relative;
     display: block;
   }
+  .instructors-container{
+    h4{
+      font-weight: 600;
+      color: #000;
+    }
+    .instructors-wrapper{
+      display: flex;
+      .instructor-info{
+        h4{
+          font-weight: 400;
+        }
+        flex-basis:50%;
+
+      }
+    }
+  }
+
 }
 .courses-container{
   min-height: 500px;
