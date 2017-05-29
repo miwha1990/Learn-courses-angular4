@@ -31,7 +31,7 @@ export class ClassSinglePageComponent implements OnInit {
               error =>  this.errorMessage = <any>error);
     });
     $('#sticky-element').stick_in_parent({offset_top: 50});
-    $('app-sticky-card').stick_in_parent({offset_top: 90})
+    $('app-sticky-card').stick_in_parent({offset_top: 90, parent: '.class-page-wrapper'})
         .on('sticky_kit:bottom', function(e) {
           $(this).parent().css('position', 'static');
           $('#sticky-element').removeClass("is_stuck");

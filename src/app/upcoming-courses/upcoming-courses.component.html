@@ -2,7 +2,7 @@
    <div class="courses-list-block">
     <ul>
       <li *ngFor="let course of upcomingCoursesData">
-          <!--<a routerLink="">-->
+          <a routerLink="/class/{{course.id}}">
             <div class="card wow zoomInUp animation-delay-7">
               <div class="card-header text-center">
                 <h2 class="card-title">{{ course?.name }}</h2>
@@ -25,7 +25,7 @@
                 </div>
               </div>
             </div>
-          <!--</a>-->
+         </a>
         </li>
 
     </ul>
