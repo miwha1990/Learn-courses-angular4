@@ -8,9 +8,10 @@
   background-size: cover;
   background-repeat: no-repeat;
 }
-h3, h4, h5{
+h3, h4, h5, .dropcaps::first-letter{
   color:rgba(5, 5, 5, 0.35);
-}.team-member-wrapper{
+}
+.team-member-wrapper{
    &:nth-child(odd){
      background-color: #ffffff;
    }

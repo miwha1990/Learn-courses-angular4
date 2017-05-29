@@ -31,7 +31,7 @@
     <agm-map class="mt-4" [latitude]="data?.venue?.lat" [longitude]="data?.venue?.long" [zoom]="8">
         <agm-marker [latitude]="data?.venue?.lat" [longitude]="data?.venue?.long"></agm-marker>
     </agm-map>
-    <div class="container-full pb-4 mt-4" [hidden]="!data?.instructors?.length">
+    <div class="container-full pb-4 pt-4 instructors-full-container" [hidden]="!data?.instructors?.length">
         <div  class="container instructors-container">
             <div class="col-md-8">
                 <h4 [hidden]="data?.is_special_event">INSTRUCTORS </h4><h4 [hidden]="!data?.is_special_event">SPEAKERS</h4>
@@ -44,11 +44,11 @@
         </div>
     </div>
 </div>
-<div class="container-full courses-container">
+<div class="container-full courses-container mb-6">
     <div  class="container">
         <div class="col-md-12">
-            <h3>Other available {{data?.name}} dates</h3>
-            <app-upcoming-courses></app-upcoming-courses>
+            <h3 class="mt-4 mb-4">Other available {{data?.name}} dates</h3>
+            <app-upcoming-courses  [upcomingCoursesData]="upcomingCoursesData"  [additionalInfo]="true"></app-upcoming-courses>
         </div>
     </div>
 </div>

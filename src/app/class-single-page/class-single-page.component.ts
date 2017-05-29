@@ -13,6 +13,7 @@ declare const $: jQueryStatic;
 export class ClassSinglePageComponent implements OnInit {
   data = {};
   errorMessage: string;
+  upcomingCoursesData;
   constructor(private GetClassDataService: GetClassDataService, private activatedRoute: ActivatedRoute) { }
 
   ngOnInit() {
@@ -21,6 +22,11 @@ export class ClassSinglePageComponent implements OnInit {
       this.GetClassDataService.getClassData(id)
           .subscribe(res => {
                 this.data = res;
+              },
+              error =>  this.errorMessage = <any>error);
+      this.GetClassDataService.getUpcomingCourses(id)
+          .subscribe(res => {
+                this.upcomingCoursesData = res;
               },
               error =>  this.errorMessage = <any>error);
     });

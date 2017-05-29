@@ -8,8 +8,6 @@ import { environment } from '../../environments/environment';
 @Injectable()
 export class HomepageService {
   environment;
-
-
   constructor(private http: Http) {
      this.environment = environment;
   }
