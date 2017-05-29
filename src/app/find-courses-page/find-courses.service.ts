@@ -15,13 +15,24 @@ export class FindCoursesService {
   }
 
 
-  getUpcomingCourses(id: number = null): Observable<any> {
+  getUpcomingCourses(): Observable<any> {
     let endpoint = `${this.environment.apiHost}${this.environment.upcomingCourses}`
 
     return this.http.get(endpoint)
         .map((res: Response) => {
             let resData = res.json().items;
             console.info('SERVICE: Upcoming Courses', resData);
+            return resData;
+        });
+  }
+
+  getCategoriesList() {
+    let endpoint = `${this.environment.apiHost}${this.environment.categories}`
+
+    return this.http.get(endpoint)
+        .map((res: Response) => {
+            let resData = res.json().items;
+            console.info('SERVICE: Categories List', resData);
             return resData;
         });
   }
