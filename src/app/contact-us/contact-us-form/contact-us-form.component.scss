@@ -5,3 +5,17 @@
 .form-control {
     background-image: none;
 }
+textarea{
+    flex:1 auto;
+}
+.cs-submit-button{
+    button{
+        display: flex;
+        align-items: center;
+        float: right;
+        padding:1rem 4rem;
+        i{
+            margin-top: -2px;
+        }
+    }
+}
