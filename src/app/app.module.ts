@@ -22,6 +22,7 @@ import { TermsPageModule } from './terms-page/terms-page.module';
 import { OurTeamModule } from './our-team/our-team.module';
 import { CheckoutPageModule } from './checkout-page/checkout-page.module';
 import { FindCoursesModule } from './find-courses-page/find-courses.module';
+import { ThankYouPageModule } from './thank-you-page/thank-you-page.module';
 
 @NgModule({
   declarations: [
@@ -47,6 +48,7 @@ import { FindCoursesModule } from './find-courses-page/find-courses.module';
     FindCoursesModule,
     MdButtonModule,
     MarkdownModule.forRoot(),
+    ThankYouPageModule
   ],
   bootstrap: [AppComponent]
 })
