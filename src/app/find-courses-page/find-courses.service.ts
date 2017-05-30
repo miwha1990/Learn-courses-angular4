@@ -20,8 +20,11 @@ export class FindCoursesService {
 
     if(params !== undefined) {
         endpoint = `${this.environment.apiHost}${this.environment.classes}?`
-        for (let param in params) if (!params[param]) delete params[param];
-        for (let param in params) endpoint += `${param}=${params[param]}&`;
+        for (let param in params) {
+            if (params[param]) {
+                endpoint += `${param}=${params[param]}&`;
+            }
+        }
     }
     else {
         endpoint = `${this.environment.apiHost}${this.environment.upcomingCourses}`;
