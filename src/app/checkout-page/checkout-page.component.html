@@ -1,5 +1,5 @@
 <div class="container">
-    <form>
+    <form [formGroup]="checkoutForm" (ngSubmit)="formSubmit($event)" (keydown)="keyDownFunction($event)">
     <div class="row">
         <main class="col-sm-8 ms-paper-content">
             <div class="logo"><span  class="ms-logo animated zoomInDown animation-delay-5">M</span></div>

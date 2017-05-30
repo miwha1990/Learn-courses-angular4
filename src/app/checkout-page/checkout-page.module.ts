@@ -7,6 +7,7 @@ import {BrowserModule} from '@angular/platform-browser';
 import {MaterialModule, MdNativeDateModule} from '@angular/material';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import { OrderProcessService} from '../order-process/order-process.service';
 @NgModule({
   imports: [
     CommonModule,
@@ -16,10 +17,11 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
     FormsModule,
     ReactiveFormsModule,
     MdNativeDateModule,
-    RouterModule.forChild(CheckoutPageRoutes)
+    RouterModule.forChild(CheckoutPageRoutes),
   ],
   declarations: [
     CheckoutPageComponent
-  ]
+  ],
+  providers: [OrderProcessService]
 })
 export class CheckoutPageModule { }
