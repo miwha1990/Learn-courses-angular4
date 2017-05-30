@@ -1,15 +1,26 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-filters',
   templateUrl: './filters.component.html',
   styleUrls: ['./filters.component.scss']
 })
-export class FiltersComponent implements OnInit {
+export class FiltersComponent {
+  @Input() filtersParamsData;
+  @Input() categoriesListData;
+  @Output() filterCoursesEmit = new EventEmitter();
+  categoryId = '';
+  courseId = '';
+  locationId = '';
 
-  constructor() { }
-
-  ngOnInit() {
+  filterCourses() {
+    let filterParams = {
+      category_id: this.categoryId,
+      course_id: this.courseId,
+      location_id: this.locationId
+    }
+    
+    this.filterCoursesEmit.emit(filterParams);
+    
   }
-
 }

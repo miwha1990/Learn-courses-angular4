@@ -10,5 +10,7 @@ export const environment = {
   upcomingCourses: '/classes/upcoming',
   categories: '/categories',
   classes: '/classes/',
-  upcomingRelated: '/classes/upcoming?class_id='
+  upcomingRelated: '/classes/upcoming?class_id=',
+  locations: '/locations',
+  coursesList: '/courses'
 };
