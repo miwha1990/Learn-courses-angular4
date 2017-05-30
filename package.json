@@ -26,6 +26,7 @@
     "angular2-markdown": "^1.6.0",
     "bootstrap": "^3.3.7",
     "core-js": "^2.4.1",
+    "google-maps-angular2": "^1.1.2",
     "jquery": "^3.2.1",
     "ng2-sticky-kit": "^4.0.0",
     "ngx-bootstrap": "^1.6.6",

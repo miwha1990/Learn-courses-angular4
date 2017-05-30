@@ -1,21 +1,37 @@
-.form-group.mat-input-invalid .mat-input-underline {
-    border-width: 2px;
-}
 
-.form-control {
-    background-image: none;
-}
-textarea{
-    flex:1 auto;
-}
-.cs-submit-button{
-    button{
+.contact-support-form{
+    height: 100%;
+    div[role='group']{
+        height: 100%;
+        width: 100%;
         display: flex;
-        align-items: center;
-        float: right;
-        padding:1rem 4rem;
-        i{
-            margin-top: -2px;
+        align-items: stretch;
+        flex-direction: column;
+        .submit-button-form-group{
+            flex:1 auto;
+            display: flex;
+            align-items: flex-end;
+            justify-content: flex-end;
+        }
+        .form-group.mat-input-invalid .mat-input-underline {
+            border-width: 2px;
+        }
+
+        .form-control {
+            background-image: none;
+        }
+
+        .cs-submit-button{
+            button{
+                display: flex;
+                align-items: center;
+                float: right;
+                padding:0.5rem 4rem;
+                i{
+                    margin-top: -2px;
+                }
+            }
         }
     }
+
 }

@@ -12,8 +12,6 @@ import { MdButtonModule } from '@angular/material';
 
 import { MarkdownModule } from 'angular2-markdown';
 
-
-
 import { AppRoutes } from './app.routing';
 
 import { AppComponent } from './app.component';

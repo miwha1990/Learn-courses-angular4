@@ -8,8 +8,12 @@
         h4{
             font-weight: 500;
         }
-        address span {
+        address p {
+            margin-bottom:0;
             padding-left: 25px;
+            i{
+                margin-right:14px;
+            }
         }
     }
 }
