@@ -34,8 +34,10 @@ export class ContactUsComponent implements AfterViewInit {
         }
       });
       const icon = new maps.Marker({
-        url: 'http://maps.google.com/mapfiles/marker.png',
-        labelOrigin: new maps.Point(90, 30),
+        // url: 'http://maps.google.com/mapfiles/marker.png',
+        url: '../../assets/pin.png',
+        labelOrigin: new maps.Point(95, 43),
+        scaledSize: new maps.Size(43, 50)
       });
       const marker = new maps.Marker({
         position: {lat: 43.6560627, lng: -79.3571312},
