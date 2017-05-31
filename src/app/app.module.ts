@@ -10,8 +10,6 @@ import { ClassSinglePageModule } from './class-single-page/class-single-page.mod
 import { StickyModule } from 'ng2-sticky-kit/ng2-sticky-kit';
 import { MdButtonModule } from '@angular/material';
 
-import { MarkdownModule } from 'angular2-markdown';
-
 import { AppRoutes } from './app.routing';
 
 import { AppComponent } from './app.component';
@@ -23,6 +21,7 @@ import { OurTeamModule } from './our-team/our-team.module';
 import { CheckoutPageModule } from './checkout-page/checkout-page.module';
 import { FindCoursesModule } from './find-courses-page/find-courses.module';
 import { ThankYouPageModule } from './thank-you-page/thank-you-page.module';
+import { SafeResourceUrlModule } from './shared/safe-resourse-url/safe-resource-url.module';
 
 @NgModule({
   declarations: [
@@ -47,8 +46,8 @@ import { ThankYouPageModule } from './thank-you-page/thank-you-page.module';
     CheckoutPageModule,
     FindCoursesModule,
     MdButtonModule,
-    MarkdownModule.forRoot(),
-    ThankYouPageModule
+    ThankYouPageModule,
+    SafeResourceUrlModule
   ],
   bootstrap: [AppComponent]
 })

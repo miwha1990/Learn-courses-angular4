@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
-import { OrderProcessService} from '../order-process/order-process.service';
+import { OrderProcessService} from '../services/order-process.service';
 @Component({
   selector: 'app-checkout-page',
   templateUrl: './checkout-page.component.html',

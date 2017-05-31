@@ -7,7 +7,7 @@ import {BrowserModule} from '@angular/platform-browser';
 import {MaterialModule, MdNativeDateModule} from '@angular/material';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-import { OrderProcessService} from '../order-process/order-process.service';
+import { OrderProcessService} from '../services/order-process.service';
 @NgModule({
   imports: [
     CommonModule,

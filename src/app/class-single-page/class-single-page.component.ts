@@ -4,6 +4,7 @@ import {GetClassDataService} from './get-class-data.service';
 import {jQueryStatic} from 'jquery';
 import 'jquery';
 declare const $: jQueryStatic;
+import { SafeResourceUrlPipe } from '../shared/safe-resourse-url/safe-resource-url.pipe';
 
 @Component({
   selector: 'app-class-single-page',
@@ -34,11 +35,11 @@ export class ClassSinglePageComponent implements OnInit {
     $('app-sticky-card').stick_in_parent({offset_top: 90, parent: '.class-page-wrapper'})
         .on('sticky_kit:bottom', function(e) {
           $(this).parent().css('position', 'static');
-          $('#sticky-element').removeClass("is_stuck");
+          $('#sticky-element').removeClass('is_stuck');
         })
         .on('sticky_kit:unbottom', function(e) {
           $(this).parent().css('position', 'relative');
-            $('#sticky-element').addClass("is_stuck");
+            $('#sticky-element').addClass('is_stuck');
         });
   }
 }

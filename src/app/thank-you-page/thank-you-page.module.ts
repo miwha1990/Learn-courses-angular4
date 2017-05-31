@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { ThankYouPageComponent } from './thank-you-page.component';
 import { RouterModule} from '@angular/router';
 import { ThankYouPageRoutes } from './thank-you-page.routing';
-import { OrderProcessService} from '../order-process/order-process.service';
+import { OrderProcessService} from '../services/order-process.service';
 @NgModule({
   imports: [
     CommonModule,

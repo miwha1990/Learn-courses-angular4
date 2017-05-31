@@ -10,6 +10,8 @@ import { ClassSinglePageRoutes} from './class-single-page.routing';
 import { GetClassDataService } from './get-class-data.service';
 import { StickyCardComponent } from './sticky-card/sticky-card.component';
 import { UpcomingCoursesModule } from '../upcoming-courses/upcoming-courses.module';
+import { SafeResourceUrlModule } from '../shared/safe-resourse-url/safe-resource-url.module';
+import { MarkdownModule } from 'angular2-markdown';
 
 @NgModule({
   imports: [
@@ -20,6 +22,8 @@ import { UpcomingCoursesModule } from '../upcoming-courses/upcoming-courses.modu
       apiKey: 'AIzaSyBOvCGpfetHTFZPjOa6U-UhRHHS-6OeGhU'
     }),
     UpcomingCoursesModule,
+    SafeResourceUrlModule,
+    MarkdownModule.forRoot(),
   ],
   declarations: [
     ClassSinglePageComponent,
