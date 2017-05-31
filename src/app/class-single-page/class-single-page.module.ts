@@ -23,7 +23,7 @@ import { MarkdownModule } from 'angular2-markdown';
     }),
     UpcomingCoursesModule,
     SafeResourceUrlModule,
-    MarkdownModule.forRoot(),
+    MarkdownModule,
   ],
   declarations: [
     ClassSinglePageComponent,

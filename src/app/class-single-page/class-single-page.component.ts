@@ -12,7 +12,7 @@ import { SafeResourceUrlPipe } from '../shared/safe-resourse-url/safe-resource-u
   styleUrls: ['./class-single-page.component.scss']
 })
 export class ClassSinglePageComponent implements OnInit {
-  data = {};
+  data = {image_url: '', video_url: '', description : ''};
   errorMessage: string;
   upcomingCoursesData;
   constructor(private GetClassDataService: GetClassDataService, private activatedRoute: ActivatedRoute) { }
