@@ -1,5 +1,5 @@
 <div class="class-page-wrapper">
-    <div class="page-banner text-center" [style.background-image]="'url(' + data?.image_url + ')'">
+    <div class="page-banner text-center" [style.background-image]="(data?.image_url ? 'url(' + data?.image_url + ')' : '')">
         <h2 class="no-m ms-site-title color-white center-block ms-site-title-lg animated zoomInDown animation-delay-5">
             <span>{{data?.name}}</span>
         </h2>
@@ -16,17 +16,19 @@
         </div>
     <div class="container">
         <div class="col-md-8">
-            <video [src]="(data?.video_url | safeResourceUrl)" type="video/mp4" controls></video>
-            <markdown class="pt-4" [data]="data?.description"></markdown>
+            <video [src]="(data?.video_url ? (data?.video_url | safeResourceUrl) : '')" type="video/mp4" controls></video>
+            <div class="pt-4">
+                <markdown [data]="(data?.description ? data?.description : '')"></markdown>
+            </div>
         </div>
-        <app-sticky-card [data]="data"  class="col-md-4"></app-sticky-card>
+        <app-sticky-card [data]="data"  class="col-md-4 sticky-card"></app-sticky-card>
     </div>
     <div class="container-full">
         <div  class="container">
             <div class="col-md-8">
                 <h5>VENUE</h5>
                 {{data?.venue?.name}}<br/>
-                {{data?.venue?.address?.address_1}}, {{data?.venue?.address?.address_2}}, {{data?.venue?.address?.city}},  {{data?.venue?.address?.province}}<br/>
+                <span>{{data?.venue?.address?.address_1}}</span><span *ngIf="data?.venue?.address?.address_2">, {{data?.venue?.address?.address_2}}</span><span>, {{data?.venue?.address?.city}}</span><span *ngIf="data?.venue?.address?.province">,  {{data?.venue?.address?.province}}</span><br/>
                 {{data?.venue?.address?.country}}<br/>
                 {{data?.venue?.address?.postal_code}}<br/>
             </div>

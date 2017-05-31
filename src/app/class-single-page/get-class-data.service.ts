@@ -14,13 +14,15 @@ export class GetClassDataService {
     }
 
     getClassData(id: number): Observable<any> {
-    // const endpoint = '../../assets/class.json';
-    const endpoint = `${this.environment.apiHost}${this.environment.classes}${id}`;
+    // const endpoint = `${this.environment.apiHost}${this.environment.classes}${id}`;
+    const endpoint = '../../assets/class.json';
     return this.http.get(endpoint)
         .map((res: Response) => {
             const resData = res.json();
             resData.venue.lat = parseFloat(resData.venue.lat);
             resData.venue.long = parseFloat(resData.venue.long);
+            resData.spots_early = parseFloat(resData.spots_early);
+            resData.spots_regular = parseFloat(resData.spots_regular);
             console.log(resData);
             return resData;
     });

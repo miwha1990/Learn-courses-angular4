@@ -11,20 +11,22 @@ export class StickyCardComponent implements  OnChanges {
   cardContentRegular: string;
   constructor() { }
   ngOnChanges() {
-    if ( this.data.partner_url != null ) {
-      if ( this.data.partner_soldout ) {
-        this.cardContentRegular = this.cardContentEarly = 'Sold Out';
-      }
-    } else {
-      if ( this.data.spots_early > 0 ) {
-        this.cardContentEarly = this.data.spots_early + ' spots left';
+    if (this.data != null) {
+      if ( this.data.partner_url != null ) {
+        if ( this.data.partner_soldout ) {
+          this.cardContentRegular = this.cardContentEarly = 'Sold Out';
+        }
       } else {
-        this.cardContentEarly = 'Sold Out';
-      }
-      if ( this.data.spots_regular > 0 ) {
-        this.cardContentRegular = this.data.spots_regular + ' spots left';
-      } else {
-        this.cardContentRegular = 'Sold Out';
+        if ( this.data.spots_early > 0 ) {
+          this.cardContentEarly = this.data.spots_early + ' spots left';
+        } else {
+          this.cardContentEarly = 'Sold Out';
+        }
+        if ( this.data.spots_regular > 0 ) {
+          this.cardContentRegular = this.data.spots_regular + ' spots left';
+        } else {
+          this.cardContentRegular = 'Sold Out';
+        }
       }
     }
   }
