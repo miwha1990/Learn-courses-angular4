@@ -1,32 +1,30 @@
-
-<!--<div class="container">-->
-    <div class="card card-primary">
-        <div class="card-block">
-            <a href="#" class="btn btn-raised btn-primary app-btn-ripple register-button mt-2 mb-2">Register now</a>
-            <div class="info-block">
-                <div class="option">
-                    <h5>Early Bird</h5>
-                    <h5>{{data.price_early|currency:'USD':true}}</h5>
-                </div>
-                <div class="option pb-2">
-                    <h5>registration</h5>
-                    <h5 class="color-primary">{{data.sports_early}}  spaces Left</h5>
-                </div>
-                <div class="option">
-                    <h5>Regular</h5>
-                    <h5>{{data.price_regular|currency:'USD':true}}</h5>
-                </div>
-                <div class="option pb-2">
-                    <h5>registration</h5>
-                    <h5 class="color-primary">{{data.sports_regular}} spaces left</h5>
-                </div>
-                <div class="text pb-2">You can to take advantage of our no-interest Payment Plan and get started for only $350 down.</div>
+<div class="card card-primary">
+    <div class="card-block">
+        <a (click)="goToCheckout()" class="btn btn-raised btn-primary app-btn-ripple register-button mt-2 mb-2">Register now</a>
+        <div class="info-block">
+            <div class="option">
+                <h5>Early Bird</h5>
+                <h5>{{data?.price_early|currency:'USD':true}}</h5>
             </div>
-        </div>
-        <div class="social-block">
-            <h5>Share With Friends</h5>
-            <div class="addthis_inline_share_toolbox_gg8p pt-2 pb-2"></div>
+            <div class="option pb-2">
+                <h5>registration</h5>
+                <h5 class="color-primary">{{cardContentEarly}}</h5>
+            </div>
+            <div class="option">
+                <h5>Regular</h5>
+                <h5>{{data?.price_regular|currency:'USD':true}}</h5>
+            </div>
+            <div class="option pb-2">
+                <h5>registration</h5>
+                <h5 class="color-primary">{{cardContentRegular}}</h5>
+            </div>
+            <div class="text pb-2">You can to take advantage of our no-interest Payment Plan and get started for only $350 down.</div>
         </div>
     </div>
-<!--</div>-->
+    <div class="social-block">
+        <h5>Share With Friends</h5>
+        <div class="addthis_inline_share_toolbox_gg8p pt-2 pb-2"></div>
+    </div>
+</div>
+
 

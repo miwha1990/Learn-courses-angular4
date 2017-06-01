@@ -1,4 +1,32 @@
-agm-map{
+.page-banner{
+  margin-top:-40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 280px;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.contact-content-wrapper{
+  display: flex;
+  align-items: stretch;
+  @media screen and (max-width: 991px) {
+    flex-direction: column;
+  }
+    .form-wrapper{
+      flex: 1 auto;
+    }
+    .contacts-wrapper{
+      flex-basis: 33%;
+      @media screen and (max-width: 991px) {
+        flex-basis: inherit;
+        margin-left: 0 !important;
+        margin-top: 4rem;
+      }
+    }
+}
+.map{
   height: 250px;
   position: relative;
   display: block;

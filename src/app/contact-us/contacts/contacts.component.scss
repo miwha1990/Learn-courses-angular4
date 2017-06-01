@@ -1,3 +1,19 @@
-address span {
-    padding-left: 25px;
+.card{
+    height: 100%;
+    .card-block{
+        padding: 2rem 4rem 0 4rem;
+        @media screen and (max-width: 991px) {
+            padding-bottom: 2rem;
+        }
+        h4{
+            font-weight: 500;
+        }
+        address p {
+            margin-bottom:0;
+            padding-left: 25px;
+            i{
+                margin-right:14px;
+            }
+        }
+    }
 }

@@ -1,41 +1,29 @@
-<div class="card card-hero animated fadeInUp animation-delay-7">
-    <div class="card-block">
-        <form class="form-horizontal" [formGroup]="emailValid">
-            <fieldset>
-                <div class="form-group">
-                    <div class="col-md-12">
-                        <md-input-container class="form-control">
-                            <input mdInput placeholder="Name" id="inputName">
-                        </md-input-container>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <div class="col-md-12">
-                        <md-input-container class="form-control">
-                            <input mdInput placeholder="Email" id="inputEmail" formControlName="email">
-                        </md-input-container>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <div class="col-md-12">
-                        <md-input-container class="form-control">
-                            <input mdInput placeholder="Subject" id="inputName">
-                        </md-input-container>    
-                    </div>
-                </div>
-                <div class="form-group">
-                    <div class="col-md-12">
-                        <md-input-container class="form-control">
-                            <textarea mdInput placeholder="Message" rows="5" id="textArea"></textarea>
-                        </md-input-container>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <div class="col-md-3 col-md-offset-9">
-                        <button type="submit" class="btn btn-raised btn-primary">Submit</button>
-                    </div>
-                </div>
-            </fieldset>
-        </form>
+<form class="contact-support-form form-horizontal" [formGroup]="emailValid" (ngSubmit)="formSubmit($event)" (keydown)="keyDownFunction($event)">
+    <div role="group">
+        <div class="form-group no-m">
+            <md-input-container class="form-control">
+                <input mdInput placeholder="First Name" formControlName="name" id="inputName">
+            </md-input-container>
+        </div>
+        <div class="form-group no-m">
+            <md-input-container class="form-control">
+                <input mdInput placeholder="Email Address" formControlName="email" id="inputEmail">
+            </md-input-container>
+        </div>
+        <div class="form-group no-m">
+            <md-input-container class="form-control">
+                <input mdInput placeholder="Subject" formControlName="subject" id="inputSubject">
+            </md-input-container>
+        </div>
+        <div class="form-group no-m">
+            <md-input-container class="form-control">
+                <textarea mdInput placeholder="Message" formControlName="body" rows="5" id="textArea"></textarea>
+            </md-input-container>
+        </div>
+        <div class="form-group submit-button-form-group no-m no-pb">
+            <div class="cs-submit-button">
+                <button type="submit" class="btn btn-raised btn-primary no-mb"><i class="fa fa-envelope mr-1"></i> SEND</button>
+            </div>
+        </div>
     </div>
-</div>
+</form>

@@ -1,0 +1,26 @@
+.page-wrapper{
+  display: flex;
+  align-items: stretch;
+  flex-direction: column;
+}
+.page-banner{
+  margin-top:-40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 280px;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.important-info{
+  background-color: #EB8C00;
+  color: #ffffff;
+}
+h4{
+  font-weight: 500;
+}
+.border-bottom{
+  border-bottom:solid 1px #EB8C00;
+  flex:1 auto;
+}

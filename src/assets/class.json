@@ -5,10 +5,10 @@
   "details2": "8:30 AM - 6:00PM",
   "location": "Toronto",
   "price_early": "1949.00",
-  "sports_early": 10,
+  "spots_early": 0,
   "price_regular": "2049.00",
-  "sports_regular": 14,
-  "description": "Lorem ipsum dolor",
+  "spots_regular": 0,
+  "description": "**Animal Flow\u00ae Level 1 Workshops are where you\u2019ll learn how to take your practice to the next level as well as how to properly coach others.**\r\n\r\nWorkshops are targeted toward fitness professionals who want to learn how to incorporate Animal Flow\u00ae into their own teaching, training, and coaching practices. This includes personal trainers, group fitness instructors, physical education teachers, coaches, yoga instructors, MMA trainers, and even physical therapists. Although only fitness professionals are eligible to become Certified Animal Flow Coaches, workshops are also open to fitness enthusiasts who just want to take their flow to the next level.\r\n\r\n\r\nAnimal Flow Level 1 is an intensive two-day workshop where you\u2019ll master the moves, delve into the science behind Animal Flow\u00ae, and learn how to effectively use the practice with your own clients. You\u2019ll cover all 6 elements of Animal Flow, including:\r\n\r\n* Traveling Forms (the \u201cABCs\u201d of animal movements)\r\n* Switches and Transitions\r\n* Wrist Mobility\r\n* Activations\r\n* Form Specific Stretches\r\n* Flows\r\n\r\n~~~~\r\nYou\u2019ll learn much more than just mastering the movements though \u2013 you\u2019ll learn to better understand integrated movement and bodyweight training. Most importantly, you will learn how to move better and the carry over will improve your performance (and your clients\u2019 performance) no matter how you integrate Animal Flow into your training!\r\n~~~~\r\n\r\nThe workshop includes both lecture and hands-on practice components. By the completion of the workshop you will have learned:\r\n\r\n- The purpose and function of each Animal Flow\u00ae movement, along with the bio-mechanical processes involved.\r\n- Understanding of how bodyweight training and Animal Flow\u00ae in particular, utilizes the Kinetic Chain.\r\n- Benefits of quadrupedal movement.\r\n- The correct way to perform each Animal Flow\u00ae movement, including how to cue and correct others.\r\n- How to assess clients\u2019 readiness for Animal Flow\u00ae movements and regress and progress the movements as needed.\r\n- How to integrate Animal Flow\u00ae into overall fitness program design, including utilizing various components for dynamic warm-ups, interval training, circuit training, skills building, or as stand alone workouts.\r\n\r\nhttps://www.canfitpro.com/application/themes/canfitpro/images/logo.jpg\r\nThis workshop is approved for 4 canfitpro Continuing Education Credits (CEC's): 4 PTS",
   "image_url": "../../../assets/img/back_mountain.jpg",
   "video_url": "../../assets/video.mp4",
   "request_tshirt_size": true,
@@ -22,9 +22,10 @@
     "name" :"DTS Fitness Education Centre",
     "address":
     {
-      "street": "573 King Street East",
+      "address_1": "573 King Street East",
+      "address_2": "unit 2",
       "city": "Toronto",
-      "province": "Ontario",
+      "province": null,
       "country": "Canada",
       "postal_code": "M5A4L3"
     },
@@ -33,7 +34,7 @@
     "lat": "51.678418",
     "long": "7.809007"
   },
-  "partner_url": "url",
+  "partner_url": null,
   "partner_soldout": true,
   "allow_partial_payment": true,
   "deposit": "500.00",

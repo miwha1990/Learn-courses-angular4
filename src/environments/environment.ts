@@ -7,5 +7,10 @@ export const environment = {
   production: false,
   apiHost: 'https://rqdqmry09e.execute-api.us-east-1.amazonaws.com/v1',
   contactUs: '/contact',
-  upcomingCourses: '/classes/upcoming'
+  upcomingCourses: '/classes/upcoming',
+  categories: '/categories',
+  classes: '/classes/',
+  upcomingRelated: '/classes/upcoming?class_id=',
+  locations: '/locations',
+  coursesList: '/courses'
 };

@@ -9,17 +9,45 @@ import { FindCoursesService } from './find-courses.service';
 })
 export class FindCoursesComponent implements OnInit {
   upcomingCoursesData;
-  
+  categoriesListData;
+  filtersParamsData;
+  loading: boolean = false;
+
+
   constructor(private findCoursesService: FindCoursesService) { }
+
 
   ngOnInit() {
     this.getUpcomingCourses();
+    this.getCategoriesList();
+    this.getFiltersParams();
   }
 
-  getUpcomingCourses() {
-    this.findCoursesService.getUpcomingCourses()
+
+  getUpcomingCourses(params?) {
+    this.loading = true;
+    this.findCoursesService.getUpcomingCourses(params)
       .subscribe(
         data => this.upcomingCoursesData = data,
+        err => console.error('ERROR', err),
+        () => this.loading = false
+      )
+  }
+  
+
+  getCategoriesList() {
+    this.findCoursesService.getCategoriesList()
+      .subscribe(
+        data => this.categoriesListData = data,
+        err => console.error('ERROR', err)
+      )
+  }
+
+
+  getFiltersParams() {
+    this.findCoursesService.getFiltersParams()
+      .subscribe(
+        data => this.filtersParamsData = data,
         err => console.error('ERROR', err)
       )
   }

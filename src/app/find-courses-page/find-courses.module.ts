@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
+import { FormsModule } from '@angular/forms';
 
 import { MdSelectModule, MdButtonModule } from '@angular/material';
 
@@ -21,7 +22,8 @@ import { CoursesCategoriesComponent } from './courses-categories/courses-categor
     RouterModule.forChild(FindCoursesRoutes),
     MdSelectModule,
     UpcomingCoursesModule,
-    MdButtonModule
+    MdButtonModule,
+    FormsModule
   ],
   declarations: [
     FindCoursesComponent,

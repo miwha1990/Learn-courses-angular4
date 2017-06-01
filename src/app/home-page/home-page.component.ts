@@ -8,7 +8,6 @@ import { HomepageService } from './homepage.service';
 })
 export class HomePageComponent implements OnInit {
   upcomingCoursesData;
-  
   constructor(private homepageService: HomepageService) { }
 
   ngOnInit() {
@@ -20,6 +19,6 @@ export class HomePageComponent implements OnInit {
       .subscribe(
         data => this.upcomingCoursesData = data,
         err => console.error('ERROR', err)
-      )
+      );
   }
 }

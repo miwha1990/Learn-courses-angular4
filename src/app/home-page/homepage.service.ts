@@ -8,23 +8,32 @@ import { environment } from '../../environments/environment';
 @Injectable()
 export class HomepageService {
   environment;
-
-
   constructor(private http: Http) {
      this.environment = environment;
   }
 
 
   getUpcomingCourses(id: number = null): Observable<any> {
-    let endpoint = `${this.environment.apiHost}${this.environment.upcomingCourses}`
+      const endpoint = `${this.environment.apiHost}${this.environment.upcomingCourses}`;
 
     return this.http.get(endpoint)
         .map((res: Response) => {
-            let resData = res.json().items;
-            console.info(resData);
+            const resData = res.json().items;
+            console.log(resData);
             return resData;
         });
   }
+
+  /*sendSubscribeRequest(data): Observable<any> {
+      const endpoint = `${this.environment.apiHost}${this.environment.upcomingCourses}`;
+
+      return this.http.get(endpoint)
+          .map((res: Response) => {
+              const resData = res.json().items;
+              console.log(resData);
+              return resData;
+          });
+  }*/
 
 
 }

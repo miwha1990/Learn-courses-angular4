@@ -2,16 +2,16 @@
   <div class="row">
     <div class="col-md-12">
 
-      <div class="card">
-        <div class="row">
-          <div class="col-md-4">
-            <img src="http://loremflickr.com/1320/1240" alt="" class="img-responsive img-category">  
+      <div class="card" *ngFor="let categorie of categoriesListData">
+        <div class="course-wrapper">
+          <div class="course-image-wrapper">
+            <img src="{{ categorie?.image }}" alt="" class="img-responsive img-category">  
           </div>
-          <div class="col-md-8">
+          <div class="course-description-wrapper">
             <div class="card-block text-left">
               <div class="text-left">
-                <h4 class="color-primary title">Lorem ipsum dolor sit</h4>
-                <p class="description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsam sed labore autem nesciunt ea veniam recusandae necessitatibus reprehenderit. Praesentium non velit at natus ut dolores iusto totam doloremque perspiciatis. Quidem.</p>
+                <h4 class="color-primary title">{{ categorie?.name }}</h4>
+                <p class="description">{{ categorie?.description }}</p>
               </div>
               <button md-button class="view-btn">view category</button>
             </div>
@@ -19,141 +19,6 @@
         </div>
       </div>
 
-      <div class="card">
-        <div class="row">
-          <div class="col-md-4">
-            <img src="http://loremflickr.com/1320/1240" alt="" class="img-responsive img-category">  
-          </div>
-          <div class="col-md-8">
-            <div class="card-block text-left">
-              <div class="text-left">
-                <h4 class="color-primary title">Lorem ipsum dolor sit</h4>
-                <p class="description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsam sed labore autem nesciunt ea veniam recusandae necessitatibus reprehenderit. Praesentium non velit at natus ut dolores iusto totam doloremque perspiciatis. Quidem.</p>
-              </div>
-              <button md-button class="view-btn">view category</button>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="card">
-        <div class="row">
-          <div class="col-md-4">
-            <img src="http://loremflickr.com/1320/1240" alt="" class="img-responsive img-category">  
-          </div>
-          <div class="col-md-8">
-            <div class="card-block text-left">
-              <div class="text-left">
-                <h4 class="color-primary title">Lorem ipsum dolor sit</h4>
-                <p class="description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsam sed labore autem nesciunt ea veniam recusandae necessitatibus reprehenderit. Praesentium non velit at natus ut dolores iusto totam doloremque perspiciatis. Quidem.</p>
-              </div>
-              <button md-button class="view-btn">view category</button>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="card">
-        <div class="row">
-          <div class="col-md-4">
-            <img src="http://loremflickr.com/1320/1240" alt="" class="img-responsive img-category">  
-          </div>
-          <div class="col-md-8">
-            <div class="card-block text-left">
-              <div class="text-left">
-                <h4 class="color-primary title">Lorem ipsum dolor sit</h4>
-                <p class="description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsam sed labore autem nesciunt ea veniam recusandae necessitatibus reprehenderit. Praesentium non velit at natus ut dolores iusto totam doloremque perspiciatis. Quidem.</p>
-              </div>
-              <button md-button class="view-btn">view category</button>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="card">
-        <div class="row">
-          <div class="col-md-4">
-            <img src="http://loremflickr.com/1320/1240" alt="" class="img-responsive img-category">  
-          </div>
-          <div class="col-md-8">
-            <div class="card-block text-left">
-              <div class="text-left">
-                <h4 class="color-primary title">Lorem ipsum dolor sit</h4>
-                <p class="description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsam sed labore autem nesciunt ea veniam recusandae necessitatibus reprehenderit. Praesentium non velit at natus ut dolores iusto totam doloremque perspiciatis. Quidem.</p>
-              </div>
-              <button md-button class="view-btn">view category</button>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="card">
-        <div class="row">
-          <div class="col-md-4">
-            <img src="http://loremflickr.com/1320/1240" alt="" class="img-responsive img-category">  
-          </div>
-          <div class="col-md-8">
-            <div class="card-block text-left">
-              <div class="text-left">
-                <h4 class="color-primary title">Lorem ipsum dolor sit</h4>
-                <p class="description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsam sed labore autem nesciunt ea veniam recusandae necessitatibus reprehenderit. Praesentium non velit at natus ut dolores iusto totam doloremque perspiciatis. Quidem.</p>
-              </div>
-              <button md-button class="view-btn">view category</button>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="card">
-        <div class="row">
-          <div class="col-md-4">
-            <img src="http://loremflickr.com/1320/1240" alt="" class="img-responsive img-category">  
-          </div>
-          <div class="col-md-8">
-            <div class="card-block text-left">
-              <div class="text-left">
-                <h4 class="color-primary title">Lorem ipsum dolor sit</h4>
-                <p class="description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsam sed labore autem nesciunt ea veniam recusandae necessitatibus reprehenderit. Praesentium non velit at natus ut dolores iusto totam doloremque perspiciatis. Quidem.</p>
-              </div>
-              <button md-button class="view-btn">view category</button>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="card">
-        <div class="row">
-          <div class="col-md-4">
-            <img src="http://loremflickr.com/1320/1240" alt="" class="img-responsive img-category">  
-          </div>
-          <div class="col-md-8">
-            <div class="card-block text-left">
-              <div class="text-left">
-                <h4 class="color-primary title">Lorem ipsum dolor sit</h4>
-                <p class="description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsam sed labore autem nesciunt ea veniam recusandae necessitatibus reprehenderit. Praesentium non velit at natus ut dolores iusto totam doloremque perspiciatis. Quidem.</p>
-              </div>
-              <button md-button class="view-btn">view category</button>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="card">
-        <div class="row">
-          <div class="col-md-4">
-            <img src="http://loremflickr.com/1320/1240" alt="" class="img-responsive img-category">  
-          </div>
-          <div class="col-md-8">
-            <div class="card-block text-left">
-              <div class="text-left">
-                <h4 class="color-primary title">Lorem ipsum dolor sit</h4>
-                <p class="description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsam sed labore autem nesciunt ea veniam recusandae necessitatibus reprehenderit. Praesentium non velit at natus ut dolores iusto totam doloremque perspiciatis. Quidem.</p>
-              </div>
-              <button md-button class="view-btn">view category</button>
-            </div>
-          </div>
-        </div>
-      </div>
     </div>
   </div>   
 </div>

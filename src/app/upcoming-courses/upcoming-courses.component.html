@@ -1,213 +1,34 @@
 <div class="container upcoming-courses-container">
    <div class="courses-list-block">
-    <ul>
-        <!--<li *ngFor="let upCourse of upcomingCoursesData">
-            <a routerLink="class/{{upCourse?.id}}">
-              <div class="card wow zoomInUp animation-delay-7">
-                <div class="card-header text-center">
-                  <h2 class="card-title">{{ upCourse?.name }}</h2>
-                </div>
-                <div class="card-block">
-                  <p ><i class="fa fa-calendar"></i> {{ upCourse?.details1 }}</p>
-                  <p ><i class="fa fa-location-arrow"></i> {{ upCourse.location }}</p>
-                </div>
-              </div>
-            </a>
-        </li>-->
-
-
-      <li>
-          <!--<a routerLink="">-->
+    <h3 *ngIf="upcomingCoursesData !== undefined && !upcomingCoursesData.length" class="text-center mb-4 title-upcoming-courses">Course not found</h3>
+    <ul *ngIf="upcomingCoursesData">
+      <li *ngFor="let course of upcomingCoursesData">
+          <a routerLink="/class/{{course.id}}">
             <div class="card wow zoomInUp animation-delay-7">
               <div class="card-header text-center">
-                <h2 class="card-title">Test Course Title</h2>
+                <h2 class="card-title">{{ course?.name }}</h2>
               </div>
               <div class="card-block">
-                <p ><i class="fa fa-calendar"></i>oct 10 - oct 25, 2017</p>
-                <p *ngIf="additionalInfo"><i class="fa fa-clock-o"></i>8:30 AM - 6:00 PM</p>
-                <p ><i class="fa fa-location-arrow"></i>Toronto</p>
-              </div>
-
-
-
-              <div class="card-block price-block" *ngIf="additionalInfo">
-                <div class="early-bird info-block">
-                  <p class="title">Early Bird Registration</p>
-                  <p class="price-value">$ 999.00 <span>2 spaces left</span></p>
-                </div>
-
-                <div class="regular info-block">
-                  <p class="title">Regular Registration</p>
-                  <p class="price-value">$ 950.00 <span>2 spaces left</span></p>
-                </div>
-              </div>
-            </div>
-          <!--</a>-->
-        </li>
-
-      <!--<li>-->
-        <!--<div class="price-table animated zoomInDown animation-delay-7">-->
-          <!--<header class="price-table-header text-center">-->
-            <!--<h2 class="card-title">Test Course Title</h2>-->
-          <!--</header>-->
-          <!--<div class="price-table-body">-->
-            <!--<ul class="price-table-list">-->
-              <!--<li><i class="fa fa-calendar"></i>oct 10 - oct 25, 2017</li>-->
-              <!--<li *ngIf="additionalInfo"><i class="fa fa-clock-o"></i>8:30 AM - 6:00 PM</li>-->
-              <!--<li><i class="fa fa-location-arrow"></i>Toronto</li>-->
-            <!--</ul>-->
-          <!--</div>-->
-          <!--<div class="price-table-body price-block" *ngIf="additionalInfo">-->
-            <!--<ul class="price-table-list early-bird info-block">-->
-              <!--<li class="title">Early Bird Registration</li>-->
-              <!--<li class="price-value">$ 999.00 <span>2 spaces left</span></li>-->
-            <!--</ul>-->
-
-            <!--<ul class="price-table-list regular info-block">-->
-              <!--<li class="title">Regular Registration</li>-->
-              <!--<li class="price-value">$ 950.00 <span>2 spaces left</span></li>-->
-            <!--</ul>-->
-          <!--</div>-->
-        <!--</div>-->
-      <!--</li>-->
-
-        <li>
-          <!--<a routerLink="">-->
-            <div class="card wow zoomInUp animation-delay-7">
-              <div class="card-header text-center">
-                <h2 class="card-title">Test Course Title</h2>
-              </div>
-              <div class="card-block">
-                <p ><i class="fa fa-calendar"></i>oct 10 - oct 25, 2017</p>
-                <p *ngIf="additionalInfo"><i class="fa fa-clock-o"></i>8:30 AM - 6:00 PM</p>
-                <p ><i class="fa fa-location-arrow"></i>Toronto</p>
+                <p ><i class="fa fa-calendar"></i>{{ course?.details1 }}</p>
+                <p *ngIf="additionalInfo"><i class="fa fa-clock-o"></i>{{ course?.details2 }}</p>
+                <p ><i class="fa fa-location-arrow"></i>{{ course?.location }}</p>
               </div>
 
               <div class="card-block price-block" *ngIf="additionalInfo">
                 <div class="early-bird info-block">
                   <p class="title">Early Bird Registration</p>
-                  <p class="price-value">$ 999.00 <span>2 spaces left</span></p>
+                  <p class="price-value">$ {{ course?.price_early }} <span>{{ course?.spots_early }} spaces left</span></p>
                 </div>
 
                 <div class="regular info-block">
                   <p class="title">Regular Registration</p>
-                  <p class="price-value">$ 950.00 <span>2 spaces left</span></p>
+                  <p class="price-value">$ {{ course?.price_regular }} <span>{{ course?.spots_regular }} spaces left</span></p>
                 </div>
               </div>
             </div>
-          <!--</a>-->
+         </a>
         </li>
 
-
-        <li>
-          <!--<a routerLink="">-->
-            <div class="card wow zoomInUp animation-delay-7">
-              <div class="card-header text-center">
-                <h2 class="card-title">Test Course Title</h2>
-              </div>
-              <div class="card-block">
-                <p ><i class="fa fa-calendar"></i>oct 10 - oct 25, 2017</p>
-                <p *ngIf="additionalInfo"><i class="fa fa-clock-o"></i>8:30 AM - 6:00 PM</p>
-                <p ><i class="fa fa-location-arrow"></i>Toronto</p>
-              </div>
-
-              <div class="card-block price-block" *ngIf="additionalInfo">
-                <div class="early-bird info-block">
-                  <p class="title">Early Bird Registration</p>
-                  <p class="price-value">$ 999.00 <span>2 spaces left</span></p>
-                </div>
-
-                <div class="regular info-block">
-                  <p class="title">Regular Registration</p>
-                  <p class="price-value">$ 950.00 <span>2 spaces left</span></p>
-                </div>
-              </div>
-            </div>
-          <!--</a>-->
-        </li>
-
-        <li>
-          <!--<a routerLink="">-->
-            <div class="card wow zoomInUp animation-delay-7">
-              <div class="card-header text-center">
-                <h2 class="card-title">Test Course Title</h2>
-              </div>
-              <div class="card-block">
-                <p ><i class="fa fa-calendar"></i>oct 10 - oct 25, 2017</p>
-                <p *ngIf="additionalInfo"><i class="fa fa-clock-o"></i>8:30 AM - 6:00 PM</p>
-                <p ><i class="fa fa-location-arrow"></i>Toronto</p>
-              </div>
-
-              <div class="card-block price-block" *ngIf="additionalInfo">
-                <div class="early-bird info-block">
-                  <p class="title">Early Bird Registration</p>
-                  <p class="price-value">$ 999.00 <span>2 spaces left</span></p>
-                </div>
-
-                <div class="regular info-block">
-                  <p class="title">Regular Registration</p>
-                  <p class="price-value">$ 950.00 <span>2 spaces left</span></p>
-                </div>
-              </div>
-            </div>
-          <!--</a>-->
-        </li>
-
-        <li>
-          <!--<a routerLink="">-->
-            <div class="card wow zoomInUp animation-delay-7">
-              <div class="card-header text-center">
-                <h2 class="card-title">Test Course Title</h2>
-              </div>
-              <div class="card-block">
-                <p ><i class="fa fa-calendar"></i>oct 10 - oct 25, 2017</p>
-                <p *ngIf="additionalInfo"><i class="fa fa-clock-o"></i>8:30 AM - 6:00 PM</p>
-                <p ><i class="fa fa-location-arrow"></i>Toronto</p>
-              </div>
-
-              <div class="card-block price-block" *ngIf="additionalInfo">
-                <div class="early-bird info-block">
-                  <p class="title">Early Bird Registration</p>
-                  <p class="price-value">$ 999.00 <span>2 spaces left</span></p>
-                </div>
-
-                <div class="regular info-block">
-                  <p class="title">Regular Registration</p>
-                  <p class="price-value">$ 950.00 <span>2 spaces left</span></p>
-                </div>
-              </div>
-            </div>
-          <!--</a>-->
-        </li>
-
-
-        <li>
-          <!--<a routerLink="">-->
-            <div class="card wow zoomInUp animation-delay-7">
-              <div class="card-header text-center">
-                <h2 class="card-title">Test Course Title</h2>
-              </div>
-              <div class="card-block">
-                <p ><i class="fa fa-calendar"></i>oct 10 - oct 25, 2017</p>
-                <p *ngIf="additionalInfo"><i class="fa fa-clock-o"></i>8:30 AM - 6:00 PM</p>
-                <p ><i class="fa fa-location-arrow"></i>Toronto</p>
-              </div>
-
-              <div class="card-block price-block" *ngIf="additionalInfo">
-                <div class="early-bird info-block">
-                  <p class="title">Early Bird Registration</p>
-                  <p class="price-value">$ 999.00 <span>2 spaces left</span></p>
-                </div>
-
-                <div class="regular info-block">
-                  <p class="title">Regular Registration</p>
-                  <p class="price-value">$ 950.00 <span>2 spaces left</span></p>
-                </div>
-              </div>
-            </div>
-          <!--</a>-->
-        </li>
-        
     </ul>
   </div>
 </div>
