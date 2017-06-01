@@ -24,6 +24,30 @@ aside.ms-paper-menu-left{
     }
   }
 }
+.line-wrapper{
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: space-between;
+  .mat-select{
+    padding-top: 9px;
+  }
+  .mat-input-container{
+    @media screen and (max-width: 991px) {
+      margin-left: 0;
+      margin-right: 0;
+    }
+  }
+    :nth-child(1){
+      margin-right:15px;
+    }
+    :nth-child(2){
+      margin-left:15px;
+    }
+    :nth-child(3){
+      margin-rigth:0;
+    }
+}
 .order-info{
   .panel .panel-body {
     padding: 1rem;
