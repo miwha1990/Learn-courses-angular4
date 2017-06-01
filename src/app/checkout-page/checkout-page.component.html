@@ -30,7 +30,7 @@
                             <input mdInput  id="focusedInput4" placeholder="Confirm Email" type="email" email required>
                         </md-input-container>
                     </div>
-                    <p class="text-right color-red">Please, use personal email only! E.g.: @gmail.com, @hotmail.com, @yahoo.ca</p>
+                    <p class="text-right text-warning">Please, use personal email only! E.g.: @gmail.com, @hotmail.com, @yahoo.ca</p>
                 </div>
                 <div class="form-group location1">
                     <div class="col-md-6 col-sm-12">
@@ -144,33 +144,46 @@
             </div>
             <div class="license">
                 <h2>PARTICIPATION WAIVAER</h2>
-                <md-checkbox>I have read and agree to the Participation Waiver and the Terms and Conditions</md-checkbox>
+                <md-checkbox>I have read and agree to the Participation Waiver and the <a href="">Terms and Conditions</a></md-checkbox>
                 <md-checkbox>I want to recieve monthly newsletter packed with helpful eductaion content.</md-checkbox>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A ab aspernatur, assumenda beatae cum earum eos expedita
-                    illo iste natus nihil non numquam quia suscipit totam voluptas, voluptate! Assumenda cumque doloremque
-                    eius ipsa iure minima nesciunt placeat quos tempore ut. Ab, accusamus aperiam assumenda, autem consectetur
-                    corporis dignissimos dolorem exercitationem id, impedit minus nam nulla provident recusandae rerum sed
-                    voluptate. Aliquid aut cupiditate dicta, dolores ipsa ipsam magnam repellendus sint velit voluptatibus.
-                    Animi ducimus eum eveniet, hic id incidunt inventore ipsa iusto laudantium
-                    libero minus mollitia necessitatibus nostrum perspiciatis quaerat quasi quidem quod recusandae
-                    saepe sequi sunt tenetur voluptate voluptatibus?</p>
+                <p>
+                    All our resources are royalty free for use in both personal and commercial projects.
+                    You can modify any resources to your liking to fit into your project, we are however not legally
+                    liable for any misuse of our resources.
+                    We do not ask for you to include any attribution or link back to Dreamstale.com for premium resources.
+                    We do however appreciate if you do credit our free resources or/and help spread the word about us.
+                    You cannot however redistribute, resell, lease, license, sub-license or offer our resources to any
+                    third party. This includes uploading our resources to another website, marketplace or media-sharing
+                    tool, and offering our resources as a separate attachment from any of your work. If you do plan to
+                    include one of our resource on an item or template that will be sold on a website or marketplace,
+                    we ask of you to contact us to determine the proper use of our resource before doing so.
+                    Premium files downloaded can be used in a item or website template sold through a marketplace or
+                    directly on a website with no attribution required. You cannot however resell or redistribute those
+                    premium files as is. Please contact us before using those files in this way to ensure that you abide
+                    by our license. IMPORTANT you cannot use any resources from the psd web templates category to
+                    create a website theme or template to be sold. They can only be used for personal and commercial
+                    projects.
+                </p>
             </div>
         </main>
         <aside class="col-sm-4 ms-paper-menu-left">
+            <h2 class="section-title">Early Bid Registration</h2>
+            <p>
+                <i class="material-icons prefix text-warning" style="vertical-align: sub">report_problem</i>
+                &nbsp; &nbsp; This registration is non-refundale!
+            </p>
             <br>
-            <br>
-            <h2 class="section-title">PAYMENT OPTIONS</h2>
-            <md-radio-group ng-model="selected">
+            <p>Payment options</p>
+            <md-radio-group id="method">
                 <div class="pay-full">
                     <md-radio-button value="1"  aria-label="Label 1" checked class="md-checked" required>Pay in Full</md-radio-button> <span class="price">$1,999.00</span>
                 </div>
-                <div class="pay-deposite">
+                <div class="pay-deposite inactive">
                     <md-radio-button value="2"  aria-label="Label 2" required>Pay Deposit only</md-radio-button>
                     <br>
                     <span>Balance Due <span class="date">July31, 2017</span></span>
                 </div>
             </md-radio-group>
-            <md-checkbox required>This registration is non-refundale!</md-checkbox>
             <h2 class="section-title">BILLING</h2>
             <div class="billing-info">
                 <p>
@@ -207,53 +220,58 @@
                         </md-input-container>
                     </span>
                 </div>
-                <div class="form-group inline-input">
-                    <label class="sr-only" for="code">Coupon Code:</label>
-                    <div class="input-group">
-                        <div class="input-group-addon">Coupon Code:</div>
-                        <md-input-container>
-                            <input mdInput id="code" type="text" required>
-                        </md-input-container>
-                    </div>
-                </div>
+
 
                 <p>
-                    <a href="javascript:void(0)" class="btn btn-block btn-raised btn-primary">Apply Coupon<div class="ripple-container"></div></a>
+                    <i class="fa fa-scissors" aria-hidden="true"></i>
+                    <md-input-container>
+                        <input mdInput id="code" type="text"  placeholder="Enter Coupon" required>
+                    </md-input-container>
+                </p>
+                <p>
+                    <a (click)="applyCoupon()" class="btn btn-block btn-bordered">Apply Coupon<div class="ripple-container"></div></a>
                 </p>
             </div>
-            <h2 class="section-title">ORDER</h2>
             <div class="order-info">
                 <div class="form-group inline-input">
-                    <label class="sr-only" for="total">Course Total:</label>
+                    <label class="sr-only" for="total">Order Subtotal:</label>
                     <div class="input-group">
-                        <div class="input-group-addon">Course Total:</div>
+                        <div class="input-group-addon">Order Subtotal:</div>
                         <md-input-container>
                             <input mdInput id="total" type="text" required>
                         </md-input-container>
                     </div>
-                    <label class="sr-only" for="gst">GST:</label>
-                    <div class="input-group">
-                        <div class="input-group-addon">GST:</div>
+                    <label class="sr-only" for="cpn">Coupon:</label>
+                    <div class="input-group" *ngIf="couponActivated">
+                        <div class="input-group-addon">Coupon:</div>
                         <md-input-container>
-                            <input mdInput id="gst" type="text" required>
+                            <input mdInput id="cpn" type="text" required>
                         </md-input-container>
                     </div>
-                    <label class="sr-only" for="pst">PST:</label>
+                    <label class="sr-only" for="tax1">Tax 1:</label>
                     <div class="input-group">
-                        <div class="input-group-addon">PST:</div>
+                        <div class="input-group-addon">Tax 1:</div>
                         <md-input-container>
-                            <input mdInput id="pst" type="text" required>
+                            <input mdInput id="tax1" type="text" required>
                         </md-input-container>
                     </div>
-                    <label class="sr-only" for="discount">Discount:</label>
+                    <label class="sr-only" for="tax2">Tax 2:</label>
                     <div class="input-group">
-                        <div class="input-group-addon">Discount:</div>
+                        <div class="input-group-addon">Tax 2:</div>
                         <md-input-container>
-                            <input mdInput id="discount" type="text" required>
+                            <input mdInput id="tax2" type="text" required>
                         </md-input-container>
                     </div>
                     <br>
-                    <div class="panel panel-warning">
+                    <div class="input-group">
+                        <div class="input-group-addon">Total:</div>
+                        <span class="tot-btn total">100$</span>
+                    </div>
+                    <div class="input-group">
+                        <div class="input-group-addon">Balance Owning:</div>
+                        <span class="tot-btn balance">1,639$</span>
+                    </div>
+<!--                    <div class="panel panel-warning">
                         <div class="panel-heading">
                             <h4 class="panel-title panel-code-title">
                                 <span class="pull-left">Total:</span><strong><span class="pull-right">100$</span></strong><br>
@@ -264,7 +282,7 @@
                                 <span class="pull-left">Balance Owning:</span><strong><span class="pull-right">1,639$</span></strong><br>
                             </h4>
                         </div>
-                    </div>
+                    </div>-->
                 </div>
                 <p>
                     <button type="submit" class="btn btn-block btn-raised btn-primary">Register<span class="ripple-container"></span></button>

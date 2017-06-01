@@ -5,10 +5,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./checkout-page.component.scss'],
 })
 export class CheckoutPageComponent implements OnInit {
-
+  couponActivated = false;
   constructor() { }
 
   ngOnInit() {
   }
 
+  applyCoupon() {
+    this.couponActivated = true;
+  }
 }

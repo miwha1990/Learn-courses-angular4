@@ -66,3 +66,13 @@ h3{
  .form-horizontal label {
    text-align: left;
  }
+#method{
+  div.inactive{
+    .mat-radio-outer-circle {
+      border-color: white;
+    }
+    .mat-radio-label-content{
+      color:white;
+    }
+  }
+}

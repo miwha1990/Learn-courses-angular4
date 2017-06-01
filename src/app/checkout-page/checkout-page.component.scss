@@ -1,9 +1,9 @@
 main.ms-paper-content{
-  background: white;
+  background: #F7F6F6;
   padding:20px 50px;
 }
 aside.ms-paper-menu-left{
-  background: #F7F6F6;
+  background: white;
 }
 .mat-select, .mat-input-container {
   width: 100%;
@@ -27,5 +27,53 @@ aside.ms-paper-menu-left{
 .order-info{
   .panel .panel-body {
     padding: 1rem;
+  }
+  .input-group{
+    width: 100%;
+  }
+  .input-group-addon{
+    width: 50%;
+    text-align: right;
+
+  }
+  .tot-btn{
+    width: 100%;
+    padding: 10px 20px;
+    font-size: 20px;
+    font-weight: bolder;
+    margin: 5px 0 5px 5px;
+    display: inline-block;
+    text-align: center;
+    border-radius: 5px;
+  }
+  .tot-btn.total{
+    background: #666666;
+    color:white;
+  }
+  .tot-btn.balance{
+    background: #CDCBCD;
+    color:black
+  }
+}
+.btn-bordered{
+  border: 2px solid #AFADAF;
+  border-radius: 5px;
+  color:rgba(175,175,175, 0.8);
+  font-weight: bold;
+}
+#method{
+  &>div{
+    border:2px solid grey;
+    border-radius: 5px;
+    padding: 15px;
+    margin-bottom: 10px;
+  }
+  &>div.inactive{
+    color:white;
+    background: #F68700;
+    border-color: white;
+    .mat-radio-outer-circle {
+      border-color: white;
+    }
   }
 }
