@@ -1,3 +1,11 @@
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    } 
+}
 .upcoming-courses-container {
   padding: 0 15px;
   h3 {
@@ -19,6 +27,7 @@
       margin: 0;
       min-width: 255px;
       flex-basis: 30%;
+      animation: fadeIn 0.3s;
       @media screen and (max-width: 768px) {
         flex-basis: auto;
       }

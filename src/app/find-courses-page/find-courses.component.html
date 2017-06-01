@@ -1,9 +1,23 @@
-<app-filters></app-filters>
-<h3 class="text-center mb-4 title-upcoming-courses">Upcoming Courses and Workshops</h3>
-<app-upcoming-courses
-    [upcomingCoursesData]="upcomingCoursesData"
-    [additionalInfo]="true"
-></app-upcoming-courses>
+<app-filters
+    [filtersParamsData]="filtersParamsData"
+    [categoriesListData]="categoriesListData"
+    (filterCoursesEmit)="getUpcomingCourses($event)"
+></app-filters>
+<div class="wrapper-upcoming-courses">
+    <h3 class="text-center mb-4 title-upcoming-courses">Upcoming Courses and Workshops</h3>
+    <app-upcoming-courses
+        [upcomingCoursesData]="upcomingCoursesData"
+        [additionalInfo]="true"
+    ></app-upcoming-courses>
+    <div id="ms-preload" class="ms-preload" *ngIf="loading">
+        <div id="status">
+            <div class="spinner">
+                <div class="dot1"></div>
+                <div class="dot2"></div>
+            </div>
+        </div>
+    </div>
+</div>
 
 <div class="container">
     <app-courses-categories
