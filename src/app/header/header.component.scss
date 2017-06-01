@@ -85,8 +85,17 @@
     @media (max-width: 991px) {
       display: block;
     }
+    .slidebar-logo{
+      height: 50px;
+      img{
+        height: inherit;
+      }
+    }
     .ms-slidebar-menu > li > a:after {
       content: '';
+    }
+    .ms-slidebar-menu > li > a{
+      color: #757575;
     }
     &.visible{
       transform:translate(300px);

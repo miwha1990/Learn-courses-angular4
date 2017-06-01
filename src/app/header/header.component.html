@@ -32,58 +32,52 @@
 </nav>
 <div class="ms-slidebar sb-slidebar sb-left sb-style-overlay" id="ms-slidebar" [ngClass]="slidebarFlag ? 'visible' : ''">
     <div class="sb-slidebar-container">
-        <header class="ms-slidebar-header">
-            <div class="ms-slidebar-title">
-
-                <div class="ms-slidebar-t">
-                    <span class="ms-logo ms-logo-sm">M</span>
-                    <h3>Material<span>Style</span></h3>
-                </div>
-            </div>
+        <header>
+            <a href="/" class="slidebar-logo"><img src="../assets/DTSLogo.svg" alt=""></a>
         </header>
 
         <ul class="ms-slidebar-menu" id="slidebar-menu" role="tablist" aria-multiselectable="true">
-            <li class="panel" id="sch1"><a routerLink="home" data-name="Home" routerLinkActive="active">Home</a></li>
+            <li class="panel" id="sch1"><a routerLink="home" data-name="Home" routerLinkActive="active"><i class="fa fa-home"></i>Home</a></li>
             <li class="panel">
-                <a href="#" class="" data-name="Learn Online">Learn Online</a>
+                <a href="#" class="" data-name="Learn Online"><i class="fa fa-desktop"></i>Learn Online</a>
             </li>
             <li class="panel">
-                <a routerLink="learn-in-class" data-name="Learn in Class" routerLinkActive="active">Learn in Class</a>
+                <a routerLink="learn-in-class" data-name="Learn in Class" routerLinkActive="active"><i class="fa fa-graduation-cap"></i>Learn in Class</a>
             </li>
             <li class="panel">
-                <a href="https://blog.dtsfitnesseducation.com" class="" data-name="Blog">Blog</a>
+                <a href="https://blog.dtsfitnesseducation.com" class="" data-name="Blog"><i class="fa fa-edit"></i>Blog</a>
             </li>
             <li class="panel">
-                <a routerLink="team" routerLinkActive="active" data-name="Team">Team</a>
+                <a routerLink="team" routerLinkActive="active" data-name="Team"><i class="fa fa-accounts-alt"></i>Team</a>
             </li>
             <li class="panel">
-                <a href="https://www.thinkific.com/signin/" data-name="Student Login">Student Login</a>
+                <a href="https://www.thinkific.com/signin/" data-name="Student Login"><i class="fa fa-lock-outline"></i>Student Login</a>
             </li>
             <li class="panel">
-                <a href="https://help.dtsfitnesseducation.com" data-name="Help Centre & FAQ">Help Centre & FAQ</a>
+                <a href="https://www.thinkific.com/signin/" data-name="Help Centre & FAQ"><i class="fa fa-help-outline"></i>Help Centre & FAQ</a>
             </li>
             <li class="panel">
-                <a routerLink="/contact-support" data-name="Contact Support">Contact Support</a>
+                <a routerLink="/contact-support" data-name="Contact Support"><i class="fa fa-email"></i>Contact Support</a>
             </li>
             <li class="panel">
-                <a routerLink="/" data-name="Payment Receipts">Payment Receipts</a>
+                <a routerLink="/" data-name="Payment Receipts"><i class="fa fa-receipt"></i>Payment Receipts</a>
             </li>
             <li class="panel">
-                <a routerLink="/terms-of-service" data-name="Terms of Service">Terms of Service</a>
+                <a routerLink="/terms-of-service" data-name="Terms of Service"><i class="fa fa-alert-circle-o"></i>Terms of Service</a>
             </li>
             <li class="panel">
-                <a routerLink="/" data-name="Cancellations & Refunds">Cancellations & Refunds</a>
+                <a routerLink="/" data-name="Cancellations & Refunds"><i class="fa fa-rotate-left"></i>Cancellations & Refunds</a>
             </li>
             <li class="panel">
-                <a routerLink="/privacy-statement" data-name="Privacy Statement">Privacy Statement</a>
+                <a routerLink="/privacy-statement" data-name="Privacy Statement"><i class="fa fa-smartphone-lock"></i>Privacy Statement</a>
             </li>
         </ul>
         <div class="ms-slidebar-social ms-slidebar-block">
             <h4 class="ms-slidebar-block-title">Social Links</h4>
             <div class="ms-slidebar-social">
-                <a href="https://www.facebook.com/dtsfitnesseducation" class="btn-circle btn-facebook"><i class="fa fa-facebook-square"></i><div class="ripple-container"></div></a>
-                <a href="https://www.youtube.com/user/DarbyTrainingSystems" class="btn-circle btn-youtube"><i class="fa fa-youtube"></i><div class="ripple-container"></div></a>
-                <a href="https://www.instagram.com/dts_edu" class="btn-circle btn-instagram"><i class="fa fa-instagram"></i><div class="ripple-container"></div></a>
+                <a href="https://www.facebook.com/dtsfitnesseducation" class="btn-circle btn-circle-raised btn-facebook"><i class="zmdi zmdi-facebook"></i><div class="ripple-container"></div></a>
+                <a href="https://www.youtube.com/user/DarbyTrainingSystems" class="btn-circle btn-circle-raised btn-youtube"><i class="zmdi zmdi-youtube"></i><div class="ripple-container"></div></a>
+                <a href="https://www.instagram.com/dts_edu" class="btn-circle btn-circle-raised btn-instagram"><i class="zmdi zmdi-instagram"></i><div class="ripple-container"></div></a>
             </div>
         </div>
     </div>
