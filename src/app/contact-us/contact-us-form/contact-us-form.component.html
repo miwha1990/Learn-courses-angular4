@@ -1,23 +1,23 @@
-<form class="contact-support-form form-horizontal" [formGroup]="emailValid">
+<form class="contact-support-form form-horizontal" [formGroup]="emailValid" (ngSubmit)="formSubmit($event)" (keydown)="keyDownFunction($event)">
     <div role="group">
         <div class="form-group no-m">
             <md-input-container class="form-control">
-                <input mdInput placeholder="First Name" id="inputName">
+                <input mdInput placeholder="First Name" formControlName="name" id="inputName">
             </md-input-container>
         </div>
         <div class="form-group no-m">
             <md-input-container class="form-control">
-                <input mdInput placeholder="Email Address" id="inputEmail" formControlName="email">
+                <input mdInput placeholder="Email Address" formControlName="email" id="inputEmail">
             </md-input-container>
         </div>
         <div class="form-group no-m">
             <md-input-container class="form-control">
-                <input mdInput placeholder="Subject" id="inputSubject">
+                <input mdInput placeholder="Subject" formControlName="subject" id="inputSubject">
             </md-input-container>
         </div>
         <div class="form-group no-m">
             <md-input-container class="form-control">
-                <textarea mdInput placeholder="Message" rows="5" id="textArea"></textarea>
+                <textarea mdInput placeholder="Message" formControlName="body" rows="5" id="textArea"></textarea>
             </md-input-container>
         </div>
         <div class="form-group submit-button-form-group no-m no-pb">

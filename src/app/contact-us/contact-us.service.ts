@@ -15,11 +15,13 @@ export class ContactUsService {
         const endpoint = `${this.environment.apiHost}${this.environment.contactUs}`;
         const headers = new Headers();
         headers.append('Content-Type', 'application/json');
+        headers.append('Access-Control-Allow-Origin', '*');
 
         return this.http.post(endpoint, JSON.stringify(data), { headers: headers})
             .map((res: Response) => {
                 const resData = res.json();
                 console.log(resData);
+                return resData;
             });
     }
 }
