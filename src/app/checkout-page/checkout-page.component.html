@@ -10,24 +10,24 @@
                 <div class="form-group name">
                     <div class="col-md-6 col-sm-12">
                         <md-input-container>
-                            <input mdInput id="focusedInput2" type="text"  placeholder="Last Name" required>
+                            <input mdInput id="focusedInput2" type="text" formControlName="last_name" placeholder="Last Name">
                         </md-input-container>
                     </div>
                     <div class="col-md-6 col-sm-12">
                         <md-input-container>
-                            <input mdInput class="text-left" id="focusedInput1" type="text" placeholder="First Name" required>
+                            <input mdInput class="text-left" id="focusedInput1" type="text" formControlName="first_name" placeholder="First Name">
                         </md-input-container>
                     </div>
                 </div>
-                <div class="form-group email">
+                <div class="form-group">
                     <div class="col-md-6 col-sm-12">
                         <md-input-container>
-                            <input mdInput  id="focusedInput3" placeholder="Email" type="email" email required>
+                            <input mdInput  id="focusedInput3" placeholder="Email" type="email" formControlName="email">
                         </md-input-container>
                     </div>
                     <div class="col-md-6 col-sm-12">
                         <md-input-container>
-                            <input mdInput  id="focusedInput4" placeholder="Confirm Email" type="email" email required>
+                            <input mdInput  id="focusedInput4" placeholder="Confirm Email" type="email" formControlName="confirm_email">
                         </md-input-container>
                     </div>
                     <p class="text-right color-red">Please, use personal email only! E.g.: @gmail.com, @hotmail.com, @yahoo.ca</p>
