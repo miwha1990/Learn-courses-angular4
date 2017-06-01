@@ -15,7 +15,7 @@ export class CheckoutPageComponent implements OnInit {
   ngOnInit() {
   }
   formSubmit() {
-    this.OrderProcessService.processClick(this.checkoutForm.value);
+    // this.OrderProcessService.processClick(this.checkoutForm.value);
     console.log(this.checkoutForm.value);
   }
   keyDownFunction(event) {

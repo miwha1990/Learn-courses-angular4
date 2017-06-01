@@ -1,5 +1,5 @@
 import { Component, Input, OnChanges} from '@angular/core';
-
+import { OrderProcessService } from '../../services/order-process.service';
 @Component({
   selector: 'app-sticky-card',
   templateUrl: './sticky-card.component.html',
@@ -9,7 +9,7 @@ export class StickyCardComponent implements  OnChanges {
   @Input() data;
   cardContentEarly: string;
   cardContentRegular: string;
-  constructor() { }
+  constructor(private OrderProcessService: OrderProcessService) { }
   ngOnChanges() {
     if (this.data != null) {
       if ( this.data.partner_url != null ) {
@@ -30,4 +30,7 @@ export class StickyCardComponent implements  OnChanges {
       }
     }
   }
+  goToCheckout = function(){
+    this.OrderProcessService.provideData(this.data);
+  };
 }
