@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router, ActivatedRoute, Params } from '@angular/router';
 
 import { FindCoursesService } from './find-courses.service';
 
@@ -11,10 +12,17 @@ export class FindCoursesComponent implements OnInit {
   upcomingCoursesData;
   categoriesListData;
   filtersParamsData;
-  loading: boolean = false;
-  additionalInfo: boolean = false;
+  loading: boolean;
+  additionalInfo: boolean;
+  categoryId;  
 
-  constructor(private findCoursesService: FindCoursesService) { }
+  constructor(private findCoursesService: FindCoursesService,
+              private activatedRoute: ActivatedRoute) {
+
+    this.loading = false;
+    this.additionalInfo = false;
+    this.categoryId = ''; 
+  }
 
 
   ngOnInit() {
@@ -25,9 +33,8 @@ export class FindCoursesComponent implements OnInit {
 
 
   getUpcomingCourses(params?) {
-    if(params) {
-      this.additionalInfo = true;
-    }
+    if(params) this.additionalInfo = true;
+
     this.loading = true;
     this.findCoursesService.getUpcomingCourses(params)
       .subscribe(
@@ -55,4 +62,12 @@ export class FindCoursesComponent implements OnInit {
       )
   }
 
+
+  selectedCategory(category) {
+    const filterParams = { category_id: category.id }
+    this.categoryId = category.id;
+    this.getUpcomingCourses(filterParams);
+  }
+  
+  
 }
