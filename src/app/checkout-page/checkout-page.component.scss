@@ -95,6 +95,34 @@ p.text-warning{
   margin-bottom: 5px;
 }
 
+.tot-btn{
+  width: 100%;
+  padding: 10px 20px;
+  font-size: 20px;
+  font-weight: bolder;
+  margin: 5px 0 5px 5px;
+  display: inline-block;
+  text-align: center;
+  border-radius: 5px;
+}
+.tot-btn.total{
+  background: #666666;
+  color:white;
+}
+.tot-btn.balance{
+  background: #CDCBCD;
+  color:black
+}
+
+.mat-datepicker-toggle {
+    font-size: 24px;
+    color: #5D5D5D;
+    cursor: pointer;
+    mask-image: url('../../assets/img/icons/datepicker.svg');
+    -webkit-mask-size: 100%;
+    background-color: #757575;
+    background-image: none;
+}
 .btn-bordered{
   border: 2px solid #AFADAF;
   border-radius: 5px;

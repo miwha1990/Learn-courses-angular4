@@ -17,29 +17,43 @@ export class CheckoutPageComponent implements OnInit {
       name_of_badge: [''],
       gender: [''],
       date_of_birth: [''],
-}, {validator: this.matchingPasswords('email', 'confirm_email')});
+}, {validator: this.matchingEmail('email', 'confirm_email')});
+
+
   constructor(private OrderProcessService: OrderProcessService, private fb: FormBuilder) {}
-  matchingPasswords(passwordKey: string, passwordConfirmationKey: string) {
+
+
+  matchingEmail(email: string, emailConfirmation: string) {
     return (group: FormGroup) => {
-      const passwordInput = group.controls[passwordKey];
-      const passwordConfirmationInput = group.controls[passwordConfirmationKey];
-      if (passwordInput.value !== passwordConfirmationInput.value) {
-        return passwordConfirmationInput.setErrors({notEquivalent: true});
+      const emailInput = group.controls[email];
+      const emailConfirmationInput = group.controls[emailConfirmation];
+      if (emailInput.value !== emailConfirmationInput.value) {
+        return emailConfirmationInput.setErrors({notEquivalent: true});
       }
     };
   }
+
+
   ngOnInit() {
+
   }
+
 
   applyCoupon() {
     this.couponActivated = true;
   }
+
+
   formSubmit() {
     console.log(this.checkoutForm.value);
   }
+
+
   keyDownFunction(event) {
     if (event.keyCode === 13) {
       this.formSubmit();
     }
   }
+
+
 }
