@@ -1,8 +1,8 @@
 <div class="container">
     <form class="checkoutForm" [formGroup]="checkoutForm" (ngSubmit)="formSubmit($event)" (keydown)="keyDownFunction($event)">
-    <div class="row">
-        <main class="col-sm-8 ms-paper-content">
-            <div class="logo"><span  class="ms-logo animated zoomInDown animation-delay-5">M</span></div>
+    <div class="row checkout-wrapper">
+        <main class="col-sm-8 col-xs-12 ms-paper-content">
+            <div class="logo"><img src="../assets/DTSLogo.svg" alt=""></div>
             <h1 class="title">{{OrderProcessService.secretData.name}}, {{OrderProcessService.secretData.location}} {{OrderProcessService.secretData.details1}}</h1>
             <span class="price-multiplier">Regular price x 1</span>
             <div class="student-information">
