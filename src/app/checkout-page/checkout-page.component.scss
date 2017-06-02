@@ -82,6 +82,16 @@ p.text-warning{
     color:black
   }
 }
+.mat-datepicker-toggle {
+    font-size: 24px;
+    color: #5D5D5D;
+    cursor: pointer;
+    mask-image: url('../../assets/img/icons/datepicker.svg');
+    -webkit-mask-size: 100%;
+    background-color: #757575;
+    background-image: none;
+}
+
 .btn-bordered{
   border: 2px solid #AFADAF;
   border-radius: 5px;
