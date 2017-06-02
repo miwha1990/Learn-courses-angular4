@@ -23,7 +23,10 @@ export class CheckoutPageComponent implements OnInit {
       industry_certification: ['', Validators.required],
       employer: ['', Validators.required],
       job_title: ['', Validators.required],
-      emergency_name: ['', Validators.required]
+      emergency_name: ['', Validators.required],
+      emergency_phone: ['', Validators.required],
+      refferel: ['', Validators.required],
+      tshirt_size:  ['', Validators.required],
 }, {validator: this.matchingEmail('email', 'confirm_email')});
 
 

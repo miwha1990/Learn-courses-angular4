@@ -8,56 +8,56 @@
             <div class="student-information">
                 <h2 class="section-title">STUDENT INFORMATION</h2>
                 <div class="line-wrapper">
-                    <md-input-container>
+                    <md-input-container class="mr-15">
                         <input mdInput id="focusedInput2" type="text" formControlName="last_name" placeholder="Last Name">
                     </md-input-container>
-                    <md-input-container>
+                    <md-input-container class="ml-15">
                         <input mdInput class="text-left" id="focusedInput1" type="text" formControlName="first_name" placeholder="First Name">
                     </md-input-container>
                 </div>
                 <div class="line-wrapper">
-                    <md-input-container>
+                    <md-input-container class="mr-15">
                         <input mdInput  id="focusedInput3" placeholder="Email" type="email" formControlName="email">
                     </md-input-container>
-                    <md-input-container>
+                    <md-input-container class="ml-15">
                         <input mdInput id="focusedInput4" placeholder="Confirm Email" type="email" formControlName="confirm_email"> <span class="check-span" md-suffix><i class="fa fa-check"></i></span>
                     </md-input-container>
                 </div>
                 <p class="text-warning">Please, use personal email only! E.g.: @gmail.com, @hotmail.com, @yahoo.ca</p>
                 <div class="line-wrapper">
-                    <md-select placeholder="Country" formControlName="country">
+                    <md-select placeholder="Country" formControlName="country" class="mr-15">
                         <md-option value="usa" >USA</md-option>
                         <md-option value="canada" >Canada</md-option>
                     </md-select>
-                    <md-select placeholder="Province / State" formControlName="state">
+                    <md-select placeholder="Province / State" formControlName="state" class="ml-15">
                         <md-option value="usa" >USA</md-option>
                         <md-option value="canada" >Canada</md-option>
                     </md-select>
                 </div>
                 <div class="line-wrapper">
-                    <md-input-container>
+                    <md-input-container class="mr-15">
                         <input mdInput  id="badge" type="text"  placeholder="Name of Badge" formControlName="name_of_badge">
                     </md-input-container>
-                    <md-input-container>
+                    <md-input-container class="ml-15">
                         <input mdInput id="city" type="text" placeholder="City" formControlName="city">
                     </md-input-container>
                 </div>
                 <div class="line-wrapper line-with-dp">
-                    <md-select placeholder="Gender" formControlName="gender">
+                    <md-select placeholder="Gender" formControlName="gender" class="mr-15">
                         <md-option value="male" >Male</md-option>
                         <md-option value="female" >Female</md-option>
                     </md-select>
-                    <md-input-container>
+                    <md-input-container class="ml-15">
                         <input mdInput [mdDatepicker]="picker" placeholder="Date of Birth" formControlName="date_of_birth">
                         <button mdSuffix [mdDatepickerToggle]="picker"></button>
                     </md-input-container>
                     <md-datepicker #picker ></md-datepicker>
                 </div>
                 <div class="line-wrapper">
-                    <md-input-container>
+                    <md-input-container class="mr-15">
                         <input mdInput id="phone" type="text" placeholder="Phone Number with Area Code" formControlName="phone">
                     </md-input-container>
-                    <md-select placeholder="Industry Certification" formControlName="industry_certification">
+                    <md-select placeholder="Industry Certification" formControlName="industry_certification" class="ml-15">
                         <md-option value="personal" >Personal Training Certification</md-option>
                         <md-option value="degree" >College / University Degree</md-option>
                         <md-option value="other" >Other</md-option>
@@ -65,10 +65,10 @@
                     </md-select>
                 </div>
                 <div class="line-wrapper">
-                    <md-input-container>
+                    <md-input-container class="mr-15">
                         <input mdInput id="employer" type="text" placeholder="Employer" formControlName="employer">
                     </md-input-container>
-                    <md-select placeholder="Job Title" formControlName="job_title">
+                    <md-select placeholder="Job Title" formControlName="job_title" class="ml-15">
                         <md-option value="personal" >Personal Trainer</md-option>
                         <md-option value="professional" >Other Fitness Professional</md-option>
                         <md-option value="management" >Management</md-option>
@@ -76,15 +76,15 @@
                     </md-select>
                 </div>
                 <div class="line-wrapper">
-                    <md-input-container>
+                    <md-input-container class="mr-15">
                         <input mdInput id="emergency-name" type="text" placeholder="Emergency Contact Full Name" formControlName="emergency_name">
                     </md-input-container>
-                    <md-input-container>
-                        <input mdInput id="emergency-number" type="text" placeholder="Emergency Contact Phone Number" formControlName="employer">
+                    <md-input-container class="ml-15">
+                        <input mdInput id="emergency-number" type="text" placeholder="Emergency Contact Phone Number" formControlName="emergency_phone">
                     </md-input-container>
                 </div>
                 <div class="line-wrapper">
-                    <md-select placeholder="How did you hear about us?" formControlName="employer">
+                    <md-select placeholder="How did you hear about us?" formControlName="refferel" class="mr-15">
                         <md-option value="prev" >Took a course previously</md-option>
                         <md-option value="manager" >Manager / Supervisor</md-option>
                         <md-option value="friend" >Friend / Collegue</md-option>
@@ -93,7 +93,7 @@
                         <md-option value="show" >Trade Show / Conference</md-option>
                         <md-option value="other" >Other (please specify)</md-option>
                     </md-select>
-                    <md-select placeholder="T-Shirt Size" formControlName="employer">
+                    <md-select placeholder="T-Shirt Size" formControlName="tshirt_size" class="ml-15">
                         <md-option value="la-s" >Ladies' S</md-option>
                         <md-option value="la-m" >Ladies' M</md-option>
                         <md-option value="la-l" >Ladies' L</md-option>
