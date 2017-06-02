@@ -107,39 +107,15 @@
 <div class="form-banner">
   <div class="container form-container">
     <legend class="text-center">Practical educational content in your inbox</legend>
-
-
-
-
-    <form accept-charset="UTF-8" action="https://vl355.infusionsoft.com/app/form/process/8786052e6d747e1c43f5503af7139669" class="subscribe-form infusion-form" method="POST">
-          <input name="inf_form_xid" type="hidden" value="8786052e6d747e1c43f5503af7139669" />
-          <input name="inf_form_name" type="hidden" value="Newsletter Sign Up" />
-          <input name="infusionsoft_version" type="hidden" value="1.65.0.68" />
-          <md-input-container>
-            <input mdInput id="inf_field_FirstName" name="inf_field_FirstName" type="text" placeholder="Name">
-          </md-input-container>
-          <md-input-container>
-            <input mdInput id="inf_field_Email" name="inf_field_Email" type="text" placeholder="Email">
-          </md-input-container>
-          <button  class="btn btn-raised btn-primary" md-button type="submit"><i class="fa fa-envelope"></i> Count me in!</button>
-
-
-
-
-      <!---->
-      <!--    <div class="infusion-field">-->
-      <!--        <label for="inf_field_FirstName">First Name *</label>-->
-      <!--        <input class="infusion-field-input-container" id="inf_field_FirstName" name="inf_field_FirstName" type="text" />-->
-      <!--    </div>-->
-      <!--    <div class="infusion-field">-->
-      <!--        <label for="inf_field_Email">Email Address *</label>-->
-      <!--        <input class="infusion-field-input-container" id="inf_field_Email" name="inf_field_Email" type="text" />-->
-      <!--    </div>-->
-      <!--    <div class="infusion-submit">-->
-      <!--        <input type="submit" value="COUNT ME IN!" />-->
-      <!--    </div>-->
+    <form accept-charset="UTF-8" [formGroup]="subscribeForm" class="subscribe-form" (ngSubmit)="formSubmit($event)" (keydown)="keyDownFunction($event)">
+      <md-input-container>
+        <input mdInput id="inf_field_FirstName" name="inf_field_FirstName" formControlName="name" type="text" placeholder="Name">
+      </md-input-container>
+      <md-input-container>
+        <input mdInput id="inf_field_Email" name="inf_field_Email" formControlName="email" type="text" placeholder="Email">
+      </md-input-container>
+      <button  class="btn btn-raised btn-primary" md-button type="submit" [disabled]="subscribeForm.invalid"><i class="fa fa-envelope"></i> Count me in!</button>
     </form>
-    <script type="text/javascript" src="https://vl355.infusionsoft.com/app/webTracking/getTrackingCode"></script>
   </div>
 </div>
 

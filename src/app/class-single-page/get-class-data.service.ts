@@ -37,5 +37,5 @@ export class GetClassDataService {
         });
     }
 }
-// https://maps.googleapis.com/maps/api/geocode/json?address=+573+King+Street+East,+Toronto,+Ontario,+Canada,+M5A4L3&key=AIzaSyBOvCGpfetHTFZPjOa6U-UhRHHS-6OeGhU
+
 
