@@ -9,7 +9,7 @@ export class FiltersComponent {
   @Input() filtersParamsData;
   @Input() categoriesListData;
   @Output() filterCoursesEmit = new EventEmitter();
-  categoryId = '';
+  @Input() categoryId = '';
   courseId = '';
   locationId = '';
 

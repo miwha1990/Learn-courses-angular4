@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-courses-categories',
@@ -8,4 +8,9 @@ import { Component, Input } from '@angular/core';
 export class CoursesCategoriesComponent {
   @Input() categoriesListData;
   @Input() upcomingCoursesData;
+  @Output() selectedCategory = new EventEmitter();
+
+  onSelectedCategory(i: number) {
+    this.selectedCategory.emit(this.categoriesListData[i]);
+  }
 }

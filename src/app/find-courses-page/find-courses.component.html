@@ -1,6 +1,7 @@
 <app-filters
     [filtersParamsData]="filtersParamsData"
     [categoriesListData]="categoriesListData"
+    [categoryId]="categoryId"
     (filterCoursesEmit)="getUpcomingCourses($event)"
 ></app-filters>
 <div class="wrapper-upcoming-courses">
@@ -19,9 +20,10 @@
     </div>
 </div>
 
-<div class="container">
+<div class="container" *ngIf="!additionalInfo">
     <app-courses-categories
         [categoriesListData]="categoriesListData"
+        (selectedCategory)="selectedCategory($event)"
     ></app-courses-categories>    
 </div>
 

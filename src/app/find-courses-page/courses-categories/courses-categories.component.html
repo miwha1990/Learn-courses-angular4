@@ -1,8 +1,7 @@
 <div class="wrapper-courses-categories-component">
   <div class="row">
     <div class="col-md-12">
-
-      <div class="card" *ngFor="let categorie of categoriesListData">
+      <div class="card" *ngFor="let categorie of categoriesListData; let i = index">
         <div class="course-wrapper">
           <div class="course-image-wrapper">
             <img src="{{ categorie?.image }}" alt="" class="img-responsive img-category">  
@@ -13,7 +12,7 @@
                 <h4 class="color-primary title">{{ categorie?.name }}</h4>
                 <p class="description">{{ categorie?.description }}</p>
               </div>
-              <button md-button class="view-btn">view category</button>
+              <button md-button class="view-btn" (click)="onSelectedCategory(i)">view category</button>
             </div>
           </div>
         </div>
@@ -22,3 +21,4 @@
     </div>
   </div>   
 </div>
+ 
