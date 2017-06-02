@@ -691,14 +691,41 @@ form.subscribe-form .mat-input-underline {
 .mat-radio-checked .mat-radio-outer-circle {
     border-color: #ff4081
 }
+form.checkoutForm #method .mat-radio-checked .mat-radio-outer-circle{
+    border-color: #EB8C00
+}
+form.checkoutForm #method .activated .mat-radio-checked .mat-radio-outer-circle{
+    border-color: #ffffff
+}
+form.checkoutForm #method .activated .mat-radio-outer-circle{
+    border-color: #ffffff
+}
 .mat-radio-disabled .mat-radio-outer-circle {
     border-color: rgba(0, 0, 0, .38)
+}
+form.checkoutForm #method .desactivated .mat-radio-disabled .mat-radio-outer-circle{
+    border-color: rgba(255, 255, 255, .26)
 }
 .mat-radio-inner-circle {
     background-color: #ff4081
 }
+form.checkoutForm #method .mat-radio-inner-circle{
+    background-color: #EB8C00
+}
+form.checkoutForm #method .activated .mat-radio-inner-circle{
+    background-color: #ffffff
+}
 .mat-radio-ripple .mat-ripple-element {
     background-color: rgba(255, 64, 129, .26)
+}
+form.checkoutForm #method .mat-radio-ripple .mat-ripple-element{
+    background-color: rgba(230, 140, 0, .26)
+}
+form.checkoutForm #method .activated .mat-radio-ripple .mat-ripple-element{
+    background-color: rgba(255, 255, 255, .26)
+}
+form.checkoutForm #method .activated .mat-radio-label-content{
+    color: #ffffff
 }
 .mat-radio-disabled .mat-radio-inner-circle,
 .mat-radio-disabled .mat-radio-ripple .mat-ripple-element {
@@ -1379,6 +1406,10 @@ form.subscribe-form .mat-input-underline {
 .mat-checkbox-indeterminate.mat-accent .mat-checkbox-background {
     background-color: #ff4081
 }
+form.checkoutForm .mat-checkbox-checked.mat-accent .mat-checkbox-background,
+form.checkoutForm .mat-checkbox-indeterminate.mat-accent .mat-checkbox-background {
+    background-color: #EB8C00
+}
 .mat-checkbox-checked.mat-warn .mat-checkbox-background,
 .mat-checkbox-indeterminate.mat-warn .mat-checkbox-background {
     background-color: #f44336
@@ -1395,6 +1426,9 @@ form.subscribe-form .mat-input-underline {
 }
 .mat-checkbox:not(.mat-checkbox-disabled).mat-accent .mat-checkbox-ripple .mat-ripple-element {
     background-color: rgba(255, 64, 129, .26)
+}
+form.checkoutForm .mat-checkbox:not(.mat-checkbox-disabled).mat-accent .mat-checkbox-ripple .mat-ripple-element {
+    background-color: rgba(235, 140, 0, .26)
 }
 .mat-checkbox:not(.mat-checkbox-disabled).mat-warn .mat-checkbox-ripple .mat-ripple-element {
     background-color: rgba(244, 67, 54, .26)

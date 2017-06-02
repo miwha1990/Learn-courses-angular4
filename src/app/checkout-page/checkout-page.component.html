@@ -20,10 +20,10 @@
                         <input mdInput  id="focusedInput3" placeholder="Email" type="email" formControlName="email">
                     </md-input-container>
                     <md-input-container>
-                        <input mdInput  id="focusedInput4" placeholder="Confirm Email" type="email" formControlName="confirm_email">
+                        <input mdInput id="focusedInput4" placeholder="Confirm Email" type="email" formControlName="confirm_email"> <span class="check-span" md-suffix><i class="fa fa-check"></i></span>
                     </md-input-container>
                 </div>
-                <p class="text-warning no-mb">Please, use personal email only! E.g.: @gmail.com, @hotmail.com, @yahoo.ca</p>
+                <p class="text-warning">Please, use personal email only! E.g.: @gmail.com, @hotmail.com, @yahoo.ca</p>
                 <div class="line-wrapper">
                     <md-select placeholder="Country" required>
                         <md-option value="usa" >USA</md-option>
@@ -51,7 +51,7 @@
                         <input mdInput [mdDatepicker]="picker" placeholder="Date of Birth" required>
                         <button mdSuffix [mdDatepickerToggle]="picker"></button>
                     </md-input-container>
-                    <md-datepicker #picker></md-datepicker>
+                    <md-datepicker #picker ></md-datepicker>
                 </div>
                 <div class="line-wrapper">
                     <md-input-container>
@@ -139,10 +139,10 @@
             <p>Payment options</p>
             <md-radio-group id="method">
                 <div class="pay-full">
-                    <md-radio-button value="1"  aria-label="Label 1" checked class="md-checked" required>Pay in Full</md-radio-button> <span class="price">$1,999.00</span>
+                    <md-radio-button value="1"  aria-label="Label 1" [checked]="!OrderProcessService.secretData.allow_partial_payment" class="md-checked" required>Pay in Full</md-radio-button> <span class="price">$1,999.00</span>
                 </div>
-                <div class="pay-deposite inactive">
-                    <md-radio-button value="2"  aria-label="Label 2" required>Pay Deposit only</md-radio-button>
+                <div class="pay-deposite" [ngClass]="OrderProcessService.secretData.allow_partial_payment?'activated':'desactivated'">
+                    <md-radio-button value="2" [disabled]="!OrderProcessService.secretData.allow_partial_payment" aria-label="Label 2" required>Pay Deposit only</md-radio-button>
                     <br>
                     <span>Balance Due <span class="date">July31, 2017</span></span>
                 </div>

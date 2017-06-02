@@ -20,7 +20,6 @@ export class CheckoutPageComponent implements OnInit {
 }, {validator: this.matchingPasswords('email', 'confirm_email')});
   constructor(private OrderProcessService: OrderProcessService, private fb: FormBuilder) {}
   matchingPasswords(passwordKey: string, passwordConfirmationKey: string) {
-    console.log(1111111111)
     return (group: FormGroup) => {
       const passwordInput = group.controls[passwordKey];
       const passwordConfirmationInput = group.controls[passwordConfirmationKey];

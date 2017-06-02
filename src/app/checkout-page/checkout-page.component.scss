@@ -24,29 +24,32 @@ aside.ms-paper-menu-left{
     }
   }
 }
-.line-wrapper{
+.line-wrapper {
   display: flex;
   flex-direction: row;
   align-items: stretch;
   justify-content: space-between;
-  .mat-select{
+  .mat-select {
     padding-top: 9px;
   }
-  .mat-input-container{
+  .mat-input-container {
     @media screen and (max-width: 991px) {
       margin-left: 0;
       margin-right: 0;
     }
   }
-    :nth-child(1){
-      margin-right:15px;
-    }
-    :nth-child(2){
-      margin-left:15px;
-    }
-    :nth-child(3){
-      margin-rigth:0;
-    }
+  :nth-child(1) {
+    margin-right: 15px;
+  }
+  :nth-child(2) {
+    margin-left: 15px;
+  }
+  button.mat-datepicker-toggle, span.check-span, span.check-span i {
+    margin-right: 0;
+  }
+}
+p.text-warning{
+  margin-bottom: 5px;
 }
 .order-info{
   .panel .panel-body {
@@ -92,12 +95,14 @@ aside.ms-paper-menu-left{
     padding: 15px;
     margin-bottom: 10px;
   }
-  &>div.inactive{
+  &>div.activated{
     color:white;
     background: #F68700;
     border-color: white;
-    .mat-radio-outer-circle {
-      border-color: white;
-    }
+  }
+  &>div.desactivated{
+    color:white;
+    background: grey;
+    border-color: white;
   }
 }
