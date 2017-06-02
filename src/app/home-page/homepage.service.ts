@@ -23,17 +23,15 @@ export class HomepageService {
             return resData;
         });
   }
+    sendSubscription(data): Observable<any> {
+      const endpoint = `https://vl355.infusionsoft.com/app/form/process/8786052e6d747e1c43f5503af713966`;
 
-  /*sendSubscribeRequest(data): Observable<any> {
-      const endpoint = `${this.environment.apiHost}${this.environment.upcomingCourses}`;
-
-      return this.http.get(endpoint)
+      return this.http.post(endpoint, data)
           .map((res: Response) => {
               const resData = res.json().items;
               console.log(resData);
               return resData;
           });
-  }*/
 
-
+  }
 }
