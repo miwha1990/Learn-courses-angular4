@@ -13,10 +13,17 @@ export class CheckoutPageComponent implements OnInit {
       last_name: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
       confirm_email: ['', [Validators.required, Validators.email]],
-      class_id: [''],
-      name_of_badge: [''],
-      gender: [''],
-      date_of_birth: [''],
+      country:  ['', Validators.required],
+      state:  ['', Validators.required],
+      name_of_badge: ['', Validators.required],
+      city:  ['', Validators.required],
+      gender: ['', Validators.required],
+      date_of_birth: ['', Validators.required],
+      phone: ['', Validators.required],
+      industry_certification: ['', Validators.required],
+      employer: ['', Validators.required],
+      job_title: ['', Validators.required],
+      emergency_name: ['', Validators.required]
 }, {validator: this.matchingEmail('email', 'confirm_email')});
 
 
