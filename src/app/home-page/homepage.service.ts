@@ -26,7 +26,7 @@ export class HomepageService {
     sendSubscription(data): Observable<any> {
       const endpoint = `https://vl355.infusionsoft.com/app/form/process/8786052e6d747e1c43f5503af713966`;
 
-      return this.http.post(endpoint, data)
+      return this.http.post(endpoint, data, '')
           .map((res: Response) => {
               const resData = res.json().items;
               console.log(resData);

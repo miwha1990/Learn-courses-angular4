@@ -19,3 +19,17 @@
 h4{
   font-weight: 500;
 }
+ul{
+  list-style: none;
+}
+.receipt-form{
+  display: flex;
+  width:60%;
+  margin:0 auto;
+  md-input-container{
+    flex:1 auto;
+  }
+  button{
+    flex-basis: 150px;
+  }
+}
