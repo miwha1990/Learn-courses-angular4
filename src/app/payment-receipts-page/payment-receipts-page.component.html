@@ -1,0 +1,26 @@
+<div class="page-wrapper">
+  <div class="page-banner" style="background-image: url('../../assets/TeamBanner.jpg')">
+    <div class="container text-center">
+      <h1 class="no-m ms-site-title color-white center-block ms-site-title-lg animated zoomInDown animation-delay-5">
+        <span>"Learn in Class" Payment Receipts</span>
+      </h1>
+    </div>
+  </div>
+  <div class="container mt-4 mb-4 text-left">
+    <p class="pt-2 pb-4">To display your "Learn in Class" order history and print your payment receipts, please enter your email below.</p>
+    <h3 class="important-info text-center"><i class="fa fa-exclamation-triangle mr-1 mb-2"></i>Please Note!</h3>
+    <ul class="text-left no-m no-p mb-4">
+      <li>- You must enter the <strong>same email used during the registration</strong> process.</li>
+      <li>- You must have <strong>access to that email</strong> account.</li>
+      <li>- <strong>Only "Learn in Class"</strong> invoices will be displayed. To view your "Learn Online" payment receipts, please <a href="https://online.dtsfitnesseducation.com/users/sign_in" target="_blank">click here</a></li>
+      <li>- Only registrations <strong>post June 2017</strong> will be displayed.</li>
+    </ul>
+    <form accept-charset="UTF-8" [formGroup]="receiptForm" class="receipt-form mb-4" (ngSubmit)="formSubmit($event)" (keydown)="keyDownFunction($event)">
+      <md-input-container class="mr-1">
+        <input mdInput formControlName="email" type="text" placeholder="Email Address">
+      </md-input-container>
+      <button  class="btn btn-raised btn-primary" md-button type="submit" [disabled]="receiptForm.invalid"><i class="fa fa-envelope"></i> SUBMIT</button>
+    </form>
+    <p>Please <a routerLink="/contact-support" routerLinkActive="active">contact us</a> if you need a payment receipt for a course registration prior to June 2017.</p>
+  </div>
+</div>

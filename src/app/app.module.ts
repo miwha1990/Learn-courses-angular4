@@ -21,6 +21,7 @@ import { OurTeamModule } from './our-team/our-team.module';
 import { CheckoutPageModule } from './checkout-page/checkout-page.module';
 import { FindCoursesModule } from './find-courses-page/find-courses.module';
 import { ThankYouPageModule } from './thank-you-page/thank-you-page.module';
+import { PaymentReceiptsPageModule } from './payment-receipts-page/payment-receipts-page.module';
 import { SafeResourceUrlModule } from './shared/safe-resourse-url/safe-resource-url.module';
 
 @NgModule({
@@ -47,6 +48,7 @@ import { SafeResourceUrlModule } from './shared/safe-resourse-url/safe-resource-
     FindCoursesModule,
     MdButtonModule,
     ThankYouPageModule,
+    PaymentReceiptsPageModule,
     SafeResourceUrlModule
   ],
   bootstrap: [AppComponent]

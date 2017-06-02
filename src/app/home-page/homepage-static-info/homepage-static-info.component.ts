@@ -20,7 +20,11 @@ export class HomepageStaticInfoComponent implements OnInit {
   }
   formSubmit() {
     console.log(this.subscribeForm.value);
-    this.homepageService.sendSubscription(this.subscribeForm.value);
+    this.homepageService.sendSubscription(this.subscribeForm.value)
+      .subscribe(
+        data => console.log(data),
+        err => console.error('ERRROR', err)
+      );
   }
   keyDownFunction(event) {
     if (event.keyCode === 13) {

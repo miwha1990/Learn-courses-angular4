@@ -1,0 +1,35 @@
+.page-wrapper{
+  display: flex;
+  align-items: stretch;
+  flex-direction: column;
+}
+.page-banner{
+  margin-top:-40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 280px;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.important-info i{
+  color: #EB8C00;
+}
+h4{
+  font-weight: 500;
+}
+ul{
+  list-style: none;
+}
+.receipt-form{
+  display: flex;
+  width:60%;
+  margin:0 auto;
+  md-input-container{
+    flex:1 auto;
+  }
+  button{
+    flex-basis: 150px;
+  }
+}

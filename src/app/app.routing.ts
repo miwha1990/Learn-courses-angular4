@@ -11,4 +11,5 @@ export const AppRoutes: Routes = [
     { path: 'checkout-page', loadChildren: './checkout-page/checkout-page.module#CheckoutPageModule' },
     { path: 'learn-in-class', loadChildren: './find-courses-page/find-courses.module#FindCoursesModule' },
     { path: 'thank-you', loadChildren: './thank-you-page/thank-you-page.module#ThankYouPageModule' },
+    { path: 'payment-receipts', loadChildren: './payment-receipts-page/payment-receipts-page.module#PaymentReceiptsPageModule' },
 ];
