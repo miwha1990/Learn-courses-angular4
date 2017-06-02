@@ -79,3 +79,16 @@ h3{
     }
   }
 }
+.mat-select-trigger {
+  margin-top: 8px;
+}
+.mat-select-placeholder.mat-floating-placeholder {
+  top:-13px !important;
+
+}
+.mat-select-value-text{
+  color: #757575 !important
+}
+.mat-focused .mat-input-placeholder.mat-float, .mat-input-placeholder.mat-float:not(.mat-empty) {
+  transform: translate3d(0,-1.35em,0) scale(.85) !important;
+}

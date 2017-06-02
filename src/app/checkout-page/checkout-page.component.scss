@@ -80,12 +80,20 @@
   flex-direction: row;
   align-items: stretch;
   justify-content: space-between;
-  &>*{margin-top: 8px;}
+
+  &>*{
+    height: 45px;
+    position: relative;
+    &>*{
+      position: absolute;
+      bottom: 0;
+    }
+  }
   .mat-select {
-    padding-top:15px;
+    //padding-top:15px;
   }
   .mat-input-container {
-    padding-bottom: 9px;
+    //padding-bottom: 9px;
     @media screen and (max-width: 991px) {
       margin-left: 0;
       margin-right: 0;
@@ -156,6 +164,11 @@ p.text-warning{
   max-height: 200px;
   overflow-y: scroll;
 }
+.order-info{
+  .mat-select, .mat-input-container {
+    width: 100%;
+  }
+}
 @media screen and (min-width: 1201px)  {
   .student-information{
     .mat-select, .mat-input-container{min-width: 330px !important;}
@@ -198,7 +211,7 @@ p.text-warning{
     .input-group-addon {
       width: 30% !important;
     }
-    .mat-input-container, .tot-btn.total, .tot-btn.balance {
+    .mat-input-container,.tot-btn.total, .tot-btn.balance {
       width: 70% !important;
     }
   }
