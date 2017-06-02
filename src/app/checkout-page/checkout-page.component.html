@@ -1,7 +1,7 @@
 <div class="container">
     <form class="checkoutForm" [formGroup]="checkoutForm" (ngSubmit)="formSubmit($event)" (keydown)="keyDownFunction($event)">
     <div class="row checkout-wrapper">
-        <main class="col-sm-8 col-xs-12 ms-paper-content">
+        <main class="col-md-8 col-sm-12 ms-paper-content">
             <div class="logo"><img src="../assets/DTSLogo.svg" alt=""></div>
             <h1 class="title">{{OrderProcessService.secretData.name}}, {{OrderProcessService.secretData.location}} {{OrderProcessService.secretData.details1}}</h1>
             <span class="price-multiplier">Regular price x 1</span>
@@ -129,7 +129,7 @@
                 </p>
             </div>
         </main>
-        <aside class="col-sm-4 ms-paper-menu-left">
+        <aside class="col-md-4 col-sm-12 ms-paper-menu-left">
             <h2 class="section-title">Early Bid Registration</h2>
             <p>
                 <i class="material-icons prefix text-warning" style="vertical-align: sub">report_problem</i>

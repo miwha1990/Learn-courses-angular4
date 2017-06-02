@@ -79,3 +79,8 @@ h3{
     }
   }
 }
+@media screen and (max-width: 991px) {
+  .row.checkout-wrapper{
+    flex-direction: column;
+  }
+}
