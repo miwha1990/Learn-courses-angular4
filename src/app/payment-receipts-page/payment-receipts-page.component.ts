@@ -17,7 +17,11 @@ export class PaymentReceiptsPageComponent implements OnInit {
   }
   formSubmit() {
     console.log(this.receiptForm.value);
-    this.paymentReceiptsPageService.sendReceiptRequest(this.receiptForm.value);
+    this.paymentReceiptsPageService.sendReceiptRequest(this.receiptForm.value)
+        .subscribe(
+            data => console.log(data),
+            err => console.error('ERRROR', err)
+        );
   }
   keyDownFunction(event) {
     if (event.keyCode === 13) {
