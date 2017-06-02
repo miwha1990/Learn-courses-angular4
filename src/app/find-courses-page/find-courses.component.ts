@@ -12,7 +12,7 @@ export class FindCoursesComponent implements OnInit {
   categoriesListData;
   filtersParamsData;
   loading: boolean = false;
-
+  additionalInfo: boolean = false;
 
   constructor(private findCoursesService: FindCoursesService) { }
 
@@ -25,6 +25,9 @@ export class FindCoursesComponent implements OnInit {
 
 
   getUpcomingCourses(params?) {
+    if(params) {
+      this.additionalInfo = true;
+    }
     this.loading = true;
     this.findCoursesService.getUpcomingCourses(params)
       .subscribe(
