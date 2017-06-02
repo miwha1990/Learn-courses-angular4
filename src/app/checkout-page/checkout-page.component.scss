@@ -151,3 +151,52 @@ p.text-warning{
   max-height: 200px;
   overflow-y: scroll;
 }
+@media screen and (min-width: 992px) and (max-width: 1200px)  {
+  .billing-info{
+    &>.row{
+      & > span:first-child{
+       padding-right: 0;
+      }
+      & > span:last-child{
+        padding-left: 0;
+      }
+    }
+  }
+}
+@media screen and (max-width: 991px) {
+  .billing-info{
+    .mat-input-container{
+      width: 95% !important;
+    }
+    .row .mat-input-container {
+      width: 90% !important;
+    }
+    .btn-bordered{
+      margin:50px 0;
+    }
+  }
+  .row.checkout-wrapper, .line-wrapper{
+    flex-direction: column;
+  }
+  .line-wrapper > *:nth-child(2) {
+    margin-left: 0;
+  }
+  .order-info{
+    .input-group-addon {
+      width: 30% !important;
+    }
+    .mat-input-container, .tot-btn.total, .tot-btn.balance {
+      width: 70% !important;
+    }
+  }
+}
+@media screen and (max-width: 480px) {
+  .order-info{
+    .input-group-addon {
+      width: 40% !important;
+    }
+    .mat-input-container, .tot-btn.total, .tot-btn.balance {
+      width: 100%;
+    }
+  }
+}
