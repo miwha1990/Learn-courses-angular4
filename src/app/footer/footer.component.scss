@@ -8,6 +8,7 @@
       justify-content: space-between;
     }
     li {
+      cursor: pointer;
       &:nth-child(1),&:nth-child(4){
         text-align: left;
       }

@@ -1,0 +1,9 @@
+.sb-site-container{
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  min-height: 100vh;
+  .general-content-wrapper{
+    flex:1 auto;
+  }
+}
