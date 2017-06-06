@@ -56,7 +56,9 @@ export class CheckoutPageComponent implements OnInit {
         }, {validator: this.matchingEmail('email', 'confirm_email')});
     }
 
-
+  selected(e) {
+      console.log(e);
+  }
   applyCoupon() {
     this.couponActivated = true;
   }

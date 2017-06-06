@@ -95,3 +95,60 @@ h3{
 .selectiongroup{
   display:none!important;
 }
+
+
+//== My Selects ====
+.ui-select-choices.dropdown-menu{
+  border-radius: 0;
+  box-shadow: 0 5px 5px -3px rgba(0,0,0,.2), 0 8px 10px 1px rgba(0,0,0,.14), 0 3px 14px 2px rgba(0,0,0,.12);
+}
+
+.ui-select-choices-row>a:hover, .ui-select-choices-row>a:focus {
+  text-decoration: none;
+  color:#757575;
+  background-color: #f5f5f5;
+}
+
+.ui-select-choices-row{
+  a{
+    color: #757575 !important;
+    font-size: 16px;
+    height:48px;
+    div{line-height: 40px;}
+  }
+
+}
+.ui-select-choices-row.active>a {
+  color: #757575 !important;
+  text-decoration: none;
+  outline: 0;
+  background-color: rgba(0, 0, 0, .04) !important;
+}
+.form-control.ui-select-search{
+  box-shadow: none;
+}
+.ui-select-toggle > .caret{
+  border-top-color:#757575 !important;
+}
+.ui-select-placeholder{
+  text-transform: none !important;
+}
+.ui-select-match-text{
+  color: rgba(0, 0, 0, .38);
+  text-transform: none !important;
+}
+ng-select{
+  width: 100%;
+  &:last-child{
+    margin-right: 0 !important;
+    margin-left: 15px !important;
+  }
+}
+.form-control.ui-select-toggle{
+  padding: 0;
+  height: 28px;
+  &:hover{
+    background-color: inherit;
+  }
+}
+//== My Selects ENDS====
