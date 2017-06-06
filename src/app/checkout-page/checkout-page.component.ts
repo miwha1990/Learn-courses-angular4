@@ -48,7 +48,9 @@ export class CheckoutPageComponent implements OnInit {
 
   }
 
-
+  selected(e) {
+      console.log(e);
+  }
   applyCoupon() {
     this.couponActivated = true;
   }

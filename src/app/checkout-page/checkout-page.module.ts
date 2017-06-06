@@ -1,4 +1,5 @@
 import { NgModule } from '@angular/core';
+import { SelectModule } from 'ng2-select';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { CheckoutPageRoutes } from './checkout-page.routing';
@@ -13,6 +14,7 @@ import { OrderProcessService} from '../services/order-process.service';
     CommonModule,
     BrowserAnimationsModule,
     BrowserModule,
+    SelectModule,
     MaterialModule,
     FormsModule,
     ReactiveFormsModule,

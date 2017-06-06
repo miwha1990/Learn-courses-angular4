@@ -25,14 +25,26 @@
                 </div>
                 <p class="text-warning">Please, use personal email only! E.g.: @gmail.com, @hotmail.com, @yahoo.ca</p>
                 <div class="line-wrapper">
-                    <md-select placeholder="Country" formControlName="country" class="mr-15">
+                    <ng-select [items]="['USA', 'Canada']"
+                               (selected)="selected($event)"
+                               placeholder="Country"
+                               formControlName="country" class="mr-15"
+                    >
+                    </ng-select>
+                    <!--<md-select placeholder="Country" formControlName="country" class="mr-15">
                         <md-option value="usa" >USA</md-option>
                         <md-option value="canada" >Canada</md-option>
-                    </md-select>
-                    <md-select placeholder="Province / State" formControlName="state" class="ml-15">
+                    </md-select>-->
+                    <ng-select [items]="['USA', 'Canada']"
+                               (selected)="selected($event)"
+                               placeholder="Province / State"
+                               formControlName="state" class="mr-15"
+                    >
+                    </ng-select>
+                   <!-- <md-select placeholder="Province / State" formControlName="state" class="ml-15">
                         <md-option value="usa" >USA</md-option>
                         <md-option value="canada" >Canada</md-option>
-                    </md-select>
+                    </md-select>-->
                 </div>
                 <div class="line-wrapper">
                     <md-input-container class="mr-15">
