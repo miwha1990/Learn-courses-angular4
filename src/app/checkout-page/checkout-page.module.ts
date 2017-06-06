@@ -8,6 +8,7 @@ import {MaterialModule, MdNativeDateModule} from '@angular/material';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { OrderProcessService} from '../services/order-process.service';
+import { MyDatePickerModule } from 'mydatepicker';
 @NgModule({
   imports: [
     CommonModule,
@@ -18,6 +19,7 @@ import { OrderProcessService} from '../services/order-process.service';
     ReactiveFormsModule,
     MdNativeDateModule,
     RouterModule.forChild(CheckoutPageRoutes),
+    MyDatePickerModule,
   ],
   declarations: [
     CheckoutPageComponent

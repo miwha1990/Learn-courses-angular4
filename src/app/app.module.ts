@@ -23,6 +23,7 @@ import { FindCoursesModule } from './find-courses-page/find-courses.module';
 import { ThankYouPageModule } from './thank-you-page/thank-you-page.module';
 import { PaymentReceiptsPageModule } from './payment-receipts-page/payment-receipts-page.module';
 import { SafeResourceUrlModule } from './shared/safe-resourse-url/safe-resource-url.module';
+import { MyDatePickerModule } from 'mydatepicker';
 
 @NgModule({
   declarations: [
@@ -49,7 +50,8 @@ import { SafeResourceUrlModule } from './shared/safe-resourse-url/safe-resource-
     MdButtonModule,
     ThankYouPageModule,
     PaymentReceiptsPageModule,
-    SafeResourceUrlModule
+    SafeResourceUrlModule,
+    MyDatePickerModule
   ],
   bootstrap: [AppComponent]
 })

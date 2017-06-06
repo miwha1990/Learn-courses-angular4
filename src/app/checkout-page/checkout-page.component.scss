@@ -53,14 +53,28 @@
             bottom: 0;
           }
         }
-        .mat-datepicker-toggle {
-          font-size: 24px;
-          color: #5D5D5D;
-          cursor: pointer;
-          mask-image: url('../../assets/img/icons/datepicker.svg');
-          -webkit-mask-size: 100%;
-          background-color: #757575;
-          background-image: none;
+
+
+        &.line-with-dp{
+          md-input-container{
+            .mat-datepicker-toggle {
+              font-size: 24px;
+              color: #5D5D5D;
+              cursor: pointer;
+              mask-image: url('../../assets/img/icons/datepicker.svg');
+              -webkit-mask-size: 100%;
+              background-color: #757575;
+              background-image: none;
+              z-index:99;
+              opacity:1;
+              position: relative;
+            }
+            my-date-picker{
+              position: absolute;
+              right: -21px;
+              top: 8px;
+            }
+          }
         }
       }
       p.text-warning{
@@ -214,3 +228,4 @@
     }
   }
 }
+

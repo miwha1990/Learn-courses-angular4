@@ -48,10 +48,11 @@
                         <md-option value="female" >Female</md-option>
                     </md-select>
                     <md-input-container class="ml-15">
-                        <input mdInput [mdDatepicker]="picker" placeholder="Date of Birth" formControlName="date_of_birth">
-                        <button mdSuffix [mdDatepickerToggle]="picker"></button>
+                        <input mdInput placeholder="Date of Birth" formControlName="date_of_birth">
+                        <button mdSuffix class="mat-datepicker-toggle" (click)="onToggleSelector($event)"></button>
+                        <my-date-picker #mydp="mydatepicker" [options]="myDatePickerOptions" (dateChanged)="onDateChanged($event)"></my-date-picker>
                     </md-input-container>
-                    <md-datepicker #picker ></md-datepicker>
+
                 </div>
                 <div class="line-wrapper">
                     <md-input-container class="mr-15">
