@@ -14,14 +14,26 @@ export class ClassSinglePageComponent implements OnInit {
   data = null;
   errorMessage: string;
   upcomingCoursesData;
+  videoSource = null;
+  video_url = null;
   constructor(private GetClassDataService: GetClassDataService, private activatedRoute: ActivatedRoute) { }
-
   ngOnInit() {
+    const checkVideoSource = function(data){
+        let videoSource;
+        if ( data.video_url.indexOf('wistia') !== -1 ) { videoSource = 'wistia'; }
+        if ( data.video_url.indexOf('youtube') !== -1 ) { videoSource = 'youtube'; }
+        if ( data.video_url.indexOf('vimeo') !== -1 ) { videoSource = 'vimeo'; }
+        return videoSource;
+    };
     this.activatedRoute.params.subscribe((params: Params) => {
       const id: number = params['id'];
       this.GetClassDataService.getClassData(id)
           .subscribe(res => {
                 this.data = res;
+                this.videoSource = checkVideoSource(this.data);
+                console.log(this.videoSource);
+                // this.videoSource  = 'youtube';
+                // this.data.video_url ='https://www.youtube.com/embed/aAdioIs17LM';
               },
               error =>  this.errorMessage = <any>error);
       this.GetClassDataService.getUpcomingCourses(id)
@@ -59,5 +71,6 @@ export class ClassSinglePageComponent implements OnInit {
             stickySetUp();
         }
     );
+
   }
 }

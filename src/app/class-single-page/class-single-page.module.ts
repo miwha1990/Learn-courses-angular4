@@ -11,6 +11,7 @@ import { GetClassDataService } from './get-class-data.service';
 import { StickyCardComponent } from './sticky-card/sticky-card.component';
 import { UpcomingCoursesModule } from '../upcoming-courses/upcoming-courses.module';
 import { SafeResourceUrlModule } from '../shared/safe-resourse-url/safe-resource-url.module';
+import { SanitizeHtmlModule } from '../shared/sanitize-html/sanitize-html.module';
 import { MarkdownModule } from 'angular2-markdown';
 
 @NgModule({
@@ -23,6 +24,7 @@ import { MarkdownModule } from 'angular2-markdown';
     }),
     UpcomingCoursesModule,
     SafeResourceUrlModule,
+    SanitizeHtmlModule,
     MarkdownModule,
   ],
   declarations: [

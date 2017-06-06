@@ -16,7 +16,12 @@
         </div>
     <div class="container">
         <div class="col-md-8">
-            <video [src]="(data?.video_url ? (data?.video_url | safeResourceUrl) : '')" type="video/mp4" controls></video>
+            <div class="embed-responsive embed-responsive-16by9" *ngIf="videoSource == 'wistia'">
+               <iframe  class="embed-responsive-item" [src]="(data?.video_url ? (data?.video_url | safeResourceUrl) : '')"></iframe>
+            </div>
+            <div class="embed-responsive embed-responsive-16by9" *ngIf="videoSource == 'youtube'">
+                <iframe class="embed-responsive-item" [src]="(data?.video_url ? (data?.video_url | safeResourceUrl) : '')"></iframe>
+            </div>
             <div class="pt-4">
                 <markdown [data]="(data?.description ? data?.description : '')"></markdown>
             </div>
@@ -58,3 +63,4 @@
         </div>
     </div>
 </div>
+<!--<iframe src="//fast.wistia.net/embed/iframe/avk9twrrbn" allowtransparency="true" frameborder="0" scrolling="no" class="wistia_embed" name="wistia_embed" allowfullscreen mozallowfullscreen webkitallowfullscreen oallowfullscreen msallowfullscreen width="620" height="349"></iframe>-->
