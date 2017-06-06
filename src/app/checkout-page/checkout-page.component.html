@@ -26,25 +26,17 @@
                 <p class="text-warning">Please, use personal email only! E.g.: @gmail.com, @hotmail.com, @yahoo.ca</p>
                 <div class="line-wrapper">
                     <ng-select [items]="['USA', 'Canada']"
-                               (selected)="selected($event)"
+                               (selected)="selected($event, this)"
                                placeholder="Country"
                                formControlName="country" class="mr-15"
                     >
                     </ng-select>
-                    <!--<md-select placeholder="Country" formControlName="country" class="mr-15">
-                        <md-option value="usa" >USA</md-option>
-                        <md-option value="canada" >Canada</md-option>
-                    </md-select>-->
                     <ng-select [items]="['USA', 'Canada']"
                                (selected)="selected($event)"
                                placeholder="Province / State"
                                formControlName="state" class="mr-15"
                     >
                     </ng-select>
-                   <!-- <md-select placeholder="Province / State" formControlName="state" class="ml-15">
-                        <md-option value="usa" >USA</md-option>
-                        <md-option value="canada" >Canada</md-option>
-                    </md-select>-->
                 </div>
                 <div class="line-wrapper">
                     <md-input-container class="mr-15">
@@ -55,10 +47,12 @@
                     </md-input-container>
                 </div>
                 <div class="line-wrapper line-with-dp">
-                    <md-select placeholder="Gender" formControlName="gender" class="mr-15">
-                        <md-option value="male" >Male</md-option>
-                        <md-option value="female" >Female</md-option>
-                    </md-select>
+                    <ng-select [items]="[{id:'male',text:'Male'}, {id:'female',text:'Female'}]"
+                               (selected)="selected($event, 'gender')"
+                               placeholder="Gender"
+                               formControlName="gender" class="ml-15"
+                    >
+                    </ng-select>
                     <md-input-container class="ml-15">
                         <input mdInput placeholder="Date of Birth" formControlName="date_of_birth">
                         <button mdSuffix class="mat-datepicker-toggle" (click)="onToggleSelector($event)"></button>
@@ -70,12 +64,18 @@
                     <md-input-container class="mr-15">
                         <input mdInput id="phone" type="text" placeholder="Phone Number with Area Code" formControlName="phone">
                     </md-input-container>
-                    <md-select placeholder="Industry Certification" formControlName="industry_certification" class="ml-15">
-                        <md-option value="personal" >Personal Training Certification</md-option>
-                        <md-option value="degree" >College / University Degree</md-option>
-                        <md-option value="other" >Other</md-option>
-                        <md-option value="none" >None</md-option>
-                    </md-select>
+                    <ng-select [items]="[{id:'male',text:'Male'}, {id:'female',text:'Female'}]"
+                               (selected)="selected($event)"
+                               placeholder="Industry Certification"
+                               formControlName="industry_certification" class="ml-15"
+                    >
+                    </ng-select>
+                    <!--<md-select placeholder="Industry Certification" formControlName="industry_certification" class="ml-15">-->
+                        <!--<md-option value="personal" >Personal Training Certification</md-option>-->
+                        <!--<md-option value="degree" >College / University Degree</md-option>-->
+                        <!--<md-option value="other" >Other</md-option>-->
+                        <!--<md-option value="none" >None</md-option>-->
+                    <!--</md-select>-->
                 </div>
                 <div class="line-wrapper">
                     <md-input-container class="mr-15">

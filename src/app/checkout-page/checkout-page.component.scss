@@ -39,7 +39,7 @@
         @media screen and (max-width: 991px) {
           flex-direction:column;
         }
-        .mat-select, .mat-input-container {
+        ng-select, .mat-input-container {
           width:calc(50% - 15px);
           @media screen and (max-width: 991px) {
             width:100%;
