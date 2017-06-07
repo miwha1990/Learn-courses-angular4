@@ -7,6 +7,7 @@ import { OrderProcessService } from '../../services/order-process.service';
 })
 export class StickyCardComponent implements  OnChanges {
   @Input() data;
+  @Input() loading;
   cardContentEarly: string;
   cardContentRegular: string;
   constructor(private OrderProcessService: OrderProcessService) { }

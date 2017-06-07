@@ -279,6 +279,13 @@ h5{
         box-shadow: none;
         border-radius: 5px;
       }
+      .payment-methods{
+        background-image: url('../../../src/assets/soo.svg');
+        background-repeat: no-repeat;
+        background-size: contain;
+        width:100%;
+        min-height: 56px;
+      }
     }
   }
 }

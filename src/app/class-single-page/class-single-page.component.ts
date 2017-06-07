@@ -1,10 +1,10 @@
-import { Component, OnInit, HostListener} from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 import {Router, ActivatedRoute, Params} from '@angular/router';
 import {GetClassDataService} from './get-class-data.service';
 import {jQueryStatic} from 'jquery';
 import 'jquery';
 declare const $: jQueryStatic;
-
+import { SafeResourceUrlPipe } from '../shared/safe-resourse-url/safe-resource-url.pipe';
 @Component({
   selector: 'app-class-single-page',
   templateUrl: './class-single-page.component.html',
@@ -16,8 +16,10 @@ export class ClassSinglePageComponent implements OnInit {
   upcomingCoursesData;
   videoSource = null;
   video_url = null;
-  constructor(private GetClassDataService: GetClassDataService, private activatedRoute: ActivatedRoute) { }
+  loading = true;
+  constructor(private GetClassDataService: GetClassDataService, private activatedRoute: ActivatedRoute, private pipe: SafeResourceUrlPipe ) {}
   ngOnInit() {
+      console.log(this.loading);
     const checkVideoSource = function(data){
         let videoSource;
         if ( data.video_url.indexOf('wistia') !== -1 ) { videoSource = 'wistia'; }
@@ -31,11 +33,14 @@ export class ClassSinglePageComponent implements OnInit {
           .subscribe(res => {
                 this.data = res;
                 this.videoSource = checkVideoSource(this.data);
-                console.log(this.videoSource);
+                this.data.video_url = this.pipe.transform(this.data.video_url);
+                // console.log(this.videoSource);
+                // console.log(this.loading);
                 // this.videoSource  = 'youtube';
                 // this.data.video_url ='https://www.youtube.com/embed/aAdioIs17LM';
               },
               error =>  this.errorMessage = <any>error);
+              // () => this.loading = false);
       this.GetClassDataService.getUpcomingCourses(id)
           .subscribe(res => {
                 this.upcomingCoursesData = res;
@@ -71,6 +76,11 @@ export class ClassSinglePageComponent implements OnInit {
             stickySetUp();
         }
     );
-
   }
+  onLoad = function(){
+      if (this.data !== null) {
+          this.loading = false;
+          // console.log('my time');
+      }
+  };
 }

@@ -14,14 +14,13 @@ export class FindCoursesComponent implements OnInit {
   filtersParamsData;
   loading: boolean;
   additionalInfo: boolean;
-  categoryId;  
-
+  categoryId;
   constructor(private findCoursesService: FindCoursesService,
               private activatedRoute: ActivatedRoute) {
 
     this.loading = false;
     this.additionalInfo = false;
-    this.categoryId = ''; 
+    this.categoryId = '';
   }
 
 
@@ -33,7 +32,7 @@ export class FindCoursesComponent implements OnInit {
 
 
   getUpcomingCourses(params?) {
-    if(params) this.additionalInfo = true;
+    if (params) this.additionalInfo = true;
 
     this.loading = true;
     this.findCoursesService.getUpcomingCourses(params)
@@ -41,16 +40,15 @@ export class FindCoursesComponent implements OnInit {
         data => this.upcomingCoursesData = data,
         err => console.error('ERROR', err),
         () => this.loading = false
-      )
+      );
   }
-  
 
   getCategoriesList() {
     this.findCoursesService.getCategoriesList()
       .subscribe(
         data => this.categoriesListData = data,
         err => console.error('ERROR', err)
-      )
+      );
   }
 
 
@@ -59,7 +57,7 @@ export class FindCoursesComponent implements OnInit {
       .subscribe(
         data => this.filtersParamsData = data,
         err => console.error('ERROR', err)
-      )
+      );
   }
 
 
@@ -68,6 +66,4 @@ export class FindCoursesComponent implements OnInit {
     this.categoryId = category.id;
     this.getUpcomingCourses(filterParams);
   }
-  
-  
 }

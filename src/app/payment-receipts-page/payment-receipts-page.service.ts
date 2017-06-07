@@ -16,10 +16,8 @@ export class PaymentReceiptsPageService {
 
     return this.http.post(endpoint, data, '')
         .map((res: Response) => {
-          const resData = res.json().items;
-          console.log(resData);
+          const resData = res.json();
           return resData;
         });
-
   }
 }

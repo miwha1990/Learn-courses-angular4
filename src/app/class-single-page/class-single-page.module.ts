@@ -13,7 +13,7 @@ import { UpcomingCoursesModule } from '../upcoming-courses/upcoming-courses.modu
 import { SafeResourceUrlModule } from '../shared/safe-resourse-url/safe-resource-url.module';
 import { SanitizeHtmlModule } from '../shared/sanitize-html/sanitize-html.module';
 import { MarkdownModule } from 'angular2-markdown';
-
+import { SafeResourceUrlPipe } from '../shared/safe-resourse-url/safe-resource-url.pipe';
 @NgModule({
   imports: [
     CommonModule,
@@ -33,6 +33,7 @@ import { MarkdownModule } from 'angular2-markdown';
   ],
   providers: [
     GetClassDataService,
+      SafeResourceUrlPipe,
   ],
 })
 export class ClassSinglePageModule { }
