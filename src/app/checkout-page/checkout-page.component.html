@@ -2,11 +2,15 @@
     <form class="checkoutForm" [formGroup]="checkoutForm" (ngSubmit)="formSubmit($event)" (keydown)="keyDownFunction($event)">
     <div class="row checkout-wrapper">
         <main class="col-md-8 col-sm-12 ms-paper-content">
-            <div class="logo"><img src="../assets/DTSLogo.svg" alt=""></div>
-            <h1 class="title">{{OrderProcessService.secretData.name}}, {{OrderProcessService.secretData.location}} {{OrderProcessService.secretData.details1}}</h1>
-            <span class="price-multiplier">Regular price x 1</span>
+            <div class="section-heading mb-4">
+                <div class="logo mr-4"><img src="../assets/DTSLogo.svg" alt=""></div>
+                <div class="heading-wrapper">
+                    <h3 class="title">{{OrderProcessService.secretData.name}}</h3>
+                    <div class="details-wrapper"><h4 class="no-m"><i class="fa fa-calendar mr-15"></i> {{OrderProcessService.secretData.details1}}</h4><h4 class="no-m">  <i class="fa fa-location-arrow mr-15"></i> {{OrderProcessService.secretData.location}}</h4></div>
+                </div>
+            </div>
             <div class="student-information">
-                <h2 class="section-title">STUDENT INFORMATION</h2>
+                <h4>Student Information</h4>
                 <div class="line-wrapper">
                     <md-input-container class="mr-15">
                         <input mdInput id="focusedInput2" type="text" formControlName="last_name" placeholder="Last Name">
@@ -112,7 +116,7 @@
                 </div>
             </div>
             <div class="license">
-                <h2>PARTICIPATION WAIVER</h2>
+                <h4>Participation Waiver</h4>
                 <md-checkbox>I have read and agree to the Participation Waiver and the <a href="">Terms and Conditions</a></md-checkbox>
                 <md-checkbox>I want to receive monthly newsletter packed with helpful education content.</md-checkbox>
                 <p>
@@ -136,13 +140,11 @@
             </div>
         </main>
         <aside class="col-md-4 col-sm-12 ms-paper-menu-left">
-            <h2 class="section-title">Early Bid Registration</h2>
-            <p>
-                <i class="material-icons prefix text-warning" style="vertical-align: sub">report_problem</i>
-                &nbsp; &nbsp; This registration is non-refundale!
-            </p>
-            <br>
-            <p>Payment options</p>
+            <div class="section-heading mb-4">
+                <h3 class="title">Early Bid Registration</h3>
+                <h4 class="no-m"><i class="fa fa-exclamation-triangle text-warning mr-15"></i>Non-Refundale!</h4>
+            </div>
+            <h4>Payment Options</h4>
             <md-radio-group id="method">
                 <div class="pay-full">
                     <md-radio-button value="1"  aria-label="Label 1" [checked]="!OrderProcessService.secretData.allow_partial_payment" class="md-checked" required>Pay in Full</md-radio-button> <span class="price">$1,999.00</span>
@@ -153,97 +155,89 @@
                     <span>Balance Due <span class="date">July31, 2017</span></span>
                 </div>
             </md-radio-group>
-            <h2 class="section-title">BILLING</h2>
+            <h4>Billing Information</h4>
             <div class="billing-info">
-                <p>
-                    <i class="fa fa-user" aria-hidden="true"></i>
+                <div class="line-wrapper">
+                    <i class="fa fa-user mr-1" aria-hidden="true"></i>
                     <md-input-container>
                         <input mdInput id="cardholder" type="text"  placeholder="Cardholder Name" required>
                     </md-input-container>
-                </p>
-                <p>
-                    <i class="fa fa-envelope-o" aria-hidden="true"></i>
+                </div>
+                <div class="line-wrapper">
+                    <i class="fa fa-envelope-o mr-1" aria-hidden="true"></i>
                     <md-input-container>
                         <input mdInput id="card-email" type="email"  placeholder="Cardholder Email Address" email required>
                     </md-input-container>
-                </p>
-
-                <p>
-                    <i class="fa fa-credit-card" aria-hidden="true"></i>
+                </div>
+                <div class="line-wrapper">
+                    <i class="fa fa-credit-card mr-1" aria-hidden="true"></i>
                     <md-input-container>
                         <input mdInput id="card" type="text"  placeholder="Credit Card Number" required>
                     </md-input-container>
-                </p>
-
+                </div>
                 <div class="row">
                     <span class="col-sm-6">
-                        <i class="fa fa-calendar" aria-hidden="true"></i>
+                        <i class="fa fa-calendar mr-1" aria-hidden="true"></i>
                         <md-input-container>
                             <input mdInput id="card-date" type="text"  placeholder="MM / YY" required>
                         </md-input-container>
                     </span>
                     <span class="col-sm-6">
-                        <i class="fa fa-lock" aria-hidden="true"></i>
+                        <i class="fa fa-lock mr-1" aria-hidden="true"></i>
                         <md-input-container>
                             <input mdInput id="csv" type="text"  placeholder="CSV" required>
                         </md-input-container>
                     </span>
                 </div>
-
-
-                <p>
-                    <i class="fa fa-scissors" aria-hidden="true"></i>
+                <div class="line-wrapper">
+                    <i class="fa fa-scissors mr-1" aria-hidden="true"></i>
                     <md-input-container>
                         <input mdInput id="code" type="text"  placeholder="Enter Coupon" required>
                     </md-input-container>
-                </p>
-                <p>
-                    <a (click)="applyCoupon()" class="btn btn-block btn-bordered">Apply Coupon<div class="ripple-container"></div></a>
-                </p>
+                </div>
+                <p><a (click)="applyCoupon()" class="btn btn-block btn-bordered">Apply Coupon<div class="ripple-container"></div></a></p>
             </div>
             <div class="order-info">
                 <div class="form-group inline-input">
-                    <label class="sr-only" for="total">Order Subtotal:</label>
-                    <div class="input-group">
-                        <div class="input-group-addon">Order Subtotal:</div>
+                    <label class="sr-only" for="total"><h5 class="no-m">Order Subtotal:</h5></label>
+                    <div class="input-group line-wrapper">
+                        <div class="input-group-addon"><h5 class="no-m">Order Subtotal:</h5></div>
                         <md-input-container>
                             <input mdInput id="total" type="text" required>
                         </md-input-container>
                     </div>
-                    <label class="sr-only" for="cpn">Coupon:</label>
-                    <div class="input-group" *ngIf="couponActivated">
-                        <div class="input-group-addon">Coupon:</div>
+                    <label class="sr-only" for="cpn"><h5 class="no-m">Coupon:</h5></label>
+                    <div class="input-group  line-wrapper" *ngIf="couponActivated">
+                        <div class="input-group-addon"><h5 class="no-m">Coupon:</h5></div>
                         <md-input-container>
                             <input mdInput id="cpn" type="text" required>
                         </md-input-container>
                     </div>
-                    <label class="sr-only" for="tax1">Tax 1:</label>
-                    <div class="input-group">
-                        <div class="input-group-addon">Tax 1:</div>
+                    <label class="sr-only" for="tax1"><h5 class="no-m">Tax 1:</h5></label>
+                    <div class="input-group  line-wrapper">
+                        <div class="input-group-addon"><h5 class="no-m">Tax 1:</h5></div>
                         <md-input-container>
                             <input mdInput id="tax1" type="text" required>
                         </md-input-container>
                     </div>
-                    <label class="sr-only" for="tax2">Tax 2:</label>
+                    <label class="sr-only" for="tax2"><h5 class="no-m">Tax 2:</h5></label>
                     <div class="input-group">
-                        <div class="input-group-addon">Tax 2:</div>
+                        <div class="input-group-addon"><h5 class="no-m">Tax 2:</h5></div>
                         <md-input-container>
                             <input mdInput id="tax2" type="text" required>
                         </md-input-container>
                     </div>
                     <br>
-                    <div class="input-group">
-                        <div class="input-group-addon">Total:</div>
+                    <div class="input-group  line-wrapper">
+                        <div class="input-group-addon"><h5 class="no-m">Total:</h5></div>
                         <span class="tot-btn total">100$</span>
                     </div>
-                    <div class="input-group">
-                        <div class="input-group-addon">Balance Owning:</div>
+                    <div class="input-group  line-wrapper">
+                        <div class="input-group-addon"><h5 class="no-m">Balance Owning:</h5></div>
                         <span class="tot-btn balance">1,639$</span>
                     </div>
                 </div>
-                <p>
-                    <button type="submit" class="btn btn-block btn-raised btn-primary">Register<span class="ripple-container"></span></button>
-                </p>
+                <button type="submit" class="btn btn-block btn-raised btn-primary">Register</button>
             </div>
         </aside>
     </div>

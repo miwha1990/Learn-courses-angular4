@@ -10,6 +10,12 @@
     margin-left: 0;
   }
 }
+h4{
+  font-weight: 400;
+}
+h5{
+   font-weight: 500;
+ }
 .checkout-wrapper{
   display: flex;
   align-items: stretch;
@@ -24,11 +30,27 @@
       &{padding:0 15px;}
     }
     background: #F7F6F6;
-    padding:20px 50px;
+    padding:0 50px;
     .logo{
+      float: left;
       img{
         height: 50px;
       }
+    }
+    .section-heading{
+      width: 100%;
+      display: flex;
+      align-items: center;
+      .heading-wrapper{
+        flex:1 auto;
+        .details-wrapper{
+          display: flex;
+          h4{
+            flex-basis: 50%;
+          }
+        }
+      }
+
     }
     .student-information{
       .line-wrapper {
@@ -68,6 +90,7 @@
               z-index:99;
               opacity:1;
               position: relative;
+              margin-top: -6px;
             }
             my-date-picker{
               position: absolute;
@@ -90,6 +113,9 @@
     }
   }
   aside.ms-paper-menu-left{
+    .section-heading{
+
+    }
     background: white;
     @media screen and (min-width: 480px) and (max-width: 991px)  {
       &{
@@ -102,6 +128,7 @@
         border-radius: 5px;
         padding: 15px;
         margin-bottom: 10px;
+        height: 90px;
       }
       &>div.activated{
         color:white;
@@ -115,7 +142,16 @@
       }
     }
     .billing-info {
-
+      .line-wrapper {
+        .mat-input-container {
+          height: 45px;
+          position: relative;
+          & > * {
+            position: absolute;
+            bottom: 0;
+          }
+        }
+      }
       @media screen and (min-width: 992px) and (max-width: 1200px)  {
         &>.row{
           & > span:first-child{
@@ -188,11 +224,24 @@
           width: 100%;
         }
       }
+      .form-group{
+        padding-bottom:0;
+      }
       .panel .panel-body {
         padding: 1rem;
       }
       .input-group{
         width: 100%;
+        &.line-wrapper{
+          .mat-input-container {
+            height: 45px;
+            position: relative;
+            & > * {
+              position: absolute;
+              bottom: 0;
+            }
+          }
+        }
       }
       .input-group-addon{
         width: 50%;
@@ -210,21 +259,25 @@
       }
       .tot-btn{
         width: 100%;
-        padding: 10px 20px;
+        padding: 5px 20px;
         font-size: 20px;
         font-weight: bolder;
-        margin: 5px 0 5px 5px;
         display: inline-block;
         text-align: center;
         border-radius: 5px;
         &.total{
           background: #666666;
           color:white;
+          margin-bottom: 5px;
         }
         &.balance{
           background: #CDCBCD;
           color:black
         }
+      }
+      button{
+        box-shadow: none;
+        border-radius: 5px;
       }
     }
   }
