@@ -144,6 +144,9 @@ ng-select{
   &:last-child{
     margin-right: 0 !important;
     margin-left: 15px !important;
+    @media screen and (max-width: 991px) {
+      margin-left: 0 !important;
+    }
   }
 }
 .form-control.ui-select-toggle{
