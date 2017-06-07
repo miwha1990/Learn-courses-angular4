@@ -23,14 +23,20 @@ export class CheckoutPageComponent implements OnInit {
     couponActivated = false;
     private checkoutForm;
     private pickerValue;
+    private matchingEmailFlag = false;
     constructor(private OrderProcessService: OrderProcessService, private fb: FormBuilder) {}
     matchingEmail(email: string, emailConfirmation: string) {
     return (group: FormGroup) => {
       const emailInput = group.controls[email];
       const emailConfirmationInput = group.controls[emailConfirmation];
-      if (emailInput.value !== emailConfirmationInput.value) {
-        return emailConfirmationInput.setErrors({notEquivalent: true});
-      }
+        if ( emailInput.touched && emailConfirmationInput.touched) {
+            if (emailInput.value  !== emailConfirmationInput.value) {
+                this.matchingEmailFlag = false;
+                return emailConfirmationInput.setErrors({notEquivalent: true});
+            } else {
+                this.matchingEmailFlag = true;
+            }
+        }
     };
     }
     ngOnInit() {
