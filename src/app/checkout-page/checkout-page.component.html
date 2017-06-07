@@ -25,14 +25,12 @@
                 </div>
                 <p class="text-warning">Please, use personal email only! E.g.: @gmail.com, @hotmail.com, @yahoo.ca</p>
                 <div class="line-wrapper">
-                    <ng-select [items]="['USA', 'Canada']"
-                               (selected)="selected($event, this)"
+                    <ng-select [items]="[{id:'USA',text:'USA'}, {id:'Canada',text:'Canada'}]"
                                placeholder="Country"
                                formControlName="country" class="mr-15"
                     >
                     </ng-select>
-                    <ng-select [items]="['USA', 'Canada']"
-                               (selected)="selected($event)"
+                    <ng-select [items]="[{id:'USA',text:'USA'}, {id:'Canada',text:'Canada'}]"
                                placeholder="Province / State"
                                formControlName="state" class="mr-15"
                     >
@@ -48,9 +46,8 @@
                 </div>
                 <div class="line-wrapper line-with-dp">
                     <ng-select [items]="[{id:'male',text:'Male'}, {id:'female',text:'Female'}]"
-                               (selected)="selected($event, 'gender')"
                                placeholder="Gender"
-                               formControlName="gender" class="ml-15"
+                               formControlName="gender" class="mr-15"
                     >
                     </ng-select>
                     <md-input-container class="ml-15">
@@ -64,29 +61,21 @@
                     <md-input-container class="mr-15">
                         <input mdInput id="phone" type="text" placeholder="Phone Number with Area Code" formControlName="phone">
                     </md-input-container>
-                    <ng-select [items]="[{id:'male',text:'Male'}, {id:'female',text:'Female'}]"
-                               (selected)="selected($event)"
+                    <ng-select [items]="[{id:'personal',text:'Personal Training Certification'}, {id:'degree',text:'College / University Degree'},{id:'other',text:'Other'},{id:'none',text:'None'}]"
                                placeholder="Industry Certification"
                                formControlName="industry_certification" class="ml-15"
                     >
                     </ng-select>
-                    <!--<md-select placeholder="Industry Certification" formControlName="industry_certification" class="ml-15">-->
-                        <!--<md-option value="personal" >Personal Training Certification</md-option>-->
-                        <!--<md-option value="degree" >College / University Degree</md-option>-->
-                        <!--<md-option value="other" >Other</md-option>-->
-                        <!--<md-option value="none" >None</md-option>-->
-                    <!--</md-select>-->
                 </div>
                 <div class="line-wrapper">
                     <md-input-container class="mr-15">
                         <input mdInput id="employer" type="text" placeholder="Employer" formControlName="employer">
                     </md-input-container>
-                    <md-select placeholder="Job Title" formControlName="job_title" class="ml-15">
-                        <md-option value="personal" >Personal Trainer</md-option>
-                        <md-option value="professional" >Other Fitness Professional</md-option>
-                        <md-option value="management" >Management</md-option>
-                        <md-option value="other" >Other</md-option>
-                    </md-select>
+                    <ng-select [items]="[{id:'personal',text:'Personal Trainer'}, {id:'professional',text:'Other Fitness Professional'},{id:'management',text:'Management'},{id:'other',text:'Other'}]"
+                               placeholder="Job Title"
+                               formControlName="job_title" class="ml-15"
+                    >
+                    </ng-select>
                 </div>
                 <div class="line-wrapper">
                     <md-input-container class="mr-15">
@@ -97,25 +86,29 @@
                     </md-input-container>
                 </div>
                 <div class="line-wrapper">
-                    <md-select placeholder="How did you hear about us?" formControlName="refferel" class="mr-15">
-                        <md-option value="prev" >Took a course previously</md-option>
-                        <md-option value="manager" >Manager / Supervisor</md-option>
-                        <md-option value="friend" >Friend / Collegue</md-option>
-                        <md-option value="search" >Search Engine</md-option>
-                        <md-option value="social" >Social Media</md-option>
-                        <md-option value="show" >Trade Show / Conference</md-option>
-                        <md-option value="other" >Other (please specify)</md-option>
-                    </md-select>
-                    <md-select placeholder="T-Shirt Size" formControlName="tshirt_size" class="ml-15">
-                        <md-option value="la-s" >Ladies' S</md-option>
-                        <md-option value="la-m" >Ladies' M</md-option>
-                        <md-option value="la-l" >Ladies' L</md-option>
-                        <md-option value="la-xl" >Ladies' XL</md-option>
-                        <md-option value="me-s" >Men's S</md-option>
-                        <md-option value="me-m" >Men's M</md-option>
-                        <md-option value="me-l" >Men's L</md-option>
-                        <md-option value="me-xl" >Men's XL</md-option>
-                    </md-select>
+                    <ng-select [items]="[{id:'prev',text:'Took a course previously'},
+                    {id:'manager',text:'Manager / Supervisor'},
+                    {id:'friend',text:'Friend / Collegue'},
+                     {id:'search',text:'Search Engine'},
+                    {id:'social',text:'Social Media'},
+                     {id:'show',text:'Trade Show / Conference'},
+                    {id:'other',text:'Other (please specify)'}]"
+                               placeholder="How did you hear about us?"
+                               formControlName="refferel" class="mr-15"
+                    >
+                    </ng-select>
+                    <ng-select [items]="[{id:'la-s',text:'Ladies\' S'},
+                     {id:'la-m',text:'Ladies\' M'},
+                     {id:'la-l',text:'Ladies\' L'},
+                     {id:'la-xl',text:'Ladies\' XL'},
+                     {id:'me-s',text:'Men\'s S'},
+                     {id:'me-m',text:'Men\'s M'},
+                     {id:'me-l',text:'Men\'s L'},
+                     {id:'me-xl',text:'Men\'s XL'}]"
+                               placeholder="T-Shirt Size"
+                               formControlName="tshirt_size" class="ml-15"
+                    >
+                    </ng-select>
                 </div>
             </div>
             <div class="license">

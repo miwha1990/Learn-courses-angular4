@@ -56,10 +56,6 @@ export class CheckoutPageComponent implements OnInit {
         }, {validator: this.matchingEmail('email', 'confirm_email')});
     }
 
-  selected(event, name) {
-      // console.log(event.id, name);
-      this.checkoutForm.controls['gender'].setValue('gyu');
-  }
   applyCoupon() {
     this.couponActivated = true;
   }
