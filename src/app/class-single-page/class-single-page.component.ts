@@ -19,7 +19,7 @@ export class ClassSinglePageComponent implements OnInit {
   loading = true;
   constructor(private GetClassDataService: GetClassDataService, private activatedRoute: ActivatedRoute, private pipe: SafeResourceUrlPipe ) {}
   ngOnInit() {
-      console.log(this.loading);
+     // console.log(this.loading);
     const checkVideoSource = function(data){
         let videoSource;
         if ( data.video_url.indexOf('wistia') !== -1 ) { videoSource = 'wistia'; }

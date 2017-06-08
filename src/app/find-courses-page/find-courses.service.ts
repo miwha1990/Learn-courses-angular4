@@ -64,7 +64,7 @@ export class FindCoursesService {
             coursesList: coursesList,
             locationsList: locationsList
         }
-        console.log('filtersParam', filtersParam);
+        // console.log('filtersParam', filtersParam);
         return filtersParam;
     });
   }

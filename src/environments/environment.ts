@@ -14,4 +14,5 @@ export const environment = {
   locations: '/locations',
   coursesList: '/courses',
   orders: '/orders',
+  checkout: '/checkout'
 };

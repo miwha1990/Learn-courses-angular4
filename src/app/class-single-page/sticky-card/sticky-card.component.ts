@@ -7,7 +7,6 @@ import { OrderProcessService } from '../../services/order-process.service';
 })
 export class StickyCardComponent implements  OnChanges {
   @Input() data;
-  @Input() loading;
   cardContentEarly: string;
   cardContentRegular: string;
   constructor(private OrderProcessService: OrderProcessService) { }
@@ -32,6 +31,12 @@ export class StickyCardComponent implements  OnChanges {
     }
   }
   goToCheckout = function(){
-    this.OrderProcessService.provideData(this.data);
+    this.OrderProcessService.checkOutRequest(this.data.id).subscribe(
+        data => {
+          this.data.checkoutData = data;
+          this.OrderProcessService.provideData(this.data);
+        },
+        err => console.error('ERROR', err)
+    );
   };
 }

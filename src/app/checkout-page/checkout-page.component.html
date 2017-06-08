@@ -147,12 +147,12 @@
             <h4>Payment Options</h4>
             <md-radio-group id="method">
                 <div class="pay-full">
-                    <md-radio-button value="1"  aria-label="Label 1" [checked]="!OrderProcessService.secretData.allow_partial_payment" class="md-checked" required>Pay in Full</md-radio-button> <span class="price">$1,999.00</span>
+                    <md-radio-button value="1"  aria-label="Label 1" [checked]="!OrderProcessService.secretData.allow_partial_payment" class="md-checked" required>Pay in Full</md-radio-button> <span class="price"></span>
                 </div>
                 <div class="pay-deposite" [ngClass]="OrderProcessService.secretData.allow_partial_payment?'activated':'desactivated'">
                     <md-radio-button value="2" [disabled]="!OrderProcessService.secretData.allow_partial_payment" aria-label="Label 2" required>Pay Deposit only</md-radio-button>
                     <br>
-                    <span>Balance Due <span class="date">July31, 2017</span></span>
+                    <span>Balance Due <span class="date"></span></span>
                 </div>
             </md-radio-group>
             <h4>Billing Information</h4>
@@ -198,45 +198,26 @@
                 <p><a (click)="applyCoupon()" class="btn btn-block btn-bordered">Apply Coupon<div class="ripple-container"></div></a></p>
             </div>
             <div class="order-info">
-                <div class="form-group inline-input">
-                    <label class="sr-only" for="total"><h5 class="no-m">Order Subtotal:</h5></label>
-                    <div class="input-group line-wrapper">
-                        <div class="input-group-addon"><h5 class="no-m">Order Subtotal:</h5></div>
-                        <md-input-container>
-                            <input mdInput id="total" type="text" required>
-                        </md-input-container>
+                    <div class="line-wrapper">
+                        <span class="field-name">Order Subtotal:</span><span class="field-value">{{OrderProcessService.secretData?.checkoutData?.amount | currency:'USD':true}}</span>
                     </div>
-                    <label class="sr-only" for="cpn"><h5 class="no-m">Coupon:</h5></label>
-                    <div class="input-group  line-wrapper" *ngIf="couponActivated">
-                        <div class="input-group-addon"><h5 class="no-m">Coupon:</h5></div>
-                        <md-input-container>
-                            <input mdInput id="cpn" type="text" required>
-                        </md-input-container>
+                    <div class="line-wrapper" *ngIf="couponActivated">
+                        <span class="field-name">Coupon:</span><span class="field-value"></span>
                     </div>
-                    <label class="sr-only" for="tax1"><h5 class="no-m">Tax 1:</h5></label>
-                    <div class="input-group  line-wrapper">
-                        <div class="input-group-addon"><h5 class="no-m">Tax 1:</h5></div>
-                        <md-input-container>
-                            <input mdInput id="tax1" type="text" required>
-                        </md-input-container>
+                    <div class="line-wrapper">
+                        <span class="field-name">Tax 1:</span><span class="field-value">{{OrderProcessService.secretData?.checkoutData?.tax_value?.value1 | currency:'USD':true}}</span>
                     </div>
-                    <label class="sr-only" for="tax2"><h5 class="no-m">Tax 2:</h5></label>
-                    <div class="input-group">
-                        <div class="input-group-addon"><h5 class="no-m">Tax 2:</h5></div>
-                        <md-input-container>
-                            <input mdInput id="tax2" type="text" required>
-                        </md-input-container>
+                    <div class="line-wrapper mb-2">
+                        <span class="field-name">Tax 2:</span><span class="field-value">{{OrderProcessService.secretData?.checkoutData?.tax_value?.value2 | currency:'USD':true}}</span>
                     </div>
-                    <br>
-                    <div class="input-group  line-wrapper">
-                        <div class="input-group-addon"><h5 class="no-m">Total:</h5></div>
-                        <span class="tot-btn total">100$</span>
+                    <div class="line-wrapper">
+                        <span class="field-name">Total:</span>
+                        <span class="field-value tot-btn total">{{OrderProcessService.secretData?.checkoutData?.total | currency:'USD':true}}</span>
                     </div>
-                    <div class="input-group  line-wrapper">
-                        <div class="input-group-addon"><h5 class="no-m">Balance Owning:</h5></div>
-                        <span class="tot-btn balance">1,639$</span>
+                    <div class="line-wrapper">
+                        <span class="field-name">Balance Owning:</span>
+                        <span class="field-value tot-btn balance"></span>
                     </div>
-                </div>
                 <button type="submit" class="btn btn-block btn-raised btn-primary">Register</button>
                 <div class="payment-methods mb-4"></div>
             </div>

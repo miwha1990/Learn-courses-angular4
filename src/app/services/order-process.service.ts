@@ -33,6 +33,15 @@ export class OrderProcessService {
         console.log(this.secretData);
         return ;
     };
+   checkOutRequest = function(id) {
+       const endpoint = `${this.environment.apiHost}${this.environment.classes}${id}${this.environment.checkout}`;
+       return this.http.get(endpoint)
+         .map((res: Response) => {
+           const resData = res.json();
+           console.log(resData);
+           return resData;
+         });
+   };
     // processClick = function() {
     //   // this.processOrder(data);
     //   this.provideData();
