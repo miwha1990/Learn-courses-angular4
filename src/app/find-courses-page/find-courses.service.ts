@@ -18,9 +18,9 @@ export class FindCoursesService {
   getUpcomingCourses(params?): Observable<any> {
     let endpoint;
 
-    if(params !== undefined) {
+    if (params !== undefined) {
         endpoint = `${this.environment.apiHost}${this.environment.classes}?`
-        for (let param in params) {
+        for (const param in params) {
             if (params[param]) {
                 endpoint += `${param}=${params[param]}&`;
             }
@@ -28,11 +28,10 @@ export class FindCoursesService {
     }
     else {
         endpoint = `${this.environment.apiHost}${this.environment.upcomingCourses}`;
-    }  
-    
+    }
     return this.http.get(endpoint)
         .map((res: Response) => {
-            let resData = res.json().items;
+            const resData = res.json().items;
             // console.info('SERVICE: Upcoming Courses', resData);
             return resData;
         });
@@ -44,7 +43,7 @@ export class FindCoursesService {
 
     return this.http.get(endpoint)
         .map((res: Response) => {
-            let resData = res.json().items;
+            const resData = res.json().items.sort(this.sortAlphabetic);
             // console.info('SERVICE: Categories List', resData);
             return resData;
         });
@@ -54,21 +53,27 @@ export class FindCoursesService {
   getFiltersParams() {
     const endpointCourses = `${this.environment.apiHost}${this.environment.coursesList}`;
     const endpointLocations = `${this.environment.apiHost}${this.environment.locations}`;
-    
-    let getCoursesObs = this.http.get(endpointCourses)
-        .map((res: Response) => { return res.json().items });
+    const getCoursesObs = this.http.get(endpointCourses)
+        .map((res: Response) => { return res.json().items.sort(this.sortAlphabetic); });
 
-    let getLocationsObs = this.http.get(endpointLocations)
-        .map((res: Response) => { return res.json().items }); 
+    const getLocationsObs = this.http.get(endpointLocations)
+        .map((res: Response) => { return res.json().items.sort(this.sortAlphabetic); });
 
     return Observable.combineLatest(getCoursesObs, getLocationsObs, (coursesList, locationsList) => {
         const filtersParam = {
             coursesList: coursesList,
             locationsList: locationsList
         }
-        // console.log('filtersParam', filtersParam);
-        
+        console.log('filtersParam', filtersParam);
         return filtersParam;
-    });           
+    });
   }
+
+    sortAlphabetic(a, b) {
+        if (a.name < b.name)
+            return -1;
+        if (a.name > b.name)
+            return 1;
+        return 0;
+    }
 }

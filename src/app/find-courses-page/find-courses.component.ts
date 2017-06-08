@@ -46,7 +46,9 @@ export class FindCoursesComponent implements OnInit {
   getCategoriesList() {
     this.findCoursesService.getCategoriesList()
       .subscribe(
-        data => this.categoriesListData = data,
+        data => {
+          this.categoriesListData = data;
+        },
         err => console.error('ERROR', err)
       );
   }
