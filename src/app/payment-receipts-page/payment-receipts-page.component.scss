@@ -30,12 +30,20 @@ ul{
 }
 .receipt-form{
   display: flex;
-  width:60%;
+  width:415px;
   margin:0 auto;
+  @media screen and (max-width: 480px) {
+    flex-direction: column;
+    width:80%;
+  }
   md-input-container{
     flex:1 auto;
   }
   button{
     flex-basis: 150px;
+    height: 36px;
+    @media screen and (max-width: 480px) {
+      flex-basis: auto;
+    }
   }
 }
