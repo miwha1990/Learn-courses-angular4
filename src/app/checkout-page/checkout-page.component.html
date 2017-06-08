@@ -124,16 +124,16 @@
         </main>
         <aside class="col-md-4 col-sm-12 ms-paper-menu-left">
             <div class="section-heading mb-4">
-                <h3 class="title">Early Bid Registration</h3>
+                <h3 class="title">Early Bird Registration</h3>
                 <h4 class="no-m"><i class="fa fa-exclamation-triangle text-warning mr-15"></i>Non-Refundale!</h4>
             </div>
             <h4>Payment Options</h4>
             <md-radio-group id="method">
                 <div class="pay-full">
-                    <md-radio-button value="1"  aria-label="Label 1" [checked]="!OrderProcessService.secretData.allow_partial_payment" class="md-checked" required>Pay in Full</md-radio-button> <span class="price"></span>
+                    <md-radio-button value="1"  aria-label="Label 1" [checked]="true" class="md-checked" (change)="showOwingToggle()">Pay in Full</md-radio-button> <span class="price"></span>
                 </div>
                 <div class="pay-deposite" [ngClass]="OrderProcessService.secretData.allow_partial_payment?'activated':'desactivated'">
-                    <md-radio-button value="2" [disabled]="!OrderProcessService.secretData.allow_partial_payment" aria-label="Label 2" required>Pay Deposit only</md-radio-button>
+                    <md-radio-button value="2" (change)="showOwingToggle()" [disabled]="!OrderProcessService.secretData.allow_partial_payment" aria-label="Label 2">Pay Deposit only</md-radio-button>
                     <br>
                     <span>Balance Due <span class="date"></span></span>
                 </div>
@@ -197,7 +197,7 @@
                         <span class="field-name">Total:</span>
                         <span class="field-value tot-btn total">{{OrderProcessService.secretData?.checkoutData?.total | currency:'USD':true}}</span>
                     </div>
-                    <div class="line-wrapper">
+                    <div class="line-wrapper" *ngIf="showOwing">
                         <span class="field-name">Balance Owning:</span>
                         <span class="field-value tot-btn balance"></span>
                     </div>

@@ -21,6 +21,7 @@ export class CheckoutPageComponent implements OnInit {
         alignSelectorRight: true,
     };
     couponActivated = false;
+    showOwing = false;
     private checkoutForm;
     private pickerValue;
     private matchingEmailFlag = false;
@@ -70,7 +71,9 @@ export class CheckoutPageComponent implements OnInit {
   formSubmit() {
     console.log(this.checkoutForm.value);
   }
-
+    showOwingToggle() {
+       this.showOwing = !this.showOwing;
+    }
 
   keyDownFunction(event) {
     if (event.keyCode === 13) {
