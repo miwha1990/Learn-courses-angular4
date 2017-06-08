@@ -31,9 +31,10 @@ export class StickyCardComponent implements  OnChanges {
     }
   }
   goToCheckout = function(){
-    this.OrderProcessService.checkOutRequest(this.data.id).subscribe(
+    this.OrderProcessService.checkOutInfoRequest(this.data.id).subscribe(
         data => {
-          this.data.checkoutData = data;
+          this.data.checkoutData = data.checkoutData;
+          this.data.waiver = data.waiver;
           this.OrderProcessService.provideData(this.data);
         },
         err => console.error('ERROR', err)

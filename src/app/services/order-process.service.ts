@@ -14,36 +14,30 @@ export class OrderProcessService {
   constructor(private http: Http, private router: Router) {
       this.environment = environment;
   }
-
-  // processOrder(): Observable<any> {
-  //  const endpoint = `${this.environment.apiHost}${this.environment.classes}${1}`;
-  //  this.secretData = {name: "Anna", course: "angular", order: "100500"};
-  //  return this.http.get(endpoint)
-  //   .map((res: Response) => {
-  //     const resData = res.json();
-  //       resData.venue.lat = parseFloat(resData.venue.lat);
-  //       resData.venue.long = parseFloat(resData.venue.long);
-  //     console.log(resData);
-  //     return resData;
-  //   });
-  // }
     provideData = function(data) {
         this.secretData = data;
         this.router.navigate(['/checkout-page']);
         console.log(this.secretData);
         return ;
     };
-   checkOutRequest = function(id) {
-       const endpoint = `${this.environment.apiHost}${this.environment.classes}${id}${this.environment.checkout}`;
-       return this.http.get(endpoint)
-         .map((res: Response) => {
-           const resData = res.json();
+   checkOutInfoRequest = function(id) {
+       const endpointCh = `${this.environment.apiHost}${this.environment.classes}${id}${this.environment.checkout}`;
+       const endpointWv = `${this.environment.apiHost}${this.environment.waivers}${id}`;
+       const getCheckoutObs = this.http.get(endpointCh)
+           .map((res: Response) => {
+               return res.json();
+           });
+       const getWaiversObs = this.http.get(endpointWv)
+           .map((res: Response) => {
+               return res.json();
+           });
+       return Observable.combineLatest(getCheckoutObs, getWaiversObs, (checkoutData, waiver) => {
+           const resData = {
+               checkoutData: checkoutData,
+               waiver: waiver
+           };
            console.log(resData);
            return resData;
-         });
+       });
    };
-    // processClick = function() {
-    //   // this.processOrder(data);
-    //   this.provideData();
-    // };
 }

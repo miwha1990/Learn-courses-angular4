@@ -14,5 +14,6 @@ export const environment = {
   locations: '/locations',
   coursesList: '/courses',
   orders: '/orders',
-  checkout: '/checkout'
+  checkout: '/checkout',
+  waivers: '/waivers?class_id=',
 };
