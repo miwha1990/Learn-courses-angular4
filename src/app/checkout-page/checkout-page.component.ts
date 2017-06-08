@@ -20,25 +20,30 @@ export class CheckoutPageComponent implements OnInit {
         showTodayBtn: false,
         alignSelectorRight: true,
     };
-    couponActivated = false;
-    showOwing = false;
+    private couponActivated = false;
     private checkoutForm;
-    private pickerValue;
     private matchingEmailFlag = false;
-    constructor(private OrderProcessService: OrderProcessService, private fb: FormBuilder) {}
+    private partialPaymentChoosen = false;
+    private params;
+    constructor(private OrderProcessService: OrderProcessService, private fb: FormBuilder) {
+        this.params = {
+            full_payment: 1,
+            coupon_code: null
+        };
+    }
     matchingEmail(email: string, emailConfirmation: string) {
-    return (group: FormGroup) => {
-      const emailInput = group.controls[email];
-      const emailConfirmationInput = group.controls[emailConfirmation];
-        if ( emailInput.touched && emailConfirmationInput.touched) {
-            if (emailInput.value  !== emailConfirmationInput.value) {
-                this.matchingEmailFlag = false;
-                return emailConfirmationInput.setErrors({notEquivalent: true});
-            } else {
-                this.matchingEmailFlag = true;
+        return (group: FormGroup) => {
+          const emailInput = group.controls[email];
+          const emailConfirmationInput = group.controls[emailConfirmation];
+            if ( emailInput.touched && emailConfirmationInput.touched) {
+                if (emailInput.value  !== emailConfirmationInput.value) {
+                    this.matchingEmailFlag = false;
+                    return emailConfirmationInput.setErrors({notEquivalent: true});
+                } else {
+                    this.matchingEmailFlag = true;
+                }
             }
-        }
-    };
+        };
     }
     ngOnInit() {
         this.checkoutForm = this.fb.group({
@@ -60,31 +65,48 @@ export class CheckoutPageComponent implements OnInit {
             emergency_phone: ['', Validators.required],
             refferel: ['', Validators.required],
             tshirt_size:  ['', Validators.required],
+            coupon_code: [''],
         }, {validator: this.matchingEmail('email', 'confirm_email')});
     }
 
-  applyCoupon() {
-    this.couponActivated = true;
-  }
-
-
-  formSubmit() {
-    console.log(this.checkoutForm.value);
-  }
+    applyCoupon() {
+        this.params.coupon_code = this.checkoutForm.controls['coupon_code'].value;
+        console.log(this.params);
+        this.OrderProcessService.checkOutInfoRequest(this.OrderProcessService.secretData['id'], this.params).subscribe(
+            data => {
+                this.OrderProcessService.secretData['checkoutData'] = data.checkoutData;
+                this.OrderProcessService.secretData['waiver'] = data.waiver;
+                this.couponActivated = true;
+            },
+            err => console.error('ERROR', err)
+        );
+    }
+    applyPaymentType(val) {
+        this.params.full_payment = val;
+        console.log(this.params);
+        this.OrderProcessService.checkOutInfoRequest(this.OrderProcessService.secretData['id'], this.params).subscribe(
+            data => {
+                this.OrderProcessService.secretData['checkoutData'] = data.checkoutData;
+                this.OrderProcessService.secretData['waiver'] = data.waiver;
+                this.showOwingToggle();
+            },
+            err => console.error('ERROR', err)
+        );
+    }
+    formSubmit() {
+        console.log(this.checkoutForm.value);
+    }
     showOwingToggle() {
-       this.showOwing = !this.showOwing;
+        this.partialPaymentChoosen = !this.partialPaymentChoosen;
     }
-
-  keyDownFunction(event) {
-    if (event.keyCode === 13) {
-      this.formSubmit();
+    keyDownFunction(event) {
+        if (event.keyCode === 13) {
+          this.formSubmit();
+        }
     }
-  }
-
     onDateChanged(event: IMyDateModel) {
        this.checkoutForm.controls['date_of_birth'].setValue(event.formatted);
     }
-
     onToggleSelector(event) {
         event.stopPropagation();
         this.mydp.openBtnClicked();

@@ -20,8 +20,16 @@ export class OrderProcessService {
         console.log(this.secretData);
         return ;
     };
-   checkOutInfoRequest = function(id) {
-       const endpointCh = `${this.environment.apiHost}${this.environment.classes}${id}${this.environment.checkout}`;
+   checkOutInfoRequest = function(id, params?) {
+       let endpointCh = `${this.environment.apiHost}${this.environment.classes}${id}${this.environment.checkout}`;
+       if (params !== undefined) {
+           endpointCh += `?`;
+           for (const param in params) {
+               if (params[param]) {
+                   endpointCh += `${param}=${params[param]}&`;
+               }
+           }
+       }
        const endpointWv = `${this.environment.apiHost}${this.environment.waivers}${id}`;
        const getCheckoutObs = this.http.get(endpointCh)
            .map((res: Response) => {

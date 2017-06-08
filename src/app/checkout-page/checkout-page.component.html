@@ -130,12 +130,12 @@
             <h4>Payment Options</h4>
             <md-radio-group id="method">
                 <div class="pay-full">
-                    <md-radio-button value="1"  aria-label="Label 1" [checked]="true" class="md-checked" (change)="showOwingToggle()">Pay in Full</md-radio-button> <span class="price"></span>
+                    <md-radio-button value="1"  aria-label="Label 1" [checked]="true" class="md-checked" (change)="applyPaymentType(1)">Pay in Full </md-radio-button> <span class="price">{{OrderProcessService.secretData?.price_regular | currency:'USD':true}}</span>
                 </div>
                 <div class="pay-deposite" [ngClass]="OrderProcessService.secretData.allow_partial_payment?'activated':'desactivated'">
-                    <md-radio-button value="2" (change)="showOwingToggle()" [disabled]="!OrderProcessService.secretData.allow_partial_payment" aria-label="Label 2">Pay Deposit only</md-radio-button>
+                    <md-radio-button value="2" (change)="applyPaymentType(0)" [disabled]="!OrderProcessService.secretData.allow_partial_payment" aria-label="Label 2">Pay Deposit only </md-radio-button><span class="price">{{OrderProcessService.secretData?.deposit | currency:'USD':true}}</span>
                     <br>
-                    <span>Balance Due <span class="date"></span></span>
+                    <span>Balance Due <span class="date">{{OrderProcessService.secretData?.balance_due | date : 'MMM d, yyyy'}}</span></span>
                 </div>
             </md-radio-group>
             <h4>Billing Information</h4>
@@ -175,7 +175,7 @@
                 <div class="line-wrapper">
                     <i class="fa fa-scissors mr-1" aria-hidden="true"></i>
                     <md-input-container>
-                        <input mdInput id="code" type="text"  placeholder="Enter Coupon" required>
+                        <input mdInput id="code" type="text"  placeholder="Enter Coupon" formControlName="coupon_code" required>
                     </md-input-container>
                 </div>
                 <p><a (click)="applyCoupon()" class="btn btn-block btn-bordered">Apply Coupon<div class="ripple-container"></div></a></p>
@@ -185,7 +185,7 @@
                         <span class="field-name">Order Subtotal:</span><span class="field-value">{{OrderProcessService.secretData?.checkoutData?.amount | currency:'USD':true}}</span>
                     </div>
                     <div class="line-wrapper" *ngIf="couponActivated">
-                        <span class="field-name">Coupon:</span><span class="field-value"></span>
+                        <span class="field-name">Coupon:</span><span class="field-value">{{OrderProcessService.secretData?.checkoutData?.discount | currency:'USD':true}}</span>
                     </div>
                     <div class="line-wrapper">
                         <span class="field-name">Tax 1:</span><span class="field-value">{{OrderProcessService.secretData?.checkoutData?.tax_value?.value1 | currency:'USD':true}}</span>
@@ -197,9 +197,9 @@
                         <span class="field-name">Total:</span>
                         <span class="field-value tot-btn total">{{OrderProcessService.secretData?.checkoutData?.total | currency:'USD':true}}</span>
                     </div>
-                    <div class="line-wrapper" *ngIf="showOwing">
+                    <div class="line-wrapper" *ngIf="partialPaymentChoosen">
                         <span class="field-name">Balance Owning:</span>
-                        <span class="field-value tot-btn balance"></span>
+                        <span class="field-value tot-btn balance">{{OrderProcessService.secretData?.checkoutData?.balance_owning | currency:'USD':true}}</span>
                     </div>
                 <button type="submit" class="btn btn-block btn-raised btn-primary">Register</button>
                 <div class="payment-methods mb-4"></div>

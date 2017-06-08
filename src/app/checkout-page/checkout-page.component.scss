@@ -129,6 +129,9 @@ h5{
         padding: 15px;
         margin-bottom: 10px;
         height: 90px;
+        span.price, span.date{
+          float: right;
+        }
       }
       &>div.activated{
         color:white;
