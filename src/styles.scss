@@ -162,3 +162,10 @@ ng-select{
   }
 }
 //== My Selects ENDS====
+markdown{
+  p{
+    a{
+      word-break: break-all!important;
+    }
+  }
+}
