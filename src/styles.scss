@@ -98,7 +98,9 @@ h3{
 .check-span.green-color i{
   color: green;
 }
-
+.wrapper-courses-filter .mat-select-value-text {
+  color: #FFFFFF !important;
+}
 //== My Selects ====
 .ui-select-choices.dropdown-menu{
   border-radius: 0;
