@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild ,NgZone} from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { OrderProcessService} from '../services/order-process.service';
 import { IMyDpOptions, IMyDateModel} from 'mydatepicker';
@@ -25,7 +25,9 @@ export class CheckoutPageComponent implements OnInit {
     private matchingEmailFlag = false;
     private partialPaymentChoosen = false;
     private params;
-    constructor(private OrderProcessService: OrderProcessService, private fb: FormBuilder) {
+
+    message: string;
+    constructor(private OrderProcessService: OrderProcessService, private fb: FormBuilder,private _zone: NgZone) {
         this.params = {
             full_payment: 1,
             coupon_code: null
@@ -66,6 +68,14 @@ export class CheckoutPageComponent implements OnInit {
             refferel: ['', Validators.required],
             tshirt_size:  ['', Validators.required],
             coupon_code: [''],
+            cc_group: this.fb.group({
+                cc_holder_name: ['', Validators.required],
+                cc_holder_email: ['', Validators.required],
+                cc_number: ['', Validators.required],
+                cc_exp_month: ['', [Validators.required, Validators.minLength(2), Validators.maxLength(2)]],
+                cc_exp_year: ['', [Validators.required, Validators.minLength(4), Validators.maxLength(4)]],
+                cc_cvv: ['', Validators.required]
+            }),
         }, {validator: this.matchingEmail('email', 'confirm_email')});
     }
 
@@ -94,6 +104,7 @@ export class CheckoutPageComponent implements OnInit {
         );
     }
     formSubmit() {
+        this.getToken();
         console.log(this.checkoutForm.value);
     }
     showOwingToggle() {
@@ -111,4 +122,24 @@ export class CheckoutPageComponent implements OnInit {
         event.stopPropagation();
         this.mydp.openBtnClicked();
     }
+    getToken() {
+        this.message = 'Loading...';
+
+        (<any>window).Stripe.card.createToken({
+            number: this.checkoutForm.controls['cc_group'].controls['cc_number'].value,
+            exp_month: this.checkoutForm.controls['cc_group'].controls['cc_exp_month'].value,
+            exp_year: this.checkoutForm.controls['cc_group'].controls['cc_exp_year'].value,
+            cvc: this.checkoutForm.controls['cc_group'].controls['cc_cvv'].value
+        }, (status: number, response: any) => {
+            // Wrapping inside the Angular zone
+            this._zone.run(() => {
+                if (status === 200) {
+                    this.message = `Success! Card token ${response.card.id}.`;
+                } else {
+                    this.message = response.error.message;
+                }
+            });
+        });
+    }
+
 }

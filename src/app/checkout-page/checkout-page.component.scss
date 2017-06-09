@@ -203,6 +203,30 @@ h5{
         .mat-input-container {
           width: 80%;
         }
+        span.date-container{
+          display: flex;
+          height: 45px;
+          align-items: baseline;
+          .mat-input-container {
+            height: 45px;
+            position: relative;
+            & > * {
+              position: absolute;
+              bottom: 0;
+            }
+            &.month-container{
+              text-align: right;
+              padding-right:10px;
+            }
+            &.year-container{
+              text-align: left;
+              text-indent:5px;
+            }
+          }
+          span{
+            border-bottom:solid 1px rgba(0,0,0,0.12);
+          }
+        }
       }
       .inline-input{
         .mat-input-container {

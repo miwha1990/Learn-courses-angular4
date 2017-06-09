@@ -25,6 +25,7 @@ import { PaymentReceiptsPageModule } from './payment-receipts-page/payment-recei
 import { SafeResourceUrlModule } from './shared/safe-resourse-url/safe-resource-url.module';
 import { MyDatePickerModule } from 'mydatepicker';
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -51,7 +52,7 @@ import { MyDatePickerModule } from 'mydatepicker';
     ThankYouPageModule,
     PaymentReceiptsPageModule,
     SafeResourceUrlModule,
-    MyDatePickerModule
+    MyDatePickerModule,
   ],
   bootstrap: [AppComponent]
 })

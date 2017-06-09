@@ -139,43 +139,49 @@
                 </div>
             </md-radio-group>
             <h4>Billing Information</h4>
-            <div class="billing-info">
-                <div class="line-wrapper">
-                    <i class="fa fa-user mr-1" aria-hidden="true"></i>
-                    <md-input-container>
-                        <input mdInput id="cardholder" type="text"  placeholder="Cardholder Name" required>
-                    </md-input-container>
-                </div>
-                <div class="line-wrapper">
-                    <i class="fa fa-envelope-o mr-1" aria-hidden="true"></i>
-                    <md-input-container>
-                        <input mdInput id="card-email" type="email"  placeholder="Cardholder Email Address" email required>
-                    </md-input-container>
-                </div>
-                <div class="line-wrapper">
-                    <i class="fa fa-credit-card mr-1" aria-hidden="true"></i>
-                    <md-input-container>
-                        <input mdInput id="card" type="text"  placeholder="Credit Card Number" required>
-                    </md-input-container>
-                </div>
-                <div class="row">
-                    <span class="col-sm-6">
-                        <i class="fa fa-calendar mr-1" aria-hidden="true"></i>
+            <div class="billing-info" >
+                <div formGroupName="cc_group">
+                    <div class="line-wrapper">
+                        <i class="fa fa-user mr-1" aria-hidden="true"></i>
                         <md-input-container>
-                            <input mdInput id="card-date" type="text"  placeholder="MM / YY" required>
+                            <input mdInput id="cardholder" type="text"  formControlName="cc_holder_name" placeholder="Cardholder Name">
                         </md-input-container>
-                    </span>
-                    <span class="col-sm-6">
-                        <i class="fa fa-lock mr-1" aria-hidden="true"></i>
+                    </div>
+                    <div class="line-wrapper">
+                        <i class="fa fa-envelope-o mr-1" aria-hidden="true"></i>
                         <md-input-container>
-                            <input mdInput id="csv" type="text"  placeholder="CSV" required>
+                            <input mdInput id="card-email" type="email"  formControlName="cc_holder_email" placeholder="Cardholder Email Address">
                         </md-input-container>
-                    </span>
+                    </div>
+                    <div class="line-wrapper">
+                        <i class="fa fa-credit-card mr-1" aria-hidden="true"></i>
+                        <md-input-container>
+                            <input mdInput id="card" type="text"  formControlName="cc_number" placeholder="Credit Card Number">
+                        </md-input-container>
+                    </div>
+                    <div class="row">
+                        <span class="col-sm-6  date-container">
+                            <i class="fa fa-calendar mr-1" aria-hidden="true"></i>
+                            <md-input-container class="month-container">
+                                 <input mdInput id="card-month" type="text" formControlName="cc_exp_month" placeholder="MM">
+                            </md-input-container>
+                            <span>/</span>
+                            <md-input-container class="year-container">
+                                <input mdInput id="card-year" type="text" formControlName="cc_exp_year" placeholder="YY">
+                            </md-input-container>
+                        </span>
+                        <span class="col-sm-6">
+                            <i class="fa fa-lock mr-1" aria-hidden="true"></i>
+                            <md-input-container>
+                                <input mdInput id="csv" type="text"  formControlName="cc_cvv" placeholder="CSV">
+                            </md-input-container>
+                        </span>
+                    </div>
                 </div>
                 <div class="line-wrapper">
                     <i class="fa fa-scissors mr-1" aria-hidden="true"></i>
                     <md-input-container>
-                        <input mdInput id="code" type="text"  placeholder="Enter Coupon" formControlName="coupon_code" required>
+                        <input mdInput id="code" type="text"  placeholder="Enter Coupon" formControlName="coupon_code">
                     </md-input-container>
                 </div>
                 <p><a (click)="applyCoupon()" class="btn btn-block btn-bordered">Apply Coupon<div class="ripple-container"></div></a></p>
@@ -201,7 +207,7 @@
                         <span class="field-name">Balance Owning:</span>
                         <span class="field-value tot-btn balance">{{OrderProcessService.secretData?.checkoutData?.balance_owning | currency:'USD':true}}</span>
                     </div>
-                <button type="submit" class="btn btn-block btn-raised btn-primary">Register</button>
+                <button type="submit" class="btn btn-block btn-raised btn-primary" [disabled]="checkoutForm .invalid">Register</button>
                 <div class="payment-methods mb-4"></div>
             </div>
         </aside>
