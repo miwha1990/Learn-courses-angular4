@@ -1,4 +1,4 @@
-<div class="container upcoming-courses-container">
+<div class="container upcoming-courses-container" [class.additional-info]="additionalInfo">
    <div class="courses-list-block">
     <h3 *ngIf="upcomingCoursesData !== undefined && !upcomingCoursesData.length" class="text-center mb-4 title-upcoming-courses">Courses not found</h3>
     <ul *ngIf="upcomingCoursesData">
@@ -28,7 +28,8 @@
             </div>
          </a>
         </li>
-
+        <li></li>
+        <li></li>
     </ul>
   </div>
 </div>
