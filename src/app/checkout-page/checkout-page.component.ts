@@ -84,7 +84,6 @@ export class CheckoutPageComponent implements OnInit {
             full_payment: this.fb.group(['full', Validators.required]),
         }, {validator: this.matchingEmail('email', 'confirm_email')});
     }
-
     applyCoupon() {
         this.params.coupon_code = this.checkoutForm.controls['coupon_code'].value;
         console.log(this.params);
@@ -152,6 +151,7 @@ export class CheckoutPageComponent implements OnInit {
     }
     onToggleSelector(event) {
         event.stopPropagation();
+        event.preventDefault();
         this.mydp.openBtnClicked();
     }
     getToken() {
