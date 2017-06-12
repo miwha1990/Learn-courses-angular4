@@ -22,9 +22,9 @@ export class ClassSinglePageComponent implements OnInit {
      // console.log(this.loading);
     const checkVideoSource = function(data){
         let videoSource;
-        if ( data.video_url.indexOf('wistia') !== -1 ) { videoSource = 'wistia'; }
-        if ( data.video_url.indexOf('youtube') !== -1 ) { videoSource = 'youtube'; }
-        if ( data.video_url.indexOf('vimeo') !== -1 ) { videoSource = 'vimeo'; }
+        if ( data.video_id.indexOf('wistia') !== -1 ) { videoSource = 'wistia'; }
+        if ( data.video_id.indexOf('youtube') !== -1 ) { videoSource = 'youtube'; }
+        if ( data.video_id.indexOf('vimeo') !== -1 ) { videoSource = 'vimeo'; }
         return videoSource;
     };
     this.activatedRoute.params.subscribe((params: Params) => {
@@ -33,11 +33,12 @@ export class ClassSinglePageComponent implements OnInit {
           .subscribe(res => {
                 this.data = res;
                 this.videoSource = checkVideoSource(this.data);
-                this.data.video_url = this.pipe.transform(this.data.video_url);
+                this.data.video_id = 'avk9twrrbn';
+                // this.data.video_id = this.pipe.transform(this.data.video_id);
                 // console.log(this.videoSource);
                 // console.log(this.loading);
                 // this.videoSource  = 'youtube';
-                // this.data.video_url ='https://www.youtube.com/embed/aAdioIs17LM';
+                // this.data.video_id ='https://www.youtube.com/embed/aAdioIs17LM';
               },
               error =>  this.errorMessage = <any>error);
               // () => this.loading = false);

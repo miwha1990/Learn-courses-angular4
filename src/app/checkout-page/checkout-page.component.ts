@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild ,NgZone} from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { OrderProcessService} from '../services/order-process.service';
 import { IMyDpOptions, IMyDateModel} from 'mydatepicker';
@@ -25,13 +25,16 @@ export class CheckoutPageComponent implements OnInit {
     private matchingEmailFlag = false;
     private partialPaymentChoosen = false;
     private params;
+    private registration_data = {};
+    private confirmation_id = null;
 
     message: string;
-    constructor(private OrderProcessService: OrderProcessService, private fb: FormBuilder,private _zone: NgZone) {
+    constructor(private OrderProcessService: OrderProcessService, private fb: FormBuilder) {
         this.params = {
             full_payment: 1,
             coupon_code: null
         };
+        this.registration_data['full_payment'] = 1;
     }
     matchingEmail(email: string, emailConfirmation: string) {
         return (group: FormGroup) => {
@@ -49,10 +52,10 @@ export class CheckoutPageComponent implements OnInit {
     }
     ngOnInit() {
         this.checkoutForm = this.fb.group({
-            first_name: ['', Validators.required],
-            last_name: ['', Validators.required],
-            email: ['', [Validators.required, Validators.email]],
-            confirm_email: ['', [Validators.required, Validators.email]],
+            first_name: ['testname', Validators.required],
+            last_name: ['testlatname', Validators.required],
+            email: ['test@test.test', [Validators.required, Validators.email]],
+            confirm_email: ['test@test.test', [Validators.required, Validators.email]],
             country:  ['', Validators.required],
             state:  ['', Validators.required],
             name_of_badge: ['', Validators.required],
@@ -69,13 +72,16 @@ export class CheckoutPageComponent implements OnInit {
             tshirt_size:  ['', Validators.required],
             coupon_code: [''],
             cc_group: this.fb.group({
-                cc_holder_name: ['', Validators.required],
-                cc_holder_email: ['', Validators.required],
-                cc_number: ['', Validators.required],
-                cc_exp_month: ['', [Validators.required, Validators.minLength(2), Validators.maxLength(2)]],
-                cc_exp_year: ['', [Validators.required, Validators.minLength(4), Validators.maxLength(4)]],
-                cc_cvv: ['', Validators.required]
+                cardholder_name: ['test', Validators.required],
+                cardholder_email: ['test@test.test', Validators.required],
+                cc_number: ['4242424242424242', Validators.required],
+                cc_exp_month: ['12', [Validators.required, Validators.minLength(2), Validators.maxLength(2)]],
+                cc_exp_year: ['2018', [Validators.required, Validators.minLength(4), Validators.maxLength(4)]],
+                cc_cvv: ['123', Validators.required]
             }),
+            newsletter: [''],
+            agreement: [false, Validators.required],
+            full_payment: this.fb.group(['full', Validators.required]),
         }, {validator: this.matchingEmail('email', 'confirm_email')});
     }
 
@@ -92,6 +98,7 @@ export class CheckoutPageComponent implements OnInit {
         );
     }
     applyPaymentType(val) {
+        this.registration_data['full_payment'] = val;
         this.params.full_payment = val;
         console.log(this.params);
         this.OrderProcessService.checkOutInfoRequest(this.OrderProcessService.secretData['id'], this.params).subscribe(
@@ -104,8 +111,33 @@ export class CheckoutPageComponent implements OnInit {
         );
     }
     formSubmit() {
+        // console.log(this.checkoutForm.value);
+        this.registration_data['first_name'] = this.checkoutForm.value.first_name;
+        this.registration_data['last_name'] = this.checkoutForm.value.last_name;
+        this.registration_data['email'] = this.checkoutForm.value.email;
+        this.registration_data['class_id'] = this.OrderProcessService.secretData['id'];
+        this.registration_data['name_on_badge'] = this.checkoutForm.value.name_of_badge;
+        this.registration_data['gender'] = this.checkoutForm.value.gender[0].id;
+        this.registration_data['date_of_birth'] = this.checkoutForm.value.date_of_birth;
+        this.registration_data['city'] = this.checkoutForm.value.city;
+        this.registration_data['province'] = this.checkoutForm.value.state[0].id;
+        this.registration_data['country'] = this.checkoutForm.value.country[0].id;
+        this.registration_data['cardholder_name'] = this.checkoutForm.value.cc_group.cardholder_name;
+        this.registration_data['cardholder_email'] = this.checkoutForm.value.cc_group.cardholder_email;
+        this.registration_data['phone'] = this.checkoutForm.value.phone;
+        this.registration_data['industry_certification'] = this.checkoutForm.value.industry_certification[0].id;
+        this.registration_data['employer'] = this.checkoutForm.value.employer;
+        this.registration_data['job_title'] = this.checkoutForm.value.job_title[0].id;
+        this.registration_data['emergency_name'] = this.checkoutForm.value.emergency_name;
+        this.registration_data['emergency_phone'] = this.checkoutForm.value.emergency_phone;
+        this.registration_data['referrer'] = this.checkoutForm.value.refferel[0].id;
+        this.registration_data['tshirt_size'] = this.checkoutForm.value.tshirt_size[0].id;
+        this.registration_data['amount'] = this.OrderProcessService.secretData['checkoutData']['total'];
+        this.registration_data['coupon_code'] = this.checkoutForm.value.coupon_code;
+        this.registration_data['waiver_id'] = this.OrderProcessService.secretData['waiver']['id'];
+        this.registration_data['newsletter'] = this.checkoutForm.value.newsletter;
+        // console.log(this.registration_data);
         this.getToken();
-        console.log(this.checkoutForm.value);
     }
     showOwingToggle() {
         this.partialPaymentChoosen = !this.partialPaymentChoosen;
@@ -130,16 +162,26 @@ export class CheckoutPageComponent implements OnInit {
             exp_month: this.checkoutForm.controls['cc_group'].controls['cc_exp_month'].value,
             exp_year: this.checkoutForm.controls['cc_group'].controls['cc_exp_year'].value,
             cvc: this.checkoutForm.controls['cc_group'].controls['cc_cvv'].value
-        }, (status: number, response: any) => {
-            // Wrapping inside the Angular zone
-            this._zone.run(() => {
-                if (status === 200) {
-                    this.message = `Success! Card token ${response.card.id}.`;
-                } else {
-                    this.message = response.error.message;
-                }
-            });
+    }, (status: number, response: any) => {
+            if (status === 200) {
+                this.message = `Success! Card token ${response.card.id}.`;
+                this.registration_data['stripe_source'] = response.card.id;
+                this.send_registration_data();
+            } else {
+                this.message = response.error.message;
+            }
         });
+    }
+    send_registration_data() {
+        this.OrderProcessService.sendRegistrationData(this.registration_data)
+            .subscribe(
+                data => {
+                   this.confirmation_id = data.confirmation_id;
+                   console.log(this.confirmation_id);
+                } ,
+                err => console.error('ERRROR', err)
+            );
     }
 
 }
+

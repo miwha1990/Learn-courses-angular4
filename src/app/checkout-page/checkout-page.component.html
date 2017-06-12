@@ -117,23 +117,23 @@
             </div>
             <div class="license">
                 <h4>Participation Waiver</h4>
-                <md-checkbox>I have read and agree to the Participation Waiver and the <a href="">Terms and Conditions</a></md-checkbox>
-                <md-checkbox>I want to receive monthly newsletter packed with helpful education content.</md-checkbox>
+                <md-checkbox formControlName="agreement">I have read and agree to the Participation Waiver and the <a routerLink="/terms-of-service">Terms and Conditions</a></md-checkbox>
+                <md-checkbox formControlName="newsletter">I want to receive monthly newsletter packed with helpful education content.</md-checkbox>
                 <p>{{OrderProcessService.secretData?.waiver?.content }}</p>
             </div>
         </main>
         <aside class="col-md-4 col-sm-12 ms-paper-menu-left">
             <div class="section-heading mb-4">
-                <h3 class="title">Early Bird Registration</h3>
+                <h3 class="title"><span *ngIf="OrderProcessService.secretData?.checkoutData?.ealry_bird">Early Bird </span>Registration</h3>
                 <h4 class="no-m"><i class="fa fa-exclamation-triangle text-warning mr-15"></i>Non-Refundale!</h4>
             </div>
             <h4>Payment Options</h4>
-            <md-radio-group id="method">
+            <md-radio-group id="method" formGroupName="full_payment" (change)="applyPaymentType($event)">
                 <div class="pay-full">
-                    <md-radio-button value="1"  aria-label="Label 1" [checked]="true" class="md-checked" (change)="applyPaymentType(1)">Pay in Full </md-radio-button> <span class="price">{{OrderProcessService.secretData?.price_regular | currency:'USD':true}}</span>
+                    <md-radio-button [value]="1"  aria-label="Label 1" [checked]=true class="md-checked">Pay in Full </md-radio-button> <span class="price" *ngIf="OrderProcessService.secretData?.checkoutData?.ealry_bird">{{OrderProcessService.secretData?.price_early | currency:'USD':true}}</span><span class="price" *ngIf="!OrderProcessService.secretData?.checkoutData?.ealry_bird">{{OrderProcessService.secretData?.price_regular | currency:'USD':true}}</span>
                 </div>
                 <div class="pay-deposite" [ngClass]="OrderProcessService.secretData.allow_partial_payment?'activated':'desactivated'">
-                    <md-radio-button value="2" (change)="applyPaymentType(0)" [disabled]="!OrderProcessService.secretData.allow_partial_payment" aria-label="Label 2">Pay Deposit only </md-radio-button><span class="price">{{OrderProcessService.secretData?.deposit | currency:'USD':true}}</span>
+                    <md-radio-button [value]="0" [disabled]="!OrderProcessService.secretData.allow_partial_payment" aria-label="Label 2">Pay Deposit only </md-radio-button><span class="price">{{OrderProcessService.secretData?.deposit | currency:'USD':true}}</span>
                     <br>
                     <span>Balance Due <span class="date">{{OrderProcessService.secretData?.balance_due | date : 'MMM d, yyyy'}}</span></span>
                 </div>
@@ -144,13 +144,13 @@
                     <div class="line-wrapper">
                         <i class="fa fa-user mr-1" aria-hidden="true"></i>
                         <md-input-container>
-                            <input mdInput id="cardholder" type="text"  formControlName="cc_holder_name" placeholder="Cardholder Name">
+                            <input mdInput id="cardholder" type="text"  formControlName="cardholder_name" placeholder="Cardholder Name">
                         </md-input-container>
                     </div>
                     <div class="line-wrapper">
                         <i class="fa fa-envelope-o mr-1" aria-hidden="true"></i>
                         <md-input-container>
-                            <input mdInput id="card-email" type="email"  formControlName="cc_holder_email" placeholder="Cardholder Email Address">
+                            <input mdInput id="card-email" type="email"  formControlName="cardholder_email" placeholder="Cardholder Email Address">
                         </md-input-container>
                     </div>
                     <div class="line-wrapper">
@@ -193,11 +193,11 @@
                     <div class="line-wrapper" *ngIf="couponActivated">
                         <span class="field-name">Coupon:</span><span class="field-value">{{OrderProcessService.secretData?.checkoutData?.discount | currency:'USD':true}}</span>
                     </div>
-                    <div class="line-wrapper">
-                        <span class="field-name">Tax 1:</span><span class="field-value">{{OrderProcessService.secretData?.checkoutData?.tax_value?.value1 | currency:'USD':true}}</span>
+                    <div class="line-wrapper" *ngIf="OrderProcessService.secretData?.checkoutData?.tax_value?.name1">
+                        <span class="field-name">{{OrderProcessService.secretData?.checkoutData?.tax_value?.name1}}</span><span class="field-value">{{OrderProcessService.secretData?.checkoutData?.tax_value?.value1 | currency:'USD':true}}</span>
                     </div>
-                    <div class="line-wrapper mb-2">
-                        <span class="field-name">Tax 2:</span><span class="field-value">{{OrderProcessService.secretData?.checkoutData?.tax_value?.value2 | currency:'USD':true}}</span>
+                    <div class="line-wrapper mb-2" *ngIf="OrderProcessService.secretData?.checkoutData?.tax_value?.name2">
+                        <span class="field-name">{{OrderProcessService.secretData?.checkoutData?.tax_value?.name2}}</span><span class="field-value">{{OrderProcessService.secretData?.checkoutData?.tax_value?.value2 | currency:'USD':true}}</span>
                     </div>
                     <div class="line-wrapper">
                         <span class="field-name">Total:</span>
@@ -207,7 +207,7 @@
                         <span class="field-name">Balance Owning:</span>
                         <span class="field-value tot-btn balance">{{OrderProcessService.secretData?.checkoutData?.balance_owning | currency:'USD':true}}</span>
                     </div>
-                <button type="submit" class="btn btn-block btn-raised btn-primary" [disabled]="checkoutForm .invalid">Register</button>
+                <button type="submit" class="btn btn-block btn-raised btn-primary" [disabled]="(checkoutForm.invalid||!this.checkoutForm.controls['agreement'].value)">Register</button>
                 <div class="payment-methods mb-4"></div>
             </div>
         </aside>

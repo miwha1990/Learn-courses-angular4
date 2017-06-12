@@ -48,4 +48,13 @@ export class OrderProcessService {
            return resData;
        });
    };
+
+   sendRegistrationData(data) {
+       const endpoint = `${this.environment.apiHost}${this.environment.registrations}`;
+       return this.http.post(endpoint, data, '')
+           .map((res: Response) => {
+               const resData = res.json();
+               return resData;
+           });
+   }
 }

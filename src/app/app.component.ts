@@ -1,6 +1,6 @@
-import { Component , ElementRef, AfterViewInit, Inject, HostListener } from '@angular/core';
+import { Component , ElementRef, AfterViewInit, Inject, HostListener, OnInit } from '@angular/core';
 import { Location } from '@angular/common';
-import { Router } from '@angular/router';
+import { Router, NavigationEnd} from '@angular/router';
 import { DOCUMENT } from '@angular/platform-browser';
 
 @Component({
@@ -8,11 +8,19 @@ import { DOCUMENT } from '@angular/platform-browser';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent  implements  AfterViewInit {
+export class AppComponent  implements  AfterViewInit , OnInit {
   routerHome = false;
   homeScrolled = false;
   constructor(private el: ElementRef, private router: Router, private location: Location, @Inject(DOCUMENT) private document: Document) {
 
+  }
+  ngOnInit() {
+    this.router.events.subscribe((evt) => {
+      if (!(evt instanceof NavigationEnd)) {
+        return;
+      }
+      window.scrollTo(0, 0);
+    });
   }
   ngAfterViewInit() {
     this.router.events.subscribe(val => {
