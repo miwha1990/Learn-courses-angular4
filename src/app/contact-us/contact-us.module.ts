@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { ReactiveFormsModule } from '@angular/forms';
-// import { AgmCoreModule } from '@agm/core';
 
 import { MdInputModule } from '@angular/material'
 
@@ -21,9 +20,6 @@ import {GoogleMapsService} from 'google-maps-angular2/dist/src/app/google-maps.s
     CommonModule,
     ReactiveFormsModule,
     RouterModule.forChild(ContactUsRoutes),
-    // AgmCoreModule.forRoot({
-    //   apiKey: 'AIzaSyBOvCGpfetHTFZPjOa6U-UhRHHS-6OeGhU'
-    // }),
     MdInputModule,
     GoogleMapsModule.forRoot({
       url: 'https://maps.googleapis.com/maps/api/js?libraries=places&key=AIzaSyBOvCGpfetHTFZPjOa6U-UhRHHS-6OeGhU'

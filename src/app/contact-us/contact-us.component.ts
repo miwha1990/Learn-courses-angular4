@@ -1,5 +1,5 @@
-import {AfterViewInit, ElementRef, Component, ViewChild} from '@angular/core';
-import {GoogleMapsService} from 'google-maps-angular2/dist/src/app/google-maps.service';
+import { AfterViewInit, ElementRef, Component, ViewChild } from '@angular/core';
+import { GoogleMapsService } from 'google-maps-angular2/dist/src/app/google-maps.service';
 
 @Component({
   selector: 'contact-us',
@@ -12,7 +12,6 @@ export class ContactUsComponent implements AfterViewInit {
   private map: any;
 
   constructor(private gapi: GoogleMapsService) {
-
   }
 
   ngAfterViewInit(): void {
@@ -46,4 +45,5 @@ export class ContactUsComponent implements AfterViewInit {
         label: { text: '573 King Street East', fontWeight: '600', color: '#830004'}
       });
       });
-  }}
+  }
+}

@@ -1,10 +1,11 @@
-import { Component, OnInit} from '@angular/core';
-import {Router, ActivatedRoute, Params} from '@angular/router';
-import {GetClassDataService} from './get-class-data.service';
-import {jQueryStatic} from 'jquery';
+import { Component, OnInit, ViewChild, ElementRef} from '@angular/core';
+import { Router, ActivatedRoute, Params } from '@angular/router';
+import { GetClassDataService } from './get-class-data.service';
+import { jQueryStatic } from 'jquery';
 import 'jquery';
 declare const $: jQueryStatic;
 import { SafeResourceUrlPipe } from '../shared/safe-resourse-url/safe-resource-url.pipe';
+import { GoogleMapsService } from 'google-maps-angular2/dist/src/app/google-maps.service';
 @Component({
   selector: 'app-class-single-page',
   templateUrl: './class-single-page.component.html',
@@ -15,9 +16,11 @@ export class ClassSinglePageComponent implements OnInit {
   errorMessage: string;
   upcomingCoursesData;
   videoSource = null;
-  video_url = null;
+  video_id = null;
   loading = true;
-  constructor(private GetClassDataService: GetClassDataService, private activatedRoute: ActivatedRoute, private pipe: SafeResourceUrlPipe ) {}
+  private map: any;
+  @ViewChild('mapElement') mapElement: ElementRef;
+  constructor(private GetClassDataService: GetClassDataService, private activatedRoute: ActivatedRoute, private pipe: SafeResourceUrlPipe, private gapi: GoogleMapsService ) {}
   ngOnInit() {
      // console.log(this.loading);
     const checkVideoSource = function(data){
@@ -39,6 +42,7 @@ export class ClassSinglePageComponent implements OnInit {
                 // console.log(this.loading);
                 // this.videoSource  = 'youtube';
                 // this.data.video_id ='https://www.youtube.com/embed/aAdioIs17LM';
+              this.loadMap();
               },
               error =>  this.errorMessage = <any>error);
               // () => this.loading = false);
@@ -78,6 +82,39 @@ export class ClassSinglePageComponent implements OnInit {
         }
     );
   }
+  loadMap = function(){
+      this.gapi.init.then(maps => {
+          const loc = new maps.LatLng(this.data.venue.latitude, this.data.venue.longitude);
+
+          this.map = new maps.Map(this.mapElement.nativeElement, {
+              zoom: 16,
+              center: loc,
+              scrollwheel: false,
+              panControl: false,
+              mapTypeControl: false,
+              zoomControl: true,
+              streetViewControl: false,
+              scaleControl: true,
+              zoomControlOptions: {
+                  style: maps.ZoomControlStyle.LARGE,
+                  position: maps.ControlPosition.RIGHT_BOTTOM
+              }
+          });
+          const icon = new maps.Marker({
+              // url: 'http://maps.google.com/mapfiles/marker.png',
+              url: '../../assets/pin.png',
+              labelOrigin: new maps.Point(95, 43),
+              scaledSize: new maps.Size(43, 50)
+          });
+          const markerText = this.data.venue.address.address_1 + (this.data.venue.address.address_2 ? (' ' + this.data.venue.address.address_2) : '');
+          const marker = new maps.Marker({
+              position: {lat: this.data.venue.latitude, lng: this.data.venue.longitude},
+              map: this.map,
+              icon: icon,
+              label: { text: markerText, fontWeight: '600', color: '#830004'}
+          });
+      });
+  };
   onLoad = function(){
       if (this.data !== null) {
           this.loading = false;
