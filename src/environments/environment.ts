@@ -17,4 +17,5 @@ export const environment = {
   checkout: '/checkout',
   waivers: '/waivers?class_id=',
   registrations: '/registrations',
+  newsletter: '/newsletter',
 };

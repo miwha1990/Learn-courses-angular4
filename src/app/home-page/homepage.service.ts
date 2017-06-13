@@ -14,7 +14,7 @@ export class HomepageService {
 
 
   getUpcomingCourses(id: number = null): Observable<any> {
-      const endpoint = `${this.environment.apiHost}${this.environment.upcomingCourses}`;
+    const endpoint = `${this.environment.apiHost}${this.environment.upcomingCourses}`;
 
     return this.http.get(endpoint)
         .map((res: Response) => {
@@ -24,12 +24,11 @@ export class HomepageService {
         });
   }
     sendSubscription(data): Observable<any> {
-      const endpoint = `https://vl355.infusionsoft.com/app/form/process/8786052e6d747e1c43f5503af713966`;
+      const endpoint =  `${this.environment.apiHost}${this.environment.newsletter}`;
 
       return this.http.post(endpoint, data, '')
           .map((res: Response) => {
-              const resData = res.json().items;
-              console.log(resData);
+              const resData = res.json();
               return resData;
           });
 
