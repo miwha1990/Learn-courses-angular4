@@ -1,8 +1,8 @@
 <app-filters
     [filtersParamsData]="filtersParamsData"
     [categoriesListData]="categoriesListData"
-    [categoryId]="categoryId"
     (filterCoursesEmit)="getUpcomingCourses($event)"
+    (changeCategoryEmit)="getFiltersParams($event)"
 ></app-filters>
 <div class="wrapper-upcoming-courses learn-in-class">
     <h3 class="text-center mb-4 title-upcoming-courses">Upcoming Courses and Workshops</h3>

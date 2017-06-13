@@ -9,9 +9,11 @@ export class FiltersComponent {
   @Input() filtersParamsData;
   @Input() categoriesListData;
   @Output() filterCoursesEmit = new EventEmitter();
+  @Output() changeCategoryEmit = new EventEmitter(); 
   @Input() categoryId = '';
   courseId = '';
   locationId = '';
+
 
   filterCourses() {
     let filterParams = {
@@ -22,5 +24,12 @@ export class FiltersComponent {
     
     this.filterCoursesEmit.emit(filterParams);
     
+  }
+
+
+  changeCategory() {
+    console.log('this.categoryId',this.categoryId);
+    
+    this.changeCategoryEmit.emit(this.categoryId);
   }
 }
