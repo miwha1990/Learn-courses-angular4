@@ -50,10 +50,10 @@ export class CheckoutPageComponent implements OnInit {
     }
     ngOnInit() {
         this.checkoutForm = this.fb.group({
-            first_name: ['testname', Validators.required],
-            last_name: ['testlatname', Validators.required],
-            email: ['test@test.test', [Validators.required, Validators.email]],
-            confirm_email: ['test@test.test', [Validators.required, Validators.email]],
+            first_name: ['', Validators.required],
+            last_name: ['', Validators.required],
+            email: ['', [Validators.required, Validators.email]],
+            confirm_email: ['', [Validators.required, Validators.email]],
             country:  ['', Validators.required],
             state:  ['', Validators.required],
             name_of_badge: ['', Validators.required],
@@ -70,12 +70,12 @@ export class CheckoutPageComponent implements OnInit {
             tshirt_size:  ['', Validators.required],
             coupon_code: [''],
             cc_group: this.fb.group({
-                cardholder_name: ['test', Validators.required],
-                cardholder_email: ['test@test.test', Validators.required],
-                cc_number: ['4242424242424242', Validators.required],
-                cc_exp_month: ['12', [Validators.required, Validators.minLength(2), Validators.maxLength(2)]],
-                cc_exp_year: ['2018', [Validators.required, Validators.minLength(4), Validators.maxLength(4)]],
-                cc_cvv: ['123', Validators.required]
+                cardholder_name: ['', Validators.required],
+                cardholder_email: ['', Validators.required],
+                cc_number: ['', Validators.required],
+                cc_exp_month: ['', [Validators.required, Validators.minLength(2), Validators.maxLength(2)]],
+                cc_exp_year: ['', [Validators.required, Validators.minLength(4), Validators.maxLength(4)]],
+                cc_cvv: ['', Validators.required]
             }),
             newsletter: [''],
             agreement: [false, Validators.required],

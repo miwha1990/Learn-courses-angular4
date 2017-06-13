@@ -68,6 +68,7 @@ h5{
           }
         }
         &>*{
+          color: #000;
           height: 45px;
           position: relative;
           &>*{
@@ -149,6 +150,7 @@ h5{
         .mat-input-container {
           height: 45px;
           position: relative;
+          color: #000;
           & > * {
             position: absolute;
             bottom: 0;
@@ -202,6 +204,7 @@ h5{
       .row{
         .mat-input-container {
           width: 80%;
+          color: #000;
         }
         span.date-container{
           display: flex;
@@ -210,6 +213,7 @@ h5{
           .mat-input-container {
             height: 45px;
             position: relative;
+            color: #000;
             & > * {
               position: absolute;
               bottom: 0;
