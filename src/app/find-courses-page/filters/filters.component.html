@@ -10,7 +10,7 @@
         class="filter filter-category"
         placeholder="Category"
         [(ngModel)]="categoryId"
-        (ngModelChange)="filterCourses()" 
+        (ngModelChange)="filterCourses(); changeCategory(categoryId)" 
       >
         <md-option [value]="null">
           All

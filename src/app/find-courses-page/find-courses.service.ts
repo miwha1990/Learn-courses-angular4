@@ -32,7 +32,7 @@ export class FindCoursesService {
     return this.http.get(endpoint)
         .map((res: Response) => {
             const resData = res.json().items;
-            // console.info('SERVICE: Upcoming Courses', resData);
+            console.info('SERVICE: Upcoming Courses', resData);
             return resData;
         });
   }
@@ -44,15 +44,20 @@ export class FindCoursesService {
     return this.http.get(endpoint)
         .map((res: Response) => {
             const resData = res.json().items.sort(this.sortAlphabetic);
-            // console.info('SERVICE: Categories List', resData);
+            console.info('SERVICE: Categories List', resData);
             return resData;
         });
   }
 
 
-  getFiltersParams() {
-    const endpointCourses = `${this.environment.apiHost}${this.environment.coursesList}`;
+  getFiltersParams(categoryId?) {
+ 
+    let endpointCourses = `${this.environment.apiHost}${this.environment.coursesList}`;
     const endpointLocations = `${this.environment.apiHost}${this.environment.locations}`;
+    
+    if(categoryId) endpointCourses += `?category_id=${categoryId}`;
+    
+
     const getCoursesObs = this.http.get(endpointCourses)
         .map((res: Response) => { return res.json().items.sort(this.sortAlphabetic); });
 
@@ -64,7 +69,7 @@ export class FindCoursesService {
             coursesList: coursesList,
             locationsList: locationsList
         }
-        // console.log('filtersParam', filtersParam);
+        console.log('filtersParam', filtersParam);
         return filtersParam;
     });
   }
