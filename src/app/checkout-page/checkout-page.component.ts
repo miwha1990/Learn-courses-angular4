@@ -87,10 +87,9 @@ export class CheckoutPageComponent implements OnInit {
     applyCoupon() {
         this.params.coupon_code = this.checkoutForm.controls['coupon_code'].value;
         console.log(this.params);
-        this.OrderProcessService.checkOutInfoRequest(this.OrderProcessService.secretData['id'], this.params).subscribe(
+        this.OrderProcessService.checkOutDataRequest(this.OrderProcessService.secretData['id'], this.params).subscribe(
             data => {
-                this.OrderProcessService.secretData['checkoutData'] = data.checkoutData;
-                this.OrderProcessService.secretData['waiver'] = data.waiver;
+                this.OrderProcessService.secretData['checkoutData'] = data;
                 this.couponActivated = true;
             },
             err => console.error('ERROR', err)
@@ -102,8 +101,7 @@ export class CheckoutPageComponent implements OnInit {
         console.log(this.params);
         this.OrderProcessService.checkOutInfoRequest(this.OrderProcessService.secretData['id'], this.params).subscribe(
             data => {
-                this.OrderProcessService.secretData['checkoutData'] = data.checkoutData;
-                this.OrderProcessService.secretData['waiver'] = data.waiver;
+                this.OrderProcessService.secretData['checkoutData'] = data;
                 this.showOwingToggle();
             },
             err => console.error('ERROR', err)
