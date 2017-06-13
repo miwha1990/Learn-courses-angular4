@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Http, Response } from '@angular/http';
+import { Http, Headers, Response } from '@angular/http';
 import {Observable} from 'rxjs/Observable';
 import 'rxjs/Rx';
 import { environment } from '../../environments/environment';
@@ -13,8 +13,9 @@ export class PaymentReceiptsPageService {
 
   sendReceiptRequest(data): Observable<any> {
     const endpoint = `${this.environment.apiHost}${this.environment.orders}`;
-
-    return this.http.post(endpoint, data, '')
+    const headers = new Headers();
+    headers.append('Content-Type', 'text/plain');
+    return this.http.post(endpoint, JSON.stringify(data), headers)
         .map((res: Response) => {
           const resData = res.json();
           return resData;

@@ -67,7 +67,9 @@ export class OrderProcessService {
     }
    sendRegistrationData(data) {
        const endpoint = `${this.environment.apiHost}${this.environment.registrations}`;
-       return this.http.post(endpoint, data, '')
+       const headers = new Headers();
+       headers.append('Content-Type', 'text/plain');
+       return this.http.post(endpoint, JSON.stringify(data), headers)
            .map((res: Response) => {
            // console.log(res);
                const resData = res.json();

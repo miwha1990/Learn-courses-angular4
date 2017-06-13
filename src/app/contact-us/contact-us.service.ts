@@ -14,9 +14,7 @@ export class ContactUsService {
     sendContactRequest(data): Observable<any> {
         const endpoint = `${this.environment.apiHost}${this.environment.contactUs}`;
         const headers = new Headers();
-        headers.append('Content-Type', 'application/json');
-        headers.append('Access-Control-Allow-Origin', '*');
-
+        headers.append('Content-Type', 'text/plain');
         return this.http.post(endpoint, JSON.stringify(data), { headers: headers})
             .map((res: Response) => {
                 const resData = res.json();
