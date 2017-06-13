@@ -124,13 +124,13 @@
         </main>
         <aside class="col-md-4 col-sm-12 ms-paper-menu-left">
             <div class="section-heading mb-4">
-                <h3 class="title"><span *ngIf="OrderProcessService.secretData?.checkoutData?.ealry_bird">Early Bird </span>Registration</h3>
+                <h3 class="title"><span *ngIf="OrderProcessService.secretData?.checkoutData?.early_bird">Early Bird </span>Registration</h3>
                 <h4 class="no-m"><i class="fa fa-exclamation-triangle text-warning mr-15"></i>Non-Refundale!</h4>
             </div>
             <h4>Payment Options</h4>
             <md-radio-group id="method" formGroupName="full_payment" (change)="applyPaymentType($event)">
                 <div class="pay-full">
-                    <md-radio-button [value]="1"  aria-label="Label 1" [checked]=true class="md-checked">Pay in Full </md-radio-button> <span class="price" *ngIf="OrderProcessService.secretData?.checkoutData?.ealry_bird">{{OrderProcessService.secretData?.price_early | currency:'USD':true}}</span><span class="price" *ngIf="!OrderProcessService.secretData?.checkoutData?.ealry_bird">{{OrderProcessService.secretData?.price_regular | currency:'USD':true}}</span>
+                    <md-radio-button [value]="1"  aria-label="Label 1" [checked]=true class="md-checked">Pay in Full </md-radio-button> <span class="price" *ngIf="OrderProcessService.secretData?.checkoutData?.early_bird">{{OrderProcessService.secretData?.price_early | currency:'USD':true}}</span><span class="price" *ngIf="!OrderProcessService.secretData?.checkoutData?.early_bird">{{OrderProcessService.secretData?.price_regular | currency:'USD':true}}</span>
                 </div>
                 <div class="pay-deposite" [ngClass]="OrderProcessService.secretData.allow_partial_payment?'activated':'desactivated'">
                     <md-radio-button [value]="0" [disabled]="!OrderProcessService.secretData.allow_partial_payment" aria-label="Label 2">Pay Deposit only </md-radio-button><span class="price">{{OrderProcessService.secretData?.deposit | currency:'USD':true}}</span>

@@ -23,7 +23,7 @@ export class GetClassDataService {
             resData.venue.long = parseFloat(resData.venue.long);
             resData.spots_early = parseFloat(resData.spots_early);
             resData.spots_regular = parseFloat(resData.spots_regular);
-            console.log(resData);
+            // console.log(resData);
             return resData;
     });
     }
@@ -32,7 +32,7 @@ export class GetClassDataService {
     return this.http.get(endpoint)
         .map((res: Response) => {
             const resData = res.json().items;
-            console.log('SERVICE: Upcoming Courses', resData);
+            // console.log('SERVICE: Upcoming Courses', resData);
             return resData;
         });
     }

@@ -96,10 +96,10 @@ export class CheckoutPageComponent implements OnInit {
         );
     }
     applyPaymentType(val) {
-        this.registration_data['full_payment'] = val;
-        this.params.full_payment = val;
+        this.registration_data['full_payment'] = val.value;
+        this.params.full_payment = val.value;
         console.log(this.params);
-        this.OrderProcessService.checkOutInfoRequest(this.OrderProcessService.secretData['id'], this.params).subscribe(
+        this.OrderProcessService.checkOutDataRequest(this.OrderProcessService.secretData['id'], this.params).subscribe(
             data => {
                 this.OrderProcessService.secretData['checkoutData'] = data;
                 this.showOwingToggle();

@@ -19,7 +19,7 @@ export class HomepageService {
     return this.http.get(endpoint)
         .map((res: Response) => {
             const resData = res.json().items;
-            console.log(resData);
+            // console.log(resData);
             return resData;
         });
   }

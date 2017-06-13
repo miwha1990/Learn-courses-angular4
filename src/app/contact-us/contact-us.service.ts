@@ -20,7 +20,7 @@ export class ContactUsService {
         return this.http.post(endpoint, JSON.stringify(data), { headers: headers})
             .map((res: Response) => {
                 const resData = res.json();
-                console.log(resData);
+                // console.log(resData);
                 return resData;
             });
     }

@@ -44,47 +44,24 @@ export class OrderProcessService {
                checkoutData: checkoutData,
                waiver: waiver
            };
-           console.log(resData);
+           // console.log(resData);
            return resData;
        });
    };
-   // checkOutDataRequest = function(id, params?){
-   //     let endpointCh = `${this.environment.apiHost}${this.environment.classes}${id}${this.environment.checkout}`;
-   //     if (params !== undefined) {
-   //         endpointCh += `?`;
-   //         for (const param in params) {
-   //             if (params[param]) {
-   //                 endpointCh += `${param}=${params[param]}&`;
-   //             }
-   //         }
-   //     }
-   //     const getCheckoutObs = this.http.get(endpointCh)
-   //         .map((res: Response) => {
-   //             return res.json();
-   //         });
-   //     return Observable.combineLatest(getCheckoutObs, getWaiversObs, (checkoutData, waiver) => {
-   //         const resData = {
-   //             checkoutData: checkoutData,
-   //             waiver: waiver
-   //         };
-   //         console.log(resData);
-   //         return resData;
-   //     });
-   // };
     checkOutDataRequest(id, params?): Observable<any> {
         let endpoint = `${this.environment.apiHost}${this.environment.classes}${id}${this.environment.checkout}`;
         if (params !== undefined) {
             endpoint += `?`;
             for (const param in params) {
-                if (params[param]) {
+                if (params[param] != null) {
                     endpoint += `${param}=${params[param]}&`;
                 }
             }
         }
         return this.http.get(endpoint)
             .map((res: Response) => {
-                const resData = res.json().items;
-                console.log(resData);
+                const resData = res.json();
+                // console.log(resData);
                 return resData;
             });
     }
