@@ -19,11 +19,11 @@ export class GetClassDataService {
     return this.http.get(endpoint)
         .map((res: Response) => {
             const resData = res.json();
-            resData.venue.lat = parseFloat(resData.venue.lat);
-            resData.venue.long = parseFloat(resData.venue.long);
+            console.log(resData);
+            resData.venue.latitude = parseFloat(resData.venue.latitude);
+            resData.venue.longitude = parseFloat(resData.venue.longitude);
             resData.spots_early = parseFloat(resData.spots_early);
             resData.spots_regular = parseFloat(resData.spots_regular);
-            // console.log(resData);
             return resData;
     });
     }

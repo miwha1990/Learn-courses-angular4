@@ -37,8 +37,8 @@
             </div>
         </div>
     </div>
-    <agm-map class="mt-4" [latitude]="data?.venue?.lat" [longitude]="data?.venue?.long" [zoom]="8">
-        <agm-marker [latitude]="data?.venue?.lat" [longitude]="data?.venue?.long"></agm-marker>
+    <agm-map class="mt-4" [latitude]="data?.venue?.latitude" [longitude]="data?.venue?.longitude" [zoom]="8">
+        <agm-marker [latitude]="data?.venue?.latitude" [longitude]="data?.venue?.longitude"></agm-marker>
     </agm-map>
     <div class="container-full pb-4 pt-4 instructors-full-container" [hidden]="!data?.instructors?.length">
         <div  class="container instructors-container">
