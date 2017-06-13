@@ -7,8 +7,8 @@
     </div>
   </div>
   <div class="container mt-4 mb-4 text-center">
-    <h4>stundet_name, thank you for registering for course_Name<br>
-    Order: ORD001001</h4>
+    <h4>{{OrderProcessService.secretData['first_name']}}, thank you for registering for {{OrderProcessService.secretData.name}}<br>
+    Order: {{OrderProcessService.secretData['confirmation_id']}}</h4>
     <h4>Your Payment Receipt has been emailed to you. Please check your inbox.</h4>
   </div>
     <div class="container-full important-info pt-2 pb-4">

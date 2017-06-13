@@ -26,9 +26,7 @@ export class CheckoutPageComponent implements OnInit {
     private partialPaymentChoosen = false;
     private params;
     private registration_data = {};
-    private confirmation_id = null;
-
-    message: string;
+    private message: string;
     constructor(private OrderProcessService: OrderProcessService, private fb: FormBuilder) {
         this.params = {
             full_payment: 1,
@@ -174,8 +172,7 @@ export class CheckoutPageComponent implements OnInit {
         this.OrderProcessService.sendRegistrationData(this.registration_data)
             .subscribe(
                 data => {
-                   this.confirmation_id = data.confirmation_id;
-                   console.log(this.confirmation_id);
+                   console.log(data);
                 } ,
                 err => console.error('ERRROR', err)
             );

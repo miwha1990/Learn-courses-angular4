@@ -48,7 +48,7 @@
         margin-right: 0;
       }
       @media screen and (max-width: 600px) {
-        flex-basis: 60%;
+        flex-basis: 60%!important;
       }
     .card {
       border-bottom: solid 3px #EB8C00;

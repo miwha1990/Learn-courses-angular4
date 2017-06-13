@@ -169,3 +169,15 @@ markdown{
     }
   }
 }
+
+.wrapper-upcoming-courses.learn-in-class{
+  app-upcoming-courses {
+    .courses-list-block{
+      ul {
+        li {
+          flex-basis: 31%!important;
+        }
+      }
+    }
+  }
+}

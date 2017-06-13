@@ -69,8 +69,12 @@ export class OrderProcessService {
        const endpoint = `${this.environment.apiHost}${this.environment.registrations}`;
        return this.http.post(endpoint, data, '')
            .map((res: Response) => {
+           // console.log(res);
                const resData = res.json();
-               return resData;
+               this.secretData['first_name'] = data.first_name;
+               this.secretData['confirmation_id'] = resData.confirmation_id;
+               this.router.navigate(['/thank-you']);
+               return;
            });
    }
 }
