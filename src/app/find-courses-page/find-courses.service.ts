@@ -50,28 +50,18 @@ export class FindCoursesService {
   }
 
 
-  getFiltersParams(categoryId?) {
- 
+  getCoursesList(categoryId?) {
     let endpointCourses = `${this.environment.apiHost}${this.environment.coursesList}`;
-    const endpointLocations = `${this.environment.apiHost}${this.environment.locations}`;
-    
     if(categoryId) endpointCourses += `?category_id=${categoryId}`;
-    
-
-    const getCoursesObs = this.http.get(endpointCourses)
+    return this.http.get(endpointCourses)
         .map((res: Response) => { return res.json().items.sort(this.sortAlphabetic); });
+  }
 
-    const getLocationsObs = this.http.get(endpointLocations)
+
+  getLocations() {
+    const endpointLocations = `${this.environment.apiHost}${this.environment.locations}`;
+    return this.http.get(endpointLocations)
         .map((res: Response) => { return res.json().items.sort(this.sortAlphabetic); });
-
-    return Observable.combineLatest(getCoursesObs, getLocationsObs, (coursesList, locationsList) => {
-        const filtersParam = {
-            coursesList: coursesList,
-            locationsList: locationsList
-        }
-        console.log('filtersParam', filtersParam);
-        return filtersParam;
-    });
   }
 
     sortAlphabetic(a, b) {

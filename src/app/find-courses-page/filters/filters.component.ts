@@ -6,7 +6,9 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
   styleUrls: ['./filters.component.scss']
 })
 export class FiltersComponent {
-  @Input() filtersParamsData;
+  @Input() filtersCoursesData;
+  @Input() filtersLocationsData;
+
   @Input() categoriesListData;
   @Output() filterCoursesEmit = new EventEmitter();
   @Output() changeCategoryEmit = new EventEmitter(); 
@@ -28,6 +30,8 @@ export class FiltersComponent {
 
 
   changeCategory() {
+    this.courseId = '';
+    this.locationId = '';
     console.log('this.categoryId',this.categoryId);
     
     this.changeCategoryEmit.emit(this.categoryId);

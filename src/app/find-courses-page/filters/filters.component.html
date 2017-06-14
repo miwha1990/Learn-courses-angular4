@@ -10,7 +10,7 @@
         class="filter filter-category"
         placeholder="Category"
         [(ngModel)]="categoryId"
-        (ngModelChange)="filterCourses(); changeCategory(categoryId)" 
+        (ngModelChange)="changeCategory(categoryId); filterCourses()" 
       >
         <md-option [value]="null">
           All
@@ -29,7 +29,7 @@
         <md-option [value]="null">
           All
         </md-option>
-        <md-option *ngFor="let course of filtersParamsData?.coursesList" [value]="course?.id">
+        <md-option *ngFor="let course of filtersCoursesData" [value]="course?.id">
           {{ course?.name }}
         </md-option>
       </md-select>
@@ -43,7 +43,7 @@
         <md-option [value]="null">
           All
         </md-option>
-        <md-option *ngFor="let location of filtersParamsData?.locationsList" [value]="location?.id">
+        <md-option *ngFor="let location of filtersLocationsData" [value]="location?.id">
           {{ location?.name }}
         </md-option>
       </md-select>
