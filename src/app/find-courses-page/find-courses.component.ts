@@ -11,11 +11,13 @@ import { FindCoursesService } from './find-courses.service';
 export class FindCoursesComponent implements OnInit {
   upcomingCoursesData;
   categoriesListData;
-  filtersParamsData;
+  filtersCoursesData;
+  filtersLocationsData;
   allLocations;
   loading: boolean;
   additionalInfo: boolean;
   categoryId;
+  fullLocationsList;
   constructor(private findCoursesService: FindCoursesService,
               private activatedRoute: ActivatedRoute) {
 
@@ -28,7 +30,8 @@ export class FindCoursesComponent implements OnInit {
   ngOnInit() {
     this.getUpcomingCourses();
     this.getCategoriesList();
-    this.getFiltersParams();
+    this.getCoursesList();
+    this.getLocations();
   }
 
 
@@ -43,24 +46,24 @@ export class FindCoursesComponent implements OnInit {
         () => {
           this.loading = false;
 
-          // if(params && params.category_id && !params.course_id) {
-          //   console.log('PARAMS', params);
-            
-          //   this.filtersParamsData.coursesList = [];
-          //   for(let course of this.upcomingCoursesData) {
-          //     const courseItem = {
-          //       name: course.name,
-          //       id: course.id,
-          //       category_id: params.category_id
-          //     };
-          //     this.filtersParamsData.coursesList.push(courseItem);
-          //   }
-          // }
-          
-          
-
-  
-
+          if(params && (params.category_id.length || params.course_id.length)) {
+            this.filtersLocationsData = [];
+    
+            let locations = [];
+            for(let course of this.upcomingCoursesData) {
+              locations.push(course.location);
+            }
+            let newLocations = [];
+            for(let location of locations) {
+              if(newLocations.indexOf(location) === -1) newLocations.push(location);
+            }
+            for(let location of this.fullLocationsList) {
+                const index = newLocations.indexOf(location.name);
+                if(index !== -1) {
+                  this.filtersLocationsData.push({ name: newLocations[index], id: location.id });
+                }
+            }
+          }
         }
       );
   }
@@ -76,13 +79,20 @@ export class FindCoursesComponent implements OnInit {
   }
 
 
-  getFiltersParams(categoryId?) {
-    console.log('categoryId?', categoryId);
-    
-    this.findCoursesService.getFiltersParams(categoryId)
+  getCoursesList(categoryId?) {
+    this.findCoursesService.getCoursesList(categoryId)
       .subscribe(
-        data => this.filtersParamsData = data,
+        data => this.filtersCoursesData = data,
         err => console.error('ERROR', err)
+      );
+  }
+
+  getLocations() {
+    this.findCoursesService.getLocations()
+      .subscribe(
+        data => this.filtersLocationsData = data,
+        err => console.error('ERROR', err),
+        () => this.fullLocationsList = this.filtersLocationsData
       );
   }
 
