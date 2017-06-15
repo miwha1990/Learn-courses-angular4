@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild, ElementRef} from '@angular/core';
-import { Router, ActivatedRoute, Params } from '@angular/router';
+import { ActivatedRoute, Params } from '@angular/router';
 import { GetClassDataService } from './get-class-data.service';
 import { jQueryStatic } from 'jquery';
 import 'jquery';
@@ -15,37 +15,24 @@ export class ClassSinglePageComponent implements OnInit {
   data = null;
   errorMessage: string;
   upcomingCoursesData;
-  videoSource = null;
-  video_id = null;
   loading = true;
   private map: any;
   @ViewChild('mapElement') mapElement: ElementRef;
-  constructor(private GetClassDataService: GetClassDataService, private activatedRoute: ActivatedRoute, private pipe: SafeResourceUrlPipe, private gapi: GoogleMapsService ) {}
+  constructor(private GetClassDataService: GetClassDataService,
+              private activatedRoute: ActivatedRoute,
+              private pipe: SafeResourceUrlPipe,
+              private gapi: GoogleMapsService ) {}
   ngOnInit() {
-     // console.log(this.loading);
-    const checkVideoSource = function(data){
-        let videoSource;
-        if ( data.video_id.indexOf('wistia') !== -1 ) { videoSource = 'wistia'; }
-        if ( data.video_id.indexOf('youtube') !== -1 ) { videoSource = 'youtube'; }
-        if ( data.video_id.indexOf('vimeo') !== -1 ) { videoSource = 'vimeo'; }
-        return videoSource;
-    };
     this.activatedRoute.params.subscribe((params: Params) => {
       const id: number = params['id'];
       this.GetClassDataService.getClassData(id)
           .subscribe(res => {
                 this.data = res;
-                this.videoSource = checkVideoSource(this.data);
-                this.data.video_id = 'avk9twrrbn';
-                // this.data.video_id = this.pipe.transform(this.data.video_id);
-                // console.log(this.videoSource);
-                // console.log(this.loading);
-                // this.videoSource  = 'youtube';
-                // this.data.video_id ='https://www.youtube.com/embed/aAdioIs17LM';
+                this.data.video_id = 'https://dtsfitnesseducation.wistia.com/embed/iframe/' + this.data.video_id;
+                this.data.video_id = this.pipe.transform(this.data.video_id);
               this.loadMap();
               },
               error =>  this.errorMessage = <any>error);
-              // () => this.loading = false);
       this.GetClassDataService.getUpcomingCourses(id)
           .subscribe(res => {
                 this.upcomingCoursesData = res;
@@ -118,7 +105,6 @@ export class ClassSinglePageComponent implements OnInit {
   onLoad = function(){
       if (this.data !== null) {
           this.loading = false;
-          // console.log('my time');
       }
   };
 }
