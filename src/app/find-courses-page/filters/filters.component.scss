@@ -58,3 +58,8 @@
         line-height: 38px;
     }   
 }
+@media screen and (max-width: 600px) {
+    .wrapper-courses-filter {
+        margin-top:0;
+    }
+}
