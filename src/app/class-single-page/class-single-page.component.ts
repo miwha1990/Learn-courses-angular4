@@ -1,10 +1,10 @@
-import { Component, OnInit, ViewChild, ElementRef} from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef, Renderer2} from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
 import { GetClassDataService } from './get-class-data.service';
 import { jQueryStatic } from 'jquery';
 import 'jquery';
 declare const $: jQueryStatic;
-import { SafeResourceUrlPipe } from '../shared/safe-resourse-url/safe-resource-url.pipe';
+
 import { GoogleMapsService } from 'google-maps-angular2/dist/src/app/google-maps.service';
 @Component({
   selector: 'app-class-single-page',
@@ -12,25 +12,33 @@ import { GoogleMapsService } from 'google-maps-angular2/dist/src/app/google-maps
   styleUrls: ['./class-single-page.component.scss']
 })
 export class ClassSinglePageComponent implements OnInit {
-  data = null;
-  errorMessage: string;
-  upcomingCoursesData;
-  loading = true;
-  private map: any;
-  @ViewChild('mapElement') mapElement: ElementRef;
-  constructor(private GetClassDataService: GetClassDataService,
-              private activatedRoute: ActivatedRoute,
-              private pipe: SafeResourceUrlPipe,
-              private gapi: GoogleMapsService ) {}
-  ngOnInit() {
+    private data = null;
+    private errorMessage: string;
+    private upcomingCoursesData;
+    private loading = true;
+    private map: any;
+    @ViewChild('mapElement') mapElement: ElementRef;
+    @ViewChild('preloader') preloader: ElementRef;
+    constructor(private GetClassDataService: GetClassDataService,
+                private activatedRoute: ActivatedRoute,
+                private gapi: GoogleMapsService,
+                private renderer2: Renderer2) {
+    }
+    ngOnInit() {
     this.activatedRoute.params.subscribe((params: Params) => {
       const id: number = params['id'];
       this.GetClassDataService.getClassData(id)
           .subscribe(res => {
                 this.data = res;
-                this.data.video_id = 'https://dtsfitnesseducation.wistia.com/embed/iframe/' + this.data.video_id;
-                this.data.video_id = this.pipe.transform(this.data.video_id);
-              this.loadMap();
+                this.loadMap();
+                setTimeout(() => {
+                  if (this.preloader) {
+                      this.renderer2.addClass(this.preloader.nativeElement, 'fadeOut');
+                  }
+                  setTimeout(() => {
+                      this.loading = false;
+                  }, 200);
+                } , 5000);
               },
               error =>  this.errorMessage = <any>error);
       this.GetClassDataService.getUpcomingCourses(id)
@@ -53,7 +61,7 @@ export class ClassSinglePageComponent implements OnInit {
     };
     const mobileSticky = function(){
        $('app-sticky-card').trigger('sticky_kit:detach');
-   };
+    };
     const isMobile = window.matchMedia('only screen and (max-width: 991px)');
     const stickySetUp = function(){
         if (isMobile.matches) {
@@ -68,8 +76,8 @@ export class ClassSinglePageComponent implements OnInit {
             stickySetUp();
         }
     );
-  }
-  loadMap = function(){
+    }
+    loadMap = function(){
       this.gapi.init.then(maps => {
           const loc = new maps.LatLng(this.data.venue.latitude, this.data.venue.longitude);
 
@@ -101,10 +109,10 @@ export class ClassSinglePageComponent implements OnInit {
               label: { text: markerText, fontWeight: '600', color: '#830004'}
           });
       });
-  };
-  onLoad = function(){
-      if (this.data !== null) {
-          this.loading = false;
-      }
-  };
+    };
+    // onLoad = function(){
+    //   if (this.data !== null) {
+    //
+    //   }
+    // };
 }

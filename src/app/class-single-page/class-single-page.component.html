@@ -17,7 +17,7 @@
     <div class="container">
         <div class="col-md-8">
             <div class="embed-responsive embed-responsive-16by9" *ngIf="data?.video_id">
-               <iframe class="embed-responsive-item" [src]="data?.video_id" (load)="onLoad()"></iframe>
+               <iframe class="embed-responsive-item" [src]="data?.video_id" ></iframe>
             </div>
             <div class="pt-4">
                 <markdown [data]="(data?.description ? data?.description : '')"></markdown>
@@ -51,7 +51,7 @@
     </div>
 </div>
 
-<div class="container-full courses-container mb-6" *ngIf="!loading">
+<div class="container-full courses-container mb-6">
     <div  class="container">
         <div class="col-md-12">
             <h3 class="mt-4 mb-4">Other available {{data?.name}} dates</h3>
@@ -60,7 +60,7 @@
     </div>
 </div>
 
-<div id="ms-preload" class="ms-preload" *ngIf="loading">
+<div id="ms-preload" class="ms-preload single-class-page" *ngIf="loading" #preloader>
     <div id="status">
         <div class="spinner">
             <div class="dot1"></div>
