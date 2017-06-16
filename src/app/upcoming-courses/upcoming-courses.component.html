@@ -1,6 +1,6 @@
 <div class="container upcoming-courses-container" [class.additional-info]="additionalInfo">
    <div class="courses-list-block">
-    <h3 *ngIf="upcomingCoursesData !== undefined && !upcomingCoursesData.length" class="text-center mb-4 title-upcoming-courses">Courses not found</h3>
+    <h3 *ngIf="upcomingCoursesData !== undefined && !upcomingCoursesData.length" class="text-center mb-4 title-upcoming-courses">{{textMessage}}</h3>
     <ul *ngIf="upcomingCoursesData">
       <li *ngFor="let course of upcomingCoursesData">
           <a routerLink="/class/{{course.id}}">
@@ -33,3 +33,4 @@
     </ul>
   </div>
 </div>
+

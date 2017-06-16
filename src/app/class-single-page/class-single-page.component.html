@@ -25,10 +25,10 @@
         </div>
         <app-sticky-card [data]="data" class="col-md-4 sticky-card"></app-sticky-card>
     </div>
-    <div class="container-full">
+    <div class="container-full venue-full-container pb-4 pt-2">
         <div  class="container">
             <div class="col-md-8">
-                <h5>VENUE</h5>
+                <h4 class="mb-2">VENUE</h4>
                 {{data?.venue?.name}}<br/>
                 <span>{{data?.venue?.address?.address_1}}</span><span *ngIf="data?.venue?.address?.address_2">, {{data?.venue?.address?.address_2}}</span><span>, {{data?.venue?.address?.city}}</span><span *ngIf="data?.venue?.address?.province">,  {{data?.venue?.address?.province}}</span><br/>
                 {{data?.venue?.address?.country}}<br/>
@@ -36,8 +36,8 @@
             </div>
         </div>
     </div>
-    <div class="map mt-4" #mapElement></div>
-    <div class="container-full pb-4 pt-4 instructors-full-container" [hidden]="!data?.instructors?.length">
+    <div class="map" #mapElement></div>
+    <div class="container-full pb-4 pt-4 instructors-full-container" [hidden]="!data?.instructors?.length" style="display: none;">
         <div  class="container instructors-container">
             <div class="col-md-8">
                 <h4 [hidden]="data?.is_special_event">INSTRUCTORS </h4><h4 [hidden]="!data?.is_special_event">SPEAKERS</h4>
@@ -55,7 +55,7 @@
     <div  class="container">
         <div class="col-md-12">
             <h3 class="mt-4 mb-4">Other available {{data?.name}} dates</h3>
-            <app-upcoming-courses  [upcomingCoursesData]="upcomingCoursesData"  [additionalInfo]="true"></app-upcoming-courses>
+            <app-upcoming-courses  [upcomingCoursesData]="upcomingCoursesData"  [additionalInfo]="true" [textMessage]="'Courses not found.'"></app-upcoming-courses>
         </div>
     </div>
 </div>

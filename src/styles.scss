@@ -192,3 +192,15 @@ markdown{
   animation: fadeIn 0.15s;
   z-index: 1002!important;
 }
+.class-page-wrapper{
+  .social-block{
+    span.at-icon-wrapper{
+      height: 30px!important;
+      width:30px!important;
+      svg{
+        height: 30px!important;
+        width:30px!important;
+      }
+    }
+  }
+}

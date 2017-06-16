@@ -735,6 +735,13 @@ form.checkoutForm #method .activated .mat-radio-label-content{
 .mat-select-trigger {
     color: rgba(0, 0, 0, .38)
 }
+.filters-section .mat-select-trigger,
+.filters-section .mat-select-value{
+    font-size: 20px;
+}
+.filters-section .mat-select-placeholder.mat-floating-placeholder{
+    opacity:0!important;
+}
 .mat-select-underline {
     background-color: rgba(0, 0, 0, .12)
 }

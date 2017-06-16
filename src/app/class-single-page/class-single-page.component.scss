@@ -42,14 +42,22 @@
    background-position: center;
    background-size: cover;
    background-repeat: no-repeat;
+    h2{
+      font-weight: bold;
+    }
    .class-details {
      display: flex;
      justify-content: space-around;
      align-items: center;
      p {
-       margin: 0 20px;
+       margin: 0 40px;
+       font-size: 20px;
+       i{
+         padding-right: 10px;
+       }
        @media screen and (max-width: 768px) {
          margin: 0 5px;
+         font-size: 15px;
        }
      }
      @media screen and (max-width: 480px) {
@@ -92,7 +100,13 @@
       margin-top: 0;
     }
   }
-
+  .venue-full-container{
+    background-color:  #e6e6e6;
+    color:#000;
+    h4{
+      font-weight: 600;
+    }
+  }
   .map {
     height: 300px;
     position: relative;

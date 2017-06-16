@@ -8,4 +8,5 @@ import { Component, Input } from '@angular/core';
 export class UpcomingCoursesComponent {
   @Input() upcomingCoursesData;
   @Input() additionalInfo: boolean = false;
+  @Input() textMessage: string;
 }

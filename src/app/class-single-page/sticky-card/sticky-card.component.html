@@ -1,5 +1,5 @@
 <div class="card card-primary">
-    <div class="card-block">
+    <div class="card-block mb-2">
         <a (click)="goToCheckout()" class="btn btn-raised btn-primary app-btn-ripple register-button mt-2 mb-2">Register now</a>
         <div class="info-block">
             <div class="option">
@@ -18,10 +18,10 @@
                 <h5>registration</h5>
                 <h5 class="color-primary">{{cardContentRegular}}</h5>
             </div>
-            <div class="text pb-2">You can to take advantage of our no-interest Payment Plan and get started for only $350 down.</div>
+            <div class="text pb-2" *ngIf="data?.allow_partial_payment">You can to take advantage of our no-interest Payment Plan and get started for only {{data?.deposit|currency:'USD':true}} down.</div>
         </div>
     </div>
-    <div class="social-block">
+    <div class="social-block pt-2">
         <h5>Share With Friends</h5>
         <div class="addthis_inline_share_toolbox_gg8p pt-2 pb-2"></div>
     </div>

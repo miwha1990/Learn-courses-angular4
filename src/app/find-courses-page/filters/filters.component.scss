@@ -7,7 +7,12 @@
     margin-top: -40px;
     display: flex;
     flex-direction: column;
-    justify-content: center
+    justify-content: center;
+        h1 {
+            span{
+                font-weight:bold;
+            }
+        }
 }
 
 .wrapper-courses-filter-block {
