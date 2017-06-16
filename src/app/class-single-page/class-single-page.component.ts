@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, ElementRef, Renderer2} from '@angular/core';
+import {Component, OnInit, ViewChild, ElementRef, Renderer2, HostListener} from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
 import { GetClassDataService } from './get-class-data.service';
 import { jQueryStatic } from 'jquery';
@@ -17,6 +17,7 @@ export class ClassSinglePageComponent implements OnInit {
     private upcomingCoursesData;
     private loading = true;
     private map: any;
+    private isMobile = window.matchMedia('only screen and (max-width: 991px)');
     @ViewChild('mapElement') mapElement: ElementRef;
     @ViewChild('preloader') preloader: ElementRef;
     constructor(private GetClassDataService: GetClassDataService,
@@ -24,6 +25,7 @@ export class ClassSinglePageComponent implements OnInit {
                 private gapi: GoogleMapsService,
                 private renderer2: Renderer2) {
     }
+
     ngOnInit() {
     this.activatedRoute.params.subscribe((params: Params) => {
       const id: number = params['id'];
@@ -31,6 +33,8 @@ export class ClassSinglePageComponent implements OnInit {
           .subscribe(res => {
                 this.data = res;
                 this.loadMap();
+                $('#sticky-element').stick_in_parent({offset_top: 50});
+                this.stickySetUp();
                 setTimeout(() => {
                   if (this.preloader) {
                       this.renderer2.addClass(this.preloader.nativeElement, 'fadeOut');
@@ -47,36 +51,35 @@ export class ClassSinglePageComponent implements OnInit {
               },
               error =>  this.errorMessage = <any>error);
     });
-    $('#sticky-element').stick_in_parent({offset_top: 50});
-    const desktopSticky = function(){
+        $(window).resize(
+            function () {
+                this.stickySetUp();
+            }
+        );
+    }
+    desktopSticky = function(){
         $('app-sticky-card').stick_in_parent({offset_top: 90, parent: '.class-page-wrapper'})
             .on('sticky_kit:bottom', function(e) {
                 $(this).parent().css('position', 'static');
                 $('#sticky-element').removeClass('is_stuck');
             })
             .on('sticky_kit:unbottom', function(e) {
-                $(this).parent().css('position', 'relative');
-                $('#sticky-element').addClass('is_stuck');
+                if ($('body').offset().top !== 0) {
+                    $(this).parent().css('position', 'relative');
+                    $('#sticky-element').addClass('is_stuck');
+                }
             });
     };
-    const mobileSticky = function(){
-       $('app-sticky-card').trigger('sticky_kit:detach');
+    mobileSticky = function(){
+        $('app-sticky-card').trigger('sticky_kit:detach');
     };
-    const isMobile = window.matchMedia('only screen and (max-width: 991px)');
-    const stickySetUp = function(){
-        if (isMobile.matches) {
-            mobileSticky();
+    stickySetUp = function(){
+        if (this.isMobile.matches) {
+            this.mobileSticky();
         } else {
-            desktopSticky();
+            this.desktopSticky();
         }
     };
-    stickySetUp();
-    $(window).resize(
-        function () {
-            stickySetUp();
-        }
-    );
-    }
     loadMap = function(){
       this.gapi.init.then(maps => {
           const loc = new maps.LatLng(this.data.venue.latitude, this.data.venue.longitude);
@@ -110,9 +113,4 @@ export class ClassSinglePageComponent implements OnInit {
           });
       });
     };
-    // onLoad = function(){
-    //   if (this.data !== null) {
-    //
-    //   }
-    // };
 }
