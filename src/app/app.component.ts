@@ -22,25 +22,25 @@ export class AppComponent  implements  AfterViewInit , OnInit {
       }
       window.scrollTo(0, 0);
     });
-  }
 
-  identifyCheckoutPage() {
-    this.router.events.subscribe(val => {
-      if((this.location.path() === '/checkout-page')) {
-        this.headerVisible = false;
-      }
-    });
   }
-
 
   ngAfterViewInit() {
     this.router.events.subscribe(val => {
       if ((this.location.path() === '/home') || (this.location.path() === '')) {
         this.routerHome = true;
-      } else {
+        this.headerVisible = true;
+      }
+      else if ((this.location.path() === '/checkout-page')) {
+         this.headerVisible = false;
+         this.routerHome = false;
+      }
+      else {
         this.routerHome = false;
+        this.headerVisible = true;
       }
     });
+
   }
   @HostListener('window:scroll', [])
   onWindowScroll() {
