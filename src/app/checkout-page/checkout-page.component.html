@@ -12,11 +12,11 @@
             <div class="student-information">
                 <h4>Student Information</h4>
                 <div class="line-wrapper">
-                    <md-input-container class="mr-15">
-                        <input mdInput id="focusedInput2" type="text" formControlName="last_name" placeholder="Last Name">
-                    </md-input-container>
                     <md-input-container class="ml-15">
                         <input mdInput class="text-left" id="focusedInput1" type="text" formControlName="first_name" placeholder="First Name">
+                    </md-input-container>
+                    <md-input-container class="mr-15">
+                        <input mdInput id="focusedInput2" type="text" formControlName="last_name" placeholder="Last Name">
                     </md-input-container>
                 </div>
                 <div class="line-wrapper">
@@ -24,7 +24,7 @@
                         <input mdInput  id="focusedInput3" placeholder="Email" type="email" formControlName="email">
                     </md-input-container>
                     <md-input-container class="ml-15">
-                        <input mdInput id="focusedInput4" placeholder="Confirm Email" type="email" formControlName="confirm_email"> <span class="check-span" [ngClass]="(matchingEmailFlag ? 'green-color': '')" md-suffix><i class="fa fa-check"></i></span>
+                        <input mdInput id="focusedInput4" placeholder="Confirm Email" type="email" formControlName="confirm_email">
                     </md-input-container>
                 </div>
                 <p class="text-warning">Please, use personal email only! E.g.: @gmail.com, @hotmail.com, @yahoo.ca</p>
@@ -57,7 +57,7 @@
                     <md-input-container class="ml-15">
                         <input mdInput placeholder="Date of Birth" formControlName="date_of_birth">
                         <button mdSuffix class="mat-datepicker-toggle" (click)="onToggleSelector($event)"></button>
-                        <my-date-picker #mydp="mydatepicker" [options]="myDatePickerOptions" (dateChanged)="onDateChanged($event)"></my-date-picker>
+                        <my-date-picker class="date-picker-checkout-page" #mydp="mydatepicker" [options]="myDatePickerOptions" (dateChanged)="onDateChanged($event)"></my-date-picker>
                     </md-input-container>
 
                 </div>
@@ -101,16 +101,10 @@
                                formControlName="refferel" class="mr-15"
                     >
                     </ng-select>
-                    <ng-select [items]="[{id:'la-s',text:'Ladies\' S'},
-                     {id:'la-m',text:'Ladies\' M'},
-                     {id:'la-l',text:'Ladies\' L'},
-                     {id:'la-xl',text:'Ladies\' XL'},
-                     {id:'me-s',text:'Men\'s S'},
-                     {id:'me-m',text:'Men\'s M'},
-                     {id:'me-l',text:'Men\'s L'},
-                     {id:'me-xl',text:'Men\'s XL'}]"
-                               placeholder="T-Shirt Size"
-                               formControlName="tshirt_size" class="ml-15"
+                    <ng-select
+                        [items]="shirtSize"
+                        placeholder="T-Shirt Size"
+                        formControlName="tshirt_size" class="ml-15"
                     >
                     </ng-select>
                 </div>

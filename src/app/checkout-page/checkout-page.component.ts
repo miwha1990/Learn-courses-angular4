@@ -10,6 +10,7 @@ import {MyDatePicker} from 'mydatepicker/dist/my-date-picker.component';
   styleUrls: ['./checkout-page.component.scss'],
 })
 export class CheckoutPageComponent implements OnInit {
+    shirtSize;
     @ViewChild('mydp') mydp: MyDatePicker;
     private myDatePickerOptions: IMyDpOptions = {
         dateFormat: 'yyyy-mm-dd',
@@ -33,6 +34,18 @@ export class CheckoutPageComponent implements OnInit {
             coupon_code: null
         };
         this.registration_data['full_payment'] = 1;
+
+
+        this.shirtSize = [
+            {id:'la-s', text:'Ladies\' Small'},
+            {id:'la-m', text:'Ladies\' Medium'},
+            {id:'la-l', text:'Ladies\' Large'},
+            {id:'la-xl', text:'Ladies\' Extra Large'},
+            {id:'me-s', text:'Men\'s Small'},
+            {id:'me-m', text:'Men\'s Medium'},
+            {id:'me-l', text:'Men\'s Large'},
+            {id:'me-xl', text:'Men\'s Extra Large'}
+        ]
     }
     matchingEmail(email: string, emailConfirmation: string) {
         return (group: FormGroup) => {

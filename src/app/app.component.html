@@ -1,6 +1,6 @@
 <div class="sb-site-container">
     <sticky [sticky-offset-top]="0" [sticky-start]="1" >
-        <app-header [routerHome]="routerHome" [homeScrolled]="homeScrolled" *ngIf="headerVisible"></app-header>
+        <app-header [routerHome]="routerHome" [homeScrolled]="homeScrolled" *ngIf="!headerVisible"></app-header>
     </sticky>
     <div class="general-content-wrapper" [ngClass]="{'isHome':routerHome}" [class.checkout-page]="headerVisible">
         <div class="alert alert-success alert-dismissible no-mb" role="alert" *ngIf="alertsService.params.success">
