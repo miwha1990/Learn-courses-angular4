@@ -71,7 +71,7 @@ export class CheckoutPageComponent implements OnInit {
             coupon_code: [''],
             cc_group: this.fb.group({
                 cardholder_name: ['', Validators.required],
-                cardholder_email: ['', Validators.required],
+                cardholder_email: ['', [Validators.required, Validators.email]],
                 cc_number: ['', Validators.required],
                 cc_exp_month: ['', [Validators.required, Validators.minLength(2), Validators.maxLength(2)]],
                 cc_exp_year: ['', [Validators.required, Validators.minLength(4), Validators.maxLength(4)]],

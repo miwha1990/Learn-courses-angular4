@@ -125,7 +125,7 @@
         <aside class="col-md-4 col-sm-12 ms-paper-menu-left">
             <div class="section-heading mb-4">
                 <h3 class="title"><span *ngIf="OrderProcessService.secretData?.checkoutData?.early_bird">Early Bird </span>Registration</h3>
-                <h4 class="no-m"><i class="fa fa-exclamation-triangle text-warning mr-15"></i>Non-Refundale!</h4>
+                <h4 class="no-m"><i class="fa fa-exclamation-triangle text-warning mr-15"></i>Non-Refundable!</h4>
             </div>
             <h4>Payment Options</h4>
             <md-radio-group id="method" formGroupName="full_payment" (change)="applyPaymentType($event)">
@@ -163,17 +163,17 @@
                         <span class="date-container">
                             <i class="fa fa-calendar mr-1" aria-hidden="true"></i>
                             <md-input-container class="month-container">
-                                 <input mdInput id="card-month" type="text" formControlName="cc_exp_month" placeholder="MM">
+                                 <input mdInput id="card-month" type="text" formControlName="cc_exp_month" placeholder="MM" maxlength="2">
                             </md-input-container>
                             <span>/</span>
                             <md-input-container class="year-container">
-                                <input mdInput id="card-year" type="text" formControlName="cc_exp_year" placeholder="YY">
+                                <input mdInput id="card-year" type="text" formControlName="cc_exp_year" placeholder="YY" maxlength="4">
                             </md-input-container>
                         </span>
                         <span class="csv-container">
                             <i class="fa fa-lock mr-1" aria-hidden="true"></i>
                             <md-input-container>
-                                <input mdInput id="csv" type="text"  formControlName="cc_cvv" placeholder="CSV">
+                                <input mdInput id="csv" type="text"  formControlName="cc_cvv" placeholder="CSV" maxlength="3">
                             </md-input-container>
                         </span>
                     </div>
