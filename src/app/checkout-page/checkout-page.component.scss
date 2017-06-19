@@ -128,25 +128,29 @@ h5{
       }
     }
     #method{
-      &>div{
+      &>label{
         border:2px solid grey;
         border-radius: 5px;
         padding: 15px;
         margin-bottom: 10px;
         height: 90px;
+        width:100%;
+        cursor:pointer;
         span.price, span.date{
           float: right;
         }
       }
-      &>div.activated{
+      &>label.activated{
         color:white;
         background: #F68700;
         border-color: white;
+
       }
-      &>div.desactivated{
+      &>label.desactivated{
         color:white;
         background: grey;
         border-color: white;
+        cursor: not-allowed;
       }
     }
     .billing-info {
