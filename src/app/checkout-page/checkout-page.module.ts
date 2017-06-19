@@ -4,10 +4,9 @@ import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { CheckoutPageRoutes } from './checkout-page.routing';
 import { CheckoutPageComponent } from './checkout-page.component';
-import {BrowserModule} from '@angular/platform-browser';
-import {MaterialModule, MdNativeDateModule} from '@angular/material';
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import { MaterialModule, MdNativeDateModule } from '@angular/material';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { OrderProcessService} from '../services/order-process.service';
 import { MyDatePickerModule } from 'mydatepicker';
 
@@ -15,7 +14,6 @@ import { MyDatePickerModule } from 'mydatepicker';
   imports: [
     CommonModule,
     BrowserAnimationsModule,
-    BrowserModule,
     SelectModule,
     MaterialModule,
     FormsModule,

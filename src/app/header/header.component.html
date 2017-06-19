@@ -1,4 +1,4 @@
-<nav class="navbar yamm ms-navbar" >
+<nav class="navbar yamm ms-navbar">
     <div class="container container-full container-not-padding">
         <div class="navbar-header">
             <a class="navbar-brand" href="/">
@@ -12,7 +12,7 @@
                     <a md-button data-name="Home" routerLink="home" routerLinkActive="active">Home</a>
                 </li>
                 <li [ngClass]="(routerHome && !homeScrolled) ? 'invisible' : 'visible'">
-                    <a routerLink="learn-in-class" md-button data-name="Learn in Class" routerLinkActive="active">Learn in Class</a>
+                    <a  md-button data-name="Learn in Class" routerLinkActive="active" routerLink="learn-in-class" (click)="refresh()">Learn in Class</a>
                 </li>
                 <li [ngClass]="(routerHome && !homeScrolled) ? 'invisible' : 'visible'">
                     <a href="https://www.thinkific.com" md-button data-name="Learn Online" target="_blank">Learn Online</a>

@@ -12,6 +12,7 @@ import {AlertsService} from './services/alerts.service';
 export class AppComponent  implements  AfterViewInit , OnInit {
   routerHome = false;
   homeScrolled = false;
+  headerVisible: boolean;
   private successFlag = false;
   private errorFlag = false;
   private successMessage = '';
@@ -21,7 +22,7 @@ export class AppComponent  implements  AfterViewInit , OnInit {
               private location: Location,
               @Inject(DOCUMENT) private document: Document,
               private alertsService: AlertsService) {
-
+    this.headerVisible = true;
   }
   ngOnInit() {
     this.router.events.subscribe((evt) => {
@@ -31,6 +32,16 @@ export class AppComponent  implements  AfterViewInit , OnInit {
       window.scrollTo(0, 0);
     });
   }
+
+  identifyCheckoutPage() {
+    this.router.events.subscribe(val => {
+      if((this.location.path() === '/checkout-page')) {
+        this.headerVisible = false;
+      }
+    });
+  }
+
+
   ngAfterViewInit() {
     this.router.events.subscribe(val => {
       if ((this.location.path() === '/home') || (this.location.path() === '')) {
