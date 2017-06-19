@@ -11,8 +11,9 @@ import { DOCUMENT } from '@angular/platform-browser';
 export class AppComponent  implements  AfterViewInit , OnInit {
   routerHome = false;
   homeScrolled = false;
+  headerVisible: boolean;
   constructor(private el: ElementRef, private router: Router, private location: Location, @Inject(DOCUMENT) private document: Document) {
-
+    this.headerVisible = true;
   }
   ngOnInit() {
     this.router.events.subscribe((evt) => {
@@ -22,6 +23,16 @@ export class AppComponent  implements  AfterViewInit , OnInit {
       window.scrollTo(0, 0);
     });
   }
+
+  identifyCheckoutPage() {
+    this.router.events.subscribe(val => {
+      if((this.location.path() === '/checkout-page')) {
+        this.headerVisible = false;
+      }
+    });
+  }
+
+
   ngAfterViewInit() {
     this.router.events.subscribe(val => {
       if ((this.location.path() === '/home') || (this.location.path() === '')) {

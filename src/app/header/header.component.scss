@@ -42,7 +42,8 @@
         transition: all ease .3s
       }
       &:hover,
-      &.active{
+      &:active,
+      &:focus {
         background-color: #fff;
       }
       &:hover:after,
