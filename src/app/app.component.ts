@@ -31,11 +31,12 @@ export class AppComponent  implements  AfterViewInit , OnInit {
       }
       window.scrollTo(0, 0);
     });
+    this.identifyCheckoutPage();
   }
 
   identifyCheckoutPage() {
     this.router.events.subscribe(val => {
-      if((this.location.path() === '/checkout-page')) {
+      if ((this.location.path() === '/checkout-page')) {
         this.headerVisible = false;
       }
     });
