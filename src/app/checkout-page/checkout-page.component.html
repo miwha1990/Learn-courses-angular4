@@ -57,7 +57,7 @@
                     <md-input-container class="ml-15">
                         <input mdInput placeholder="Date of Birth" formControlName="date_of_birth">
                         <button mdSuffix class="mat-datepicker-toggle" (click)="onToggleSelector($event)"></button>
-                        <my-date-picker #mydp="mydatepicker" [options]="myDatePickerOptions" (dateChanged)="onDateChanged($event)"></my-date-picker>
+                        <my-date-picker class="date-picker-checkout-page" #mydp="mydatepicker" [options]="myDatePickerOptions" (dateChanged)="onDateChanged($event)"></my-date-picker>
                     </md-input-container>
 
                 </div>

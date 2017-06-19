@@ -162,6 +162,22 @@ ng-select{
     right: 0 !important;
   }
 }
+
+// Change Calendar
+
+.date-picker-checkout-page {
+  table.caltable {
+    tbody {
+      td.currmonth {
+        color: #000000;
+      }
+    }
+  }
+}
+  
+// End Change Calendar
+
+
 //== My Selects ENDS====
 markdown{
   p{
