@@ -4,7 +4,6 @@
   flex-direction: column;
 }
 .page-banner{
-  margin-top:-40px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -16,6 +15,11 @@
 .important-info{
   background-color: #EB8C00;
   color: #ffffff;
+  h3{
+    i{
+      padding-right: 15px;
+    }
+  }
 }
 h4{
   font-weight: 500;
