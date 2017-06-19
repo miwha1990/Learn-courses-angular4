@@ -18,6 +18,7 @@ export class FindCoursesComponent implements OnInit {
   additionalInfo: boolean;
   categoryId;
   fullLocationsList;
+  hideText = false;
   constructor(private findCoursesService: FindCoursesService,
               private activatedRoute: ActivatedRoute) {
 
@@ -78,7 +79,6 @@ export class FindCoursesComponent implements OnInit {
       );
   }
 
-
   getCoursesList(categoryId?) {
     this.findCoursesService.getCoursesList(categoryId)
       .subscribe(
@@ -96,10 +96,12 @@ export class FindCoursesComponent implements OnInit {
       );
   }
 
-
   selectedCategory(category) {
     const filterParams = { category_id: category.id }
     this.categoryId = category.id;
     this.getUpcomingCourses(filterParams);
+  }
+  fhideText($event) {
+    this.hideText = true;
   }
 }

@@ -1,12 +1,14 @@
 <app-filters
+    [categoryId]="categoryId"
     [filtersCoursesData]="filtersCoursesData"
     [filtersLocationsData]="filtersLocationsData"
     [categoriesListData]="categoriesListData"
     (filterCoursesEmit)="getUpcomingCourses($event)"
     (changeCategoryEmit)="getCoursesList($event)"
+    (hideTextEmit)="fhideText($event)"
 ></app-filters>
 <div class="wrapper-upcoming-courses">
-    <h3 class="text-center mb-4 title-upcoming-courses">Upcoming Courses and Workshops</h3>
+    <h3 class="text-center mb-4 title-upcoming-courses" *ngIf="!hideText">Upcoming Courses and Workshops</h3>
     <app-upcoming-courses
         [upcomingCoursesData]="upcomingCoursesData"
         [additionalInfo]="additionalInfo"

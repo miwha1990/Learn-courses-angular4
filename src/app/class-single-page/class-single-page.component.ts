@@ -27,35 +27,30 @@ export class ClassSinglePageComponent implements OnInit {
     }
 
     ngOnInit() {
-    this.activatedRoute.params.subscribe((params: Params) => {
-      const id: number = params['id'];
-      this.GetClassDataService.getClassData(id)
-          .subscribe(res => {
-                this.data = res;
-                this.loadMap();
-                $('#sticky-element').stick_in_parent({offset_top: 50});
-                this.stickySetUp();
-                setTimeout(() => {
-                  if (this.preloader) {
-                      this.renderer2.addClass(this.preloader.nativeElement, 'fadeOut');
-                  }
-                  setTimeout(() => {
-                      this.loading = false;
-                  }, 200);
-                } , 5000);
-              },
-              error =>  this.errorMessage = <any>error);
-      this.GetClassDataService.getUpcomingCourses(id)
-          .subscribe(res => {
-                this.upcomingCoursesData = res;
-              },
-              error =>  this.errorMessage = <any>error);
-    });
-        $(window).resize(
-            function () {
-                this.stickySetUp();
-            }
-        );
+        this.activatedRoute.params.subscribe((params: Params) => {
+              const id: number = params['id'];
+              this.GetClassDataService.getClassData(id)
+                  .subscribe(res => {
+                        this.data = res;
+                        this.loadMap();
+                        $('#sticky-element').stick_in_parent({offset_top: 50});
+                        this.stickySetUp();
+                        setTimeout(() => {
+                          if (this.preloader) {
+                              this.renderer2.addClass(this.preloader.nativeElement, 'fadeOut');
+                          }
+                          setTimeout(() => {
+                              this.loading = false;
+                          }, 200);
+                        } , 5000);
+                      },
+                      error =>  this.errorMessage = <any>error);
+              this.GetClassDataService.getUpcomingCourses(id)
+                  .subscribe(res => {
+                        this.upcomingCoursesData = res;
+                      },
+                      error =>  this.errorMessage = <any>error);
+        });
     }
     desktopSticky = function(){
         $('app-sticky-card').stick_in_parent({offset_top: 90, parent: '.class-page-wrapper'})
@@ -113,4 +108,8 @@ export class ClassSinglePageComponent implements OnInit {
           });
       });
     };
+    @HostListener('window:resize', [])
+    onResize() {
+        this.stickySetUp();
+    }
 }
