@@ -101,16 +101,10 @@
                                formControlName="refferel" class="mr-15"
                     >
                     </ng-select>
-                    <ng-select [items]="[{id:'la-s',text:'Ladies\' S'},
-                     {id:'la-m',text:'Ladies\' M'},
-                     {id:'la-l',text:'Ladies\' L'},
-                     {id:'la-xl',text:'Ladies\' XL'},
-                     {id:'me-s',text:'Men\'s S'},
-                     {id:'me-m',text:'Men\'s M'},
-                     {id:'me-l',text:'Men\'s L'},
-                     {id:'me-xl',text:'Men\'s XL'}]"
-                               placeholder="T-Shirt Size"
-                               formControlName="tshirt_size" class="ml-15"
+                    <ng-select
+                        [items]="shirtSize"
+                        placeholder="T-Shirt Size"
+                        formControlName="tshirt_size" class="ml-15"
                     >
                     </ng-select>
                 </div>
