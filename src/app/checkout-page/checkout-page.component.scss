@@ -36,6 +36,9 @@ h5{
       img{
         height: 50px;
       }
+      @media screen and (max-width: 480px) {
+        display: none;
+      }
     }
     .section-heading{
       width: 100%;
@@ -122,36 +125,47 @@ h5{
 
     }
     background: white;
+    padding: 0 30px;
     @media screen and (min-width: 480px) and (max-width: 991px)  {
       &{
         padding: 0 50px;
       }
     }
     #method{
-      &>div{
+      &>label{
         border:2px solid grey;
         border-radius: 5px;
         padding: 15px;
         margin-bottom: 10px;
         height: 90px;
+        width:100%;
+        cursor:pointer;
         span.price, span.date{
           float: right;
         }
       }
-      &>div.activated{
+      &>label.activated{
         color:white;
         background: #F68700;
         border-color: white;
+
       }
-      &>div.desactivated{
+      &>label.desactivated{
         color:white;
         background: grey;
         border-color: white;
+        cursor: not-allowed;
       }
     }
     .billing-info {
       .line-wrapper {
+        display: flex;
+        align-items: baseline;
+        &.with-date{
+          flex-direction: column;
+        }
         .mat-input-container {
+          flex:1 auto;
           height: 45px;
           position: relative;
           color: #000;
@@ -159,6 +173,16 @@ h5{
             position: absolute;
             bottom: 0;
           }
+        }
+        span.date-container{
+          width: 100%;
+          display: flex;
+          align-items: baseline;
+          justify-content: center;
+          span{padding: 0 10px;}
+        }
+        span.csv-container{
+          width:100%;
         }
       }
       @media screen and (min-width: 992px) and (max-width: 1200px)  {
@@ -173,7 +197,7 @@ h5{
       }
       @media screen and (min-width: 320px) and (max-width: 480px)  {
         .mat-input-container{
-          width: 92% !important;
+          width: 91% !important;
         }
       }
       @media screen and (min-width: 769px) and (max-width: 991px)  {

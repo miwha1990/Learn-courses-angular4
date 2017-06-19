@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
-import { PaymentReceiptsPageService } from './payment-receipts-page.service'
+import { PaymentReceiptsPageService } from './payment-receipts-page.service';
+import {AlertsService} from '../services/alerts.service';
 
 @Component({
   selector: 'app-payment-receipts-page',
@@ -8,12 +9,12 @@ import { PaymentReceiptsPageService } from './payment-receipts-page.service'
   styleUrls: ['./payment-receipts-page.component.scss']
 })
 export class PaymentReceiptsPageComponent implements OnInit {
-  private successFlag;
-  private errorFlag;
   public receiptForm = this.fb.group({
     email: ['', Validators.compose([Validators.required, Validators.email])],
   });
-  constructor(public fb: FormBuilder, private paymentReceiptsPageService: PaymentReceiptsPageService) { }
+  constructor(public fb: FormBuilder,
+              private paymentReceiptsPageService: PaymentReceiptsPageService,
+              private alertsService: AlertsService) { }
 
   ngOnInit() {
   }
@@ -26,14 +27,22 @@ export class PaymentReceiptsPageComponent implements OnInit {
   return true;
 };
   formSubmit() {
-    console.log(this.receiptForm.value);
+    // console.log(this.receiptForm.value);
     this.paymentReceiptsPageService.sendReceiptRequest(this.receiptForm.value)
         .subscribe(
             data => {
               if (this.isEmpty(data)) {
-                this.showSuccess();
+                this.alertsService.showAlert({
+                  'success': true,
+                  'error': false,
+                  'message': 'Your  Payment Receipts have been sent. Please check your email.'
+                });
               } else {
-                this.showError();
+                this.alertsService.showAlert({
+                  'success': false,
+                  'error': true,
+                  'message': 'There are no Payment Receipts associated with this email address.'
+                });
               }
             } ,
             err => console.error('ERRROR', err)
@@ -44,10 +53,10 @@ export class PaymentReceiptsPageComponent implements OnInit {
       this.formSubmit();
     }
   }
-  showSuccess = function(){
-    this.successFlag = true;
-  };
-  showError = function(){
-    this.errorFlag = true;
-  };
+  // showSuccess = function(){
+  //   this.successFlag = true;
+  // };
+  // showError = function(){
+  //   this.errorFlag = true;
+  // };
 }

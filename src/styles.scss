@@ -1,3 +1,11 @@
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
 html{
    font-size: 10px;
  }
@@ -193,6 +201,32 @@ markdown{
   p{
     a{
       word-break: break-all!important;
+    }
+  }
+}
+.general-preloader{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  //background-image: url('./assets/img/abstract.jpg');
+  //background-size: cover;
+  //background-position: center;
+  //background-repeat: no-repeat;
+  background-color: rgba(255,255,255,1);
+  animation: fadeIn 0.15s;
+  z-index: 1002!important;
+}
+.class-page-wrapper{
+  .social-block{
+    span.at-icon-wrapper{
+      height: 30px!important;
+      width:30px!important;
+      svg{
+        height: 30px!important;
+        width:30px!important;
+      }
     }
   }
 }

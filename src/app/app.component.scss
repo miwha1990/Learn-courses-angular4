@@ -5,8 +5,15 @@
   min-height: 100vh;
   .general-content-wrapper{
     flex:1 auto;
+    .alert{
+      position: fixed;
+      top:50px;
+      left:0;
+      width:100%;
+    }
   }
 }
 .general-content-wrapper.checkout-page {
   padding-top: 40px;
 }
+

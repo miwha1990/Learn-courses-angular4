@@ -1,10 +1,10 @@
-import { Component, OnInit, ViewChild, ElementRef} from '@angular/core';
+import {Component, OnInit, ViewChild, ElementRef, Renderer2, HostListener} from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
 import { GetClassDataService } from './get-class-data.service';
 import { jQueryStatic } from 'jquery';
 import 'jquery';
 declare const $: jQueryStatic;
-import { SafeResourceUrlPipe } from '../shared/safe-resourse-url/safe-resource-url.pipe';
+
 import { GoogleMapsService } from 'google-maps-angular2/dist/src/app/google-maps.service';
 @Component({
   selector: 'app-class-single-page',
@@ -12,64 +12,70 @@ import { GoogleMapsService } from 'google-maps-angular2/dist/src/app/google-maps
   styleUrls: ['./class-single-page.component.scss']
 })
 export class ClassSinglePageComponent implements OnInit {
-  data = null;
-  errorMessage: string;
-  upcomingCoursesData;
-  loading = true;
-  private map: any;
-  @ViewChild('mapElement') mapElement: ElementRef;
-  constructor(private GetClassDataService: GetClassDataService,
-              private activatedRoute: ActivatedRoute,
-              private pipe: SafeResourceUrlPipe,
-              private gapi: GoogleMapsService ) {}
-  ngOnInit() {
-    this.activatedRoute.params.subscribe((params: Params) => {
-      const id: number = params['id'];
-      this.GetClassDataService.getClassData(id)
-          .subscribe(res => {
-                this.data = res;
-                this.data.video_id = 'https://dtsfitnesseducation.wistia.com/embed/iframe/' + this.data.video_id;
-                this.data.video_id = this.pipe.transform(this.data.video_id);
-              this.loadMap();
-              },
-              error =>  this.errorMessage = <any>error);
-      this.GetClassDataService.getUpcomingCourses(id)
-          .subscribe(res => {
-                this.upcomingCoursesData = res;
-              },
-              error =>  this.errorMessage = <any>error);
-    });
-    $('#sticky-element').stick_in_parent({offset_top: 50});
-    const desktopSticky = function(){
+    private data = null;
+    private errorMessage: string;
+    private upcomingCoursesData;
+    private loading = true;
+    private map: any;
+    private isMobile = window.matchMedia('only screen and (max-width: 991px)');
+    @ViewChild('mapElement') mapElement: ElementRef;
+    @ViewChild('preloader') preloader: ElementRef;
+    constructor(private GetClassDataService: GetClassDataService,
+                private activatedRoute: ActivatedRoute,
+                private gapi: GoogleMapsService,
+                private renderer2: Renderer2) {
+    }
+
+    ngOnInit() {
+        this.activatedRoute.params.subscribe((params: Params) => {
+              const id: number = params['id'];
+              this.GetClassDataService.getClassData(id)
+                  .subscribe(res => {
+                        this.data = res;
+                        this.loadMap();
+                        $('#sticky-element').stick_in_parent({offset_top: 50});
+                        this.stickySetUp();
+                        setTimeout(() => {
+                          if (this.preloader) {
+                              this.renderer2.addClass(this.preloader.nativeElement, 'fadeOut');
+                          }
+                          setTimeout(() => {
+                              this.loading = false;
+                          }, 200);
+                        } , 5000);
+                      },
+                      error =>  this.errorMessage = <any>error);
+              this.GetClassDataService.getUpcomingCourses(id)
+                  .subscribe(res => {
+                        this.upcomingCoursesData = res;
+                      },
+                      error =>  this.errorMessage = <any>error);
+        });
+    }
+    desktopSticky = function(){
         $('app-sticky-card').stick_in_parent({offset_top: 90, parent: '.class-page-wrapper'})
             .on('sticky_kit:bottom', function(e) {
                 $(this).parent().css('position', 'static');
                 $('#sticky-element').removeClass('is_stuck');
             })
             .on('sticky_kit:unbottom', function(e) {
-                $(this).parent().css('position', 'relative');
-                $('#sticky-element').addClass('is_stuck');
+                if ($('body').offset().top !== 0) {
+                    $(this).parent().css('position', 'relative');
+                    $('#sticky-element').addClass('is_stuck');
+                }
             });
     };
-    const mobileSticky = function(){
-       $('app-sticky-card').trigger('sticky_kit:detach');
-   };
-    const isMobile = window.matchMedia('only screen and (max-width: 991px)');
-    const stickySetUp = function(){
-        if (isMobile.matches) {
-            mobileSticky();
+    mobileSticky = function(){
+        $('app-sticky-card').trigger('sticky_kit:detach');
+    };
+    stickySetUp = function(){
+        if (this.isMobile.matches) {
+            this.mobileSticky();
         } else {
-            desktopSticky();
+            this.desktopSticky();
         }
     };
-    stickySetUp();
-    $(window).resize(
-        function () {
-            stickySetUp();
-        }
-    );
-  }
-  loadMap = function(){
+    loadMap = function(){
       this.gapi.init.then(maps => {
           const loc = new maps.LatLng(this.data.venue.latitude, this.data.venue.longitude);
 
@@ -101,10 +107,9 @@ export class ClassSinglePageComponent implements OnInit {
               label: { text: markerText, fontWeight: '600', color: '#830004'}
           });
       });
-  };
-  onLoad = function(){
-      if (this.data !== null) {
-          this.loading = false;
-      }
-  };
+    };
+    @HostListener('window:resize', [])
+    onResize() {
+        this.stickySetUp();
+    }
 }

@@ -2,6 +2,7 @@ import { Component , ElementRef, AfterViewInit, Inject, HostListener, OnInit } f
 import { Location } from '@angular/common';
 import { Router, NavigationEnd} from '@angular/router';
 import { DOCUMENT } from '@angular/platform-browser';
+import {AlertsService} from './services/alerts.service';
 
 @Component({
   selector: 'app-root',
@@ -12,7 +13,15 @@ export class AppComponent  implements  AfterViewInit , OnInit {
   routerHome = false;
   homeScrolled = false;
   headerVisible: boolean;
-  constructor(private el: ElementRef, private router: Router, private location: Location, @Inject(DOCUMENT) private document: Document) {
+  private successFlag = false;
+  private errorFlag = false;
+  private successMessage = '';
+  private errorMessage = '';
+  constructor(private el: ElementRef,
+              private router: Router,
+              private location: Location,
+              @Inject(DOCUMENT) private document: Document,
+              private alertsService: AlertsService) {
     this.headerVisible = true;
   }
   ngOnInit() {
@@ -22,7 +31,15 @@ export class AppComponent  implements  AfterViewInit , OnInit {
       }
       window.scrollTo(0, 0);
     });
+    this.identifyCheckoutPage();
+  }
 
+  identifyCheckoutPage() {
+    this.router.events.subscribe(val => {
+      if ((this.location.path() === '/checkout-page')) {
+        this.headerVisible = false;
+      }
+    });
   }
 
   ngAfterViewInit() {

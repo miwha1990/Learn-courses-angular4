@@ -110,6 +110,8 @@
           height: 70px;
           background-repeat: no-repeat;
           transform: translateY(0);
+          background-position: center;
+          background-size: contain;
           @media screen and (max-width:768px){
             margin:5px;
             width: 80px;
@@ -138,11 +140,16 @@
     }
     button{
       border: solid 1px #fff;
-      color: #fff;
+     color:#EB8C00;
       flex: 1 auto;
+      background-color: white;
       i{
         margin-top: -4px
       }
+      &:disabled{
+        color: #fff;
+        background-color: #EB8C00;
+    }
     }
   }
 
