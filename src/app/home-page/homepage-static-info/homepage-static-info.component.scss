@@ -140,11 +140,16 @@
     }
     button{
       border: solid 1px #fff;
-      color: #fff;
+     color:#EB8C00;
       flex: 1 auto;
+      background-color: white;
       i{
         margin-top: -4px
       }
+      &:disabled{
+        color: #fff;
+        background-color: #EB8C00;
+    }
     }
   }
 

@@ -3,6 +3,18 @@
         <app-header [routerHome]="routerHome" [homeScrolled]="homeScrolled"></app-header>
     </sticky>
     <div class="general-content-wrapper" [ngClass]="{'isHome':routerHome}">
+        <div class="alert alert-success alert-dismissible no-mb" role="alert" *ngIf="alertsService.params.success">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close" (click)="alertsService.params.success =false;">
+                <i class="zmdi zmdi-close"></i>
+            </button>
+            <strong>
+                <i class="zmdi zmdi-check"></i> Success!</strong>{{alertsService.params.message}}</div>
+        <div class="alert alert-danger alert-dismissible no-mb" role="alert" *ngIf="alertsService.params.error">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close" (click)="alertsService.params.error =false;">
+                <i class="zmdi zmdi-close"></i>
+            </button>
+            <strong>
+                <i class="zmdi zmdi-close-circle"></i> Error!</strong>{{alertsService.params.message}} </div>
         <router-outlet></router-outlet>
     </div>
     <app-footer [homeScrolled]="homeScrolled"></app-footer>

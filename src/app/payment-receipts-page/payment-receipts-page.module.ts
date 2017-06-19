@@ -6,6 +6,7 @@ import { PaymentReceiptsPageRoutes } from './payment-receipts-page.routing';
 import { MdButtonModule, MdInputModule } from '@angular/material';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { PaymentReceiptsPageService } from './payment-receipts-page.service';
+import { AlertsService } from '../services/alerts.service';
 
 @NgModule({
   imports: [
@@ -17,6 +18,9 @@ import { PaymentReceiptsPageService } from './payment-receipts-page.service';
     ReactiveFormsModule,
   ],
   declarations: [ PaymentReceiptsPageComponent ],
-  providers: [PaymentReceiptsPageService]
+  providers: [
+      PaymentReceiptsPageService,
+      AlertsService,
+  ]
 })
 export class PaymentReceiptsPageModule { }

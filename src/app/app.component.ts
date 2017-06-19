@@ -2,6 +2,7 @@ import { Component , ElementRef, AfterViewInit, Inject, HostListener, OnInit } f
 import { Location } from '@angular/common';
 import { Router, NavigationEnd} from '@angular/router';
 import { DOCUMENT } from '@angular/platform-browser';
+import {AlertsService} from './services/alerts.service';
 
 @Component({
   selector: 'app-root',
@@ -11,7 +12,15 @@ import { DOCUMENT } from '@angular/platform-browser';
 export class AppComponent  implements  AfterViewInit , OnInit {
   routerHome = false;
   homeScrolled = false;
-  constructor(private el: ElementRef, private router: Router, private location: Location, @Inject(DOCUMENT) private document: Document) {
+  private successFlag = false;
+  private errorFlag = false;
+  private successMessage = '';
+  private errorMessage = '';
+  constructor(private el: ElementRef,
+              private router: Router,
+              private location: Location,
+              @Inject(DOCUMENT) private document: Document,
+              private alertsService: AlertsService) {
 
   }
   ngOnInit() {
