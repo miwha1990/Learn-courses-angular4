@@ -105,8 +105,10 @@
                         [items]="shirtSize"
                         placeholder="T-Shirt Size"
                         formControlName="tshirt_size" class="ml-15"
+                        *ngIf="OrderProcessService?.secretData?.request_shirt_size"
                     >
                     </ng-select>
+                    <div class="buffer"></div>
                 </div>
             </div>
             <div class="license">

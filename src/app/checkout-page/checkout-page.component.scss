@@ -79,7 +79,9 @@ h5{
             bottom: 0;
           }
         }
-
+        .buffer{
+          flex: 1 auto;
+        }
 
         &.line-with-dp{
           md-input-container{
