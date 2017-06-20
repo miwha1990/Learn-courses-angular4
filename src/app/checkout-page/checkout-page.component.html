@@ -12,10 +12,10 @@
             <div class="student-information">
                 <h4>Student Information</h4>
                 <div class="line-wrapper">
-                    <md-input-container class="ml-15">
+                    <md-input-container class="mr-15">
                         <input mdInput class="text-left" id="focusedInput1" type="text" formControlName="first_name" placeholder="First Name">
                     </md-input-container>
-                    <md-input-container class="mr-15">
+                    <md-input-container class="ml-15">
                         <input mdInput id="focusedInput2" type="text" formControlName="last_name" placeholder="Last Name">
                     </md-input-container>
                 </div>
@@ -112,7 +112,7 @@
             <div class="license">
                 <h4>Participation Waiver</h4>
                 <md-checkbox formControlName="agreement">I have read and agree to the Participation Waiver and the <a routerLink="/terms-of-service">Terms and Conditions</a></md-checkbox>
-                <md-checkbox formControlName="newsletter">I want to receive monthly newsletter packed with helpful education content.</md-checkbox>
+                <md-checkbox formControlName="newsletter">I want to receive educational and promotional content.</md-checkbox>
                 <p>{{OrderProcessService.secretData?.waiver?.content }}</p>
             </div>
         </main>
