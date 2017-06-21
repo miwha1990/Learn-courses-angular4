@@ -110,7 +110,7 @@
     <legend class="text-center">Practical educational content in your inbox</legend>
     <form accept-charset="UTF-8" [formGroup]="subscribeForm" class="subscribe-form" (ngSubmit)="formSubmit($event)" (keydown)="keyDownFunction($event)">
       <md-input-container>
-        <input mdInput id="inf_field_FirstName" name="inf_field_FirstName" formControlName="name" type="text" placeholder="Name">
+        <input mdInput id="inf_field_FirstName" name="inf_field_FirstName" formControlName="name" type="text" placeholder="First Name">
         <md-error class="error" *ngIf="subscribeForm.get('name').hasError('required') && subscribeForm.get('name').touched">
           Please enter your first name
         </md-error>
