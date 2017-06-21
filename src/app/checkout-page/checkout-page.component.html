@@ -57,7 +57,7 @@
                 </div>
                 <div class="line-wrapper">
                     <md-input-container class="mr-15">
-                        <input mdInput  id="badge" type="text"  placeholder="Name of Badge" formControlName="name_of_badge">
+                        <input mdInput  id="badge" type="text"  placeholder="Name on Badge" formControlName="name_of_badge">
                     </md-input-container>
                     <md-input-container class="ml-15">
                         <input mdInput id="city" type="text" placeholder="City" formControlName="city">
@@ -128,7 +128,7 @@
             </div>
             <div class="license">
                 <h4>Participation Waiver</h4>
-                <md-checkbox formControlName="agreement">I have read and agree to the Participation Waiver and the <a routerLink="/terms-of-service">Terms and Conditions</a></md-checkbox>
+                <md-checkbox formControlName="agreement">I have read and agree to the Participation Waiver and the <a routerLink="/terms-of-service">Terms and Conditions</a>.</md-checkbox>
                 <md-checkbox formControlName="newsletter">I want to receive educational and promotional content.</md-checkbox>
                 <p>{{OrderProcessService.secretData?.waiver?.content }}</p>
             </div>
@@ -178,7 +178,7 @@
                             </md-input-container>
                             <span>/</span>
                             <md-input-container class="year-container">
-                                <input mdInput id="card-year" type="text" formControlName="cc_exp_year" placeholder="YY" maxlength="4">
+                                <input mdInput id="card-year" type="text" formControlName="cc_exp_year" placeholder="YY" maxlength="2">
                             </md-input-container>
                         </span>
                         <span class="csv-container">
@@ -218,7 +218,7 @@
                         <span class="field-name">Balance Owning:</span>
                         <span class="field-value tot-btn balance">{{OrderProcessService.secretData?.checkoutData?.balance_owning | currency:'USD':true}}</span>
                     </div>
-                <button type="submit" class="btn btn-block btn-raised btn-primary" [disabled]="(checkoutForm.invalid||!this.checkoutForm.controls['agreement'].value)">Register</button>
+                <button type="submit" class="btn btn-block btn-raised btn-primary register-btn" [disabled]="(checkoutForm.invalid||!this.checkoutForm.controls['agreement'].value)">Register</button>
                 <div class="payment-methods mb-4"></div>
             </div>
         </aside>
