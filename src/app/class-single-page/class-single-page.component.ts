@@ -24,6 +24,7 @@ export class ClassSinglePageComponent implements OnInit {
                 private activatedRoute: ActivatedRoute,
                 private gapi: GoogleMapsService,
                 private renderer2: Renderer2) {
+        this.upcomingCoursesData = [];
     }
 
     ngOnInit() {
@@ -49,7 +50,9 @@ export class ClassSinglePageComponent implements OnInit {
                   .subscribe(res => {
                         this.upcomingCoursesData = res;
                       },
-                      error =>  this.errorMessage = <any>error);
+                      error =>  this.errorMessage = <any>error,
+                      () => console.log(' this.upcomingCoursesData',  this.upcomingCoursesData)
+                      );
         });
     }
     desktopSticky = function(){
