@@ -39,7 +39,7 @@ export class HomepageStaticInfoComponent implements OnInit {
             this.alertsService.showAlert({
               'success': true,
               'error': false,
-              'message': ''
+              'message': 'Thanks! You\'ll get an email from us soon.'
             });
           } else {
             this.alertsService.showAlert({

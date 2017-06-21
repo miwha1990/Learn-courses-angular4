@@ -111,9 +111,15 @@
     <form accept-charset="UTF-8" [formGroup]="subscribeForm" class="subscribe-form" (ngSubmit)="formSubmit($event)" (keydown)="keyDownFunction($event)">
       <md-input-container>
         <input mdInput id="inf_field_FirstName" name="inf_field_FirstName" formControlName="name" type="text" placeholder="Name">
+        <md-error class="error" *ngIf="subscribeForm.get('name').hasError('required') && subscribeForm.get('name').touched">
+          Please enter your first name
+        </md-error>
       </md-input-container>
       <md-input-container>
         <input mdInput id="inf_field_Email" name="inf_field_Email" formControlName="email" type="text" placeholder="Email">
+        <md-error class="error" *ngIf="(subscribeForm.get('email').hasError('required') || subscribeForm.get('email').hasError('email')) && subscribeForm.get('email').touched">
+          This is not a valid entry. Please check that the information is correct.
+        </md-error>
       </md-input-container>
       <button  class="btn btn-raised btn-primary" md-button type="submit" [disabled]="subscribeForm.invalid"><i class="fa fa-envelope"></i> Count me in!</button>
     </form>
