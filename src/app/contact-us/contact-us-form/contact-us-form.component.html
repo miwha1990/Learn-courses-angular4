@@ -3,11 +3,17 @@
         <div class="form-group no-m">
             <md-input-container class="form-control">
                 <input mdInput placeholder="First Name" formControlName="name" id="inputName">
+                <md-error class="error" *ngIf="emailValid.get('name').hasError('required') && emailValid.get('name').touched">
+                    Please enter your first name.
+                </md-error>
             </md-input-container>
         </div>
         <div class="form-group no-m">
             <md-input-container class="form-control">
                 <input mdInput placeholder="Email Address" formControlName="email" id="inputEmail">
+                <md-error class="error" *ngIf="(emailValid.get('email').hasError('required') || emailValid.get('email').hasError('email')) && emailValid.get('email').touched">
+                    This is not a valid entry. Please check that the information is correct.
+                </md-error>
             </md-input-container>
         </div>
         <div class="form-group no-m">
@@ -18,6 +24,9 @@
         <div class="form-group no-m">
             <md-input-container class="form-control">
                 <textarea mdInput placeholder="Message" formControlName="body" rows="5" id="textArea"></textarea>
+                <md-error class="error" *ngIf="emailValid.get('body').hasError('required') && emailValid.get('body').touched">
+                    Please enter your message.
+                </md-error>
             </md-input-container>
         </div>
         <div class="form-group submit-button-form-group no-m no-pb">

@@ -35,13 +35,13 @@ export class PaymentReceiptsPageComponent implements OnInit {
                 this.alertsService.showAlert({
                   'success': true,
                   'error': false,
-                  'message': 'Your  Payment Receipts have been sent. Please check your email.'
+                  'message': 'Success! Your  Payment Receipts have been sent. Please check your email.'
                 });
               } else {
                 this.alertsService.showAlert({
                   'success': false,
                   'error': true,
-                  'message': 'There are no Payment Receipts associated with this email address.'
+                  'message': 'Sorry! We could not find any transaction associated with this email.'
                 });
               }
             } ,

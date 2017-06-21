@@ -18,6 +18,9 @@
     <form accept-charset="UTF-8" [formGroup]="receiptForm" class="receipt-form mb-4" (ngSubmit)="formSubmit($event)" (keydown)="keyDownFunction($event)">
       <md-input-container class="mr-1">
         <input mdInput formControlName="email" type="text" placeholder="Email Address">
+        <md-error class="error" *ngIf="(receiptForm.get('email').hasError('required') || receiptForm.get('email').hasError('email')) && receiptForm.get('email').touched">
+          This is not a valid entry. Please check that the information is correct.
+        </md-error>
       </md-input-container>
       <button  class="btn btn-raised btn-primary" md-button type="submit" [disabled]="receiptForm.invalid"><i class="fa fa-envelope"></i> SUBMIT</button>
     </form>

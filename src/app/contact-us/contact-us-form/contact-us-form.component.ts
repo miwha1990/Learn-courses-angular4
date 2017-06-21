@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import {ContactUsService} from '../contact-us.service';
+import {AlertsService} from '../../services/alerts.service';
 
 @Component({
   selector: 'app-contact-us-form',
@@ -10,20 +11,44 @@ import {ContactUsService} from '../contact-us.service';
 export class ContactUsFormComponent {
   resp;
   emailValid = this.formBuilder.group({
-      name: [''],
-      email: ['', [Validators.required, Validators.pattern('^([0-9a-zA-Z]([-.\w]*[0-9a-zA-Z])*@([0-9a-zA-Z]([-\w]*[0-9a-zA-Z])*\.)+[a-zA-Z]{2,9})$')]],
+      name: ['', Validators.required],
+      email: ['', [Validators.required, Validators.email]],
       subject: [''],
       body: ['', Validators.required]
   });
 
-  constructor(public formBuilder: FormBuilder, private ContactUsService: ContactUsService) {}
-
+  constructor(public formBuilder: FormBuilder,
+              private ContactUsService: ContactUsService,
+              private alertsService: AlertsService) {}
+    isEmpty = function(obj) {
+        for (const key in obj) {
+            if (obj.hasOwnProperty(key)) {
+                return false;
+            }
+        }
+        return true;
+    };
   formSubmit() {
     console.log(this.emailValid.value);
     this.ContactUsService.sendContactRequest(this.emailValid.value)
         .subscribe(
-            data => this.resp = data,
+            data => {
+                if (this.isEmpty(data)) {
+                    this.alertsService.showAlert({
+                        'success': true,
+                        'error': false,
+                        'message': 'Thanks for contacting us! We will get in touch with you shortly.'
+                    });
+                } else {
+                    this.alertsService.showAlert({
+                        'success': false,
+                        'error': true,
+                        'message': 'Error!'
+                    });
+                }
+            },
             err => console.error('ERROR', err)
+      // Thanks for contacting us! We will get in touch with you shortly.
         );
   }
   keyDownFunction(event) {

@@ -230,3 +230,14 @@ markdown{
     }
   }
 }
+form.subscribe-form .mat-input-infix input:-webkit-autofill{
+  -webkit-text-fill-color: #ffffff!important;
+  color: #ffffff!important;
+}
+form.receipt-form .mat-input-infix input:-webkit-autofill{
+  -webkit-text-fill-color: rgb(117,117,117)!important;
+  color: rgb(117,117,117)!important;
+}
+form.contact-support-form .mat-input-subscript-wrapper{
+  line-height: 3.2em!important;
+}
