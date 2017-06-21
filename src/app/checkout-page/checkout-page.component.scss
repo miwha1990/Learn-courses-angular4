@@ -29,8 +29,8 @@ h5{
     @media screen and (max-width: 480px) {
       &{padding:0 15px;}
     }
-    background: #F7F6F6;
-    padding:0 50px;
+    background: #FFFFFF;
+    padding:15px 50px 0 50px;
     .logo{
       float: left;
       img{
@@ -118,14 +118,11 @@ h5{
       p{
         max-height: 200px;
         overflow-y: scroll;
-        margin-top: 4rem;
+        margin-top: 2rem;
       }
     }
   }
   aside.ms-paper-menu-left{
-    .section-heading{
-
-    }
     background: white;
     padding: 0 30px;
     @media screen and (min-width: 480px) and (max-width: 991px)  {
@@ -276,6 +273,15 @@ h5{
     }
     .order-info{
       text-align: right;
+      .register-btn {
+          background-color: #EB8C00;
+          color: #FFFFFF;
+          opacity: 1;
+          &[disabled] {
+            opacity: 0.7;
+          }
+      }
+      
       @media screen and (max-width: 991px) {
         .field-value,.field-name,.tot-btn.total, .tot-btn.balance {
           width: 70% !important;
