@@ -51,11 +51,11 @@
     </div>
 </div>
 
-<div class="container-full courses-container mb-6">
+<div class="container-full courses-container mb-6" *ngIf="upcomingCoursesData.length">
     <div  class="container">
         <div class="col-md-12">
             <h3 class="mt-4 mb-4">Other available {{data?.name}} dates</h3>
-            <app-upcoming-courses  [upcomingCoursesData]="upcomingCoursesData"  [additionalInfo]="true" [textMessage]="'Courses not found.'"></app-upcoming-courses>
+            <app-upcoming-courses [upcomingCoursesData]="upcomingCoursesData"  [additionalInfo]="true" [textMessage]="'Courses not found.'"></app-upcoming-courses>
         </div>
     </div>
 </div>
