@@ -12,19 +12,31 @@
             <div class="student-information">
                 <h4>Student Information</h4>
                 <div class="line-wrapper">
-                    <md-input-container class="mr-15">
+                    <md-input-container class="mr-15 mb-1">
                         <input mdInput class="text-left" id="focusedInput1" type="text" formControlName="first_name" placeholder="First Name">
+                        <md-error class="error" *ngIf="checkoutForm.get('first_name').hasError('required') && checkoutForm.get('first_name').touched">
+                            Please enter your first name.
+                        </md-error>
                     </md-input-container>
-                    <md-input-container class="ml-15">
+                    <md-input-container class="ml-15 mb-1">
                         <input mdInput id="focusedInput2" type="text" formControlName="last_name" placeholder="Last Name">
+                        <md-error class="error" *ngIf="checkoutForm.get('last_name').hasError('required') && checkoutForm.get('last_name').touched">
+                            Please enter your last name.
+                        </md-error>
                     </md-input-container>
                 </div>
                 <div class="line-wrapper">
-                    <md-input-container class="mr-15">
+                    <md-input-container class="mr-15 mb-2">
                         <input mdInput  id="focusedInput3" placeholder="Email" type="email" formControlName="email">
+                        <md-error class="error" *ngIf="(checkoutForm.get('email').hasError('required') || checkoutForm.get('email').hasError('email')) && checkoutForm.get('email').touched">
+                            This is not a valid entry. Please check that the information is correct.
+                        </md-error>
                     </md-input-container>
-                    <md-input-container class="ml-15">
+                    <md-input-container class="ml-15 mb-2">
                         <input mdInput id="focusedInput4" placeholder="Confirm Email" type="email" formControlName="confirm_email">
+                        <md-error class="error" *ngIf="(checkoutForm.get('confirm_email').hasError('required') || checkoutForm.get('confirm_email').hasError('email') || !matchingEmailFlag) && checkoutForm.get('confirm_email').touched">
+                            This is not a valid entry. Please check that the information is correct.
+                        </md-error>
                     </md-input-container>
                 </div>
                 <p class="text-warning">Please, use personal email only! E.g.: @gmail.com, @hotmail.com, @yahoo.ca</p>
@@ -33,6 +45,9 @@
                                placeholder="Country"
                                formControlName="country" class="mr-15"
                     >
+                        <md-error class="error" *ngIf="checkoutForm.get('country').hasError('required')">
+                            Please select your country.
+                        </md-error>
                     </ng-select>
                     <ng-select [items]="[{id:'USA',text:'USA'}, {id:'Canada',text:'Canada'}]"
                                placeholder="Province / State"

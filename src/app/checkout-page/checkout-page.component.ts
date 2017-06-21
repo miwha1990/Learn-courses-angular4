@@ -37,15 +37,15 @@ export class CheckoutPageComponent implements OnInit {
 
 
         this.shirtSize = [
-            {id:'la-s', text:'Ladies\' Small'},
-            {id:'la-m', text:'Ladies\' Medium'},
-            {id:'la-l', text:'Ladies\' Large'},
-            {id:'la-xl', text:'Ladies\' Extra Large'},
-            {id:'me-s', text:'Men\'s Small'},
-            {id:'me-m', text:'Men\'s Medium'},
-            {id:'me-l', text:'Men\'s Large'},
-            {id:'me-xl', text:'Men\'s Extra Large'}
-        ]
+            {id: 'la-s', text:  'Ladies\' Small'},
+            {id: 'la-m', text: 'Ladies\' Medium'},
+            {id: 'la-l', text: 'Ladies\' Large'},
+            {id: 'la-xl', text: 'Ladies\' Extra Large'},
+            {id: 'me-s', text: 'Men\'s Small'},
+            {id: 'me-m', text: 'Men\'s Medium'},
+            {id: 'me-l', text: 'Men\'s Large'},
+            {id: 'me-xl', text: 'Men\'s Extra Large'}
+        ];
     }
     matchingEmail(email: string, emailConfirmation: string) {
         return (group: FormGroup) => {
