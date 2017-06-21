@@ -35,6 +35,9 @@
       min-width: 255px;
       flex-basis: 31%;
       animation: fadeIn 0.3s;
+      .wrapper-course {
+        cursor: pointer;
+      }
       &:nth-child(3n){
         margin-right:0;
         @media screen and (max-width: 991px) {
