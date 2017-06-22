@@ -201,10 +201,10 @@
             </div>
             <h4>Payment Options</h4>
             <md-radio-group id="method" formGroupName="full_payment" (change)="applyPaymentType($event)">
-                <label class="pay-full" id="payfull">
+                <label class="pay-full" id="payfull" [ngClass]="theChoosen? 'activated':''">
                     <md-radio-button  [value]="1"  aria-labelledby="payfull" [checked]=true class="md-checked">Pay in Full </md-radio-button> <span class="price" *ngIf="OrderProcessService.secretData?.checkoutData?.early_bird">{{OrderProcessService.secretData?.price_early | currency:'USD':true}}</span><span class="price" *ngIf="!OrderProcessService.secretData?.checkoutData?.early_bird">{{OrderProcessService.secretData?.price_regular | currency:'USD':true}}</span>
                 </label>
-                <label class="pay-deposite" [ngClass]="OrderProcessService.secretData.allow_partial_payment?'activated':'desactivated'" id="paydeposite">
+                <label class="pay-deposite" [ngClass]="{'desactivated': !OrderProcessService.secretData.allow_partial_payment, 'activated': (OrderProcessService.secretData.allow_partial_payment && !theChoosen)}" id="paydeposite">
                     <md-radio-button  [value]="0" aria-labelledby="paydeposite" [disabled]="!OrderProcessService.secretData.allow_partial_payment" aria-label="Label 2">Pay Deposit only </md-radio-button><span class="price">{{OrderProcessService.secretData?.deposit | currency:'USD':true}}</span>
                     <br>
                     <span>Balance Due <span class="date">{{OrderProcessService.secretData?.balance_due | date : 'MMM d, yyyy'}}</span></span>

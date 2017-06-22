@@ -150,7 +150,7 @@ h5{
           float: right;
         }
       }
-      &>label.activated{
+      &>label.activated,&>label:hover{
         color:white;
         background: #F68700;
         border-color: white;

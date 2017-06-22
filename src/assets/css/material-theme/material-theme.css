@@ -700,7 +700,8 @@ form.checkoutForm #method .mat-radio-checked .mat-radio-outer-circle{
 form.checkoutForm #method .activated .mat-radio-checked .mat-radio-outer-circle{
     border-color: #ffffff
 }
-form.checkoutForm #method .activated .mat-radio-outer-circle{
+form.checkoutForm #method .activated .mat-radio-outer-circle,
+form.checkoutForm #method label:hover .mat-radio-outer-circle{
     border-color: #ffffff
 }
 .mat-radio-disabled .mat-radio-outer-circle {
@@ -727,7 +728,9 @@ form.checkoutForm #method .mat-radio-ripple .mat-ripple-element{
 form.checkoutForm #method .activated .mat-radio-ripple .mat-ripple-element{
     background-color: rgba(255, 255, 255, .26)
 }
-form.checkoutForm #method .activated .mat-radio-label-content{
+form.checkoutForm #method .activated .mat-radio-label-content,
+form.checkoutForm #method label:hover .mat-radio-label-content
+{
     color: #ffffff
 }
 .mat-radio-disabled .mat-radio-inner-circle,

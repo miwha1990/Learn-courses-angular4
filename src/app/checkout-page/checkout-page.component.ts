@@ -14,6 +14,7 @@ export class CheckoutPageComponent implements OnInit {
     shirtSize;
     submittedForm = false;
     countriesList;
+    theChoosen = true;
     @ViewChild('mydp') mydp: MyDatePicker;
     private myDatePickerOptions: IMyDpOptions = {
         dateFormat: 'yyyy-mm-dd',
@@ -127,6 +128,7 @@ export class CheckoutPageComponent implements OnInit {
     }
     applyPaymentType(val) {
         this.registration_data['full_payment'] = val.value;
+        this.theChoosen = val.value;
         this.params.full_payment = val.value;
         console.log(this.params);
         this.OrderProcessService.checkOutDataRequest(this.OrderProcessService.secretData['id'], this.params).subscribe(
