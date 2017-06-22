@@ -20,6 +20,7 @@
                <iframe class="embed-responsive-item" [src]="data?.video_id" ></iframe>
             </div>
             <div class="pt-4">
+                <p *ngIf="data?.venue?.notes">{{data?.venue?.notes}}</p>
                 <markdown [data]="(data?.description ? data?.description : '')"></markdown>
             </div>
         </div>

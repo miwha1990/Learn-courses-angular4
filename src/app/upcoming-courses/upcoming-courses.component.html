@@ -10,8 +10,8 @@
               </div>
               <div class="card-block">
                 <p ><i class="fa fa-calendar"></i>{{ course?.details1 }}</p>
-                <p *ngIf="additionalInfo"><i class="fa fa-clock-o"></i>{{ course?.details2 }}</p>
                 <p ><i class="fa fa-location-arrow"></i>{{ course?.location }}</p>
+                <p *ngIf="additionalInfo"><i class="fa fa-clock-o"></i>{{ course?.details2 }}</p>
               </div>
 
               <div class="card-block price-block" *ngIf="additionalInfo">

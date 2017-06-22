@@ -9,9 +9,10 @@ export class StickyCardComponent implements  OnChanges {
   @Input() data;
   cardContentEarly: string;
   cardContentRegular: string;
-  constructor(private OrderProcessService: OrderProcessService) { }
+  constructor(private OrderProcessService: OrderProcessService) {}
   ngOnChanges() {
     if (this.data != null) {
+// this.data.partner_url = 'https://stretchtowin.site-ym.com/events/register.aspx?id=909951&itemid=cf22259c-ca1d-41f4-9f2e-a769417b1680';
       if ( this.data.partner_url != null ) {
         if ( this.data.partner_soldout ) {
           this.cardContentRegular = this.cardContentEarly = 'Sold Out';
@@ -31,13 +32,17 @@ export class StickyCardComponent implements  OnChanges {
     }
   }
   goToCheckout = function(){
-    this.OrderProcessService.checkOutInfoRequest(this.data.id).subscribe(
-        data => {
-          this.data.checkoutData = data.checkoutData;
-          this.data.waiver = data.waiver;
-          this.OrderProcessService.provideData(this.data);
-        },
-        err => console.error('ERROR', err)
-    );
+    if ( this.data.partner_url != null ) {
+      window.location.href = this.data.partner_url; // window.open - new tab option
+    } else {
+      this.OrderProcessService.checkOutInfoRequest(this.data.id).subscribe(
+          data => {
+            this.data.checkoutData = data.checkoutData;
+            this.data.waiver = data.waiver;
+            this.OrderProcessService.provideData(this.data);
+          },
+          err => console.error('ERROR', err)
+      );
+    };
   };
 }
