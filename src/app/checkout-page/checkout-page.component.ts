@@ -11,6 +11,7 @@ import {MyDatePicker} from 'mydatepicker/dist/my-date-picker.component';
 })
 export class CheckoutPageComponent implements OnInit {
     shirtSize;
+    countriesList;
     @ViewChild('mydp') mydp: MyDatePicker;
     private myDatePickerOptions: IMyDpOptions = {
         dateFormat: 'yyyy-mm-dd',
@@ -62,6 +63,8 @@ export class CheckoutPageComponent implements OnInit {
         };
     }
     ngOnInit() {
+        this.getCountriesList();
+
         this.checkoutForm = this.fb.group({
             first_name: ['', Validators.required],
             last_name: ['', Validators.required],
@@ -190,6 +193,14 @@ export class CheckoutPageComponent implements OnInit {
                 err => console.error('ERRROR', err)
             );
     }
+    
 
+    getCountriesList() {
+        this.OrderProcessService.getCountries()
+            .subscribe(
+                data => this.countriesList = data,
+                err => console.error('ERROR', err),
+            );
+    }
 }
 
