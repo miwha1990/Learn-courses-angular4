@@ -18,4 +18,5 @@ export const environment = {
   waivers: '/waivers?class_id=',
   registrations: '/registrations',
   newsletter: '/newsletter',
+  getCountyAPI: 'https://restcountries.eu/rest/v2/all'
 };

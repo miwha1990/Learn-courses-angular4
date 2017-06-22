@@ -79,4 +79,21 @@ export class OrderProcessService {
                return;
            });
    }
+
+   getCountries() {
+        const endpoint = this.environment.getCountyAPI;
+        
+        return this.http.get(endpoint)
+            .map((res: Response) => {
+                const allCounty = res.json();           
+                let formattedCountryList = [];
+
+                for(let country of allCounty) {
+                    formattedCountryList.push({ id: country.name, text: country.name })
+                }
+                
+                return formattedCountryList;
+            });
+       
+   }
 }
