@@ -14,7 +14,7 @@ export class OrderProcessService {
   constructor(private http: Http, private router: Router) {
       this.environment = environment;
   }
-    provideData = function(data) {
+   provideData = function(data) {
         this.secretData = data;
         this.router.navigate(['/checkout-page']);
         console.log(this.secretData);
@@ -48,7 +48,7 @@ export class OrderProcessService {
            return resData;
        });
    };
-    checkOutDataRequest(id, params?): Observable<any> {
+   checkOutDataRequest(id, params?): Observable<any> {
         let endpoint = `${this.environment.apiHost}${this.environment.classes}${id}${this.environment.checkout}`;
         if (params !== undefined) {
             endpoint += `?`;

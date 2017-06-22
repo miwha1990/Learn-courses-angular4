@@ -186,7 +186,10 @@
             </div>
             <div class="license">
                 <h4>Participation Waiver</h4>
-                <md-checkbox formControlName="agreement">I have read and agree to the Participation Waiver and the <a routerLink="/terms-of-service">Terms and Conditions</a>.</md-checkbox>
+                <md-checkbox formControlName="agreement" (change)="agreementFlag=!agreementFlag;">I have read and agree to the Participation Waiver and the <a routerLink="/terms-of-service">Terms and Conditions</a>.</md-checkbox>
+                <div class="my-error" *ngIf="!agreementFlag && submittedForm">
+                    You must read and agree to the Participation Waiver and the Terms and Conditions to register.
+                </div>
                 <md-checkbox formControlName="newsletter">I want to receive educational and promotional content.</md-checkbox>
                 <p>{{OrderProcessService.secretData?.waiver?.content }}</p>
             </div>
@@ -210,39 +213,58 @@
             <h4>Billing Information</h4>
             <div class="billing-info" >
                 <div formGroupName="cc_group">
-                    <div class="line-wrapper">
+                    <div class="line-wrapper  mb-2">
                         <i class="fa fa-user mr-1" aria-hidden="true"></i>
                         <md-input-container>
                             <input mdInput id="cardholder" type="text"  formControlName="cardholder_name" placeholder="Cardholder Name">
+                            <md-error class="error" *ngIf="checkoutForm.get('cc_group').get('cardholder_name').hasError('required')  && (checkoutForm.get('cc_group').get('cardholder_name').touched || submittedForm)">
+                                Please enter cardholder name as it appears on the credit card
+                            </md-error>
                         </md-input-container>
                     </div>
-                    <div class="line-wrapper">
+                    <div class="line-wrapper  mb-2">
                         <i class="fa fa-envelope-o mr-1" aria-hidden="true"></i>
                         <md-input-container>
                             <input mdInput id="card-email" type="email"  formControlName="cardholder_email" placeholder="Cardholder Email Address">
+                            <md-error class="error" *ngIf="(checkoutForm.get('cc_group').get('cardholder_email').hasError('required') || checkoutForm.get('cc_group').get('cardholder_email').hasError('email')) && (checkoutForm.get('cc_group').get('cardholder_email').touched || submittedForm)">
+                                This is not a valid entry. Please check that the information is correct.
+                            </md-error>
                         </md-input-container>
                     </div>
-                    <div class="line-wrapper">
+                    <div class="line-wrapper  mb-2">
                         <i class="fa fa-credit-card mr-1" aria-hidden="true"></i>
                         <md-input-container>
                             <input mdInput id="card" type="text"  formControlName="cc_number" placeholder="Credit Card Number">
+                            <md-error class="error" *ngIf="checkoutForm.get('cc_group').get('cc_number').hasError('required')  && (checkoutForm.get('cc_group').get('cc_number').touched || submittedForm)">
+                                This is not a valid entry. Please check that the information is correct.
+                            </md-error>
                         </md-input-container>
                     </div>
-                    <div class="line-wrapper with-date">
-                        <span class="date-container">
-                            <i class="fa fa-calendar mr-1" aria-hidden="true"></i>
-                            <md-input-container class="month-container">
-                                 <input mdInput id="card-month" type="text" formControlName="cc_exp_month" placeholder="MM" maxlength="2">
-                            </md-input-container>
-                            <span>/</span>
-                            <md-input-container class="year-container">
-                                <input mdInput id="card-year" type="text" formControlName="cc_exp_year" placeholder="YY" maxlength="2">
-                            </md-input-container>
-                        </span>
-                        <span class="csv-container">
+                    <div class="line-wrapper with-date ">
+                        <div class="mb-2">
+                            <span class="date-container">
+                                <i class="fa fa-calendar mr-1 " aria-hidden="true"></i>
+                                <md-input-container class="month-container">
+                                    <input mdInput id="card-month" type="text" formControlName="cc_exp_month" placeholder="MM" maxlength="2">
+                                </md-input-container>
+                                <span>/</span>
+                                <md-input-container class="year-container">
+                                    <input mdInput id="card-year" type="text" formControlName="cc_exp_year" placeholder="YY" maxlength="2">
+                                </md-input-container>
+                            </span>
+                            <span class="my-error"
+                                 style="margin-left: 25px;position: absolute;"
+                                 *ngIf="(checkoutForm.get('cc_group').get('cc_exp_year').hasError('required')  && (checkoutForm.get('cc_group').get('cc_exp_year').touched || submittedForm))||(checkoutForm.get('cc_group').get('cc_exp_month').hasError('required')  && (checkoutForm.get('cc_group').get('cc_exp_month').touched || submittedForm))">
+                                This is not a valid entry. Please check that the information is correct.
+                            </span>
+                        </div>
+                        <span class="csv-container mb-2 ">
                             <i class="fa fa-lock mr-1" aria-hidden="true"></i>
                             <md-input-container>
                                 <input mdInput id="csv" type="text"  formControlName="cc_cvv" placeholder="CSV" maxlength="3">
+                                <md-error class="error" *ngIf="checkoutForm.get('cc_group').get('cc_cvv').hasError('required')  && (checkoutForm.get('cc_group').get('cc_cvv').touched || submittedForm)">
+                                    This is not a valid entry. Please check that the information is correct.
+                                </md-error>
                             </md-input-container>
                         </span>
                     </div>

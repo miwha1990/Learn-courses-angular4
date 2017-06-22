@@ -3,6 +3,7 @@ import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
 import { OrderProcessService} from '../services/order-process.service';
 import { IMyDpOptions, IMyDateModel} from 'mydatepicker';
 import {MyDatePicker} from 'mydatepicker/dist/my-date-picker.component';
+import {AlertsService} from '../services/alerts.service';
 
 @Component({
   selector: 'app-checkout-page',
@@ -29,14 +30,15 @@ export class CheckoutPageComponent implements OnInit {
     private params;
     private registration_data = {};
     private message: string;
-    constructor(private OrderProcessService: OrderProcessService, private fb: FormBuilder) {
+    private agreementFlag = false;
+    constructor(private OrderProcessService: OrderProcessService,
+                private fb: FormBuilder,
+                private alertsService: AlertsService) {
         this.params = {
             full_payment: 1,
             coupon_code: null
         };
         this.registration_data['full_payment'] = 1;
-
-
         this.shirtSize = [
             {id: 'la-s', text:  'Ladies\' Small'},
             {id: 'la-m', text: 'Ladies\' Medium'},
@@ -101,8 +103,22 @@ export class CheckoutPageComponent implements OnInit {
         console.log(this.params);
         this.OrderProcessService.checkOutDataRequest(this.OrderProcessService.secretData['id'], this.params).subscribe(
             data => {
+                console.log(data);
                 this.OrderProcessService.secretData['checkoutData'] = data;
-                this.couponActivated = true;
+                if (this.OrderProcessService.secretData['checkoutData'].discount !== null ) {
+                    this.alertsService.showAlert({
+                        'success': true,
+                        'error': false,
+                        'message': 'You coupon has been applied.'
+                    });
+                    this.couponActivated = true;
+                } else {
+                    this.alertsService.showAlert({
+                        'success': false,
+                        'error': true,
+                        'message': 'Sorry! This coupon is not valid.'
+                    });
+                }
             },
             err => console.error('ERROR', err)
         );
@@ -121,8 +137,6 @@ export class CheckoutPageComponent implements OnInit {
     }
     formSubmit() {
         if (this.checkoutForm.invalid) {
-            console.log('invalid');
-            console.log(this.submittedForm);
             return;
         }
         this.submittedForm = false;
@@ -197,9 +211,5 @@ export class CheckoutPageComponent implements OnInit {
                 err => console.error('ERRROR', err)
             );
     }
-    onBlurMethod(e) {
-        console.log(e);
-    }
-
 }
 

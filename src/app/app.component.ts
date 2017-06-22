@@ -13,6 +13,7 @@ export class AppComponent  implements  AfterViewInit , OnInit {
   routerHome = false;
   homeScrolled = false;
   headerVisible: boolean;
+  topOffset: boolean;
   private successFlag = false;
   private errorFlag = false;
   private successMessage = '';
@@ -23,6 +24,7 @@ export class AppComponent  implements  AfterViewInit , OnInit {
               @Inject(DOCUMENT) private document: Document,
               private alertsService: AlertsService) {
     this.headerVisible = true;
+    this.topOffset = true;
   }
   ngOnInit() {
     this.router.events.subscribe((evt) => {
@@ -38,6 +40,9 @@ export class AppComponent  implements  AfterViewInit , OnInit {
     this.router.events.subscribe(val => {
       if ((this.location.path() === '/checkout-page')) {
         this.headerVisible = false;
+        this.topOffset = false;
+      } else {
+        this.topOffset = true;
       }
     });
   }

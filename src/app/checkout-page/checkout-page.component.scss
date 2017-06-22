@@ -16,20 +16,13 @@ h4{
 h5{
    font-weight: 500;
  }
-//.err-wrapper{
-//  display: flex;
-//  flex-direction: row;
-//  align-items: stretch;
-//  justify-content: space-between;
-//  width:100%;
-  div.my-error{
+  .my-error{
     color: #f44336!important;
     font-size: 75%;
     line-height: 1.2em;
     flex-basis: 50%;
     top:44px;
   }
-//}
 .checkout-wrapper{
   display: flex;
   align-items: stretch;
@@ -176,6 +169,7 @@ h5{
         align-items: baseline;
         &.with-date{
           flex-direction: column;
+          position: relative;
         }
         .mat-input-container {
           flex:1 auto;
