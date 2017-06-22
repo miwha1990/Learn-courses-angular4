@@ -79,7 +79,7 @@ export class CheckoutPageComponent implements OnInit {
             city:  ['', Validators.required],
             gender: ['', Validators.required],
             date_of_birth: ['', Validators.required],
-            phone: ['', Validators.required],
+            phone: ['', [Validators.required, Validators.minLength(10)]],
             industry_certification: ['', Validators.required],
             employer: ['', Validators.required],
             job_title: ['', Validators.required],
@@ -93,7 +93,7 @@ export class CheckoutPageComponent implements OnInit {
                 cardholder_email: ['', [Validators.required, Validators.email]],
                 cc_number: ['', Validators.required],
                 cc_exp_month: ['', [Validators.required, Validators.minLength(2), Validators.maxLength(2)]],
-                cc_exp_year: ['', [Validators.required, Validators.minLength(4), Validators.maxLength(4)]],
+                cc_exp_year: ['', [Validators.required, Validators.minLength(2), Validators.maxLength(2)]],
                 cc_cvv: ['', Validators.required]
             }),
             newsletter: [''],
@@ -222,6 +222,5 @@ export class CheckoutPageComponent implements OnInit {
                 err => console.error('ERROR', err),
             );
     }
-
 }
 
