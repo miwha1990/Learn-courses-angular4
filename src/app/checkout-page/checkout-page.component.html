@@ -14,13 +14,13 @@
                 <div class="line-wrapper">
                     <md-input-container class="mr-15 mb-1">
                         <input mdInput class="text-left" id="focusedInput1" type="text" formControlName="first_name" placeholder="First Name">
-                        <md-error class="error" *ngIf="checkoutForm.get('first_name').hasError('required') && checkoutForm.get('first_name').touched">
+                        <md-error class="error" *ngIf="checkoutForm.get('first_name').hasError('required') && (checkoutForm.get('first_name').touched || submittedForm)">
                             Please enter your first name.
                         </md-error>
                     </md-input-container>
                     <md-input-container class="ml-15 mb-1">
                         <input mdInput id="focusedInput2" type="text" formControlName="last_name" placeholder="Last Name">
-                        <md-error class="error" *ngIf="checkoutForm.get('last_name').hasError('required') && checkoutForm.get('last_name').touched">
+                        <md-error class="error" *ngIf="checkoutForm.get('last_name').hasError('required') && (checkoutForm.get('last_name').touched || submittedForm)">
                             Please enter your last name.
                         </md-error>
                     </md-input-container>
@@ -28,101 +28,159 @@
                 <div class="line-wrapper">
                     <md-input-container class="mr-15 mb-2">
                         <input mdInput  id="focusedInput3" placeholder="Email" type="email" formControlName="email">
-                        <md-error class="error" *ngIf="(checkoutForm.get('email').hasError('required') || checkoutForm.get('email').hasError('email')) && checkoutForm.get('email').touched">
+                        <md-error class="error" *ngIf="(checkoutForm.get('email').hasError('required') || checkoutForm.get('email').hasError('email')) && (checkoutForm.get('email').touched || submittedForm)">
                             This is not a valid entry. Please check that the information is correct.
                         </md-error>
                     </md-input-container>
                     <md-input-container class="ml-15 mb-2">
                         <input mdInput id="focusedInput4" placeholder="Confirm Email" type="email" formControlName="confirm_email">
-                        <md-error class="error" *ngIf="(checkoutForm.get('confirm_email').hasError('required') || checkoutForm.get('confirm_email').hasError('email') || !matchingEmailFlag) && checkoutForm.get('confirm_email').touched">
+                        <md-error class="error" *ngIf="(checkoutForm.get('confirm_email').hasError('required') || checkoutForm.get('confirm_email').hasError('email') || !matchingEmailFlag) && (checkoutForm.get('confirm_email').touched || submittedForm)">
                             This is not a valid entry. Please check that the information is correct.
                         </md-error>
                     </md-input-container>
                 </div>
                 <p class="text-warning">Please, use personal email only! E.g.: @gmail.com, @hotmail.com, @yahoo.ca</p>
                 <div class="line-wrapper">
-                    <ng-select [items]="[{id:'USA',text:'USA'}, {id:'Canada',text:'Canada'}]"
-                               placeholder="Country"
-                               formControlName="country" class="mr-15"
-                    >
-                        <md-error class="error" *ngIf="checkoutForm.get('country').hasError('required')">
+                    <div class="select-wrapper mr-15 mb-1">
+                        <ng-select [items]="[{id:'USA',text:'USA'}, {id:'Canada',text:'Canada'}]"
+                                   placeholder="Country"
+                                   formControlName="country" class=""
+                                   [ngClass] = "submittedForm? 'my-select' : ''"
+                        ></ng-select>
+                        <div class="my-error" *ngIf="checkoutForm.get('country').invalid && submittedForm">
                             Please select your country.
-                        </md-error>
-                    </ng-select>
-                    <ng-select [items]="[{id:'USA',text:'USA'}, {id:'Canada',text:'Canada'}]"
-                               placeholder="Province / State"
-                               formControlName="state" class="mr-15"
-                    >
-                    </ng-select>
+                        </div>
+                    </div>
+                    <div class="select-wrapper ml-15 mb-1">
+                        <ng-select [items]="[{id:'USA',text:'USA'}, {id:'Canada',text:'Canada'}]"
+                                   placeholder="Province / State"
+                                   formControlName="state" class=""
+                                   [ngClass] = "submittedForm? 'my-select' : ''"
+                        ></ng-select>
+                        <div class="my-error" *ngIf="checkoutForm.get('state').invalid && submittedForm">
+                            Please select your province/state.
+                        </div>
+                    </div>
                 </div>
                 <div class="line-wrapper">
-                    <md-input-container class="mr-15">
+                    <md-input-container class="mr-15 mb-1">
                         <input mdInput  id="badge" type="text"  placeholder="Name on Badge" formControlName="name_of_badge">
+                        <md-error class="error" *ngIf="checkoutForm.get('name_of_badge').hasError('required')  && (checkoutForm.get('name_of_badge').touched || submittedForm)">
+                            Please enter your name on badge.
+                        </md-error>
                     </md-input-container>
-                    <md-input-container class="ml-15">
+                    <md-input-container class="ml-15 mb-1">
                         <input mdInput id="city" type="text" placeholder="City" formControlName="city">
+                        <md-error class="error" *ngIf="checkoutForm.get('city').hasError('required')  && (checkoutForm.get('city').touched || submittedForm)">
+                            Please enter your city.
+                        </md-error>
                     </md-input-container>
                 </div>
                 <div class="line-wrapper line-with-dp">
-                    <ng-select [items]="[{id:'male',text:'Male'}, {id:'female',text:'Female'}]"
-                               placeholder="Gender"
-                               formControlName="gender" class="mr-15"
-                    >
-                    </ng-select>
-                    <md-input-container class="ml-15">
+                    <div class="select-wrapper mr-15 mb-1">
+                        <ng-select [items]="[{id:'male',text:'Male'}, {id:'female',text:'Female'}]"
+                                   placeholder="Gender"
+                                   formControlName="gender"
+                                   [ngClass] = "submittedForm? 'my-select' : ''"
+                        >
+                        </ng-select>
+                        <div class="my-error" *ngIf="checkoutForm.get('gender').invalid && submittedForm">
+                            Please select your gender.
+                        </div>
+                    </div>
+                    <md-input-container class="ml-15 mb-1">
                         <input mdInput placeholder="Date of Birth" formControlName="date_of_birth">
+                        <md-error class="error" *ngIf="checkoutForm.get('date_of_birth').hasError('required')  && (checkoutForm.get('date_of_birth').touched || submittedForm)">
+                            Please enter your date of birth.
+                        </md-error>
                         <button mdSuffix class="mat-datepicker-toggle" (click)="onToggleSelector($event)"></button>
                         <my-date-picker class="date-picker-checkout-page" #mydp="mydatepicker" [options]="myDatePickerOptions" (dateChanged)="onDateChanged($event)"></my-date-picker>
                     </md-input-container>
 
                 </div>
                 <div class="line-wrapper">
-                    <md-input-container class="mr-15">
+                    <md-input-container class="mr-15 mb-1">
                         <input mdInput id="phone" type="text" placeholder="Phone Number with Area Code" formControlName="phone">
+                        <md-error class="error" *ngIf="checkoutForm.get('phone').hasError('required')  && (checkoutForm.get('phone').touched || submittedForm)">
+                            This is not a valid entry. Please check that the information is correct.
+                        </md-error>
                     </md-input-container>
-                    <ng-select [items]="[{id:'personal',text:'Personal Training Certification'}, {id:'degree',text:'College / University Degree'},{id:'other',text:'Other'},{id:'none',text:'None'}]"
-                               placeholder="Industry Certification"
-                               formControlName="industry_certification" class="ml-15"
-                    >
-                    </ng-select>
+                    <div class="select-wrapper ml-15 mb-1">
+                        <ng-select [items]="[{id:'personal',text:'Personal Training Certification'}, {id:'degree',text:'College / University Degree'},{id:'other',text:'Other'},{id:'none',text:'None'}]"
+                                   placeholder="Industry Certification"
+                                   formControlName="industry_certification"
+                                   [ngClass] = "submittedForm? 'my-select' : ''"
+                        >
+                        </ng-select>
+                        <div class="my-error" *ngIf="checkoutForm.get('industry_certification').invalid && submittedForm">
+                            Please select your industry certification.
+                        </div>
+                    </div>
                 </div>
                 <div class="line-wrapper">
-                    <md-input-container class="mr-15">
+                    <md-input-container class="mr-15 mb-1">
                         <input mdInput id="employer" type="text" placeholder="Employer" formControlName="employer">
+                        <md-error class="error" *ngIf="checkoutForm.get('employer').hasError('required')  && (checkoutForm.get('employer').touched || submittedForm)">
+                            Please enter your employer.
+                        </md-error>
                     </md-input-container>
-                    <ng-select [items]="[{id:'personal',text:'Personal Trainer'}, {id:'professional',text:'Other Fitness Professional'},{id:'management',text:'Management'},{id:'other',text:'Other'}]"
-                               placeholder="Job Title"
-                               formControlName="job_title" class="ml-15"
-                    >
-                    </ng-select>
+                    <div class="select-wrapper ml-15 mb-1">
+                        <ng-select [items]="[{id:'personal',text:'Personal Trainer'}, {id:'professional',text:'Other Fitness Professional'},{id:'management',text:'Management'},{id:'other',text:'Other'}]"
+                                   placeholder="Job Title"
+                                   formControlName="job_title"
+                                   [ngClass] = "submittedForm? 'my-select' : ''"
+                        >
+                        </ng-select>
+                        <div class="my-error" *ngIf="checkoutForm.get('job_title').invalid && submittedForm">
+                            Please select your job title.
+                        </div>
+                    </div>
                 </div>
                 <div class="line-wrapper">
-                    <md-input-container class="mr-15">
+                    <md-input-container class="mr-15 mb-1">
                         <input mdInput id="emergency-name" type="text" placeholder="Emergency Contact Full Name" formControlName="emergency_name">
+                        <md-error class="error" *ngIf="checkoutForm.get('emergency_name').hasError('required')  && (checkoutForm.get('emergency_name').touched || submittedForm)">
+                            Please enter your emergency contact full name.
+                        </md-error>
                     </md-input-container>
-                    <md-input-container class="ml-15">
+                    <md-input-container class="ml-15 mb-1">
                         <input mdInput id="emergency-number" type="text" placeholder="Emergency Contact Phone Number" formControlName="emergency_phone">
+                        <md-error class="error" *ngIf="checkoutForm.get('emergency_phone').hasError('required')  && (checkoutForm.get('emergency_phone').touched || submittedForm)">
+                            This is not a valid entry. Please check that the information is correct.
+                        </md-error>
                     </md-input-container>
                 </div>
                 <div class="line-wrapper">
-                    <ng-select [items]="[{id:'prev',text:'Took a course previously'},
-                    {id:'manager',text:'Manager / Supervisor'},
-                    {id:'friend',text:'Friend / Collegue'},
-                     {id:'search',text:'Search Engine'},
-                    {id:'social',text:'Social Media'},
-                     {id:'show',text:'Trade Show / Conference'},
-                    {id:'other',text:'Other (please specify)'}]"
-                               placeholder="How did you hear about us?"
-                               formControlName="refferel" class="mr-15"
-                    >
-                    </ng-select>
-                    <ng-select
-                        [items]="shirtSize"
-                        placeholder="T-Shirt Size"
-                        formControlName="tshirt_size" class="ml-15"
-                        *ngIf="OrderProcessService?.secretData?.request_shirt_size"
-                    >
-                    </ng-select>
+                    <div class="select-wrapper mr-15 mb-1">
+                        <ng-select [items]="[{id:'prev',text:'Took a course previously'},
+                        {id:'manager',text:'Manager / Supervisor'},
+                        {id:'friend',text:'Friend / Collegue'},
+                         {id:'search',text:'Search Engine'},
+                        {id:'social',text:'Social Media'},
+                         {id:'show',text:'Trade Show / Conference'},
+                        {id:'other',text:'Other (please specify)'}]"
+                                   placeholder="How did you hear about us?"
+                                   formControlName="refferel"
+                                   [ngClass] = "submittedForm? 'my-select' : ''"
+                        >
+                        </ng-select>
+                        <div class="my-error" *ngIf="checkoutForm.get('refferel').invalid && submittedForm">
+                            Please select how you heard about us.
+                        </div>
+                    </div>
+                    <div class="select-wrapper ml-15 mb-1">
+                        <ng-select
+                            [items]="shirtSize"
+                            placeholder="T-Shirt Size"
+                            formControlName="tshirt_size"
+                            *ngIf="OrderProcessService?.secretData?.request_shirt_size"
+                            [ngClass] = "submittedForm? 'my-select' : ''"
+                        >
+                        </ng-select>
+                        <div class="my-error" *ngIf="checkoutForm.get('tshirt_size').invalid && submittedForm && OrderProcessService?.secretData?.request_shirt_size">
+                            Please select your T-shirt size.
+                        </div>
+                    </div>
                     <div class="buffer"></div>
                 </div>
             </div>
@@ -218,7 +276,7 @@
                         <span class="field-name">Balance Owning:</span>
                         <span class="field-value tot-btn balance">{{OrderProcessService.secretData?.checkoutData?.balance_owning | currency:'USD':true}}</span>
                     </div>
-                <button type="submit" class="btn btn-block btn-raised btn-primary register-btn" [disabled]="(checkoutForm.invalid||!this.checkoutForm.controls['agreement'].value)">Register</button>
+                <button type="submit" class="btn btn-block btn-raised btn-primary register-btn" (click)="submittedForm=true;">Register</button>
                 <div class="payment-methods mb-4"></div>
             </div>
         </aside>

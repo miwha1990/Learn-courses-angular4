@@ -155,11 +155,19 @@ h3{
 }
 ng-select{
   width: 100%;
-  &:last-child{
-    margin-right: 0 !important;
-    margin-left: 15px !important;
-    @media screen and (max-width: 991px) {
-      margin-left: 0 !important;
+  //&:last-child{
+  //  margin-right: 0 !important;
+  //  margin-left: 15px !important;
+  //  @media screen and (max-width: 991px) {
+  //    margin-left: 0 !important;
+  //  }
+  //}
+  &.ng-invalid.my-select{
+    .ui-select-toggle{
+      background-image: linear-gradient(#f44336, #f44336), linear-gradient(#f44336, #f44336);;
+    }
+    .text-muted {
+      color: #f44336;
     }
   }
 }

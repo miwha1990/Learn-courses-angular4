@@ -11,6 +11,7 @@ import {MyDatePicker} from 'mydatepicker/dist/my-date-picker.component';
 })
 export class CheckoutPageComponent implements OnInit {
     shirtSize;
+    submittedForm = false;
     @ViewChild('mydp') mydp: MyDatePicker;
     private myDatePickerOptions: IMyDpOptions = {
         dateFormat: 'yyyy-mm-dd',
@@ -119,6 +120,12 @@ export class CheckoutPageComponent implements OnInit {
         );
     }
     formSubmit() {
+        if (this.checkoutForm.invalid) {
+            console.log('invalid');
+            console.log(this.submittedForm);
+            return;
+        }
+        this.submittedForm = false;
         // console.log(this.checkoutForm.value);
         this.registration_data['first_name'] = this.checkoutForm.value.first_name;
         this.registration_data['last_name'] = this.checkoutForm.value.last_name;
@@ -189,6 +196,9 @@ export class CheckoutPageComponent implements OnInit {
                 } ,
                 err => console.error('ERRROR', err)
             );
+    }
+    onBlurMethod(e) {
+        console.log(e);
     }
 
 }

@@ -16,6 +16,20 @@ h4{
 h5{
    font-weight: 500;
  }
+//.err-wrapper{
+//  display: flex;
+//  flex-direction: row;
+//  align-items: stretch;
+//  justify-content: space-between;
+//  width:100%;
+  div.my-error{
+    color: #f44336!important;
+    font-size: 75%;
+    line-height: 1.2em;
+    flex-basis: 50%;
+    top:44px;
+  }
+//}
 .checkout-wrapper{
   display: flex;
   align-items: stretch;
@@ -64,7 +78,7 @@ h5{
         @media screen and (max-width: 991px) {
           flex-direction:column;
         }
-        ng-select, .mat-input-container {
+        .select-wrapper, .mat-input-container {
           width:calc(50% - 15px);
           @media screen and (max-width: 991px) {
             width:100%;
