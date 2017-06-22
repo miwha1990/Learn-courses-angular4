@@ -1,5 +1,5 @@
-<div class="container">
-    <form class="checkoutForm" [formGroup]="checkoutForm" (ngSubmit)="formSubmit($event)" (keydown)="keyDownFunction($event)">
+<div class="container" (keydown)="keyDownFunction($event)">
+    <form class="checkoutForm" [formGroup]="checkoutForm" (ngSubmit)="formSubmit($event)" >
     <div class="row checkout-wrapper">
         <main class="col-md-8 col-sm-12 ms-paper-content">
             <div class="section-heading mb-4">
@@ -249,7 +249,7 @@
                                 </md-input-container>
                                 <span>/</span>
                                 <md-input-container class="year-container">
-                                    <input mdInput id="card-year" type="text" formControlName="cc_exp_year" placeholder="YY" maxlength="2">
+                                    <input mdInput id="card-year" type="text" formControlName="cc_exp_year" placeholder="yyyy" maxlength="4">
                                 </md-input-container>
                             </span>
                             <span class="my-error"
