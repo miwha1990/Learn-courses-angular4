@@ -31,7 +31,10 @@ export class FindCoursesService {
     }
     return this.http.get(endpoint)
         .map((res: Response) => {
-            const resData = res.json().items;
+            let resData = res.json().items;
+            resData = resData.filter(function(obj){
+                return obj.is_hidden_event !== true;
+            });
             console.info('SERVICE: Upcoming Courses', resData);
             return resData;
         });
