@@ -17,12 +17,12 @@
               <div class="card-block price-block" *ngIf="additionalInfo">
                 <div class="early-bird info-block">
                   <p class="title">Early Bird Registration</p>
-                  <p class="price-value">$ {{ course?.price_early }} <span>{{ course?.spots_early }} spaces left</span></p>
+                  <p class="price-value">$ {{ course?.price_early }} <span>{{cardContentEarly}}</span></p>
                 </div>
 
                 <div class="regular info-block">
                   <p class="title">Regular Registration</p>
-                  <p class="price-value">$ {{ course?.price_regular }} <span>{{ course?.spots_regular }} spaces left</span></p>
+                  <p class="price-value">$ {{ course?.price_regular }} <span>{{cardContentRegular}}</span></p>
                 </div>
               </div>
             </div>
