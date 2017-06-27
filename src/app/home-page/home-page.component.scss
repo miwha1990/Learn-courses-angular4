@@ -2,3 +2,8 @@
   float: right;
   margin-right: 10px;
 }
+h3{
+  @media screen and (max-width: 480px) {
+    padding:0 30px;
+  }
+}

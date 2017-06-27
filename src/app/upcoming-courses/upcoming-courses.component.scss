@@ -11,6 +11,9 @@
   h3 {
     text-align: center;
   }
+  @media screen and (max-width: 480px) {
+    padding:0 30px;
+  }
 } 
 .courses-list-block {
   ul {
@@ -52,6 +55,9 @@
       }
       @media screen and (max-width: 600px) {
         flex-basis: 60%!important;
+      }
+      @media screen and (max-width: 480px) {
+        flex-basis: 100%!important;
       }
     .card {
       border-bottom: solid 3px #EB8C00;
