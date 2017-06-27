@@ -1,6 +1,10 @@
 .view-all-courses{
   float: right;
   margin-right: 10px;
+  margin-top:-20px;
+  @media screen and (max-width: 600px) {
+    margin-top:-40px;
+  }
 }
 h3{
   @media screen and (max-width: 480px) {

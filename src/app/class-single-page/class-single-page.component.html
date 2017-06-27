@@ -17,7 +17,7 @@
     <div class="container">
         <div class="col-md-8">
             <div class="embed-responsive embed-responsive-16by9" *ngIf="data?.video_id">
-               <iframe class="embed-responsive-item" [src]="data?.video_id" ></iframe>
+               <iframe class="embed-responsive-item" allowfullscreen [src]="data?.video_id" ></iframe>
             </div>
             <div class="pt-4">
                 <p *ngIf="data?.venue?.notes">{{data?.venue?.notes}}</p>
@@ -52,10 +52,10 @@
     </div>
 </div>
 
-<div class="container-full courses-container mb-6" *ngIf="upcomingCoursesData.length">
+<div class="container-full courses-container" *ngIf="upcomingCoursesData.length">
     <div  class="container">
         <div class="col-md-12">
-            <h3 class="mt-4 mb-4">Other available {{data?.name}} dates</h3>
+            <h3 class="mt-4">Other available {{data?.name}} dates</h3>
             <app-upcoming-courses [upcomingCoursesData]="upcomingCoursesData"  [additionalInfo]="true" [textMessage]="'Courses not found.'"></app-upcoming-courses>
         </div>
     </div>
