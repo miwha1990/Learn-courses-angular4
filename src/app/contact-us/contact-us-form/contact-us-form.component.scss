@@ -31,6 +31,10 @@
                     margin-top: -2px;
                 }
             }
+            button:disabled{
+                background-color: #EB8C00;
+                color: rgba(255,255,255, 0.84);
+            }
         }
     }
 
