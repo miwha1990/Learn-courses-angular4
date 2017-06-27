@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
-import { FormBuilder, Validators } from '@angular/forms';
+import { FormBuilder, Validators, FormControl } from '@angular/forms';
 import {ContactUsService} from '../contact-us.service';
 import {AlertsService} from '../../services/alerts.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-contact-us-form',
@@ -9,17 +10,14 @@ import {AlertsService} from '../../services/alerts.service';
   styleUrls: ['./contact-us-form.component.scss']
 })
 export class ContactUsFormComponent {
-  resp;
-  emailValid = this.formBuilder.group({
-      name: ['', Validators.required],
-      email: ['', [Validators.required, Validators.email]],
-      subject: [''],
-      body: ['', Validators.required]
-  });
+  emailValid;
 
   constructor(public formBuilder: FormBuilder,
               private ContactUsService: ContactUsService,
-              private alertsService: AlertsService) {}
+              private alertsService: AlertsService,
+              private router: Router) {
+      this.createForm();
+  }
     isEmpty = function(obj) {
         for (const key in obj) {
             if (obj.hasOwnProperty(key)) {
@@ -28,9 +26,24 @@ export class ContactUsFormComponent {
         }
         return true;
     };
+  createForm() {
+      this.emailValid = this.formBuilder.group({
+          name: ['', Validators.required],
+          email: ['', [Validators.required, Validators.email]],
+          subject: [''],
+          body: ['', Validators.required]
+      });
+  }
   formSubmit() {
     console.log(this.emailValid.value);
-    this.ContactUsService.sendContactRequest(this.emailValid.value)
+    const formData = this.emailValid.value;
+    for (const name in this.emailValid.controls) {
+       if (this.emailValid.controls.hasOwnProperty(name)) {
+           (<FormControl>this.emailValid.controls[name]).patchValue('');
+            this.emailValid.controls[name].setErrors(null);
+     }
+    }
+    this.ContactUsService.sendContactRequest(formData)
         .subscribe(
             data => {
                 if (this.isEmpty(data)) {
