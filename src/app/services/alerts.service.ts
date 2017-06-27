@@ -15,5 +15,10 @@ export class AlertsService {
         this.params['success'] = param.success;
         this.params['error'] = param.error;
         this.params['message'] = param.message;
+        setTimeout(() => {
+            this.params['success'] = false;
+            this.params['error'] = false;
+            this.params['message'] = '';
+        }, 5000);
     };
 }
