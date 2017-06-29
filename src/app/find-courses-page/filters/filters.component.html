@@ -21,28 +21,13 @@
                    (ngModelChange)="filterCourses()"
                    (selected)="fhideText()"
         ></ng-select>
-      <ng-select [items]="filtersLocationsArray"
-                 class="filter filter-city"
-                 placeholder="City"
-                 [(ngModel)]="locationId"
-                 (ngModelChange)="filterCourses()"
-                 (selected)="fhideText()"
-      ></ng-select>
-      <!--<md-select-->
-        <!--class="filter filter-city"-->
-        <!--placeholder="City"-->
-        <!--[(ngModel)]="locationId"-->
-        <!--(ngModelChange)="filterCourses()"-->
-        <!--(change)="fhideText()"-->
-      <!--&gt;-->
-        <!--<md-option [value]="null">-->
-          <!--All-->
-        <!--</md-option>-->
-        <!--<md-option *ngFor="let location of filtersLocationsData" [value]="location?.id">-->
-          <!--{{ location?.name }}-->
-        <!--</md-option>-->
-      <!--</md-select>-->
-      <!--</form>-->
+        <ng-select [items]="filtersLocationsArray"
+                   class="filter filter-city"
+                   placeholder="City"
+                   [(ngModel)]="locationId"
+                   (ngModelChange)="filterCourses()"
+                   (selected)="fhideText()"
+        ></ng-select>
     </div>
   </div>
 </div>
