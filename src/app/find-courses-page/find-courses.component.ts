@@ -11,8 +11,11 @@ import { FindCoursesService } from './find-courses.service';
 export class FindCoursesComponent implements OnInit {
   upcomingCoursesData;
   categoriesListData;
+  categoriesListArray;
   filtersCoursesData;
+  filtersCoursesArray;
   filtersLocationsData;
+  filtersLocationsArray;
   allLocations;
   loading: boolean;
   additionalInfo: boolean;
@@ -37,6 +40,7 @@ export class FindCoursesComponent implements OnInit {
 
 
   getUpcomingCourses(params?) {
+    console.log(params);
     if (params) this.additionalInfo = true;
 
     this.loading = true;
@@ -74,6 +78,16 @@ export class FindCoursesComponent implements OnInit {
       .subscribe(
         data => {
           this.categoriesListData = data;
+          this.categoriesListArray = [];
+          this.categoriesListArray.push({id: null, text: 'All'});
+          for (const key in data) {
+            const objModel  = {
+              id: data[key].id,
+              text: data[key].name,
+            };
+            this.categoriesListArray.push(objModel);
+          }
+          console.log(this.categoriesListArray);
         },
         err => console.error('ERROR', err)
       );
@@ -82,7 +96,19 @@ export class FindCoursesComponent implements OnInit {
   getCoursesList(categoryId?) {
     this.findCoursesService.getCoursesList(categoryId)
       .subscribe(
-        data => this.filtersCoursesData = data,
+        data => {
+          this.filtersCoursesData = data;
+          this.filtersCoursesArray = [];
+          this.filtersCoursesArray.push({id: null, text: 'All'});
+          for (const key in data) {
+            const objModel  = {
+              id: data[key].id,
+              text: data[key].name,
+            };
+            this.filtersCoursesArray.push(objModel);
+          }
+          console.log(this.filtersCoursesArray);
+        },
         err => console.error('ERROR', err)
       );
   }
@@ -90,15 +116,28 @@ export class FindCoursesComponent implements OnInit {
   getLocations() {
     this.findCoursesService.getLocations()
       .subscribe(
-        data => this.filtersLocationsData = data,
+        data => {
+            this.filtersLocationsData = data;
+            this.filtersLocationsArray = [];
+            this.filtersLocationsArray.push({id: null, text: 'All'});
+              for (const key in data) {
+                  const objModel  = {
+                      id: data[key].id,
+                      text: data[key].name,
+                  };
+                  this.filtersLocationsArray.push(objModel);
+              }
+            console.log(this.filtersLocationsArray);
+              },
         err => console.error('ERROR', err),
         () => this.fullLocationsList = this.filtersLocationsData
       );
   }
 
   selectedCategory(category) {
+    console.log('hello' + category);
     const filterParams = { category_id: category.id }
-    this.categoryId = category.id;
+    // this.categoryId = category.id;
     this.getUpcomingCourses(filterParams);
   }
   fhideText($event) {

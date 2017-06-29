@@ -14,7 +14,7 @@ import { FindCoursesService } from './find-courses.service';
 import { FindCoursesComponent } from './find-courses.component';
 import { FiltersComponent } from './filters/filters.component';
 import { CoursesCategoriesComponent } from './courses-categories/courses-categories.component';
-
+import { SelectModule } from 'ng2-select';
 
 @NgModule({
   imports: [
@@ -23,7 +23,8 @@ import { CoursesCategoriesComponent } from './courses-categories/courses-categor
     MdSelectModule,
     UpcomingCoursesModule,
     MdButtonModule,
-    FormsModule
+    FormsModule,
+    SelectModule
   ],
   declarations: [
     FindCoursesComponent,

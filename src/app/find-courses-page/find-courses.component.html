@@ -1,8 +1,11 @@
 <app-filters
     [categoryId]="categoryId"
     [filtersCoursesData]="filtersCoursesData"
+    [filtersCoursesArray]="filtersCoursesArray"
     [filtersLocationsData]="filtersLocationsData"
+    [filtersLocationsArray]="filtersLocationsArray"
     [categoriesListData]="categoriesListData"
+    [categoriesListArray]="categoriesListArray"
     (filterCoursesEmit)="getUpcomingCourses($event)"
     (changeCategoryEmit)="getCoursesList($event)"
     (hideTextEmit)="fhideText($event)"

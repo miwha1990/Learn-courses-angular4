@@ -17,7 +17,7 @@ export class FindCoursesService {
 
   getUpcomingCourses(params?): Observable<any> {
     let endpoint;
-
+    console.log('service params:' + params);
     if (params !== undefined) {
         endpoint = `${this.environment.apiHost}${this.environment.classes}?`
         for (const param in params) {
@@ -54,6 +54,7 @@ export class FindCoursesService {
 
 
   getCoursesList(categoryId?) {
+      console.log(categoryId);
     let endpointCourses = `${this.environment.apiHost}${this.environment.coursesList}`;
     if(categoryId) endpointCourses += `?category_id=${categoryId}`;
     return this.http.get(endpointCourses)
