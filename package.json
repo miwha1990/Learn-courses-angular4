@@ -25,6 +25,7 @@
     "@angular/router": "^4.0.0",
     "angular2-markdown": "^1.6.0",
     "bootstrap": "^3.3.7",
+    "chosen-js": "^1.7.0",
     "core-js": "^2.4.1",
     "google-maps-angular2": "^1.1.2",
     "jquery": "^3.2.1",

@@ -21,6 +21,7 @@
       "styles": [
         "../node_modules/bootstrap/dist/css/bootstrap.min.css",
         "styles.scss",
+        "../node_modules/chosen-js/chosen.css",
         "../node_modules/prismjs/themes/prism-okaidia.css"
       ],
       "scripts": [],
