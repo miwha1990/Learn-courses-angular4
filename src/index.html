@@ -14,7 +14,18 @@
   <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/material-design-iconic-font/2.2.0/css/material-design-iconic-font.min.css">
   <link href="./assets/css/material-theme/material-theme.css" rel="stylesheet">
+<!--polymer-->
 
+  <!--<script src="./assets/bower_components/webcomponentsjs/webcomponents-lite.js"></script>-->
+  <link rel="import" href="assets/elements.html">
+  <script>
+    document.addEventListener('WebComponentsReady', function() {
+        console.log('Web ready');
+        window.Polymer = window.Polymer || {};
+        window.Polymer.dom = 'shadow';
+    });
+  </script>
+<!--polymer-->
   <script src="./assets/js/jquery-3.2.1.min.js"></script>
   <script src="./assets/js/bootstrap.min.js"></script>
   <script src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-58d3fa248bcf8743"></script>

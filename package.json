@@ -3,6 +3,7 @@
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {
+    "postinstall": "bower install",
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
@@ -23,8 +24,10 @@
     "@angular/platform-browser": "^4.0.0",
     "@angular/platform-browser-dynamic": "^4.0.0",
     "@angular/router": "^4.0.0",
+    "@vaadin/angular2-polymer": "^1.0.0",
     "angular2-markdown": "^1.6.0",
     "bootstrap": "^3.3.7",
+    "bower": "^1.8.0",
     "chosen-js": "^1.7.0",
     "core-js": "^2.4.1",
     "google-maps-angular2": "^1.1.2",
