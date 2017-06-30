@@ -1,14 +1,13 @@
-import { NgModule } from '@angular/core';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 
 import { MdSelectModule, MdButtonModule } from '@angular/material';
 
-import { UpcomingCoursesModule } from '../upcoming-courses/upcoming-courses.module'
+import { UpcomingCoursesModule } from '../upcoming-courses/upcoming-courses.module';
 
 import { FindCoursesRoutes } from './find-courses.routing';
-// import { PolymerElement } from '@vaadin/angular2-polymer';
 import { FindCoursesService } from './find-courses.service';
 
 import { FindCoursesComponent } from './find-courses.component';
@@ -26,6 +25,7 @@ import { SelectModule } from 'ng2-select';
     FormsModule,
     SelectModule
   ],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
   declarations: [
     FindCoursesComponent,
     FiltersComponent,

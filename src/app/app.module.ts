@@ -24,7 +24,8 @@ import { ThankYouPageModule } from './thank-you-page/thank-you-page.module';
 import { PaymentReceiptsPageModule } from './payment-receipts-page/payment-receipts-page.module';
 import { SafeResourceUrlModule } from './shared/safe-resourse-url/safe-resource-url.module';
 import { MyDatePickerModule } from 'mydatepicker';
-
+import { PolymerModule } from '@codebakery/origami';
+import { IronElementsModule, PaperElementsModule } from '@codebakery/origami/lib/collections';
 @NgModule({
   declarations: [
     AppComponent,
@@ -52,6 +53,9 @@ import { MyDatePickerModule } from 'mydatepicker';
     PaymentReceiptsPageModule,
     SafeResourceUrlModule,
     MyDatePickerModule,
+    IronElementsModule,
+    PaperElementsModule,
+    PolymerModule.forRoot()
   ],
   bootstrap: [AppComponent]
 })

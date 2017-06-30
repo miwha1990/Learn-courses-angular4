@@ -42,11 +42,12 @@ export class FindCoursesComponent implements OnInit{
     this.getCategoriesList();
     this.getCoursesList();
     this.getLocations();
-    // const listbox = document.getElementById('listbox');
-    // listbox.setAttribute('selected', '5');
-    // listbox.addEventListener('iron-select', function (e) {
-    //   console.log(e['detail'].item.attributes.value.value);
-    // });
+    const listbox = document.getElementById('listbox');
+    listbox.setAttribute('selected', 'diplo');
+  }
+
+  item_selected(e) {
+    console.log(e['detail'].item.attributes.value.value);
   }
   getUpcomingCourses(params?) {
     console.log(params);
