@@ -1,15 +1,19 @@
-import { Component, Input, OnChanges} from '@angular/core';
+import { Component, Input, OnChanges, Renderer2, OnInit} from '@angular/core';
 import { OrderProcessService } from '../../services/order-process.service';
 @Component({
   selector: 'app-sticky-card',
   templateUrl: './sticky-card.component.html',
   styleUrls: ['./sticky-card.component.scss']
 })
-export class StickyCardComponent implements  OnChanges {
+export class StickyCardComponent implements  OnChanges, OnInit {
   @Input() data;
   cardContentEarly: string;
   cardContentRegular: string;
-  constructor(private OrderProcessService: OrderProcessService) {}
+  constructor(private OrderProcessService: OrderProcessService, private rd: Renderer2) {
+  }
+  ngOnInit() {
+    this.loadAddThis();
+  }
   ngOnChanges() {
     if (this.data != null) {
 // this.data.partner_url = 'https://stretchtowin.site-ym.com/events/register.aspx?id=909951&itemid=cf22259c-ca1d-41f4-9f2e-a769417b1680';
@@ -45,4 +49,19 @@ export class StickyCardComponent implements  OnChanges {
       );
     };
   };
+  loadAddThis() {
+    (<any>window).addthis_reload = function () {
+      console.log('run');
+      if (!(<any>window).addthis) {
+        window['addthis_config'] = { 'data_track_addressbar' : false };
+        const scriptAddThis = this.rd.createElement('body', 'script');
+        this.rd.setElementAttribute(scriptAddThis, 'src', 'https://s7.addthis.com/js/300/addthis_widget.js#pubid=ra-58d3fa248bcf8743');
+        this.rd.setElementAttribute(scriptAddThis, 'type', 'text/javascript');
+      } else {
+        window['addthis_share'].url = window.location.href;
+        window['addthis_share'].title = window.document.title;
+        (<any>window).addthis.toolbox('.addthis_toolbox');
+      }
+    };
+  }
 }
