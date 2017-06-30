@@ -15,19 +15,47 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/material-design-iconic-font/2.2.0/css/material-design-iconic-font.min.css">
   <link href="./assets/css/material-theme/material-theme.css" rel="stylesheet">
 
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hammer.js/2.0.8/hammer.js"></script>
   <script src="./assets/js/jquery-3.2.1.min.js"></script>
   <script src="./assets/js/bootstrap.min.js"></script>
-  <script src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-58d3fa248bcf8743"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/hammer.js/2.0.8/hammer.js" defer></script>
-  <script src=" https://cdn.rawgit.com/leafo/sticky-kit/v1.1.2/jquery.sticky-kit.min.js" defer></script>
+  <script src=" https://cdn.rawgit.com/leafo/sticky-kit/v1.1.2/jquery.sticky-kit.min.js"></script>
   <script type="text/javascript" src="https://js.stripe.com/v2/"></script>
   <script type="text/javascript">
-      Stripe.setPublishableKey('pk_test_oi0sKPJYLGjdvOXOM8tE8cMa');
+      $(document).ready(function () {
+          Stripe.setPublishableKey('pk_test_oi0sKPJYLGjdvOXOM8tE8cMa');
+      });
   </script>
+
+
 </head>
 <body class="site-container">
   <app-root>
     <div class="general-preloader"></div>
   </app-root>
+  <!--<script src="https://s7.addthis.com/js/300/addthis_widget.js#pubid=ra-58d3fa248bcf8743" type="text/javascript"></script>-->
+
+  <!--<script src="http://s7.addthis.com/js/300/addthis_widget.js#async=1" type="text/javascript"></script>-->
+  <script type="text/javascript">
+
+//      $(document).on("keyup", function () {
+        window.addthis_reload = function () {
+            console.log("run");
+          if (!window.addthis) {
+              window['addthis_config'] = { 'data_track_addressbar' : false };
+              $('body').append("<script src=\"https://s7.addthis.com/js/300/addthis_widget.js#pubid=ra-58d3fa248bcf8743\" type=\"text/javascript\"><\/script>");
+          } else {
+            window['addthis_share'].url = window.location.href;
+            window['addthis_share'].title = window.document.title;
+            window.addthis.toolbox('.addthis_toolbox');
+          }
+        }
+        setTimeout(function () {
+            window.addthis_reload();
+        }, 10 * 1000);
+//      window.addthis_reload();
+//      });
+
+  </script>
 </body>
 </html>
