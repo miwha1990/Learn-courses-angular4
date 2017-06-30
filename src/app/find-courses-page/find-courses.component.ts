@@ -1,4 +1,10 @@
-import {Component, OnInit, AfterContentInit} from '@angular/core';
+import {Component, OnInit, AfterContentInit,
+  Directive,
+  Renderer2,
+  forwardRef,
+  Provider,
+  ElementRef,
+  ViewEncapsulation} from '@angular/core';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 import { jQueryStatic } from 'jquery';
 import 'jquery';
@@ -10,7 +16,7 @@ import { FindCoursesService } from './find-courses.service';
 @Component({
   selector: 'app-find-courses',
   templateUrl: './find-courses.component.html',
-  styleUrls: ['./find-courses.component.scss']
+  styleUrls: ['./find-courses.component.scss'],
 })
 export class FindCoursesComponent implements OnInit{
   upcomingCoursesData;
@@ -36,8 +42,16 @@ export class FindCoursesComponent implements OnInit{
     this.getCategoriesList();
     this.getCoursesList();
     this.getLocations();
+    const listbox = document.getElementById('listbox');
+    listbox.setAttribute('selected', '5');
+    listbox.addEventListener('iron-select', function (e) {
+      console.log(e['detail'].item.attributes.value.value);
+    });
   }
 
+  select_test() {
+    console.log('fire');
+  }
   getUpcomingCourses(params?) {
     console.log(params);
     if (params) this.additionalInfo = true;

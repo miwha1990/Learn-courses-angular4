@@ -8,7 +8,7 @@ import { MdSelectModule, MdButtonModule } from '@angular/material';
 import { UpcomingCoursesModule } from '../upcoming-courses/upcoming-courses.module'
 
 import { FindCoursesRoutes } from './find-courses.routing';
-
+import { PolymerElement } from '@vaadin/angular2-polymer';
 import { FindCoursesService } from './find-courses.service';
 
 import { FindCoursesComponent } from './find-courses.component';
@@ -29,7 +29,11 @@ import { SelectModule } from 'ng2-select';
   declarations: [
     FindCoursesComponent,
     FiltersComponent,
-    CoursesCategoriesComponent
+    CoursesCategoriesComponent,
+    PolymerElement('paper-input'),
+    PolymerElement('paper-item'),
+    PolymerElement('paper-listbox'),
+    PolymerElement('paper-dropdown-menu')
   ],
   providers: [
     FindCoursesService
