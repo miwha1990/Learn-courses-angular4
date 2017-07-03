@@ -49,7 +49,12 @@ export class FiltersComponent {
     console.log('this.categoryId', this.categoryId);
     this.changeCategoryEmit.emit(this.categoryId);
   }
-
+   changeCourse(courseId) {
+      this.courseId = courseId;
+    }
+  changeLocation(locationId) {
+    this.locationId = locationId;
+  }
   fhideText() {
     console.log(this.categoryId);
     if (!this.timeToHideText) {

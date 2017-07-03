@@ -230,13 +230,13 @@ form.contact-support-form .mat-input-subscript-wrapper{
   --main-color: #F78600;
   --dark-color: #ffffff;
   --light-color: #ffffff;
-  min-width: 280px;
+
   --paper-icon-button-ink-color: white;
 }
 
 paper-dropdown-menu.custom {
   font-size: 20px!important;
-  min-width: 280px;
+   margin:0 15px;
   --paper-input-container-focus:{
     color: var(--main-color);
   };
@@ -254,6 +254,6 @@ paper-dropdown-menu.custom {
     --iron-icon-fill-color: var(--light-color)!important;
   }
   paper-listbox.custom{
-    min-width: 280px;
+
   }
 }

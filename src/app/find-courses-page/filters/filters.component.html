@@ -23,52 +23,42 @@
                   <paper-item *ngFor="let category of categoriesListData" [value]="category?.id">{{ category?.name }}</paper-item>
               </paper-listbox>
           </paper-dropdown-menu>
-        <!--<select-->
-                <!--class="filter filter-category selectpicker"-->
-                <!--[(ngModel)]="categoryId"-->
-                <!--(ngModelChange)="changeCategory(categoryId); filterCourses()"-->
-                <!--(change)="fhideText()"-->
-        <!--&gt;-->
-            <!--<option value="" disabled style="display: none">Category</option>-->
-            <!--<option [value]="null">-->
-              <!--All-->
-            <!--</option>-->
-            <!--<option *ngFor="let category of categoriesListData" [value]="category?.id">-->
-              <!--{{ category?.name }}-->
-            <!--</option>-->
-        <!--</select>-->
       </div>
       <div class="select-wrapper">
-        <select
-                class="filter filter-course"
-                [(ngModel)]="courseId"
-                (ngModelChange)="filterCourses()"
-                (change)="fhideText()"
-        >
-            <option value="" disabled style="display: none">Course</option>
-            <option [value]="null">
-              All
-            </option>
-            <option *ngFor="let course of filtersCoursesData" [value]="course?.id">
-              {{ course?.name }}
-            </option>
-        </select>
+          <paper-dropdown-menu
+                  label="Course"
+                  class="custom filter filter-course selectpicker">
+              <paper-listbox
+                      slot="dropdown-content"
+                      id="courses-listbox"
+                      class="custom"
+                      attr-for-selected="value"
+                      (iron-select)="changeCourse($event['detail'].item.value);filterCourses();fhideText();"
+                      name="course-select"
+                      emitChanges
+                      ironControl>
+                  <paper-item [value]="null">All</paper-item>
+                  <paper-item *ngFor="let course of filtersCoursesData" [value]="course?.id">{{  course?.name }}</paper-item>
+              </paper-listbox>
+          </paper-dropdown-menu>
       </div>
       <div class="select-wrapper">
-        <select
-          class="filter filter-city"
-          [(ngModel)]="locationId"
-          (ngModelChange)="filterCourses()"
-          (change)="fhideText()"
-        >
-            <option value="" disabled style="display: none">Location</option>
-            <option [value]="null">
-              All
-            </option>
-            <option *ngFor="let location of filtersLocationsData" [value]="location?.id">
-              {{ location?.name }}
-            </option>
-        </select>
+          <paper-dropdown-menu
+                  label="Location"
+                  class="custom filter filter-location selectpicker">
+              <paper-listbox
+                      slot="dropdown-content"
+                      id="locations-listbox"
+                      class="custom"
+                      attr-for-selected="value"
+                      (iron-select)="changeLocation($event['detail'].item.value);filterCourses();fhideText();"
+                      name="location-select"
+                      emitChanges
+                      ironControl>
+                  <paper-item [value]="null">All</paper-item>
+                  <paper-item *ngFor="let location of filtersLocationsData" [value]="location?.i">{{ location?.name }}</paper-item>
+              </paper-listbox>
+          </paper-dropdown-menu>
       </div>
     </div>
   </div>
