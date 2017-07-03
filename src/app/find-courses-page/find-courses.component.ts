@@ -46,9 +46,7 @@ export class FindCoursesComponent implements OnInit{
     listbox.setAttribute('selected', 'diplo');
   }
 
-  item_selected(e) {
-    console.log(e['detail'].item.attributes.value.value);
-  }
+
   getUpcomingCourses(params?) {
     console.log(params);
     if (params) this.additionalInfo = true;

@@ -1,11 +1,3 @@
-<!--<paper-dropdown-menu label="Dinosaurs" >-->
-    <!--<paper-listbox id="listbox" slot="dropdown-content" attr-for-selected="value">-->
-        <!--<paper-item value="2" label="alls">allosaurus</paper-item>-->
-        <!--<paper-item value="3" label="bron">brontosaurus</paper-item>-->
-        <!--<paper-item value="4" label="char">carcharodontosaurus</paper-item>-->
-        <!--<paper-item value="5" label="dipl">diplodocus</paper-item>-->
-    <!--</paper-listbox>-->
-<!--</paper-dropdown-menu>-->
 <div class="form-banner filters-section">
   <div class="container form-container">
     <div class="container text-center">
@@ -15,20 +7,36 @@
     </div>
     <div class="wrapper-courses-filter">
       <div class="select-wrapper">
-        <select
-                class="filter filter-category selectpicker"
-                [(ngModel)]="categoryId"
-                (ngModelChange)="changeCategory(categoryId); filterCourses()"
-                (change)="fhideText()"
-        >
-            <option value="" disabled style="display: none">Category</option>
-            <option [value]="null">
-              All
-            </option>
-            <option *ngFor="let category of categoriesListData" [value]="category?.id">
-              {{ category?.name }}
-            </option>
-        </select>
+          <paper-dropdown-menu
+                  label="Category"
+                  class="filter filter-category selectpicker">
+              <paper-listbox
+                      slot="dropdown-content"
+                      id="listbox"
+                      attr-for-selected="value"
+                      (iron-select)="changeCategory($event['detail'].item.value); filterCourses();"
+                      name="category-select"
+                      emitChanges
+                      ironControl
+                      (change)="fhideText()">
+                  <paper-item [value]="null">All</paper-item>
+                  <paper-item *ngFor="let category of categoriesListData" [value]="category?.id">{{ category?.name }}</paper-item>
+              </paper-listbox>
+          </paper-dropdown-menu>
+        <!--<select-->
+                <!--class="filter filter-category selectpicker"-->
+                <!--[(ngModel)]="categoryId"-->
+                <!--(ngModelChange)="changeCategory(categoryId); filterCourses()"-->
+                <!--(change)="fhideText()"-->
+        <!--&gt;-->
+            <!--<option value="" disabled style="display: none">Category</option>-->
+            <!--<option [value]="null">-->
+              <!--All-->
+            <!--</option>-->
+            <!--<option *ngFor="let category of categoriesListData" [value]="category?.id">-->
+              <!--{{ category?.name }}-->
+            <!--</option>-->
+        <!--</select>-->
       </div>
       <div class="select-wrapper">
         <select

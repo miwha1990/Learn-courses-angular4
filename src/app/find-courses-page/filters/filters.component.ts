@@ -17,6 +17,10 @@ export class FiltersComponent {
   courseId = '';
   locationId = '';
 
+  item_selected(e) {
+    console.log(e['detail'].item.value);
+  }
+
   filterCourses() {
     const filterParams = {};
     if (!this.categoryId) {
@@ -38,9 +42,10 @@ export class FiltersComponent {
   }
 
 
-  changeCategory() {
+  changeCategory(categoryId) {
     this.courseId = '';
     this.locationId = '';
+    this.categoryId = categoryId;
     console.log('this.categoryId', this.categoryId);
     this.changeCategoryEmit.emit(this.categoryId);
   }

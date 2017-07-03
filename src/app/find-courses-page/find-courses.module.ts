@@ -30,10 +30,6 @@ import { SelectModule } from 'ng2-select';
     FindCoursesComponent,
     FiltersComponent,
     CoursesCategoriesComponent,
-    // PolymerElement('paper-input'),
-    // PolymerElement('paper-item'),
-    // PolymerElement('paper-listbox'),
-    // PolymerElement('paper-dropdown-menu')
   ],
   providers: [
     FindCoursesService
