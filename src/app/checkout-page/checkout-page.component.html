@@ -216,6 +216,7 @@
                     <div class="line-wrapper  mb-2">
                         <i class="fa fa-user mr-1" aria-hidden="true"></i>
                         <md-input-container>
+                            <!--<paper-input id="cardholder" formControlName="cardholder_name" label="Cardholder Name"></paper-input>-->
                             <input mdInput id="cardholder" type="text"  formControlName="cardholder_name" placeholder="Cardholder Name">
                             <md-error class="error" *ngIf="checkoutForm.get('cc_group').get('cardholder_name').hasError('required')  && (checkoutForm.get('cc_group').get('cardholder_name').touched || submittedForm)">
                                 Please enter cardholder name as it appears on the credit card

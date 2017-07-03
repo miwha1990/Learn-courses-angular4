@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { SelectModule } from 'ng2-select';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
@@ -22,6 +22,7 @@ import { MyDatePickerModule } from 'mydatepicker';
     RouterModule.forChild(CheckoutPageRoutes),
     MyDatePickerModule,
   ],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
   declarations: [
     CheckoutPageComponent
   ],

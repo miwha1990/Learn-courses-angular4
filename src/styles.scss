@@ -225,7 +225,17 @@ form.receipt-form .mat-input-infix input:-webkit-autofill{
 form.contact-support-form .mat-input-subscript-wrapper{
   line-height: 3.2em!important;
 }
-
+.mat-input-placeholder-wrapper{
+  top: 0;
+  overflow: visible !important;
+}
+.mat-input-underline{
+  background: rgba(0, 0, 0, 0.2);
+}
+.error.mat-input-error{
+  line-height: 19px;
+  font-size: 10px;
+}
 :root{
   --main-color: #F78600;
   --dark-color: #ffffff;
@@ -236,7 +246,7 @@ form.contact-support-form .mat-input-subscript-wrapper{
 
 paper-dropdown-menu.custom {
   font-size: 20px!important;
-   margin:0 15px;
+  margin:0 15px;
   --paper-input-container-focus:{
     color: var(--main-color);
   };

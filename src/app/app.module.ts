@@ -26,6 +26,7 @@ import { SafeResourceUrlModule } from './shared/safe-resourse-url/safe-resource-
 import { MyDatePickerModule } from 'mydatepicker';
 import { PolymerModule } from '@codebakery/origami';
 import { IronElementsModule, PaperElementsModule } from '@codebakery/origami/lib/collections';
+import 'hammerjs';
 @NgModule({
   declarations: [
     AppComponent,

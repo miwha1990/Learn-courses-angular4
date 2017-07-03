@@ -73,6 +73,7 @@ h5{
         }
         .select-wrapper, .mat-input-container {
           width:calc(50% - 15px);
+          padding-top: 10px;
           @media screen and (max-width: 991px) {
             width:100%;
           }
@@ -365,4 +366,4 @@ h5{
     -moz-appearance: none;
     appearance: none;
     margin: 0;
-}  
+}
