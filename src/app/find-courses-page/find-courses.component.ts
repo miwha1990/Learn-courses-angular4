@@ -114,6 +114,8 @@ export class FindCoursesComponent implements OnInit{
     console.log('hello' + category);
     const filterParams = { category_id: category.id };
     this.categoryId = category.id;
+    const categoryListbox = document.getElementById('category-listbox');
+    categoryListbox.setAttribute('selected', category.id);
     this.getUpcomingCourses(filterParams);
   }
   fhideText($event) {
