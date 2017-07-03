@@ -41,14 +41,14 @@
 @media screen and (max-width: 992px) {
     .wrapper-courses-filter {
         flex-direction: column;
-        .filter {
-            margin: 15px 0;
-            min-width: 280px;
-            &:nth-child(2) {
-                min-width: 280px;
-                flex:1 auto;
-            }
-        }
+        //.filter {
+        //    //margin: 15px 0;
+        //    min-width: 280px;
+        //    &:nth-child(2) {
+        //        //min-width: 280px;
+        //        flex:1 auto;
+        //    }
+        //}
     }
     .form-container legend {
         margin-bottom: 0px;
@@ -63,7 +63,7 @@
 .wrapper-courses-filter{
     .select-wrapper{
         position: relative;
-        min-width: 280px;
+        //min-width: 280px;
         &:nth-child(2) {
             flex:1 auto;
         }

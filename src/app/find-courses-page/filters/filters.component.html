@@ -56,7 +56,7 @@
                       emitChanges
                       ironControl>
                   <paper-item [value]="null">All</paper-item>
-                  <paper-item *ngFor="let location of filtersLocationsData" [value]="location?.i">{{ location?.name }}</paper-item>
+                  <paper-item *ngFor="let location of filtersLocationsData" [value]="location?.id">{{ location?.name }}</paper-item>
               </paper-listbox>
           </paper-dropdown-menu>
       </div>
