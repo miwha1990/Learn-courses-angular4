@@ -9,16 +9,16 @@
       <div class="select-wrapper">
           <paper-dropdown-menu
                   label="Category"
-                  class="filter filter-category selectpicker">
+                  class="custom filter filter-category selectpicker">
               <paper-listbox
                       slot="dropdown-content"
-                      id="listbox"
+                      id="category-listbox"
+                      class="custom"
                       attr-for-selected="value"
-                      (iron-select)="changeCategory($event['detail'].item.value); filterCourses();"
+                      (iron-select)="changeCategory($event['detail'].item.value); filterCourses();fhideText();"
                       name="category-select"
                       emitChanges
-                      ironControl
-                      (change)="fhideText()">
+                      ironControl>
                   <paper-item [value]="null">All</paper-item>
                   <paper-item *ngFor="let category of categoriesListData" [value]="category?.id">{{ category?.name }}</paper-item>
               </paper-listbox>

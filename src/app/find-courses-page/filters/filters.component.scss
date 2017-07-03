@@ -1,8 +1,3 @@
-$select-background-color: transparent;
-$select-border-color: #ffffff;
-$select-font-size: 20px;
-$select-color: #ffffff;
-$select-padding: 4px;
 .filters-section {
     height: 350px;
     background-image: url('../../../assets/LearnInClassBanner.jpg');
@@ -67,57 +62,6 @@ $select-padding: 4px;
 .wrapper-courses-filter{
     .select-wrapper{
         position: relative;
-        //&:after {
-        //    position: absolute;
-        //    top: 0.75em;
-        //    right: 0.5em;
-        //    /* Styling the down arrow */
-        //    width: 0;
-        //    height: 0;
-        //    padding: 0;
-        //    content: '';
-        //    border-left: .25em solid transparent;
-        //    border-right: .25em solid transparent;
-        //    border-top: .375em solid $select-border-color;
-        //    pointer-events: none;
-        //}
-        select {
-            font-family: inherit;
-            background-color: transparent;
-            padding: $select-padding 0;
-            font-size: $select-font-size;
-            color: $select-color;
-            border: none;
-            border-bottom: 1px solid $select-border-color;
-            position: relative;
-            height: 38px;
-            min-width: 235px;
-            width:auto;
-            appereance: none;
-            &:invalid {
-                color: #ffffff;
-                font-size: 16px;
-            }
-            &:nth-child(2) {
-                min-width: 340px;
-            }
-            &:focus {
-                outline: none;
-            }
-            option{
-                color: #757575;
-                height: 45px;
-                margin:15px 0;
-                padding:15px 0;
-                display: block;
-                font-size: 16px;
-                line-height: 2;
-                &:hover{
-                    background: rgba(0, 0, 0, .04);
-                }
-
-            }
-        }
     }
 }
 

@@ -42,8 +42,6 @@ export class FindCoursesComponent implements OnInit{
     this.getCategoriesList();
     this.getCoursesList();
     this.getLocations();
-    const listbox = document.getElementById('listbox');
-    listbox.setAttribute('selected', 'diplo');
   }
 
 
